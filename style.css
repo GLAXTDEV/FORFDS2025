@@ -8,13 +8,13 @@ color: rgb(255, 255, 255);
       background-image: url(../IMG/myfont.jpg);
       background-size: cover;
       background-position: center;
-      height: 400px;
+      height: 150px;
       display: flex;
       justify-content: center;
       align-items: center;
       text-align: center;
       background-image: linear-gradient(rgba(0,0,0,0.4)), rgba(0,0,0,0.4), url(../IMG/myfont.jpg);
-      margin-top: -18px;
+      margin-top: -8px;
       margin-right: -9px;
       margin-left: -9px;
    
@@ -23,10 +23,8 @@ color: rgb(255, 255, 255);
    text-transform: uppercase;
    font-size: 52px;
    color: rgb(4, 101, 248);
-   text-decoration-line: underline;
-   text-decoration-style: wavy;
    text-decoration-thickness: 2px;
-   text-decoration-color: rgb(2, 238, 226);
+   text-decoration-color: rgb(3, 14, 114);
    font-weight: 900;
 }
 
