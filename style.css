@@ -4,6 +4,7 @@ color: white;
 }
 
 #gweb {
+   
    border: solid black;
    background-color: azure;
    color:rgb(255, 0, 0);
@@ -11,6 +12,7 @@ color: white;
    margin-left: -1pc;
    margin-right: -1pc;
    text-align: center;
+   text-transform: uppercase;
    padding-top: 1pc;
    
 }
@@ -56,3 +58,31 @@ dt {
 a { 
    text-decoration: none;
 }
+
+#me {
+   text-decoration: line-through;
+   text-decoration-thickness: 2px;
+   text-decoration-color: red;
+   display: inline-block;
+   padding: 12px 12px;
+   background-color: #3498db;
+   color: white;
+   border-radius: 8px;
+   cursor: pointer;
+   transition: background 0.5s ease;
+   font-family: Arial, Helvetica, sans-serif;
+   font-weight: 700;
+   background-color: #2980b9;
+
+
+}
+
+#lg {
+   text-transform: capitalize;
+   text-decoration-line: underline;
+   text-decoration-style: wavy;
+   font-size: 20px;
+   font-weight: 900;
+   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+   
+} 
