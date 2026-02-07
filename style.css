@@ -1,25 +1,55 @@
-body {
-    background-color: rgb(0, 0, 0);
-    color: white;
+
+body {background-color: black;
+color: white;
 }
 
-#gw {
-    color: azure;
-    text-align: center;
-    border: 1px solid red;
-    background-color: red;
-    margin-top: -8px;
+#gweb {
+   border: solid black;
+   background-color: azure;
+   color:rgb(255, 0, 0);
+   margin-top: -13px;
+   margin-left: -1pc;
+   margin-right: -1pc;
+   text-align: center;
+   padding-top: 1pc;
    
 }
+
+h1 {
+   font-weight: bold;
+   
+}
+
+
+dl {
+   color: azure;
+   margin-top: 0pc;
+
+}
 dt {
-    text-align: center;
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 2pc;
-    background-color: blueviolet;   
- }
- dd {
-    font-size:3pc
-    
-    
- }
+   border: solid blue;
+   border-radius: 0.4pc;
+   padding-top: 0.1pc;
+   font-weight: bold;
+   font-size: 2pc;
+   text-align: center;
+   background-color: rgb(0, 43, 161);
+   margin-bottom: 2pc;
+   margin-left: -1pc;
+   margin-right: -1pc;
+}
+#dd0 {
+   font-size: 1.5pc;
+   
+   text-align: center;  
+   
+}
+#ceator {
+   color: white;
+
+}
+
+#contact {
+   color: white;
+   text-decoration: underline;
+}

@@ -1,1 +1,1 @@
-print("hello")
+console.log("hello glaxt")
