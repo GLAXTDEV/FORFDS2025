@@ -1,20 +1,33 @@
 
-body {background-color: black;
-color: white;
+body {background-color: rgb(0, 0, 0);
+color: rgb(255, 255, 255);
 }
 
-#gweb {
+.font 
+   {
+      background-image: url(../IMG/myfont.jpg);
+      background-size: cover;
+      background-position: center;
+      height: 400px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background-image: linear-gradient(rgba(0,0,0,0.4)), rgba(0,0,0,0.4), url(../IMG/myfont.jpg);
+      margin-top: -18px;
+      margin-right: -9px;
+      margin-left: -9px;
    
-   border: solid black;
-   background-color: azure;
-   color:rgb(255, 0, 0);
-   margin-top: -13px;
-   margin-left: -1pc;
-   margin-right: -1pc;
-   text-align: center;
+}
+.fimage {
    text-transform: uppercase;
-   padding-top: 1pc;
-   
+   font-size: 52px;
+   color: rgb(4, 101, 248);
+   text-decoration-line: underline;
+   text-decoration-style: wavy;
+   text-decoration-thickness: 2px;
+   text-decoration-color: rgb(2, 238, 226);
+   font-weight: 900;
 }
 
 h1 {
