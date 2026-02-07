@@ -51,5 +51,8 @@ dt {
 
 #contact {
    color: white;
-   text-decoration: underline;
+   
+}
+a { 
+   text-decoration: non;
 }
