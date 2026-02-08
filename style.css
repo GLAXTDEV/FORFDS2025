@@ -1,7 +1,10 @@
 
-body {background-color: rgb(0, 0, 0);
+body {background-color: #0f172a;
 color: rgb(255, 255, 255);
 }
+
+
+
 
 .font 
    {
@@ -26,6 +29,9 @@ color: rgb(255, 255, 255);
    text-decoration-thickness: 2px;
    text-decoration-color: rgb(3, 14, 114);
    font-weight: 900;
+   line-height: 1.5;
+   letter-spacing: 100px;
+   
 }
 
 h1 {
@@ -54,8 +60,20 @@ dt {
 
 img {
    margin-top: 9px;
-   margin-left: -6px;
+   margin-left: 560px;
 }
+#lg {
+   text-transform: capitalize;
+   text-decoration-line: underline;
+   text-decoration-style: wavy;
+   font-size: 20px;
+   font-weight: 900;
+   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+   margin-left: 555px;
+   margin-top: -1px;
+   background: linear-gradient(red, yellow);
+   width: 110px;
+} 
 
 #dd0 {
    font-size: 1.5pc;
@@ -71,18 +89,35 @@ img {
 #contact {
    color: white;
    margin-bottom: -10px;
+   text-transform: capitalize;
+   line-height: 1.7;
+   
+   width: 300px;
+   padding: 0.5%;
+   border-color: rgb(250, 248, 248);
+   border-radius: 15%;
+   font-weight: 500;
+   background: linear-gradient(yellow, red, green, orange, indigo);
+   
    
 }
+
+.hr {
+   background: linear-gradient(yellow, red, green);
+   height: 3px;
+   margin: 20px 0;
+}
+
 a { 
    text-decoration: none;
 }
 
 #me {
-   text-decoration: line-through;
+   
    text-decoration-thickness: 2px;
-   text-decoration-color: red;
+   text-decoration-color: rgb(89, 23, 133);
    display: inline-block;
-   padding: 12px 12px;
+   padding: 11px 11px;
    background-color: #3498db;
    color: white;
    border-radius: 8px;
@@ -90,18 +125,10 @@ a {
    transition: background 0.5s ease;
    font-family: Arial, Helvetica, sans-serif;
    font-weight: 700;
-   background-color: #2980b9;
+   background: linear-gradient(white,red, yellow, green, indigo);
    
 
 }
 
-#lg {
-   text-transform: capitalize;
-   text-decoration-line: underline;
-   text-decoration-style: wavy;
-   font-size: 20px;
-   font-weight: 900;
-   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-   
-} 
+
 
