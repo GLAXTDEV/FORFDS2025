@@ -29,10 +29,28 @@ color: rgb(255, 255, 255);
    text-decoration-thickness: 2px;
    text-decoration-color: rgb(3, 14, 114);
    font-weight: 900;
-   line-height: 1.5;
-   letter-spacing: 100px;
+   
+   letter-spacing: 50px;
    
 }
+
+
+img {
+   margin-top: 9px;
+   
+}
+#lg {
+   text-transform: capitalize;
+   text-decoration-line: underline;
+   text-decoration-style: wavy;
+   font-size: 20px;
+   font-weight: 900;
+   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+   
+   background: linear-gradient(indigo, blue);
+   width: 110px;
+} 
+
 
 h1 {
    font-weight: bold;
@@ -57,23 +75,6 @@ dt {
    margin-left: -1pc;
    margin-right: -1pc;
 }
-
-img {
-   margin-top: 9px;
-   margin-left: 560px;
-}
-#lg {
-   text-transform: capitalize;
-   text-decoration-line: underline;
-   text-decoration-style: wavy;
-   font-size: 20px;
-   font-weight: 900;
-   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-   margin-left: 555px;
-   margin-top: -1px;
-   background: linear-gradient(indigo, blue);
-   width: 110px;
-} 
 
 #dd0 {
    font-size: 1.5pc;
