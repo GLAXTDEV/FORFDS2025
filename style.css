@@ -96,7 +96,7 @@ dt {
    width: 300px;
    padding: 0.5%;
    border-color: rgb(250, 248, 248);
-   border-radius: 15%;
+   border-radius: 15px;
    font-weight: 500;
    background: linear-gradient( green, indigo);
    
