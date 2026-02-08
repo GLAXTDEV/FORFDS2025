@@ -71,7 +71,7 @@ img {
    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
    margin-left: 555px;
    margin-top: -1px;
-   background: linear-gradient(red, yellow);
+   background: linear-gradient(indigo, blue);
    width: 110px;
 } 
 
@@ -97,7 +97,7 @@ img {
    border-color: rgb(250, 248, 248);
    border-radius: 15%;
    font-weight: 500;
-   background: linear-gradient(yellow, red, green, orange, indigo);
+   background: linear-gradient( green, indigo);
    
    
 }
@@ -125,7 +125,7 @@ a {
    transition: background 0.5s ease;
    font-family: Arial, Helvetica, sans-serif;
    font-weight: 700;
-   background: linear-gradient(white,red, yellow, green, indigo);
+   background: linear-gradient(white, indigo);
    
 
 }
