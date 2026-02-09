@@ -2,12 +2,13 @@
 body {background-color: #000000;
 color: rgb(255, 255, 255);
 background-image: url(../IMG/font.gif);
+background-position: 50%;
 }
 
 
 
 .font {
-      background-image: url(../IMG/myfont3.jpg);
+      background-image: url(../IMG/myfont.jpg);
       background-size: cover;
       background-position: center;
       height: 150px;
