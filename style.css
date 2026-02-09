@@ -1,5 +1,6 @@
 
-body {background-color: #000000;
+body {background-image: url(../IMG/font4.gif);
+   background-size: contain;
 color: rgb(255, 255, 255);
 
 }
