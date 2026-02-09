@@ -1,14 +1,13 @@
 
 body {background-color: #000000;
 color: rgb(255, 255, 255);
+background-image: url(../IMG/font.gif);
 }
 
 
 
 .font {
-      background-image: url(../IMG/font.gif);
-       background-image: url(../IMG/font.gif)
-
+      background-image: url(../IMG/myfont3.jpg);
       background-size: cover;
       background-position: center;
       height: 150px;
@@ -116,7 +115,7 @@ dt {
 #contact {
    color: white;
    margin-bottom: -10px;
-   text-transform: uppercase;
+   text-transform: capitalize;
    line-height: 1.7; 
    width: 300px;
    padding: 0.5%;
@@ -124,7 +123,7 @@ dt {
    border-radius: 15px;
    font-weight: 500;
    background: linear-gradient( green, indigo);
-   display: inline;  
+     
 }
 
 .hr {
