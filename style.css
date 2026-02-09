@@ -1,12 +1,14 @@
 
-body {background-color: #080808;
+body {background-color: #000000;
 color: rgb(255, 255, 255);
 }
 
 
 
 .font {
-      background-image: url(../IMG/myfont.jpg);
+      background-image: url(../IMG/font.gif);
+       background-image: url(../IMG/font.gif)
+
       background-size: cover;
       background-position: center;
       height: 150px;
@@ -34,14 +36,14 @@ color: rgb(255, 255, 255);
 
 
 
-
 .link{
    color: red;
    text-decoration: none;
    position: relative;
    padding: 5px 0;
    margin-top: 1px;
-   margin-left: auto; 
+   margin-left: auto;
+   margin-right: auto; 
    text-transform: uppercase;
 }
 .link::after{
@@ -59,10 +61,15 @@ color: rgb(255, 255, 255);
 }
 
 
+
 img {
-   margin-top: 9px;  
+   margin-top: px;  
    filter: drop-shadow(0px 0px 8px );
-   margin-left: 10px;
+   margin-left: auto;
+   margin-right: auto;
+   border: 1px solid;
+   width: 120px;
+   padding: 10px;
 }
 #lg {
    text-transform: capitalize;
@@ -73,12 +80,10 @@ img {
    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
    margin-left: 9px;
    font-size: 18px;
+
 } 
 
 
-h1 {
-   font-weight: bold;  
-}
 
 
 dl {
@@ -111,14 +116,15 @@ dt {
 #contact {
    color: white;
    margin-bottom: -10px;
-   text-transform: capitalize;
+   text-transform: uppercase;
    line-height: 1.7; 
    width: 300px;
    padding: 0.5%;
    border-color: rgb(250, 248, 248);
    border-radius: 15px;
    font-weight: 500;
-   background: linear-gradient( green, indigo);  
+   background: linear-gradient( green, indigo);
+   display: inline;  
 }
 
 .hr {
@@ -130,7 +136,6 @@ dt {
 a { 
    text-decoration: none;
 }
-
 #me { 
    text-decoration-thickness: 2px;
    text-decoration-color: rgb(89, 23, 133);
@@ -138,13 +143,15 @@ a {
    padding: 11px 11px;
    background-color: #3498db;
    color: white;
-   border-radius: 8px;
+   border-radius: 12px;
    cursor: pointer;
    transition: background 0.5s ease;
    font-family: Arial, Helvetica, sans-serif;
    font-weight: 700;
    background: linear-gradient(white, indigo);
+   
 }
+
 
 
 
