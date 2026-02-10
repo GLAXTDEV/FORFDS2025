@@ -1,33 +1,34 @@
 
+* {
+   margin: 0;
+   padding: 0;
+   list-style: none;
+   text-decoration: none;
+   font-family: "poppins";
+}
+
 body { 
    background-image: url(../IMG/font4.gif);
    background-size: contain;
    color: rgb(255, 255, 255);
+   margin: 0;
    
 }
 
-.container {
-   width: 100%;
-}
-@media (min-width: 768px) {
-   .container{ width: 80%;}
-   
-}
+
 
 
 .font {
       background-image: url(../IMG/myfont.jpg);
       background-size: contain;
       background-position: center;
-      height: 150px;
+      height: 100%;
       display: flex;
       justify-content: center;
       align-items: center;
       text-align: center;
-      margin-top: -8px;
-      margin-right: -8px;
-      margin-left: -8px;  
 }
+
 #for-top {
    text-transform: uppercase;
    font-size: 52px;
@@ -72,13 +73,12 @@ body {
 
 .le-bas{
    margin-top: 60pc;
-   margin-bottom: 0;
-   margin-left: -8px;
-   margin-right: -8px;
    text-align: center; 
    background-image: url(../IMG/myfont3.jpg);
+   position: 0;
    background-position: 0;
    background-size: contain;
+   
 
 }
 .apropos{
@@ -107,7 +107,7 @@ body {
 }
 
 #num{
-   border: 8px  blue;
+   
    display: inline-block;
    width: 0 0;
    border-radius: 20px;
@@ -127,14 +127,13 @@ body {
    
 }
 #back-top{
-   color: blue;
+   color: rgb(49, 49, 241);
    border: px solid;
-   border-radius: 20px;
-   padding: 0 5px;
+   padding: 0 auto;
    background: linear-gradient(#ffffff, blue);
    text-transform: uppercase;
    display: block;
-   width: 200px;
+   width: auto;
    
 }
 
