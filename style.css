@@ -1,17 +1,18 @@
 
-body {background-image: url(../IMG/font4.gif);
+body { 
+   background-image: url(../IMG/font4.gif);
    background-size: contain;
-color: rgb(255, 255, 255);
-font-family: sans-serif;
-line-height: 1.6;
-
-}
-*{
-   margin: 0;
-   padding: 0;
-   box-sizing: border-box;
+   color: rgb(255, 255, 255);
+   
 }
 
+.container {
+   width: 100%;
+}
+@media (min-width: 768px) {
+   .container{ width: 80%;}
+   
+}
 
 
 .font {
