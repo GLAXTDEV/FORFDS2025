@@ -9,8 +9,11 @@ body {
 #arriere-plan {
    height: 100%;
    width: 100%;
-   background: url(../IMG/font4.gif);
-   background-position: center;
+   
+   background-color: #f9f9fa;
+   background-position:  center;
+   background-repeat: no-repeat;
+   background-size: cover;
    
 
 }
@@ -20,42 +23,59 @@ body {
 
 .font {
       background-image: url(../IMG/myfont.jpg);
-      background-size: contain;
+      background: rgb(188, 188, 247);
+      background-size: cov;
       background-position: center;
-      height: 100%;
+      height: 100px;
       display: flex;
       justify-content: center;
       align-items: center;
       text-align: center;
+      border-radius: 0 0 30px 30px;
 }
 
-#for-top {
+#text-top {
    text-transform: uppercase;
-   font-size: 52px;
-   color: rgb(4, 101, 248);
-   text-decoration-thickness: 2px;
-   text-decoration-color: rgb(3, 14, 114);
-   font-weight: 900;  
+   font-size: 50px;
+   font-family: sans-serif;
+   font-weight: 600;
+   color: rgb(255, 255, 255);
+   
 }
 .nav-links{
+   padding: 10px;
    display: flex;
    gap: 40px;
    letter-spacing: 2px;
-   border-radius: 12px;   
+   border-radius: 30px 30px 10px 10px;
+   background-color: #d2e4fa;  
 }
 
-
-
 .link{
-   color: red;
+   color: rgb(141, 154, 216);
    text-decoration: none;
+   font-family: sans-serif;
    position: relative;
    padding: 5px 0;
    margin-top: 1px;
    margin-left: auto;
    margin-right: auto; 
    text-transform: uppercase;
+   text-decoration: overline;
+   text-decoration-thickness: 2px;
+   text-decoration-color: #ff0000;
+   border-radius: 10px;
 }
+#emploie-temps {
+   text-decoration: none;
+   display: inline-block;
+}
+.p {
+   color: rgb(255, 0, 0);
+   
+}
+
+
 .link::after{
    content: "";
    position: absolute;
@@ -63,7 +83,7 @@ body {
    left: 0;
    width: 0;
    height: 2px;
-   background: #f2f4f5;
+   background: #f50000;
    transition: 0.5s;
 }
 .link:hover::after{
@@ -74,20 +94,18 @@ body {
 .le-bas{
    margin-top: 60pc;
    text-align: center; 
-   background-image: url(../IMG/myfont3.jpg);
-   position: 0;
-   background-position: 0;
-   background-size: contain;
-   
-
+   background-color: rgb(188, 188, 247);
+   border: none solid;
+   border-radius: 30px 30px 0px 0px;
 }
 .apropos{
    
-   letter-spacing: 10px;
-   color: rgb(247, 237, 237);
+   letter-spacing: none;
+   word-spacing: 3px;
+   color: rgb(3, 0, 0);
    font-size: 24px;
    font-weight: bold;
-   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+   font-family: sans-serif;
    
 }
 
@@ -106,14 +124,12 @@ body {
    
 }
 
-#num{
+.num{
    
    display: inline-block;
-   width: 0 0;
-   color: white;
-   border-radius: 20px;
-   background-image: url(../IMG/font.gif);
-   background-position: 50%;
+   padding: px;
+}
+#mun {
    
 }
 
@@ -127,18 +143,17 @@ body {
    text-transform: uppercase;
    
 }
-#back-top{
-   color: rgb(49, 49, 241);
-   border: px solid;
-   padding: 0 auto;
-   background: linear-gradient(#ffffff, blue);
-   text-transform: uppercase;
-   display: block;
-   width: auto;
-   
+#back {
+   display: flexbox;
+   border-color: #d2e4fa;
 }
 
 a {
    font-weight: 900; 
    text-decoration: none;
+}
+
+@media  screen and (max-width: 12000px) {
+   
+   
 }

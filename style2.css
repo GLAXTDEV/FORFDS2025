@@ -1,1 +1,186 @@
-d
+* {
+    padding: 0;
+    margin: 0;
+         
+}
+body {
+    background-image: url(../IMG/font.gif);
+    background-position: center;
+    background-size: 50%;
+    backdrop-filter: blur(10px);
+}
+@media screen and (min-width: 360px) {
+    body {
+        
+    }
+
+    
+}
+
+
+
+#physique {
+    background-image: url(../IMG/phy.jpg);
+    
+    background-size: contain;
+    background-position: center;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+     
+}
+@media screen and (max-width: 320px) {
+
+    
+}
+
+
+#phy {
+    border: 1px solid;
+    color: rgb(255, 255, 255);
+    font-size: 48px;
+    font-weight: bold;
+    font-family: sans-serif;
+}
+@media screen and (max-width: 1530px) {
+
+    
+}
+
+
+.cours-generale {
+    display: flex;
+    border: 1px solid rgba(74, 61, 171);
+    border-radius: 20px;
+    width: 1050px;
+    padding: 25px;
+    margin: 10px auto;
+    justify-content: center;
+    background-color: rgb(65, 105, 225, 0.3);
+
+}
+@media screen and (min-width: 300px) {
+    
+
+}
+
+
+.cours {
+    display: flex;
+    color: rgb(242, 242, 243);
+    font-family: sans-serif;
+    font-size: 24px;
+    font-weight: 800;
+    
+    text-transform: uppercase;
+}
+@media screen and (max-width: 360px) {
+    
+
+
+}
+
+    
+
+
+.contenu-cours {
+    background-color: rgb(65, 105, 225, 0.3);
+    color: rgb(254, 253, 253);
+    margin: 20px auto;
+    padding: 10px;
+    display: flex;
+    gap: 300px;
+    justify-content: center;
+    justify-items: center;
+    height: 50%;
+    width: 1000px;
+    border-radius: 15px;
+    font-weight: 700;
+    text-transform: uppercase;
+
+}
+@media screen and (max-width: 360px) {
+    
+    
+}
+
+    
+}
+
+
+.contenu{
+    font-family: sans-serif;
+    font-size: 18px;
+    color: aliceblue;
+
+}
+@media screen and (max-width: 1530px) {
+
+    
+}
+
+
+
+#table-semetre {
+    display: flex;
+    gap: 200px;
+    background-color:  rgb(65, 105, 225, 0.3);
+    border: px solid rgb(255, 255, 255);
+    border-radius: 15px;
+    width: 1000px;
+    height: 500px;
+    padding: 10px 10px;
+    margin: 0 auto;
+    justify-content: center;
+     
+}
+@media screen and (max-width: 1530px) {
+
+    
+}
+
+
+.table-contenu0{
+    text-align: center;
+    text-transform: uppercase;
+    font-family: sans-serif;
+    font-weight: 700;
+    font-size: 25px;
+    color: royalblue;
+    border: 2px solid rgb(253, 253, 255);
+    border-radius: 10px;
+    
+    height: 100%;
+    flex-grow: 3.5;
+    background-color:  rgb(65, 105, 225, 0.1);
+    padding: 0 10px;
+    
+}
+@media screen and (max-width: 1530px) {
+
+    
+}
+
+
+.table-contenu1{
+    text-align: center;
+    text-transform: uppercase;
+    font-family: sans-serif;
+    font-weight: 700;
+    font-size: 25px;
+    color: royalblue;
+    border: 2px solid rgb(253, 253, 255);
+    border-radius: 10px;
+    
+    height: 100%;
+    flex-grow: 4;
+    background-color:  rgb(65, 105, 225, 0.1);
+    padding: 0 10px;
+}
+@media screen and (max-width: 1530px) {
+
+    
+}
