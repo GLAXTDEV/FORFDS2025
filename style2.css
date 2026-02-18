@@ -11,7 +11,7 @@ body {
 }
 #physique {
     display: flex;
-    background-image: url(../IMG/myfont.jpg);
+    background-image: url(../IMG/myfont3.jpg);
     background-position: center;
     background-size: contain;
     justify-content: center;
@@ -159,7 +159,6 @@ body {
 #docs-harmattant{
     display: flex;
     flex-direction: column;
-    
     width: 100%;
     margin: 10px 5px;
     color: rgb(255, 255, 255);
@@ -236,4 +235,31 @@ img {
 }
 a {
     text-decoration: none;
+}
+#td {
+    color: rgb(0, 236, 253);
+    background-color: blueviolet;
+    width: 100%;
+    margin: 20px auto;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+#dd{
+    border: 1px solid;
+    width: 90%;
+    height: auto;
+    background-color: rgb(249, 249, 249);
+    color: rgb(13, 0, 255);
+    font-size: 23px;
+    font-family: sans-serif;
+    text-transform: uppercase;
+    border-radius: 20px;
+}
+#doc-td{
+    display: flex;
+    
+    flex-wrap: wrap;
+    align-items: center;
 }
