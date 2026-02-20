@@ -4,12 +4,12 @@
 }
 
 body{
-   background-image: url(../IMG/font14.gif);
+   background-color: rgb(15, 25, 53);
    background-position: center;
    background-size: 20px;
    background-repeat: repeat;
    z-index: 100;
-   color: white;
+   color: rgb(255, 255, 255);
 }
 @media screen and (min-width: 550px) {
    body {
@@ -25,7 +25,9 @@ a{
 
 .faculter {
    display: flex;
-   backdrop-filter: blur(10px);
+   background-image: url(../IMG/font5.gif);
+   background-position: center;
+   background-size: contain;
    justify-content: center;
    align-items: center;
 
