@@ -3,174 +3,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>physique</title>
+    <title>PHYSIQUE</title>
+    
     <link rel="stylesheet" href="style2.css">
 </head>
-
 <body>
-<div id="physique"> <span id="phy">partie physique</span></div>
+    <div class="physique">
+        <p class="physique-text">partie physique</p>
+    </div>
 
-<p id="docs">telecharger vos  documents
-     cours et td </p>
-
-<div id="semestre">
-    <div id="annee">premiere annee 2025-2026</div>
-    <div id="semestre1">semetre I</div>
+<div class="search-container">
+  <input 
+    type="text" 
+    id="searchBar" 
+    placeholder="🔍 Rechercher un cours... (ex: PHY104)"
+    onkeyup="filtrerElements()"
+  />
+  <div id="noResult" class="no-result" style="display:none;">
+    ❌ Aucun résultat trouvé
+  </div>
 </div>
 
-<div id="documents">
-    <div id="harmattant">
-        <div id="s1"><span>harmattant</span></div>
-        <div id="docs-harmattant">
-           <div>
-            <img src="../IMG/pdf2.png" alt="pdf de ">
-            <a href="" download> <span class="couleur">telecharger</span> </a>
-           </div>
-
-           <div>
-            <img src="../IMG/pdf2.png" alt="pdf de ">
-            <a href="" download> <span class="couleur">telecharger</span></a>
-           </div>
-
-           <div>
-            <img src="../IMG/pdf2.png" alt="pdf de ">
-            <a href="" download><span class="couleur">telecharger</span> </a>
-           </div>
-
-           <div>
-            <img src="../IMG/pdf2.png" alt="pdf de ">
-            <a href="" download><span class="couleur">telecharger</span> </a>
-           </div>
-
-           <div>
-            <img src="../IMG/pdf2.png" alt="pdf de ">
-            <a href="" download><span class="couleur">telecharger</span> </a>
-           </div>
-
-           <div>
-            <img src="../IMG/pdf2.png" alt="pdf de ">
-            <a href="" download><span class="couleur">telecharger</span> </a>
-           </div>
-
-           <div>
-            <img src="../IMG/pdf2.png" alt="pdf de ">
-            <a href="" download><span class="couleur">telecharger</span> </a>
-           </div>
-
-           <div>
-            <img src="../IMG/pdf2.png" alt="pdf de ">
-            <a href="" download><span class="couleur">telecharger</span> </a>
-           </div>
-               
-           
-        </div>
+    <div class="msg-accueil">
+        <p class="text-msg">Cher (e) physicien (ne) soyez les bienvenues  </p>
     </div>
-    <div id="mousson">
-        <div id="s2">mousson</div>
 
-        <div id="docs-mousson">
-            <div>
-            <img src="../IMG/pdf2.png" alt="pdf de ">
-            <a href="" download> <span class="couleur">telecharger</span> </a>
-            </div>
+    <p class="text-but">
+        Cher(e) physicien, utiliser ce site pour
+        télécharger vos document cours et TD <span class="identification">sans identification </span> .
 
-            <div>
-            <img src="../IMG/pdf2.png" alt="pdf de ">
-            <a href="" download> <span class="couleur">telecharger</span> </a>
-           </div>
-
-
-           <div>
-            <img src="../IMG/pdf2.png" alt="pdf de ">
-            <a href="" download> <span class="couleur">telecharger</span> </a>
-           </div>
-
-
-           <div>
-            <img src="../IMG/pdf2.png" alt="pdf de ">
-            <a href="" download> <span class="couleur">telecharger</span> </a>
-           </div>
-
-
-           <div>
-            <img src="../IMG/pdf2.png" alt="pdf de ">
-            <a href="" download> <span class="couleur">telecharger</span> </a>
-           </div>
-
-
-           <div>
-            <img src="../IMG/pdf2.png" alt="pdf de ">
-            <a href="" download> <span class="couleur">telecharger</span> </a>
-           </div>
-
-
-           <div>
-            <img src="../IMG/pdf2.png" alt="pdf de ">
-            <a href="" download> <span class="couleur">telecharger</span> </a>
-           </div>
-
-
-           <div>
-            <img src="../IMG/pdf2.png" alt="pdf de ">
-            <a href="" download> <span class="couleur">telecharger</span> </a>
-           </div>
-  
-           </div>
-
-        </div>
+    </p>
+     
+    <div class="bar-de-cours">
+        <p class="text-bar">semetre I ( 2025-2026 )</p>
     </div>
-</div>
-<div id="td">
-    <div id="td-classe">
-        <div id="dd">les documents de td</div>
-        <div id="doc-td">
-            <div>
-            <img src="../IMG/pdf2.png" alt="pdf de " id="taille-img">
-            <a href="" download> <span class="couleur">telecharger</span> </a>
-           </div>
-           <div>
-            <img src="../IMG/pdf2.png" alt="pdf de ">
-            <a href="" download> <span class="couleur">telecharger</span> </a>
-           </div>
-           <div>
-            <img src="../IMG/pdf2.png" alt="pdf de ">
-            <a href="" download> <span class="couleur">telecharger</span> </a>
-           </div>
-           <div>
-            <img src="../IMG/pdf2.png" alt="pdf de ">
-            <a href="" download> <span class="couleur">telecharger</span> </a>
-           </div>
-           <div>
-            <img src="../IMG/pdf2.png" alt="pdf de ">
-            <a href="" download> <span class="couleur">telecharger</span> </a>
-           </div>
-           <div>
-            <img src="../IMG/pdf2.png" alt="pdf de ">
-            <a href="" download> <span class="couleur">telecharger</span> </a>
-           </div>
-           <div>
-            <img src="../IMG/pdf2.png" alt="pdf de ">
-            <a href="" download> <span class="couleur">telecharger</span> </a>
-           </div>
-           <div>
-            <img src="../IMG/pdf2.png" alt="pdf de ">
-            <a href="" download> <span class="couleur">telecharger</span> </a>
-           </div>
-           
 
+    <div class="harm-mous">
+        <div class="saison">harmattan
+            <div class="docs-harm">
 
-        </div>
+    <div data-nom="phy104">
+        <a href="https://drive.google.com/uc?export=download&id=1iqPWtewe8EeaX1m13jdxYC2toxkDi_dv" class="btn-download" download>
+            <button>PHY104</button>
+        </a>
+        <img src="../IMG/pdf2.png">
+    </div>
+
+    <div data-nom="phy106">
+        <a href="https://drive.google.com/uc?export=download&id=1lHiv6CeENgmeIGX6FZy8kCGULBuUAcPV" class="btn-download" download>
+            <button>PHY106</button>
+        </a>
+        <img src="../IMG/pdf2.png">
+    </div>
+
+    <div data-nom="math100">
+        <a href="https://drive.google.com/uc?export=download&id=1Uw9uDLH8KPv6Ay-NlgFjzBxB5x0BSgsh" class="btn-download" download>
+            <button>MATH100</button>
+        </a>
+        <img src="../IMG/pdf2.png">
+    </div>
+
+    <div data-nom="math101">
+        <a href="https://drive.google.com/uc?export=download&id=1x5vQ0PMYPyLBktaE15t93JlrVQD2YEPw" class="btn-download" download>
+            <button>MATH101</button>
+        </a>
+        <img src="../IMG/pdf2.png">
+    </div>
+
+    <div data-nom="math103">
+        <a href="https://drive.google.com/uc?export=download&id=1D9W_iVOJQM4fpXWcZbBvML5neX7K8xnz" class="btn-download" download>
+            <button>MATH103</button>
+        </a>
+        <img src="../IMG/pdf2.png">
+    </div>
+
+    <div data-nom="chm101">
+        <a href="https://drive.google.com/uc?export=download&id=1cJ_DdsPaFklQ6d4Ooh0JaY4rVlnu4RdD" class="btn-download" download>
+            <button>CHM101</button>
+        </a>
+        <img src="../IMG/pdf2.png">
+    </div>
+
+    <div data-nom="chm106">
+        <a href="https://drive.google.com/uc?export=download&id=1tRtk_0HLTwatdFx5SyNRKvP7qbS0jyoW" class="btn-download" download>
+            <button>CHM106</button>
+        </a>
+        <img src="../IMG/pdf2.png">
+    </div>
+
+    <div data-nom="ang200">
+        <a href="https://drive.google.com/uc?export=download&id=1EGzS0SHd7lXUmRXReczNv6XA-hKL1WpI" class="btn-download" download>
+            <button>ANG200</button>
+        </a>
+        <img src="../IMG/pdf2.png">
     </div>
 
 </div>
+        <p class="p-harm">Appuyer sur le <a href="#"><button>nom</button></a>  du fichier PDF pour le télécharger </p>
+        </div>
+        
 
-
-    
-    
-
-    
-   
-    
-    
+    </div>
+ 
+<!--end list-->    
+<script src="script.js"></script>
 </body>
 </html>

@@ -2,264 +2,246 @@
     margin: 0;
     padding: 0;
 }
-body {
-    background-color: rgb(255, 255, 255);
-    background-position: center;
-    background-size: 24px;
-    
+body{
+    background-color: rgb(60, 86, 233);
     color: white;
 }
-#physique {
-    display: flex;
-    background-image: url(../IMG/myfont3.jpg);
-    background-position: center;
-    background-size: contain;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    border-radius: 0 0 10px 10px;
-    
-
-}
-#phy {
-    font-size: 24px;
-    font-family: 'Times New Roman', Times, serif;
-    font-weight: 900;
-    text-transform: uppercase;
-    color: rgb(255, 255, 255);
-    border: 1px solid;
-
-}
-@media screen and (min-width: 800px) {
-    #phy {
-        font-size: 50px;
-
-    }
-}
-
-#docs {
-    background-color: rgb(0, 26, 255);
-    text-align: center;
-    text-transform: uppercase;
-    font-family: sans-serif;
-    font-size: 10px;
-    font-weight: 700;
-    width: 300px;
-    margin: 0 auto;
-    border-radius: 0 0 20px 20px;
-    padding: 10px;
-    color: rgb(255, 255, 255);
-    font-size: 15px;
-
-}
-@media screen and (min-width: 800px) {
-    #docs {
-        margin: 10px auto;
-        border-radius: 10px;
-        width: 500px;
-        padding: 20px;
-        font-size: 20px;
-        
-    }
-    
-}
-
-#semestre {
-    background-color: rgb(0, 26, 255);;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    width: 90%;
-    margin: 10px auto;
-    border-radius: 10px;
-    padding: 10px;
-    gap: 10px;
-}
-@media screen and (min-width: 800px) {
-    #semestre {
-        margin: 20px auto;
-        padding: 20px;
-        gap: 20px;
-
-    }
-
-}
-
-#annee {
-    text-transform: uppercase;
-    color: rgb(253, 253, 253);
-    font-weight: 700;
-
-}
-@media screen and (min-width: 800px) {
-    #annee {
-        font-size: 45px;
-    }
-    
-}
-#semestre1 {
-    font-family: sans-serif;
-    text-transform: capitalize;
-    text-decoration: overline;
-}
-@media screen and (min-width: 800px) {
-    #semestre1 {
-        font-size: 40px;
-    }
-    
-}
-
-
-#documents {
-    background-color: rgb(0, 0, 255);
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    justify-content: space-between;
-    gap: 30px;
-    width: 90%;
-    margin: 0 auto;
-    
-}
-@media screen and (min-width: 800px) {
- #documents{
-    font-size: 30px;
-
- }   
-}
-
-#harmattant{
-    border: 2px solid;
-    width: 90%;
-    margin: 0 auto;
-    height: auto;
-    border-radius: 10px;
-}
-#s1 {
-    display: flex;
-    
-    justify-content: center;
-    border: 1px solid;
-    width: 120px;
-    margin: 10px auto;
-    text-transform: uppercase;
-    
-}
-@media screen and (min-width: 800px) {
-    #s1{
-        width: 220px;
-        box-shadow: 0px 0px 15px rgb(255, 255, 255),
-        0px 0px 15px cyan inset;
-    }
-    
-}
-
-
-#docs-harmattant{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    margin: 10px 5px;
-    color: rgb(255, 255, 255);
-    
-}
-@media screen and (min-width: 800px) {
-    #docs-harmattant{
-        flex-direction: row;
-        flex-wrap: wrap;
-        flex-grow: 1;
-        flex-basis: 200;
-
-    }
-    
-}
-
-#mousson{
-    border: 2px solid;
-    width: 90%;
-    margin: 0 auto;
-    height: auto;
-}
-#s2{
-    display: flex;
-    
-    justify-content: center;
-    border: 1px solid;
-    width: 120px;
-    margin: 10px auto;
-    text-transform: uppercase;
-
-}
-@media screen and (min-width: 800px) {
-    #s2{
-        width: 170px;
-        box-shadow: 0px 0px 15px rgb(255, 255, 255),
-        0px 0px 15px cyan inset;
-    }
-    
-}
-
-#docs-mousson{
-    display: flex;
-    flex-direction: column;
-    
-    width: 100%;
-    margin: 10px 5px;
-    color: rgb(255, 255, 255);
-
-}
-@media screen and (min-width: 800px) {
-    #docs-mousson{
-        flex-direction: row;
-        flex-wrap: wrap;
-        flex-grow: 1;
-        flex-basis: 200;
-
-    }
-    
-}
-
-
-
-.couleur {
-    color: white;
-    font-family: sans-serif;
-    text-transform: uppercase;
-    
-}
-
-img {
-    padding: 10px ;
- 
-}
-a {
+a{
     text-decoration: none;
 }
-#td {
-    color: rgb(0, 236, 253);
-    background-color: blueviolet;
-    width: 100%;
-    margin: 20px auto;
-    height: auto;
+
+.physique{
     display: flex;
+    background-image: url(../IMG/font6.gif);
+    padding: 20px;
     justify-content: center;
-    text-align: center;
-}
-#dd{
-    border: 1px solid;
-    width: 90%;
-    height: auto;
-    background-color: rgb(249, 249, 249);
-    color: rgb(13, 0, 255);
-    font-size: 23px;
-    font-family: sans-serif;
-    text-transform: uppercase;
-    border-radius: 20px;
-}
-#doc-td{
-    display: flex;
-    
-    flex-wrap: wrap;
     align-items: center;
+    background-position: center;
+    background-size: contain;
+
+}
+@media screen and (min-width: 500px) {
+    .physique {
+        background-size: contain;
+        transition: 0.6s;
+        background-image: url(../IMG/font1.gif);
+    }
+    
+}
+
+.physique-text{
+    
+    font-size: 34px;
+    font-family: sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgb(255, 255, 255, 0.5);
+    border-radius: 7px;
+}
+@media screen and (min-width: 550px) {
+    .physique-text{
+        text-align: center;
+        border: 3px solid white;
+        box-shadow: 0px 0px 15px white, 0px 0px 15px white inset;
+        border-color: white;
+        letter-spacing: 20px;
+        font-size: 40px;
+
+    }
+    
+}
+.msg-accueil {
+    text-shadow: 4px 4px 5px rgb(0, 255, 242);
+    border: 1px solid blue;
+    background-color: blue;
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+    font-family: sans-serif;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+@media screen and (min-width:550px) {
+    .msg-accueil{
+        font-size: 35px;
+        padding: 20px;
+    }
+    
+}
+
+
+.text-but{
+    background-color: blue;
+    border: 3px solid rgba(0, 37, 245, 0.3);
+    padding: 20px;
+    margin: 10px;
+    font-size: 20px;
+    text-align: justify;
+    border-radius: 10px;
+    
+
+}
+
+@media screen and (min-width: 550px) {
+    .text-but{
+        font-size: 30px;
+        text-align: center;
+        text-transform: capitalize;
+        font-weight: 500;
+        font-family:'Courier New', Courier, monospace;
+    }
+    
+}
+.identification{
+    color: red;
+    font-style: italic;
+
+}
+
+.bar-de-cours{
+    background-color: blue;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+
+}
+@media screen and (min-width: 550px) {
+    .bar-de-cours{
+        padding: 20px;
+
+    }
+    
+    
+}
+
+.text-bar{
+    font-family: sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    text-align: center;
+    text-transform: uppercase;
+}
+@media screen and (min-width: 550px) {
+    .text-bar{
+        font-size: 30px;
+    }
+    
+}
+
+
+.harm-mous{
+    display: flex;
+    margin: 5px;
+    flex-direction: column;
+    
+    gap: auto;
+    background-color: blue;
+    padding: 10px;
+    border-radius: 5px;
+
+
+}
+.saison {
+    background-color: rgba(30, 12, 192, 0.6);
+    text-align: center;
+    text-transform: uppercase;
+    border-radius: 15px;
+}
+@media screen and (min-width: 550px) {
+    .saison{
+        font-size: 30px;
+        font-weight: 700;
+        border: 3px solid white;
+        box-shadow: 0px 0px 25px white;
+
+    }
+    
+}
+
+
+.docs-harm{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 20px 5px;
+    gap: 15px;
+    flex-grow: 1;
+    align-items: center;
+    flex-wrap: wrap;
+
+}
+img {
+    width: 75px;
+    border-radius: 10px;
+    background-color: blue;
+}
+
+button{
+    text-transform: uppercase;
+    font-weight: 700;
+    color: white;
+    background-color: blue;
+    border-color: blue;
+
+}
+@media screen and (min-width: 550px) {
+    button{
+        font-size: 23px;
+    }
+    
+}
+.p-harm{
+    color: red;
+}
+
+
+
+
+
+
+/* ===== BARRE DE RECHERCHE ===== */
+.search-container {
+  width: 90%;
+  max-width: 600px;
+  margin: 15px auto;
+}
+
+#searchBar {
+  width: 100%;
+  padding: 12px 20px;
+  font-size: clamp(0.9rem, 3vw, 1.1rem);
+  border: 3px solid #fff;
+  border-radius: 30px;
+  background: rgba(255,255,255,0.15);
+  color: white;
+  outline: none;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(5px);
+}
+
+#searchBar::placeholder {
+  color: rgba(255,255,255,0.7);
+}
+
+#searchBar:focus {
+  background: rgba(255,255,255,0.25);
+  border-color: rgb(15, 34, 201);
+  box-shadow: 0 0 15px rgba(255,255,0,0.4);
+  transform: scale(1.02);
+}
+
+.no-result {
+  text-align: center;
+  color: red;
+  font-weight: bold;
+  margin-top: 10px;
+  animation: apparition 0.3s ease;
+}
+
+@keyframes apparition {
+  from { opacity: 0; transform: translateY(-10px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
