@@ -118,6 +118,7 @@ button{
 .all-elem {
    display: flex;
    flex-direction: column;
+   align-items: center;
    align-items: self-start;
    gap: 20px;
    padding: 20px 0;
