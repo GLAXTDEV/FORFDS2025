@@ -4,13 +4,21 @@
 }
 
 body{
-   background-image: url(../IMG/font16.gif);
+   background-image: url(../IMG/font14.gif);
    background-position: center;
-   background-size: contain;
+   background-size: 20px;
    background-repeat: repeat;
    z-index: 100;
    color: white;
 }
+@media screen and (min-width: 550px) {
+   body {
+      background-size: 80px;
+      
+   }
+
+}
+
 a{
    text-decoration: none;
 }
@@ -22,6 +30,16 @@ a{
    align-items: center;
 
 }
+@media screen and (min-width: 550px) {
+   .faculter{
+      background-image: url(../IMG/font5.gif);
+      background-position: center;
+      background-size: contain;
+
+   }
+   
+}
+
 
 .text-faculter {
    backdrop-filter: blur(10px);
@@ -31,30 +49,56 @@ a{
    font-weight: 900;
    text-transform: uppercase;
 }
+@media screen and (min-width: 550px) {
+   .text-faculter{
+      backdrop-filter: none;
+      padding: 45px;
+      font-size: 45px;
+
+   }
+   
+}
+
+
 .nav-bar {
    display: flex;
    flex-direction: column;
    gap: 20px;
-   background-color: rgb(20, 20, 44);
+   backdrop-filter: blur(100px);
    padding: 20px;
    margin: 15px;
-   border: 2px solid;
+   border: 2px solid rgb(248, 248, 248, 0.1);
    border-radius: 10px;
 
 }
+@media screen and (min-width: 550px) {
+   .nav-bar{
+      margin: 20px;
+
+   }
+}
+
 
 .parcour-conteneur{
    text-align: center;
    font-size: 20px;
    font-family: sans-serif;
    font-weight: 700;
-
    
 }
+@media screen and (min-width: 550px) {
+   .parcour-conteneur{
+      font-size: 40px;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+   }
+   
+}
+
 #parcour-style{
    text-transform: uppercase;
    color: red;
-   border: 1px solid white;
+   
    background-color: transparent;
 
 }
@@ -68,12 +112,35 @@ a{
    padding: 20px 0;
 
 }
+@media screen and (min-width: 550px) {
+   .all-elem{
+      flex-direction: row;
+      justify-content: space-evenly;
+      padding: 40px;
+      flex-wrap: wrap;
+      flex-grow: 1;
+      flex-basis: 200;
+   }
+   
+}
+
+
+
 .conteneur-elem{
    color: rgb(255, 255, 255);
    text-shadow: 0px 0px 15px;
    text-transform: capitalize;
 
 }
+@media screen and (min-width: 550px) {
+   .conteneur-elem{
+      text-shadow: 0px 0px 25px cyan;
+   }
+   
+}
+
+
+
 /* La fenêtre qui cache ce qui dépasse */
 .scroll-container {
   overflow: hidden;
@@ -83,6 +150,16 @@ a{
   backdrop-filter: blur(10px);
   padding: 10px 0;
 }
+@media screen and (min-width: 550px) {
+   .scroll-container{
+      width: 600px;
+      padding: 20px 0;
+      margin: 5px auto;
+      border-radius: 50px;
+   }
+ 
+}
+
 
 /* Le bloc qui bouge */
 .scroll-text {
@@ -90,12 +167,20 @@ a{
   animation: scroll-infinite 10s linear infinite;
 }
 
+
 .scroll-text span {
   display: inline-block;
   padding-right: 50px;
   text-transform: capitalize;
   font-family: 'Times New Roman', Times, serif;
   font-weight: 700; /* Espace entre les répétitions */
+}
+@media screen and (min-width: 550px) {
+   .scroll-text{
+      font-size: 30px;
+      
+   }
+   
 }
 
 /* L'animation : on déplace de 0 à -50% (car on a deux blocs identiques) */
@@ -121,6 +206,16 @@ a{
   overflow-y: auto; /* Active le scroll vertical */
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
 }
+@media screen and (min-width: 550px) {
+   .main-scroll-wrapper{
+      margin: 30px auto;
+      max-width: 800px;
+      max-height: 600px;
+      
+   }
+   
+}
+
 
 /* Style des titres et listes */
 .info-section h2 {
@@ -128,12 +223,19 @@ a{
   font-size: 1.5rem;
   margin-bottom: 15px;
 }
+@media screen and (min-width: 550px){
+   .info-section{
+      font-size: 30px;
+   }
+}
+
 
 .features-list {
   list-style: none;
   padding: 0;
   
 }
+
 
 .features-list li {
   margin-bottom: 12px;
@@ -155,6 +257,7 @@ a{
   color: #7f8c8d;
   font-size: 0.95rem;
 }
+
 
 /* Personnalisation de la barre de défilement (Scrollbar) */
 .main-scroll-wrapper::-webkit-scrollbar {
@@ -185,12 +288,12 @@ a{
    background-position: center;
    background-repeat: repeat;
    background-size: contain;
-   border: 1px solid;
+   
     
 }
 
 .propos-site{
-   background-color: ;
+   
    display: flex;
    flex-direction: column;
    align-items: center;
@@ -203,6 +306,11 @@ a{
    font-weight: 700;
    font-size: 20px;
 }
+@media screen and (min-width: 550px){
+   .avis-creator{
+      font-size: 35px;
+   }
+}
 
 .paragraphe-site{
    word-spacing: 5px;
@@ -212,28 +320,18 @@ a{
    font-style: oblique;
    color: rgb(0, 179, 0);
 }
+@media screen and (min-width: 550px){
+   .paragraphe-site{
+      font-size: 28px;
+   }
+}
 
 #contacts {
    display: flex;
-   justify-content: space-around;
+   justify-content: center;
+   gap: 5px;
    padding: 20px;
    margin: 10px;
-   background-color: ;
 
 }
-
-.back{
-   text-transform: uppercase;
-   color: rgb(37, 0, 247);
-   border-color: white;
-   width: 70px;
-   padding: 5px;
-   margin: 0 auto;
-   font-weight: 700;
-   font-size: 14px;
-
-}
-
-
-
 
