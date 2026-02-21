@@ -31,12 +31,14 @@ a{
    justify-content: center;
    align-items: center;
 
+
 }
 @media screen and (min-width: 550px) {
    .faculter{
       background-image: url(../IMG/font5.gif);
       background-position: center;
       background-size: contain;
+      text-align: center;
 
    }
    
@@ -189,6 +191,7 @@ button{
 @media screen and (min-width: 550px) {
    .scroll-text{
       font-size: 30px;
+      
       
    }
    
