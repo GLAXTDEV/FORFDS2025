@@ -194,3 +194,16 @@ button{
 .p-harm{
     color: rgb(7, 250, 250);
 }
+
+.docs-mouss{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 20px 5px;
+    gap: 15px;
+    flex-grow: 1;
+    align-items: center;
+    flex-wrap: wrap;
+
+}
+

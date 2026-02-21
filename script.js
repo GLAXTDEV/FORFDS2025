@@ -1,6 +1,6 @@
 function filtrerElements() {
     const recherche = document.getElementById("searchBar").value.toLowerCase().trim();
-    const items = document.querySelectorAll(".docs-harm > div[data-nom]");
+    const items = document.querySelectorAll(".docs-harm> div[data-nom]");
     let nbVisible = 0;
 
     items.forEach(item => {

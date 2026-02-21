@@ -197,7 +197,17 @@ button{
 .p-harm{
     color: red;
 }
+.docs-mouss{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 20px 5px;
+    gap: 15px;
+    flex-grow: 1;
+    align-items: center;
+    flex-wrap: wrap;
 
+}
 
 
 
