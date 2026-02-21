@@ -2,17 +2,15 @@
     margin: 0;
     padding: 0;
 }
+
 body{
-    background-color: rgb(60, 86, 233);
+    background-color: blueviolet;
     color: white;
 }
-a{
-    text-decoration: none;
-}
 
-.physique{
+.math-contenu{
     display: flex;
-    background-image: url(../IMG/font6.gif);
+    background-image: url(../IMG/font.gif);
     padding: 20px;
     justify-content: center;
     align-items: center;
@@ -21,16 +19,15 @@ a{
 
 }
 @media screen and (min-width: 500px) {
-    .physique {
+    .math-contenu {
         background-size: contain;
         transition: 0.6s;
-        background-image: url(../IMG/font1.gif);
+        background-image: url(../IMG/font14.gif);
     }
     
 }
 
-.physique-text{
-    
+.mathematique{
     font-size: 34px;
     font-family: sans-serif;
     font-weight: 700;
@@ -39,9 +36,10 @@ a{
     border: 1px solid rgb(255, 255, 255, 0.5);
     border-radius: 7px;
     text-align: center;
+
 }
 @media screen and (min-width: 550px) {
-    .physique-text{
+    .mathematique{
         text-align: center;
         border: 3px solid white;
         box-shadow: 0px 0px 15px white, 0px 0px 15px white inset;
@@ -52,10 +50,11 @@ a{
     }
     
 }
+
 .msg-accueil {
-    text-shadow: 4px 4px 5px rgb(0, 255, 242);
-    border: 1px solid blue;
-    background-color: blue;
+    text-shadow: 4px 4px 5px rgb(254, 253, 255);
+    border: 1px solid rgb(75, 1, 145);
+    background-color: rgb(75, 1, 145);
     padding: 10px;
     margin: 10px;
     text-align: center;
@@ -74,18 +73,16 @@ a{
 
 
 .text-but{
-    background-color: blue;
-    border: 3px solid rgba(0, 37, 245, 0.3);
+    background-color: rgb(75, 1, 145);
+    border: 3px solid rgb(75, 1, 145, 0.3);
     padding: 20px;
     margin: 10px;
     font-size: 20px;
     text-align: justify;
     border-radius: 10px;
     text-transform: capitalize;
-    
 
 }
-
 @media screen and (min-width: 550px) {
     .text-but{
         font-size: 30px;
@@ -96,6 +93,7 @@ a{
     }
     
 }
+
 .identification{
     color: red;
     font-style: italic;
@@ -103,7 +101,7 @@ a{
 }
 
 .bar-de-cours{
-    background-color: blue;
+    background-color: rgb(75, 1, 145);
     padding: 10px;
     margin: 10px;
     border-radius: 10px;
@@ -132,21 +130,20 @@ a{
     
 }
 
-
 .harm-mous{
     display: flex;
     margin: 5px;
     flex-direction: column;
     
     gap: auto;
-    background-color: blue;
+    background-color: rgb(75, 1, 145);
     padding: 10px;
     border-radius: 5px;
 
 
 }
 .saison {
-    background-color: rgba(30, 12, 192, 0.6);
+    background-color: rgba(105, 12, 192, 0.6);
     text-align: center;
     text-transform: uppercase;
     border-radius: 15px;
@@ -177,15 +174,15 @@ a{
 img {
     width: 75px;
     border-radius: 10px;
-    background-color: blue;
+    background-color: rgb(75, 1, 145);
 }
 
 button{
     text-transform: uppercase;
     font-weight: 700;
     color: white;
-    background-color: blue;
-    border-color: blue;
+    background-color: rgb(75, 1, 145);
+    border-color: rgb(75, 1, 145);
 
 }
 @media screen and (min-width: 550px) {
@@ -195,55 +192,5 @@ button{
     
 }
 .p-harm{
-    color: red;
-}
-
-
-
-
-
-
-/* ===== BARRE DE RECHERCHE ===== */
-.search-container {
-  width: 90%;
-  max-width: 600px;
-  margin: 15px auto;
-}
-
-#searchBar {
-  width: 100%;
-  padding: 12px 20px;
-  font-size: clamp(0.9rem, 3vw, 1.1rem);
-  border: 3px solid #fff;
-  border-radius: 30px;
-  background: rgba(255,255,255,0.15);
-  color: white;
-  outline: none;
-  box-sizing: border-box;
-  transition: all 0.3s ease;
-  backdrop-filter: blur(5px);
-}
-
-#searchBar::placeholder {
-  color: rgba(255,255,255,0.7);
-}
-
-#searchBar:focus {
-  background: rgba(255,255,255,0.25);
-  border-color: rgb(15, 34, 201);
-  box-shadow: 0 0 15px rgba(255,255,0,0.4);
-  transform: scale(1.02);
-}
-
-.no-result {
-  text-align: center;
-  color: red;
-  font-weight: bold;
-  margin-top: 10px;
-  animation: apparition 0.3s ease;
-}
-
-@keyframes apparition {
-  from { opacity: 0; transform: translateY(-10px); }
-  to   { opacity: 1; transform: translateY(0); }
+    color: rgb(7, 250, 250);
 }
