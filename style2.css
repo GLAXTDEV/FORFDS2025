@@ -157,7 +157,7 @@ button{
     border: 3px solid rgb(0, 0, 255, 0.2);
     border-radius: 15px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     flex-direction: column;
     padding: 20px;
@@ -165,13 +165,16 @@ button{
     transition: 5s;
 
 }
-@media screen and (min-width: 300px) {
+@media screen and (min-width: 500px) {
     .harmattant{
-        flex-wrap: wrap;
         flex-direction: row;
-        gap: 1;
+        flex-wrap: wrap;
+        flex-grow: 1;
+        flex-basis: 200;
+        justify-content: space-around;
     }
     
+
 }
 
 .hmt {
