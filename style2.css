@@ -139,7 +139,7 @@ a{
     flex-direction: column;
     
     gap: auto;
-    background-color: blue;
+    background-color: rgb(2, 2, 128);
     padding: 10px;
     border-radius: 5px;
 
@@ -150,6 +150,7 @@ a{
     text-align: center;
     text-transform: uppercase;
     border-radius: 15px;
+    margin-bottom: 10px;
 }
 @media screen and (min-width: 550px) {
     .saison{
@@ -157,6 +158,7 @@ a{
         font-weight: 700;
         border: 3px solid white;
         box-shadow: 0px 0px 25px white;
+        
 
     }
     
@@ -206,9 +208,37 @@ button{
     flex-grow: 1;
     align-items: center;
     flex-wrap: wrap;
+    
+}
+
+.partie-td{
+    background-color: rgb(6, 15, 151);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    border-radius: 10px;
+}
+.td-text{
+    
+    
+
 
 }
 
+.text-td{
+    font-size: 24px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-shadow: 0px 0px 15px cyan;
+    text-align: center;
+}
+
+.docs-td{
+    
+
+}
 
 
 
