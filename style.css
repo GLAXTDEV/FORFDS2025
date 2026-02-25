@@ -19,6 +19,70 @@ body{
 
 }
 
+#splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #0a0a0a; /* Noir profond */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.logo-container {
+    text-align: center;
+}
+
+.glatx-text {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    font-weight: 800;
+    font-size: 3.5rem;
+    color: #ffffff;
+    letter-spacing: 15px;
+    text-transform: uppercase;
+    /* Animation d'entrée : apparition + écartement des lettres */
+    animation: reveal 2.5s ease-out forwards;
+    margin-bottom: 10px;
+}
+
+/* Petite barre de progression discrète en dessous */
+.loader-bar {
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #007bff, transparent);
+    margin: 0 auto;
+    animation: loading 2.5s ease-in-out forwards;
+}
+
+@keyframes reveal {
+    0% {
+        opacity: 0;
+        letter-spacing: 0px;
+        filter: blur(10px);
+    }
+    100% {
+        opacity: 1;
+        letter-spacing: 15px;
+        filter: blur(0);
+    }
+}
+
+@keyframes loading {
+    0% { width: 0; }
+    100% { width: 100%; }
+}
+
+/* Classe pour cacher le splash avec fluidité */
+.hidden-splash {
+    opacity: 0 !important;
+    pointer-events: none;
+}
+
+
 a{
    text-decoration: none;
 }
