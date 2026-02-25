@@ -3,6 +3,7 @@
     padding: 0;
 }
 body{
+    z-index: -100;
     background-color: rgb(1, 16, 99);
     color: white;
 }
@@ -183,23 +184,20 @@ iframe {
     padding: 20px;
     margin: 10px;
     transition: 5s;
+    gap: 10px;
 
 }
 @media screen and (min-width: 500px) {
     .harmattant{
         flex-direction: row;
         flex-wrap: wrap;
+        justify-content: space-around;
         flex-grow: 1;
         flex-basis: 200;
-        justify-content: space-around;
+        gap: 50px;
     }
     
 
-}
-
-.doc {
-    flex-grow: 1;
-    flex-basis: 200;
 }
 
 .mousson{
@@ -250,8 +248,40 @@ iframe {
 .textTd{
     font-size: 24px;
     text-transform: uppercase;
-    margin-top: 15px;
+    margin: 15px;
+
 }
+
+img {
+    width: 80px;
+    height: auto;
+}
+
+.tdPartie {
+    display: flex;             /* Aligne les éléments sur une ligne */
+    overflow-x: auto;          /* Active le scroll horizontal */
+    gap: 20px;                 /* Espace entre chaque TD */
+    padding: 20px;
+    white-space: nowrap;       /* Empêche le retour à la ligne */
+    scrollbar-width: thin;     /* Style pour Firefox */
+}
+
+/* Optionnel : Rendre la barre de scroll plus jolie sur Chrome/Safari */
+.tdPartie::-webkit-scrollbar {
+    height: 8px;
+}
+.tdPartie::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 10px;
+}
+
+.tdDocs {
+    flex: 0 0 auto;            /* Empêche les cartes de rétrécir */
+    width: 150px;              /* Largeur fixe pour chaque carte */
+    text-align: center;
+}
+
+
 
 
 
