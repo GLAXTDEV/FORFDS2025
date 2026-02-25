@@ -3,11 +3,15 @@
     padding: 0;
 }
 body{
-    background-color: rgb(60, 86, 233);
+    background-color: rgb(3, 14, 77);
     color: white;
 }
+
+    
+
 a{
     text-decoration: none;
+    color: white;
 }
 
 .physique{
@@ -79,7 +83,8 @@ a{
     padding: 20px;
     margin: 10px;
     font-size: 20px;
-    text-align: justify;
+    text-align: center;
+    word-spacing: 7px;
     border-radius: 10px;
     text-transform: capitalize;
     
@@ -132,128 +137,110 @@ a{
     
 }
 
-
-.harm-mous{
-    display: flex;
-    margin: 5px;
-    flex-direction: column;
-    
-    gap: auto;
-    background-color: blue;
-    padding: 10px;
-    border-radius: 5px;
-
-
-}
-.saison {
-    background-color: rgba(30, 12, 192, 0.6);
-    text-align: center;
-    text-transform: uppercase;
-    border-radius: 15px;
-}
-@media screen and (min-width: 550px) {
-    .saison{
-        font-size: 30px;
-        font-weight: 700;
-        border: 3px solid white;
-        box-shadow: 0px 0px 25px white;
-
-    }
-    
-}
-
-
-.docs-harm{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    padding: 20px 5px;
-    gap: 15px;
-    flex-grow: 1;
-    align-items: center;
-    flex-wrap: wrap;
-
-}
-img {
-    width: 75px;
-    border-radius: 10px;
-    background-color: blue;
-}
-
 button{
+    border-color: rgb(253, 253, 253);
+    color: white;
+    font-size: 18px;
+    background-color: rgb(0, 0, 252);
     text-transform: uppercase;
     font-weight: 700;
-    color: white;
-    background-color: blue;
-    border-color: blue;
+    margin: 5px;
+    border: 2px solid rgb(5, 5, 66);
+    border-radius: 3px;
+    
 
 }
-@media screen and (min-width: 550px) {
-    button{
-        font-size: 23px;
+
+iframe {
+    width: 310px;
+    height: 200px;
+    border-radius: 0;
+}
+.p-harm{
+    color: rgb(255, 255, 255);
+    text-align: center;
+}
+
+#nb {
+    font-weight: 900;
+    color: red;
+    font-size: 18px;
+    
+
+}
+
+
+.harmattant {
+    z-index: -100;
+    background-color: rgb(0, 0, 245);
+    border: 3px solid rgb(0, 0, 255, 0.2);
+    border-radius: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+    margin: 10px;
+    transition: 5s;
+
+}
+@media screen and (min-width: 500px) {
+    .harmattant{
+        flex-direction: row;
+        flex-wrap: wrap;
+        flex-grow: 1;
+        flex-basis: 200;
+        justify-content: space-around;
+    }
+    
+
+}
+.mousson{
+    background-color: rgb(0, 0, 245);
+    border: 3px solid rgb(0, 0, 255, 0.2);
+    border-radius: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+    margin: 10px;
+    transition: 5s;
+
+}
+@media screen and (min-width: 500px) {
+    .mousson{
+        flex-direction: row;
+        flex-wrap: wrap;
+        flex-grow: 1;
+        flex-basis: 500;
+        justify-content: space-around;
+
     }
     
 }
-.p-harm{
-    color: red;
-}
-.docs-mouss{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    padding: 20px 5px;
-    gap: 15px;
-    flex-grow: 1;
-    align-items: center;
-    flex-wrap: wrap;
+
+.hmt {
+    
+    font-size: 30px;
+    font-family: sans-serif;
+    font-weight: 900;
+    font-style: initial;
+    text-transform: uppercase;
 
 }
-
-
-
-
-
-/* ===== BARRE DE RECHERCHE ===== */
-.search-container {
-  width: 90%;
-  max-width: 600px;
-  margin: 15px auto;
+@media screen and (min-width: 550px) {
+    .hmt {
+        text-align: center;
+    }
+    .p-harm{
+    font-size: 30px;
+    font-style: oblique;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
 }
 
-#searchBar {
-  width: 100%;
-  padding: 12px 20px;
-  font-size: clamp(0.9rem, 3vw, 1.1rem);
-  border: 3px solid #fff;
-  border-radius: 30px;
-  background: rgba(255,255,255,0.15);
-  color: white;
-  outline: none;
-  box-sizing: border-box;
-  transition: all 0.3s ease;
-  backdrop-filter: blur(5px);
-}
 
-#searchBar::placeholder {
-  color: rgba(255,255,255,0.7);
-}
 
-#searchBar:focus {
-  background: rgba(255,255,255,0.25);
-  border-color: rgb(15, 34, 201);
-  box-shadow: 0 0 15px rgba(255,255,0,0.4);
-  transform: scale(1.02);
-}
 
-.no-result {
-  text-align: center;
-  color: red;
-  font-weight: bold;
-  margin-top: 10px;
-  animation: apparition 0.3s ease;
-}
 
-@keyframes apparition {
-  from { opacity: 0; transform: translateY(-10px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
