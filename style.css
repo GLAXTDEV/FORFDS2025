@@ -123,6 +123,7 @@ button{
    align-items: center;
    gap: 20px;
    padding: 20px 0;
+   
 
 }
 @media screen and (min-width: 550px) {
@@ -133,6 +134,7 @@ button{
       flex-wrap: wrap;
       flex-grow: 1;
       flex-basis: 200;
+      
    }
    
 }
