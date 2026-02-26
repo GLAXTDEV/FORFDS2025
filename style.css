@@ -48,12 +48,7 @@ body{
     animation: reveal 2.5s ease-out forwards;
     margin-bottom: 10px;
 }
-@media screen and (max-width: 300px) {
-   .glatx-text{
-      letter-spacing: 10px;
-   }
-   
-}
+
 
 /* Petite barre de progression discrète en dessous */
 .loader-bar {
