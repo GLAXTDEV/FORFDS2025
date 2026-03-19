@@ -8,13 +8,13 @@
     <title>PHYSIQUE</title>
     
     <link rel="stylesheet" href="style2.css">
+    <!-- ⚛ PhysIA — Sidebar IA -->
+    <link rel="stylesheet" href="phyia-sidebar.css">
 </head>
 <body>
     <div class="physique">
         <p class="physique-text">partie physique</p>
     </div>
-
-
 
     <div class="msg-accueil">
         <p class="text-msg">Cher (e) physicien (ne) soyez les bienvenues  </p>
@@ -23,7 +23,6 @@
     <p class="text-but">
         utiliser ce site pour
         télécharger vos document cours et TD <span class="identification">sans identification </span> .
-
     </p>
      
     <div class="bar-de-cours">
@@ -34,12 +33,9 @@
 
     <div>
         <p class="p-harm"> <span id="nb">NB</span>: Appuyer sur le <button>nom</button>  du fichier PDF pour le télécharger </p>
-        </div>
     </div>
 
     <div class="harmattant">
-       
-
         <div class="doc">
             <iframe src="physique_docs/ANG200.pdf"></iframe>
             <div><a href="physique_docs/ANG200.pdf" download=""><button>ANG200</button></a></div>
@@ -100,8 +96,6 @@
     <p class="hmt">mousson</p>
     
     <div class="mousson">
-    
-
         <div class="doc">
             <iframe src="physique_docs/"></iframe>
             <div><a href="physique_docs/" download=""><button>Mtiere</button></a></div>
@@ -241,6 +235,56 @@
 
     </div>
 
+
+    <!-- ============================================================
+         ⚛ PHYIA — ASSISTANT IA (Barre latérale fixe)
+         Pour ajouter un nouveau cours dans la liste des cours connus
+         par l'IA → ouvre ai-assistant.js et ajoute-le dans
+         le tableau COURS_DISPONIBLES.
+    ============================================================ -->
+
+    <!-- Bouton toggle -->
+    <button id="phyia-toggle-btn" onclick="toggleSidebar()" title="Ouvrir PhysIA">⚛</button>
+
+    <!-- Sidebar -->
+    <aside id="phyia-sidebar" role="complementary" aria-label="Assistant IA PhysIA">
+
+        <!-- Header -->
+        <div id="phyia-header">
+            <span class="phyia-logo">⚛</span>
+            <div>
+                <h2>PhysIA</h2>
+                <p>Assistant cours · Semestre I 2025-2026</p>
+            </div>
+        </div>
+
+        <!-- Questions rapides -->
+        <div id="phyia-quick">
+            <button class="quick-q" data-q="C'est quoi le principe fondamental de la dynamique ?">📐 PFD</button>
+            <button class="quick-q" data-q="Explique-moi une intégrale simplement avec un exemple">∫ Intégrale</button>
+            <button class="quick-q" data-q="Donne-moi la formule de la loi de Coulomb en CHM101">⚡ Coulomb</button>
+            <button class="quick-q" data-q="Comment diagonaliser une matrice en MTH101 ?">🔢 Matrice</button>
+            <button class="quick-q" data-q="Quels documents sont disponibles sur le site ?">📂 Cours dispo</button>
+        </div>
+
+        <!-- Messages -->
+        <div id="phyia-chat" role="log" aria-live="polite"></div>
+
+        <!-- Input -->
+        <div id="phyia-input-bar">
+            <textarea
+                id="phyia-input"
+                placeholder="Pose ta question sur les cours..."
+                rows="1"
+                aria-label="Question pour PhysIA"
+            ></textarea>
+            <button id="phyia-send" title="Envoyer (Entrée)">➤</button>
+        </div>
+
+    </aside>
+
+    <!-- ⚛ Script IA -->
+    <script src="script2.js"></script>
 
 </body>
 </html>
