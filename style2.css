@@ -155,7 +155,7 @@ button:hover{
     background-color: rgb(255, 255, 255);
     color: rgb(4, 0, 255);
     border-color: rgb(1, 14, 88);
-    font-weight: 900;
+    font-weight: 400;
     transition: 700ms;
 }
 
