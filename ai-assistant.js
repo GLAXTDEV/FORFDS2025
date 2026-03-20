@@ -1,11 +1,9 @@
 // ============================================================
 //  PhysIA — Assistant IA
-//  ✅ Clé API sécurisée via Cloudflare Worker (jamais exposée)
-//  ✅ Modèle : gemini-1.5-flash-8b (quota gratuit généreux)
+//  ✅ Clé cachée dans Cloudflare Worker (jamais dans le code)
 // ============================================================
 
-const GEMINI_API_KEY = "AIzaSyBYRkRbooYnDN2Opd8dsbndrjh4yH_D3g4";
-const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_API_KEY}`;
+const PROXY_URL = "https://phyia-proxy.theglaxt.workers.dev";
 
 const COURS_DISPONIBLES = [
   "PHY104 : Électricité & Magnétisme",
@@ -30,8 +28,8 @@ RÈGLES :
 1. Réponds TOUJOURS en français.
 2. Sois DIRECT : commence par la réponse.
 3. Sois CONCIS mais COMPLET : max 6-8 lignes sauf démonstration.
-4. Écris les formules en LaTeX MathJax : inline avec \( \) et bloc avec \[ \].
-   Exemples : \(F = ma\), \(v = \frac{d}{t}\), \[E = mc^2\]
+4. Écris les formules en LaTeX MathJax : inline avec \\( \\) et bloc avec \\[ \\].
+   Exemples : \\(F = ma\\), \\(v = \\frac{d}{t}\\), \\[E = mc^2\\]
 5. Donne TOUJOURS un exemple numérique si pertinent.
 6. Si hors cours listés, dis-le clairement.
 7. Structure avec tirets/numéros si plus de 2 points.`;
@@ -64,24 +62,22 @@ async function envoyerMessage(question) {
   const loadingId = afficherChargement();
 
   try {
-    const response = await fetch(GEMINI_URL, {
+    const response = await fetch(PROXY_URL, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        system_instruction: { parts: [{ text: SYSTEM_INSTRUCTION }] },
-        contents: historique,
-        generationConfig: { maxOutputTokens: 800, temperature: 0.7 },
+        systemInstruction: SYSTEM_INSTRUCTION,
+        historique: historique,
       }),
     });
 
     const data = await response.json();
 
     if (!response.ok) {
-      const msg = data?.error?.message || data?.error || JSON.stringify(data);
-      throw new Error(msg);
+      throw new Error(data?.error || `Erreur ${response.status}`);
     }
 
-    const reponse = data.candidates?.[0]?.content?.parts?.[0]?.text || "Aucune réponse reçue.";
+    const reponse = data.text || "Aucune réponse reçue.";
     historique.push({ role: "model", parts: [{ text: reponse }] });
     supprimerChargement(loadingId);
     ajouterBulle("assistant", reponse);
@@ -133,6 +129,12 @@ function supprimerChargement(id) {
 
 function escapeHtml(text) {
   return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+}
+
+function renderMathJax() {
+  if (window.MathJax) {
+    MathJax.typesetPromise().catch((err) => console.error("MathJax:", err));
+  }
 }
 
 function toggleSidebar() {
@@ -192,10 +194,3 @@ function attachListeners() {
 }
 
 document.addEventListener("DOMContentLoaded", attachListeners);
-
-// ——— Rendu MathJax après chaque message ———
-function renderMathJax() {
-  if (window.MathJax) {
-    MathJax.typesetPromise().catch((err) => console.error("MathJax error:", err));
-  }
-}

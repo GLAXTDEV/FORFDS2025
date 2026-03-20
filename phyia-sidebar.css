@@ -325,15 +325,57 @@
 }
 
 /* ——— Responsive mobile ——— */
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 768px) {
   #phyia-sidebar {
     width: 100vw;
     right: -100vw;
+    height: 100dvh; /* dynamic viewport height — évite les problèmes avec la barre du navigateur */
   }
+
+  #phyia-sidebar.open {
+    right: 0;
+  }
+
+  #phyia-chat {
+    flex: 1;
+    overflow-y: auto;
+    padding-bottom: 10px;
+    min-height: 0; /* important pour flex sur mobile */
+  }
+
+  #phyia-input-bar {
+    position: sticky;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    padding: 10px 12px;
+    background: rgba(0, 0, 40, 0.98);
+    border-top: 1px solid rgba(0, 255, 242, 0.2);
+  }
+
+  #phyia-input {
+    font-size: 16px; /* évite le zoom auto sur iOS */
+    height: 42px;
+  }
+
   #phyia-toggle-btn {
     bottom: 20px;
     right: 20px;
     width: 50px;
     height: 50px;
+  }
+
+  #phyia-header h2 {
+    font-size: 16px;
+  }
+
+  #phyia-quick {
+    padding: 8px 10px;
+  }
+
+  .quick-q {
+    font-size: 10px !important;
+    padding: 3px 7px !important;
   }
 }
