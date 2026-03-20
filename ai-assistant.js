@@ -4,8 +4,8 @@
 //  ✅ Modèle : gemini-1.5-flash-8b (quota gratuit généreux)
 // ============================================================
 
-// URL de ton Worker Cloudflare (déjà créé : phyia-proxy)
-const PROXY_URL = "https://phyia-proxy.theglaxt.workers.dev";
+const GEMINI_API_KEY = "AIzaSyBYRkRbooYnDN2Opd8dsbndrjh4yH_D3g4";
+const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_API_KEY}`;
 
 const COURS_DISPONIBLES = [
   "PHY104 : Électricité & Magnétisme",
@@ -64,22 +64,24 @@ async function envoyerMessage(question) {
   const loadingId = afficherChargement();
 
   try {
-    const response = await fetch(PROXY_URL, {
+    const response = await fetch(GEMINI_URL, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        systemInstruction: SYSTEM_INSTRUCTION,
-        historique: historique,
+        system_instruction: { parts: [{ text: SYSTEM_INSTRUCTION }] },
+        contents: historique,
+        generationConfig: { maxOutputTokens: 800, temperature: 0.7 },
       }),
     });
 
+    const data = await response.json();
+
     if (!response.ok) {
-      const err = await response.json();
-      throw new Error(err.error || `Erreur ${response.status}`);
+      const msg = data?.error?.message || data?.error || JSON.stringify(data);
+      throw new Error(msg);
     }
 
-    const data = await response.json();
-    const reponse = data.text || "Aucune réponse reçue.";
+    const reponse = data.candidates?.[0]?.content?.parts?.[0]?.text || "Aucune réponse reçue.";
     historique.push({ role: "model", parts: [{ text: reponse }] });
     supprimerChargement(loadingId);
     ajouterBulle("assistant", reponse);
