@@ -3,41 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OursWeb</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="../IMG/pdf0.png">
-    <link rel="apple-touch-icon" href="../IMG/pdf0.png">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="index.css">
+    <title>FDS WEB TG</title>
 </head>
-
-
 <body>
-<div id="splash-screen">
-    <div class="logo-container">
-        <h1 class="glatx-text">FDS</h1>
-        <div class="loader-bar"></div>
+
+    <div class="carte-mere">
+        <p class="text-fds"><a href="javascript:void(0)" onclick="charger('page-accueil')"><span class="text-1">faculté des sciences</span></a></p>
+        <div class="dressage">
+            <div class="carte-enfant">
+                <div class="carte-enfant-1">
+                    <input type="checkbox" id="math-active" class="math-active-design">
+                    <label for="math-active" style="color: rgb(128, 5, 243); font-weight: 600; ">mathématiques</label>
+                    <div class="sous-carte-math">
+                        <div><a href="javascript:void(0)" class="saison" onclick="charger('page-harm-math')">harmattan</a></div>
+                        <div><a href="javascript:void(0)" class="saison" onclick="charger('page-mous-math')"">mousson</a></div>
+                        <div><a href="javascript:void(0)" class="saison" onclick="charger('page-td-math')">td & exercices</a></div>
+                        <div><a href="javascript:void(0)" class="saison" onclick="charger('math-ia')"> - IA </a></div>
+                    </div>
+                </div>
+                <div class="carte-enfant-2">
+                    <input type="checkbox" id="phys-active" class="phys-active-design">
+                    <label for="phys-active" style="color: rgb(4, 0, 255); font-weight: 600; ">physique</label>
+                    <div class="sous-carte-phys">
+                        <div><a href="javascript:void(0)" class="saison" onclick="charger('page-harm-phy')">harmattan</a></div>
+                        <div><a href="javascript:void(0)" class="saison" onclick="charger('page-mous-phy')">mousson</a></div>
+                        <div><a href="javascript:void(0)" class="saison" onclick="charger('page-td-phy')">td & exercices</a></div>
+                        <div><a href="javascript:void(0)" class="saison" onclick="charger('phy-ia')"> - IA -</a></div>
+                    </div>
+                </div>
+                <div class="carte-enfant-3">
+                    <input type="checkbox" id="chim-active" class="chim-active-design">
+                    <label for="chim-active" style="color: rgb(0, 132, 255); font-weight: 600; ">chimie</label>
+                    <div class="sous-carte-chim">
+                        <div><a href="javascript:void(0)" class="saison" onclick="charger('page-harm-chm')">harmattan</a></div>
+                        <div><a href="javascript:void(0)" class="saison" onclick="charger('page-mous-chm')">mousson</a></div>
+                        <div><a href="javascript:void(0)" class="saison" onclick="charger('page-td-chm')">td & exercices</a></div>
+                        <div><a href="javascript:void(0)" class="saison" onclick="charger('chm-ia')"> IA -</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
 
+    <h1 id="page-title">bienvenu</h1>
+    <div id="main-display">Page En Cours ...</div>
 
- <section class="faculter"><span class="text-faculter">Facultés des sciences</span></section>
-
- 
-<nav class="nav-bar">
-   <div class="parcour-conteneur"><span id="parcour-style"> parcours</span>
-    <div class="all-elem">
-      <div><a href="index3.html#math-contenu" class="conteneur-elem"><button> mathématique </button> </a></div>
-      <div><a href="index2.html#physique" class="conteneur-elem"> <button> physique </button> </a></div>
-      <div><a href="" class="conteneur-elem"><button> chimie </button></a></div>
-    </div>
-   </div>
-</nav>
-
-
-<div class="scroll-container">
+    <template id="page-accueil" data-titre="page d'accueil">
+        <h1></h1>
+        <div class="scroll-container">
   <div class="scroll-text">
-    <span>Cliquer dessus pour avoir accès aux documents de votre parcours — </span>
-    <span>Cliquer dessus pour avoir accès aux documets de votre parcours — </span>
+    <span>Cliquer dessus pour avoir accès aux documents de votre parcours</span>
+    <span>Cliquer dessus pour avoir accès aux documets de votre parcours</span>
   </div>
 </div>
 
@@ -46,7 +63,7 @@
   <div class="content-scroll">
     
     <section class="info-section">
-      <h2>Votre réussite, sans barrière</h2>
+      <h2>FDS HOME</h2>
       <p>Nous avons conçu ce site avec une mission simple : <strong>lever tous les obstacles administratifs</strong> et vous offrir un accès fluide à vos ressources pédagogiques. Parce que votre temps est précieux, nous avons supprimé toute contrainte technique.</p>
       
       <ul class="features-list">
@@ -64,30 +81,598 @@
   </div>
 </div>
 
-
-
+<br><div class="info-cadre">
+    <div style="font-size: 24px; text-transform: uppercase; box-shadow: 0 5px 10px rgb(112, 111, 111);
+     width: 200px; text-align: center; margin: 10px auto; font-weight: 700; font-family: sans-serif; text-align: center;" >information</div>
+    <br><p style="text-align: justify;">Pour vous faciliter les recherches sur la page de <span style="color: red;">TD</span> on a préféré mettre dans chaque page de TD sont <span style="color: red;">PDF respective</span>.
+ <br>Par exemple <span style="color: blue;">si vous chercher TD de mathématique, vous allez vous rendre dans la section TD & EXERCICES de la page Mathématique.</span> 
+<br>Et cela s’applique au deux autre.
+<br><hr style=" background-color: red; margin: 5px;">
+<p style="text-align: center; text-transform: capitalize; color: blue;"> Cliquer sur le nom (situe en bas ou à gauche) du document pour le télécharger !</p>
+</p>
+<br><hr><p> NB: Pour l’instant, certains documents ne sont pas encore disponible mais nous nous les mettrons en ajour dès que possible. </p>
+</div>
 
 <div class="bottom-elem">
 
-  <div class="propos-site"><span class="avis-creator"> A Propos Du Site </span>
-    <p class="paragraphe-site"> &copy; Sera bientôt opérationnel !!!🛠️ </p> 
-  </div>
-      
   <div id="contacts">
-    <a href="mailto:theglaxt@gmail.com" class="mun"><img src="../IMG/logo-gmail.png" alt="Notre Mail"  width="" height="30px" ></a>
-    <a href="https://wa.me/message/HV4JYRVP3J2IP1" class="mun"><img src="../IMG/logo-whatsapp.png" alt="Notr Lien Whatsapp" width="" height="30px"></a>
-    <a href="" class="mun"><img src="../IMG/logo-telegram.png" alt="Notr Lien facebook" width="" height="30px"></a>
-    <a href="https://www.facebook.com/share/1iQAGDgXfS/" class="mun"><img src="../IMG/logo-facebook.png" alt="Notr Lien telegram" width="" height="30px"></a>
-    <a href="https://www.instagram.com/glaxt1?igsh=aHB6MmsxNms3amM1" class="mun"><img src="../IMG/logo-instagram.jpg" alt="Notr Lien instagram" width="" height="30px"></a>
-    <a href="https://x.com/honoreh251" class="mun"><img src="../IMG/logo-x.png" alt="Notr Lien  X (twitter)" width="" height="30px"></a>
-    <a href="https://www.threads.com/@glaxt1" class="mun"><img src="../IMG/logo-threads.png" alt="Notr Lien threads" width="" height="30px"></a>
-    <a href="https://youtube.com/@theglaxt?si=Q7ZfuZxERU3B0Gjv" class="mun"><img src="../IMG/logo-youtube.png" alt="Notr Lien youtube" width="30px" height="30px"></a>
+    <a href="mailto:theglaxt@gmail.com" class="mun"><img src="IMG/gmail.svg" alt="Gmail"  width="" height="30px" ></a>
+    <a href="https://discord.gg/ua2gcus2" class="mun"><img src="../IMG/discord.svg" alt="discorde" width="" height="30px"></a>
+    <a href="https://x.com/TheGlaxt" class="mun"><img src="../IMG/x.svg" alt="x (twitter)" width="" height="30px"></a>
+    <a href="https://www.instagram.com/glaxtdev?utm_source=qr&igsh=aHB6MmsxNms3amM1" class="mun"><img src="../IMG/instagram.svg" alt="instagram" width="" height="30px"></a>
+  </div>
+  
+  <div class="propos-site"><span class="avis-creator"></span>
+    <p class="paragraphe-site" style="font-size: 10px; padding: 10px; user-select: none;"> &copy; <span style="color: black;">FDSWEB</span> Tout droits reserve.</p> 
   </div>
     
 
-<p>MEJ: 1.0.1</p>
 </div>
 
-    <script src="script.js"></script>
+    </template>
+
+    <template id="page-harm-math" data-titre="page harm math">
+        <h1></h1>
+        <div class="tableau-pdf">
+            <div class="sous-pdf">
+              <div class="position-pdf"> 
+                <div class="carte-pdf">
+                    <iframe src="math/ANG200.pdf" frameborder="0"></iframe>
+                <br><a href="math/ANG200.pdf" download="">ANG200</a>
+                </div>
+                <div class="carte-pdf">
+                    <iframe src="math/PHY 104.pdf" frameborder="0"></iframe>
+                <br><a href="math/PHY 104.pdf" download="">PHY104</a>
+                </div>
+                <div class="carte-pdf">
+                    <iframe src="math/PHY 106 (1)_041023.pdf" frameborder="0"></iframe>
+                <br><a href="math/" download="">PHY106</a>
+                </div>
+                <div class="carte-pdf">
+                    <iframe src="math/MATH100.pdf" frameborder="0"></iframe>
+                <br><a href="math/MATH100.pdf" download="">MATH100</a>
+                </div>
+                <div class="carte-pdf">
+                    <iframe src="math/Cours MTH 101 complet.pdf" frameborder="0"></iframe>
+                <br><a href="math/Cours MTH 101 complet.pdf" download="">MATH101</a>
+                </div><div class="carte-pdf">
+                    <iframe src="math/" frameborder="0"></iframe>
+                <br><a href="math/" download="">MATH103</a>
+                </div>
+                <div class="carte-pdf">
+                    <iframe src="math/" frameborder="0"></iframe>
+                <br><a href="math/" download="">MATH108</a>
+                </div>
+                <div class="carte-pdf">
+                    <iframe src="math/MTH106.pdf" frameborder="0"></iframe>
+                <br><a href="math/MTH106.pdf" download="">MATH106</a>
+                </div>
+              </div>
+            </div>
+        </div>
+<br><hr style="border-bottom: 3px solid white; margin: 20px;">
+        <div class="moi">
+            <div>
+                <a href="https://wa.me/message/HV4JYRVP3J2IP1" style="display: inline-block;"><img src="IMG/whatsapp.svg" alt="whatsapp" width="" height="30px">
+                    <span style="margin-left: 20px; margin-top: 30px; color: white;">Quelque chose!?</span>
+                </a>
+            </div>
+        </div>
+<br><hr>
+    </template>
+
+
+    <template id="page-mous-math" data-titre="">
+      <div class="position-pdf">
+        <div class="carte-pdf">
+            <iframe src="math/cours complet de PHY 110.pdf" frameborder="0"></iframe>
+            <br><a href="phy/cours complet de PHY 110.pdf" download="">PHY110</a>
+        </div>
+
+        <div class="carte-pdf">
+            <iframe src="math/Cours complet de PHY 108.pdf" frameborder="0"></iframe>
+            <br><a href="math/Cours complet de PHY 108.pdf" download="">PHY108</a>
+        </div>
+
+        <div class="carte-pdf">
+            <iframe src="math/COURS DINFO 100.pdf" frameborder="0"></iframe>
+            <br><a href="math/COURS DINFO 100.pdf" download="">INFO100</a>
+        </div>
+
+        <div class="carte-pdf">
+            <iframe src="math/MATH104 now.pdf" frameborder="0"></iframe>
+            <br><a href="math/MATH104 now.pdf" download="">MAYH104</a>
+        </div>
+
+        <div class="carte-pdf">
+            <iframe src="math/math 102.pdf" frameborder="0"></iframe>
+            <br><a href="math/math 102.pdf" download="">MATH102</a>
+        </div>
+
+        <div class="carte-pdf">
+            <iframe src="math/ANG 201 FDS.pdf" frameborder="0"></iframe>
+            <br><a href="math/ANG 201 FDS.pdf" download="">ANG201</a>
+        </div>
+      </div>
+        <br><hr style="border-bottom: 3px solid white; margin: 20px;">
+        <div class="moi">
+            <div>
+                <a href="https://wa.me/message/HV4JYRVP3J2IP1" style="display: inline-block;"><img src="IMG/whatsapp.svg" alt="whatsapp" width="" height="30px">
+                    <span style="margin-left: 20px; margin-top: 30px; color: white;">Quelque chose!?</span>
+                </a>
+            </div>
+        </div>
+<br><hr>
+        
+    </template>
+
+    <template id="page-td-math" data-titre="">
+     <div class="position-pdf">
+        <div class="carte-pdf">
+            <iframe src="math/td math/EPR MTH101 21-22.pdf" frameborder="0"></iframe>
+            <br><a href="math/td math/EPR MTH101 21-22.pdf" download="">TD MTH101</a>
+        </div>
+
+        <div class="carte-pdf">
+            <iframe src="math/td math/Corrigé de MTH 108.pdf" frameborder="0"></iframe>
+            <br><a href="phy/" download="">TD MTH108</a>
+        </div>
+
+        <div class="carte-pdf">
+            <iframe src="math/td math/EPR_MTH100 février 2023.pdf" frameborder="0"></iframe>
+            <br><a href="math/td math/EPR_MTH100 février 2023.pdf" download="">MTH101(2023)</a>
+        </div>
+
+        <div class="carte-pdf">
+            <iframe src="math/td math/espaces_affines.pdf" frameborder="0"></iframe>
+            <br><a href="math/td math/espaces_affines.pdf" download="">ESP AFFINE</a>
+        </div>
+
+        <div class="carte-pdf">
+            <iframe src="math/td math/exam-mth108-H23.pdf" frameborder="0"></iframe>
+            <br><a href="math/td math/exam-mth108-H23.pdf" download="">EXAM MTH108</a>
+        </div>
+
+        <div class="carte-pdf">
+            <iframe src="math/td math/le-barycentre-dans-le-plan-exercices-corriges-1.pdf" frameborder="0"></iframe>
+            <br><a href="math/td math/le-barycentre-dans-le-plan-exercices-corriges-1.pdf" download="">BARYCENTRE</a>
+        </div>
+
+        <div class="carte-pdf">
+            <iframe src="math/td math/math101 epv.pdf" frameborder="0"></iframe>
+            <br><a href="math/td math/math101 epv.pdf" download="">EP MTH101</a>
+        </div>
+
+        <div class="carte-pdf">
+            <iframe src="math/td math/math108 & math 106.pdf" frameborder="0"></iframe>
+            <br><a href="math/td math/math108 & math 106.pdf" download="">MTH108 & MTH106</a>
+        </div>
+
+        <div class="carte-pdf">
+            <iframe src="math/td math/MATH103 Devoirs Examens TD.pdf" frameborder="0"></iframe>
+            <br><a href="math/td math/MATH103 Devoirs Examens TD.pdf" download="">DV MTH103</a>
+        </div>
+
+        <div class="carte-pdf">
+            <iframe src="math/td math/MTH102-DS-M18.pdf" frameborder="0"></iframe>
+            <br><a href="math/td math/MTH102-DS-M18.pdf" download="">MTH102</a>
+        </div>
+
+        <div class="carte-pdf">
+            <iframe src="math/td math/TD MTH101.PDF" frameborder="0"></iframe>
+            <br><a href="math/td math/TD MTH101.PDF" download="">MTH101</a>
+        </div>
+
+        <div class="carte-pdf">
+            <iframe src="math/td math/TD_Espaces-Appl_20-21 (1)_014941.pdf" frameborder="0"></iframe>
+            <br><a href="math/td math/TD_Espaces-Appl_20-21 (1)_014941.pdf" download="">ESP AFFINE</a>
+        </div>
+
+        <div class="carte-pdf">
+            <iframe src="math/td math/TD_Matrices_20-21.pdf" frameborder="0"></iframe>
+            <br><a href="math/td math/TD_Matrices_20-21.pdf" download="">MATRICE</a>
+        </div>
+
+        <div class="carte-pdf">
+            <iframe src="math/td math/TD-MTH108.pdf" frameborder="0"></iframe>
+            <br><a href="math/td math/TD-MTH108.pdf" download="">MTH108</a>
+        </div>
+
+        <div class="carte-pdf">
+            <iframe src="math/td math/TDcrgéMath101Espc Vecto _260106_135617.pdf" frameborder="0"></iframe>
+            <br><a href="math/td math/TDcrgéMath101Espc Vecto _260106_135617.pdf" download="">ESP VECT</a>
+        </div>
+
+        <div class="carte-pdf">
+            <iframe src="math/td math/travaux-diriges-applications-affines.pdf" frameborder="0"></iframe>
+            <br><a href="math/td math/travaux-diriges-applications-affines.pdf" download="">APP AFFINE</a>
+        </div>
+     </div>
+
+<br><hr style="border-bottom: 3px solid white; margin: 20px;">
+        <div class="moi">
+            <div>
+                <a href="https://wa.me/message/HV4JYRVP3J2IP1" style="display: inline-block;"><img src="IMG/whatsapp.svg" alt="whatsapp" width="" height="30px">
+                    <span style="margin-left: 20px; margin-top: 30px; color: white;">Quelque chose!?</span>
+                </a>
+            </div>
+        </div>
+<br><hr>
+
+    </template>
+
+    <template id="page-harm-phy" data-titre="">
+     <div class="position-pdf">
+        <div class="carte-pdf">
+            <iframe src="phy/ANG200.pdf" frameborder="0"></iframe>
+            <br><a href="phy/" download="">ANG200</a>
+        </div>
+
+        <div class="carte-pdf">
+            <iframe src="phy/PHY 104.pdf" frameborder="0"></iframe>
+            <br></BR><a href="phy/PHY 104.pdf" download="">PHY104</a>
+        </div>
+
+        <div class="carte-pdf">
+            <iframe src="phy/PHY106 _ Chap 1 cinematic.pdf" frameborder="0"></iframe>
+            <br><a href="phy/PHY106_Chap_1_cinematic.pdf" download="">PHY106(1)</a>
+        </div>
+
+        <div class="carte-pdf">
+            <iframe src="phy/PHY106_Chap_2_Mvts_particuliers.pdf" frameborder="0"></iframe>
+            <br><a href="phy/PHY106_Chap_2_Mvts_particuliers.pdf" download="">PHY106(2)</a>
+        </div>
+
+        <div class="carte-pdf">
+            <iframe src="phy/PHY106_Chap3.pdf" frameborder="0"></iframe>
+            <br><a href="phy/PHY106_Chap3.pdf" download="">PHY106(3)</a>
+        </div>
+
+        <div class="carte-pdf">
+            <iframe src="phy/PHY106_Outils mathématique.pdf" frameborder="0"></iframe>
+            <br><a href="phy/PHY106_Outils mathématique.pdf" download="">PHY106(OUTILS)</a>
+        </div>
+
+        <div class="carte-pdf">
+            <iframe src="phy/PHY106_point_materiel.pdf" frameborder="0"></iframe>
+            <br><a href="phy/PHY106_point_materiel.pdf" download="">POINT MATHERIEL</a>
+        </div>
+
+        <div class="carte-pdf">
+            <iframe src="phy/MATH100.pdf" frameborder="0"></iframe>
+            <br><a href="phy/MATH100.pdf" download="">MTH100</a>
+        </div>
+
+        <div class="carte-pdf">
+            <iframe src="phy/Cours MTH 101 complet.pdf" frameborder="0"></iframe>
+            <br><a href="phy/Cours MTH 101 complet.pdf" download="">MTH101</a>
+        </div>
+
+        <div class="carte-pdf">
+            <iframe src="phy/E" frameborder="0"></iframe>
+            <br><a href="phy/E" download="">MTH103</a>
+        </div>
+     </div>
+
+<br><hr style="border-bottom: 3px solid white; margin: 20px;">
+        <div class="moi">
+            <div>
+                <a href="https://wa.me/message/HV4JYRVP3J2IP1" style="display: inline-block;"><img src="IMG/whatsapp.svg" alt="whatsapp" width="" height="30px">
+                    <span style="margin-left: 20px; margin-top: 30px; color: white;">Quelque chose!?</span>
+                </a>
+            </div>
+        </div>
+<br><hr>
+
+    </template>
+
+
+    <template id="page-mous-phy" data-titre="">
+      <div class="position-pdf">
+        <div class="carte-pdf">
+            <iframe src="phy/ANG201 fULL.pdf" frameborder="0"></iframe>
+            <br><a href="phy/ANG201 fULL.pdf" download="">ANG201</a>
+        </div>
+
+        <div class="carte-pdf">
+            <iframe src="phy/MATH104 now.pdf" frameborder="0"></iframe>
+            <br></BR><a href="phy/MATH104 now.pdf" download="">MTH104</a>
+        </div>
+
+        <div class="carte-pdf">
+            <iframe src="phy/Cours Chapitre 1&2  de MTH 102.pdf" frameborder="0"></iframe>
+            <br><a href="phy/Cours Chapitre 1&2  de MTH 102.pdf" download="">MTH102</a>
+        </div>
+
+        <div class="carte-pdf">
+            <iframe src="phy/cours complet de PHY 110.pdf" frameborder="0"></iframe>
+            <br><a href="phy/cours complet de PHY 110.pdf" download="">PHY110</a>
+        </div>
+
+        <div class="carte-pdf">
+            <iframe src="phy/PHY108.pdf" frameborder="0"></iframe>
+            <br><a href="phy/PHY108.pdf" download="">PHY108</a>
+        </div>
+
+        <div class="carte-pdf">
+            <iframe src="phy/Cours complet de chm 103.pdf" frameborder="0"></iframe>
+            <br><a href="phy/Cours complet de chm 103.pdf" download="">CHM103</a>
+        </div>
+
+        <div class="carte-pdf">
+            <iframe src="phy/COURS DINFO 100.pdf" frameborder="0"></iframe>
+            <br><a href="phy/COURS DINFO 100.pdf" download="">INFO100</a>
+        </div>
+      </div>
+
+<br><hr style="border-bottom: 3px solid white; margin: 20px;">
+        <div class="moi">
+            <div>
+                <a href="https://wa.me/message/HV4JYRVP3J2IP1" style="display: inline-block;"><img src="IMG/whatsapp.svg" alt="whatsapp" width="" height="30px">
+                    <span style="margin-left: 20px; margin-top: 30px; color: white;">Quelque chose!?</span>
+                </a>
+            </div>
+        </div>
+<br><hr>
+
+    </template>
+
+    
+    <template id="page-td-phy" data-titre="">
+      <div class="position-pdf">
+        <div class="carte-pdf">
+            <iframe src="phy/td phy/12-Exo-elect_Cours PHY104_2020-2021.pdf" frameborder="0"></iframe>
+            <br><a href="phy/td phy/12-Exo-elect_Cours PHY104_2020-2021.pdf" download="">PHY104</a>
+        </div>
+        <div class="carte-pdf">
+            <iframe src="phy/td phy/ELECTROCINETIQUE.pdf" frameborder="0"></iframe>
+            <br><a href="phy/td phy/ELECTROCINETIQUE.pdf" download="">ELEC MAGN</a>
+        </div>
+        <div class="carte-pdf">
+            <iframe src="phy/td phy/épreuves Phy106.pdf" frameborder="0"></iframe>
+            <br><a href="phy/td phy/épreuves Phy106.pdf" download="">EP PHY106</a>
+        </div>
+        <div class="carte-pdf">
+            <iframe src="phy/td phy/Exam PHY 110. pdf (2).pdf" frameborder="0"></iframe>
+            <br><a href="phy/td phy/Exam PHY 110. pdf (2).pdf" download="">PHY110</a>
+        </div>
+        <div class="carte-pdf">
+            <iframe src="phy/td phy/magnétostatique exercices.pdf" frameborder="0"></iframe>
+            <br><a href="phy/td phy/magnétostatique exercices.pdf" download="">MAGNETO</a>
+        </div>
+        <div class="carte-pdf">
+            <iframe src="phy/td phy/MECANIQUE_TD_COMPLET_1_avec_CORRIGE.pdf" frameborder="0"></iframe>
+            <br><a href="phy/td phy/MECANIQUE_TD_COMPLET_1_avec_CORRIGE.pdf" download="">TD PHY106(1)</a>
+        </div>
+        <div class="carte-pdf">
+            <iframe src="phy/td phy/MECANIQUE_TD_COMPLET_2_avec_CORRIGE.pdf" frameborder="0"></iframe>
+            <br><a href="phy/td phy/MECANIQUE_TD_COMPLET_2_avec_CORRIGE.pdf" download="">PHY106(2)</a>
+        </div>
+        <div class="carte-pdf">
+            <iframe src="phy/td phy/TD2023.pdf" frameborder="0"></iframe>
+            <br><a href="phy/td phy/TD2023.pdf" download="">TD PHY104</a>
+        </div>
+      </div>
+
+<br><hr style="border-bottom: 3px solid white; margin: 20px;">
+        <div class="moi">
+            <div>
+                <a href="https://wa.me/message/HV4JYRVP3J2IP1" style="display: inline-block;"><img src="IMG/whatsapp.svg" alt="whatsapp" width="" height="30px">
+                    <span style="margin-left: 20px; margin-top: 30px; color: white;">Quelque chose!?</span>
+                </a>
+            </div>
+        </div>
+<br><hr>
+
+    </template>
+
+    
+    <template id="page-harm-chm" data-titre="">
+      <div class="position-pdf">
+        <div class="carte-pdf">
+            <iframe src="chm/" frameborder="0"></iframe>
+            <a href="chm/" download="">ANG200</a>
+        </div>
+        <div class="carte-pdf">
+            <iframe src="chm/" frameborder="0"></iframe>
+            <a href="chm/" download="">ANG200</a>
+        </div>
+        <div class="carte-pdf">
+            <iframe src="chm/" frameborder="0"></iframe>
+            <a href="chm/" download="">ANG200</a>
+        </div>
+        <div class="carte-pdf">
+            <iframe src="chm/" frameborder="0"></iframe>
+            <a href="chm/" download="">ANG200</a>
+        </div>
+        <div class="carte-pdf">
+            <iframe src="chm/" frameborder="0"></iframe>
+            <a href="chm/" download="">ANG200</a>
+        </div>
+        <div class="carte-pdf">
+            <iframe src="chm/" frameborder="0"></iframe>
+            <a href="chm/" download="">ANG200</a>
+        </div>
+        <div class="carte-pdf">
+            <iframe src="chm/" frameborder="0"></iframe>
+            <a href="chm/" download="">ANG200</a>
+        </div>
+        <div class="carte-pdf">
+            <iframe src="chm/" frameborder="0"></iframe>
+            <a href="chm/" download="">ANG200</a>
+        </div>  
+      </div>
+<br><hr style="border-bottom: 3px solid white; margin: 20px;">
+        <div class="moi">
+            <div>
+                <a href="https://wa.me/message/HV4JYRVP3J2IP1" style="display: inline-block;"><img src="IMG/whatsapp.svg" alt="whatsapp" width="" height="30px">
+                    <span style="margin-left: 20px; margin-top: 30px; color: white;">Quelque chose!?</span>
+                </a>
+            </div>
+        </div>
+<br><hr>
+
+    </template>
+
+
+
+    <template id="page-harm-chm" data-titre="">
+      <div class="position-pdf">
+        <div class="carte-pdf">
+            <iframe src="chm/" frameborder="0"></iframe>
+            <a href="chm/" download="">ANG200</a>
+        </div>
+        <div class="carte-pdf">
+            <iframe src="chm/" frameborder="0"></iframe>
+            <a href="chm/" download="">ANG200</a>
+        </div>
+        <div class="carte-pdf">
+            <iframe src="chm/" frameborder="0"></iframe>
+            <a href="chm/" download="">ANG200</a>
+        </div>
+        <div class="carte-pdf">
+            <iframe src="chm/" frameborder="0"></iframe>
+            <a href="chm/" download="">ANG200</a>
+        </div>
+        <div class="carte-pdf">
+            <iframe src="chm/" frameborder="0"></iframe>
+            <a href="chm/" download="">ANG200</a>
+        </div>
+        <div class="carte-pdf">
+            <iframe src="chm/" frameborder="0"></iframe>
+            <a href="chm/" download="">ANG200</a>
+        </div>
+        <div class="carte-pdf">
+            <iframe src="chm/" frameborder="0"></iframe>
+            <a href="chm/" download="">ANG200</a>
+        </div>
+        <div class="carte-pdf">
+            <iframe src="chm/" frameborder="0"></iframe>
+            <a href="chm/" download="">ANG200</a>
+        </div>
+      </div>  
+
+<br><hr style="border-bottom: 3px solid white; margin: 20px;">
+        <div class="moi">
+            <div>
+                <a href="https://wa.me/message/HV4JYRVP3J2IP1" style="display: inline-block;"><img src="IMG/whatsapp.svg" alt="whatsapp" width="" height="30px">
+                    <span style="margin-left: 20px; margin-top: 30px; color: white;">Quelque chose!?</span>
+                </a>
+            </div>
+        </div>
+<br><hr>
+
+    </template>
+
+    <template id="page-mous-chm" data-titre="">
+      <div class="position-pdf">
+        <div class="carte-pdf">
+            <iframe src="chm/" frameborder="0"></iframe>
+            <a href="chm/" download="">ANG200</a>
+        </div>
+        <div class="carte-pdf">
+            <iframe src="chm/" frameborder="0"></iframe>
+            <a href="chm/" download="">ANG200</a>
+        </div>
+        <div class="carte-pdf">
+            <iframe src="chm/" frameborder="0"></iframe>
+            <a href="chm/" download="">ANG200</a>
+        </div>
+        <div class="carte-pdf">
+            <iframe src="chm/" frameborder="0"></iframe>
+            <a href="chm/" download="">ANG200</a>
+        </div>
+        <div class="carte-pdf">
+            <iframe src="chm/" frameborder="0"></iframe>
+            <a href="chm/" download="">ANG200</a>
+        </div>
+        <div class="carte-pdf">
+            <iframe src="chm/" frameborder="0"></iframe>
+            <a href="chm/" download="">ANG200</a>
+        </div>
+        <div class="carte-pdf">
+            <iframe src="chm/" frameborder="0"></iframe>
+            <a href="chm/" download="">ANG200</a>
+        </div>
+        <div class="carte-pdf">
+            <iframe src="chm/" frameborder="0"></iframe>
+            <a href="chm/" download="">ANG200</a>
+        </div>
+      </div>
+
+<br><hr style="border-bottom: 3px solid white; margin: 20px;">
+        <div class="moi">
+            <div>
+                <a href="https://wa.me/message/HV4JYRVP3J2IP1" style="display: inline-block;"><img src="IMG/whatsapp.svg" alt="whatsapp" width="" height="30px">
+                    <span style="margin-left: 20px; margin-top: 30px; color: white;">Quelque chose!?</span>
+                </a>
+            </div>
+        </div>
+<br><hr>
+
+    </template>
+
+    <template id="page-td-chm" data-titre="">
+      <div class="position-pdf">
+        <div class="carte-pdf">
+            <iframe src="chm/" frameborder="0"></iframe>
+            <a href="chm/" download="">ANG200</a>
+        </div>
+        <div class="carte-pdf">
+            <iframe src="chm/" frameborder="0"></iframe>
+            <a href="chm/" download="">ANG200</a>
+        </div>
+        <div class="carte-pdf">
+            <iframe src="chm/" frameborder="0"></iframe>
+            <a href="chm/" download="">ANG200</a>
+        </div>
+        <div class="carte-pdf">
+            <iframe src="chm/" frameborder="0"></iframe>
+            <a href="chm/" download="">ANG200</a>
+        </div>
+        <div class="carte-pdf">
+            <iframe src="chm/" frameborder="0"></iframe>
+            <a href="chm/" download="">ANG200</a>
+        </div>
+        <div class="carte-pdf">
+            <iframe src="chm/" frameborder="0"></iframe>
+            <a href="chm/" download="">ANG200</a>
+        </div>
+        <div class="carte-pdf">
+            <iframe src="chm/" frameborder="0"></iframe>
+            <a href="chm/" download="">ANG200</a>
+        </div>
+        <div class="carte-pdf">
+            <iframe src="chm/" frameborder="0"></iframe>
+            <a href="chm/" download="">ANG200</a>
+        </div>
+      </div>
+
+<br><hr style="border-bottom: 3px solid white; margin: 20px;">
+        <div class="moi">
+            <div>
+                <a href="https://wa.me/message/HV4JYRVP3J2IP1" style="display: inline-block;"><img src="IMG/whatsapp.svg" alt="whatsapp" width="" height="30px">
+                    <span style="margin-left: 20px; margin-top: 30px; color: white;">Quelque chose!?</span>
+                </a>
+            </div>
+        </div>
+<br><hr>
+    </template>
+
+    <template id="math-ia" data-titre="">
+        <p class="mi">En course de development...</p>
+    </template>
+
+    <template id="phy-ia">
+        <p class="mi">bientôt disponible!</p>
+    </template>
+
+    <template id="chm-ia">
+        <p class="mi">En course de development...</p>
+    </template>
+
+
+
+    <script src="index.js"></script>
 </body>
 </html>
