@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="index.css">
     <link rel="shortcut icon" href="IMG/iconeFDS.png" type="image/x-icon">
-    <title>FDS WEB TG</title>
+    <title>FDS2025</title>
 </head>
 <body>
 
@@ -15,31 +15,31 @@
             <div class="carte-enfant">
                 <div class="carte-enfant-1">
                     <input type="checkbox" id="math-active" class="math-active-design">
-                    <label for="math-active" style="color: rgb(128, 5, 243); font-weight: 600; ">mathématiques</label>
+                    <label for="math-active" style="color: rgb(128, 5, 243); font-weight: 600; opacity: 0.5;">mathématiques</label>
                     <div class="sous-carte-math">
                         <div><a href="javascript:void(0)" class="saison" onclick="charger('page-harm-math')">harmattan</a></div>
-                        <div><a href="javascript:void(0)" class="saison" onclick="charger('page-mous-math')"">mousson</a></div>
-                        <div><a href="javascript:void(0)" class="saison" onclick="charger('page-td-math')">td & exercices</a></div>
+                        <div><a href="javascript:void(0)" class="saison" onclick="charger('page-mous-math')">mousson</a></div>
+                        <div><a href="javascript:void(0)" class="saison" onclick="charger('page-td-math')">m-docs</a></div>
                         <div><a href="javascript:void(0)" class="saison" onclick="charger('math-ia')"> - IA </a></div>
                     </div>
                 </div>
                 <div class="carte-enfant-2">
                     <input type="checkbox" id="phys-active" class="phys-active-design">
-                    <label for="phys-active" style="color: rgb(4, 0, 255); font-weight: 600; ">physique</label>
+                    <label for="phys-active" style="color: rgb(4, 0, 255); font-weight: 600; opacity: 0.5;">physique</label>
                     <div class="sous-carte-phys">
                         <div><a href="javascript:void(0)" class="saison" onclick="charger('page-harm-phy')">harmattan</a></div>
                         <div><a href="javascript:void(0)" class="saison" onclick="charger('page-mous-phy')">mousson</a></div>
-                        <div><a href="javascript:void(0)" class="saison" onclick="charger('page-td-phy')">td & exercices</a></div>
+                        <div><a href="javascript:void(0)" class="saison" onclick="charger('page-td-phy')">p-docs</a></div>
                         <div><a href="javascript:void(0)" class="saison" onclick="charger('phy-ia')"> - IA -</a></div>
                     </div>
                 </div>
                 <div class="carte-enfant-3">
                     <input type="checkbox" id="chim-active" class="chim-active-design">
-                    <label for="chim-active" style="color: rgb(0, 132, 255); font-weight: 600; ">chimie</label>
+                    <label for="chim-active" style="color: rgb(0, 132, 255); font-weight: 600; opacity: 0.5;">chimie</label>
                     <div class="sous-carte-chim">
                         <div><a href="javascript:void(0)" class="saison" onclick="charger('page-harm-chm')">harmattan</a></div>
                         <div><a href="javascript:void(0)" class="saison" onclick="charger('page-mous-chm')">mousson</a></div>
-                        <div><a href="javascript:void(0)" class="saison" onclick="charger('page-td-chm')">td & exercices</a></div>
+                        <div><a href="javascript:void(0)" class="saison" onclick="charger('page-td-chm')">c-docs</a></div>
                         <div><a href="javascript:void(0)" class="saison" onclick="charger('chm-ia')"> IA -</a></div>
                     </div>
                 </div>
@@ -50,7 +50,7 @@
     <h1 id="page-title">bienvenu</h1>
     <div id="main-display">Page En Cours ...</div>
 
-    <template id="page-accueil" data-titre="page d'accueil">
+    <template id="page-accueil" data-titre="">
         <h1></h1>
         <div class="scroll-container">
   <div class="scroll-text">
@@ -85,11 +85,12 @@
 <br><div class="info-cadre">
     <div style="font-size: 24px; text-transform: uppercase; box-shadow: 0 5px 10px rgb(112, 111, 111);
      width: 200px; text-align: center; margin: 10px auto; font-weight: 700; font-family: sans-serif; text-align: center;" >information</div>
+
     <br><p style="text-align: justify;">Pour vous faciliter les recherches sur la page de <span style="color: red;">TD</span> on a préféré mettre dans chaque page de TD sont <span style="color: red;">PDF respective</span>.
  <br>Par exemple <span style="color: blue;">si vous chercher TD de mathématique, vous allez vous rendre dans la section TD & EXERCICES de la page Mathématique.</span> 
 <br>Et cela s’applique au deux autre.
 <br><hr style=" background-color: red; margin: 5px;">
-<p style="text-align: center; text-transform: capitalize; color: blue;"> Cliquer sur le nom (situe en bas ou à gauche) du document pour le télécharger !</p>
+<p style="text-align: center; text-transform: capitalize; color: blue;"> Cliquer sur le nom (situe en bas ou à droite) du document pour le télécharger !</p>
 </p>
 <br><hr><p> NB: Pour l’instant, certains documents ne sont pas encore disponible mais nous nous les mettrons en ajour dès que possible. </p>
 </div>
@@ -112,7 +113,7 @@
 
     </template>
 
-    <template id="page-harm-math" data-titre="page harm math">
+    <template id="page-harm-math" data-titre="">
         <h1></h1>
         <div class="tableau-pdf">
             <div class="sous-pdf">
@@ -137,8 +138,8 @@
                     <iframe src="math/Cours MTH 101 complet.pdf" frameborder="0"></iframe>
                 <br><a href="math/Cours MTH 101 complet.pdf" download="">MATH101</a>
                 </div><div class="carte-pdf">
-                    <iframe src="math/" frameborder="0"></iframe>
-                <br><a href="math/" download="">MATH103</a>
+                    <iframe src="phy/MTH103.pdf" frameborder="0"></iframe>
+                <br><a href="phy/MTH103.pdf" download="">MATH103</a>
                 </div>
                 <div class="carte-pdf">
                     <iframe src="math/" frameborder="0"></iframe>
@@ -176,8 +177,8 @@
         </div>
 
         <div class="carte-pdf">
-            <iframe src="math/COURS DINFO 100.pdf" frameborder="0"></iframe>
-            <br><a href="math/COURS DINFO 100.pdf" download="">INFO100</a>
+            <iframe src="math/cours complet de MTH160.pdf" frameborder="0"></iframe>
+            <br><a href="math/cours complet de MTH160.pdf" download="">MTH160</a>
         </div>
 
         <div class="carte-pdf">
@@ -350,10 +351,21 @@
         </div>
 
         <div class="carte-pdf">
-            <iframe src="phy/E" frameborder="0"></iframe>
-            <br><a href="phy/E" download="">MTH103</a>
+            <iframe src="phy/MTH103.pdf" frameborder="0"></iframe>
+            <br><a href="phy/MTH103.pdf" download="">MTH103</a>
         </div>
-     </div>
+
+        <div class="carte-pdf">
+            <iframe src="phy/CHM101 Cours complet.pdf" frameborder="0"></iframe>
+            <br><a href="phy/CHM101 Cours complet.pdf" download="">CHM101</a>
+        </div>
+    
+
+        <div class="carte-pdf">
+            <iframe src="phy/CHM106.pdf" frameborder="0"></iframe>
+            <br><a href="phy/CHM106.pdf" download="">CHM106</a>
+        </div>
+    </div>
 
 <br><hr style="border-bottom: 3px solid white; margin: 20px;">
         <div class="moi">
@@ -470,38 +482,69 @@
     
     <template id="page-harm-chm" data-titre="">
       <div class="position-pdf">
+        
         <div class="carte-pdf">
-            <iframe src="chm/" frameborder="0"></iframe>
-            <a href="chm/" download="">ANG200</a>
+            <iframe src="phy/ANG200.pdf" frameborder="0"></iframe>
+            <br><a href="phy/" download="">ANG200</a>
         </div>
+
         <div class="carte-pdf">
-            <iframe src="chm/" frameborder="0"></iframe>
-            <a href="chm/" download="">ANG200</a>
+            <iframe src="phy/PHY 104.pdf" frameborder="0"></iframe>
+            <br></BR><a href="phy/PHY 104.pdf" download="">PHY104</a>
         </div>
+
         <div class="carte-pdf">
-            <iframe src="chm/" frameborder="0"></iframe>
-            <a href="chm/" download="">ANG200</a>
+            <iframe src="phy/PHY106 _ Chap 1 cinematic.pdf" frameborder="0"></iframe>
+            <br><a href="phy/PHY106_Chap_1_cinematic.pdf" download="">PHY106(1)</a>
         </div>
+
         <div class="carte-pdf">
-            <iframe src="chm/" frameborder="0"></iframe>
-            <a href="chm/" download="">ANG200</a>
+            <iframe src="phy/PHY106_Chap_2_Mvts_particuliers.pdf" frameborder="0"></iframe>
+            <br><a href="phy/PHY106_Chap_2_Mvts_particuliers.pdf" download="">PHY106(2)</a>
         </div>
+
         <div class="carte-pdf">
-            <iframe src="chm/" frameborder="0"></iframe>
-            <a href="chm/" download="">ANG200</a>
+            <iframe src="phy/PHY106_Chap3.pdf" frameborder="0"></iframe>
+            <br><a href="phy/PHY106_Chap3.pdf" download="">PHY106(3)</a>
         </div>
+
         <div class="carte-pdf">
-            <iframe src="chm/" frameborder="0"></iframe>
-            <a href="chm/" download="">ANG200</a>
+            <iframe src="phy/PHY106_Outils mathématique.pdf" frameborder="0"></iframe>
+            <br><a href="phy/PHY106_Outils mathématique.pdf" download="">PHY106(OUTILS)</a>
         </div>
+
         <div class="carte-pdf">
-            <iframe src="chm/" frameborder="0"></iframe>
-            <a href="chm/" download="">ANG200</a>
+            <iframe src="phy/PHY106_point_materiel.pdf" frameborder="0"></iframe>
+            <br><a href="phy/PHY106_point_materiel.pdf" download="">POINT MATHERIEL</a>
         </div>
+
         <div class="carte-pdf">
-            <iframe src="chm/" frameborder="0"></iframe>
-            <a href="chm/" download="">ANG200</a>
-        </div>  
+            <iframe src="phy/MATH100.pdf" frameborder="0"></iframe>
+            <br><a href="phy/MATH100.pdf" download="">MTH100</a>
+        </div>
+
+        <div class="carte-pdf">
+            <iframe src="phy/Cours MTH 101 complet.pdf" frameborder="0"></iframe>
+            <br><a href="phy/Cours MTH 101 complet.pdf" download="">MTH101</a>
+        </div>
+
+        <div class="carte-pdf">
+            <iframe src="phy/MTH103.pdf" frameborder="0"></iframe>
+            <br><a href="phy/MTH103.pdf" download="">MTH103</a>
+        </div>
+
+        <div class="carte-pdf">
+            <iframe src="phy/CHM101 Cours complet.pdf" frameborder="0"></iframe>
+            <br><a href="phy/CHM101 Cours complet.pdf" download="">CHM101</a>
+        </div>
+    
+
+        <div class="carte-pdf">
+            <iframe src="phy/CHM106.pdf" frameborder="0"></iframe>
+            <br><a href="phy/CHM106.pdf" download="">CHM105</a>
+        </div>
+
+
       </div>
 <br><hr style="border-bottom: 3px solid white; margin: 20px;">
         <div class="moi">
@@ -567,38 +610,48 @@
 
     <template id="page-mous-chm" data-titre="">
       <div class="position-pdf">
+        
+        <div class="position-pdf">
         <div class="carte-pdf">
-            <iframe src="chm/" frameborder="0"></iframe>
-            <a href="chm/" download="">ANG200</a>
+            <iframe src="phy/ANG201 fULL.pdf" frameborder="0"></iframe>
+            <br><a href="phy/ANG201 fULL.pdf" download="">ANG201</a>
         </div>
+
         <div class="carte-pdf">
-            <iframe src="chm/" frameborder="0"></iframe>
-            <a href="chm/" download="">ANG200</a>
+            <iframe src="phy/MATH104 now.pdf" frameborder="0"></iframe>
+            <br></BR><a href="phy/MATH104 now.pdf" download="">MTH104</a>
         </div>
+
         <div class="carte-pdf">
-            <iframe src="chm/" frameborder="0"></iframe>
-            <a href="chm/" download="">ANG200</a>
+            <iframe src="math/cours complet de MTH160.pdf" frameborder="0"></iframe>
+            <br><a href="math/cours complet de MTH160.pdf" download="">MTH160</a>
         </div>
+
         <div class="carte-pdf">
-            <iframe src="chm/" frameborder="0"></iframe>
-            <a href="chm/" download="">ANG200</a>
+            <iframe src="phy/Cours Chapitre 1&2  de MTH 102.pdf" frameborder="0"></iframe>
+            <br><a href="phy/Cours Chapitre 1&2  de MTH 102.pdf" download="">MTH102</a>
         </div>
+
         <div class="carte-pdf">
-            <iframe src="chm/" frameborder="0"></iframe>
-            <a href="chm/" download="">ANG200</a>
+            <iframe src="phy/cours complet de PHY 110.pdf" frameborder="0"></iframe>
+            <br><a href="phy/cours complet de PHY 110.pdf" download="">PHY110</a>
         </div>
+
         <div class="carte-pdf">
-            <iframe src="chm/" frameborder="0"></iframe>
-            <a href="chm/" download="">ANG200</a>
+            <iframe src="phy/PHY108.pdf" frameborder="0"></iframe>
+            <br><a href="phy/PHY108.pdf" download="">PHY108</a>
         </div>
+
         <div class="carte-pdf">
-            <iframe src="chm/" frameborder="0"></iframe>
-            <a href="chm/" download="">ANG200</a>
+            <iframe src="phy/Cours complet de chm 103.pdf" frameborder="0"></iframe>
+            <br><a href="phy/Cours complet de chm 103.pdf" download="">CHM103</a>
         </div>
+
         <div class="carte-pdf">
-            <iframe src="chm/" frameborder="0"></iframe>
-            <a href="chm/" download="">ANG200</a>
+            <iframe src="phy/COURS DINFO 100.pdf" frameborder="0"></iframe>
+            <br><a href="phy/COURS DINFO 100.pdf" download="">INFO100</a>
         </div>
+
       </div>
 
 <br><hr style="border-bottom: 3px solid white; margin: 20px;">
@@ -616,36 +669,36 @@
     <template id="page-td-chm" data-titre="">
       <div class="position-pdf">
         <div class="carte-pdf">
-            <iframe src="chm/" frameborder="0"></iframe>
-            <a href="chm/" download="">ANG200</a>
+            <iframe src="chm/td chm/3 CHM106_TD THERMO.pdf" frameborder="0"></iframe>
+            <br><a href="chm/td chm/3 CHM106_TD THERMO.pdf" download="">TD CHM105</a>
+        </div>
+        <div class="carte-pdf">
+            <iframe src="chm/td chm/tableau-periodic.pdf" frameborder="0"></iframe>
+            <br><a href="chm/td chm/tableau-periodic.pdf" download="">Tb PERIODIQUE</a>
+        </div>
+        <div class="carte-pdf">
+            <iframe src="chm/td chm/TD_ CHM103.pdf" frameborder="0"></iframe>
+            <br><a href="chm/td chm/TD_ CHM103.pdf" download="">TD CHM103</a>
         </div>
         <div class="carte-pdf">
             <iframe src="chm/" frameborder="0"></iframe>
-            <a href="chm/" download="">ANG200</a>
+            <br><a href="chm/" download="">NON DISPO</a>
         </div>
         <div class="carte-pdf">
             <iframe src="chm/" frameborder="0"></iframe>
-            <a href="chm/" download="">ANG200</a>
+            <br><a href="chm/" download="">NON DISPO</a>
         </div>
         <div class="carte-pdf">
             <iframe src="chm/" frameborder="0"></iframe>
-            <a href="chm/" download="">ANG200</a>
+            <br><a href="chm/" download="">NON DISPO</a>
         </div>
         <div class="carte-pdf">
             <iframe src="chm/" frameborder="0"></iframe>
-            <a href="chm/" download="">ANG200</a>
+            <br><a href="chm/" download="">NON DISPO</a>
         </div>
         <div class="carte-pdf">
             <iframe src="chm/" frameborder="0"></iframe>
-            <a href="chm/" download="">ANG200</a>
-        </div>
-        <div class="carte-pdf">
-            <iframe src="chm/" frameborder="0"></iframe>
-            <a href="chm/" download="">ANG200</a>
-        </div>
-        <div class="carte-pdf">
-            <iframe src="chm/" frameborder="0"></iframe>
-            <a href="chm/" download="">ANG200</a>
+            <br><a href="chm/" download="">NON DISPO</a>
         </div>
       </div>
 

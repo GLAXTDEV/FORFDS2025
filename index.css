@@ -11,8 +11,8 @@ body {
 }
 
 .carte-mere {
-    background-color: #eee;
-    position: fixed;
+    background-color: #eeeeee;
+    position: relative;
     width: 100%;
     top: 0;
     left: 0;
@@ -20,6 +20,14 @@ body {
     z-index: 1000;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     user-select: none;
+}
+@media (min-width: 550px) {
+    .carte-mere{
+    background-image: url(IMG/iconeFDS.png);
+    background-position: center;
+    background-repeat: repeat;
+    background-size: contain;
+    }
 }
 
 .text-1{
@@ -30,12 +38,13 @@ body {
 }
 @keyframes opacite {
     50%{
-        opacity: 0.2;
+        opacity: 0.5;
     }
     100%{
         opacity: 1;
     }  
 }
+
 .text-1:hover{
     color: blue;
 }
@@ -51,16 +60,37 @@ body {
     border-width: 100%;
     user-select: none;
 }
+@media (min-width: 550px){
+    .text-fds{
+        border: none;
+        letter-spacing: 70%;
+    }
+}
 
 .text-fds a {
     color: #000000;
     transition: color 0.3s ease;
     user-select: none;
 }
+@media (min-width: 550px){
+    .text-fds a{
+        color: white;
+        border-radius: 5px;
+        padding: 8px;
+        text-shadow: 0 10px 15px cyan;
+    }
+}
 
 .text-fds a:hover {
     color: rgb(128, 5, 243);
 }
+@media (min-width: 550px){
+    .text-fds a:hover{
+        background-color: white;
+        box-shadow: 0 4px 5px;
+    }
+}
+
 
 .dressage {
     margin-left: -8px;
@@ -74,11 +104,24 @@ a {
 }
 
 .carte-enfant-1, .carte-enfant-2, .carte-enfant-3 {
-    background-color: #fff;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.03),
+                inset 0 4px 4px rgba(255, 255, 255, 0.6),
+                inset 0 -4px 4px rgba(0, 0, 0, 0.02);
     text-transform: uppercase;
     font-size: 18px;
     padding: 10px 20px;
+    border-radius: 8px;
     user-select: none;
+}
+@media (min-width: 550px){
+    .carte-enfant-1, .carte-enfant-2, .carte-enfant-3{
+        width: 40%;
+        border-radius: 4px;
+        text-align: center;
+    }
 }
 
 .carte-enfant {
@@ -109,13 +152,27 @@ a {
     color: darkblue;
     user-select: none;
     user-select: none;
+    opacity: 0.8;
+}
+@media (min-width: 550px){
+    .saison{
+        color: white;
+        background-image: url(IMG/font13.gif);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .saison:hover{
+        color: orange;
+        font-weight: 700;
+        font-size: 18pxpx;
+    }
 }
 
 .saison a {
     color: darkblue;
     transition: color 0.3s ease;
     user-select: none;
-
 }
 
 .saison a:hover {
@@ -263,7 +320,7 @@ a {
 }
 
 #main-display{
-    margin-top: 100px;
+    margin-top: 30px;
 }
 
 
@@ -279,7 +336,7 @@ a {
 }
 @media screen and (min-width: 550px) {
    .scroll-container{
-      width: 600px;
+      width: 100%;
       padding: 20px 0;
       margin: 5px auto;
       border-radius: 50px;
@@ -342,7 +399,9 @@ a {
       margin: 30px auto;
       max-width: 800px;
       max-height: 600px;
-      
+      box-shadow: 0 4px 5px rgb(172, 172, 172);
+      border-radius: 0;
+      max-width: 100%;  
    }
    
 }
@@ -493,6 +552,12 @@ a {
     user-select: none;
     box-shadow: 0 4PX 10PX rgb(199, 198, 198);
 }
+@media (min-width: 550px){
+    .info-cadre{
+        width: 100%;
+        border-radius: 0;
+    }
+}
 
 .moi{
     background-color: #fff;
@@ -542,8 +607,8 @@ iframe{
     }
     iframe{
         border-radius: 0;
-        width: 350px;
-        height: 200px;
+        width: 500px;
+        height: 250px;
     }
 }
 
