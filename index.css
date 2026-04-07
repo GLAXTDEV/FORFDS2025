@@ -537,7 +537,8 @@ a {
 }
 @media screen and (min-width: 550px){
    #contacts{
-      gap: 10px;
+      gap: 30px;
+      box-shadow: none;
    }
 }
 
