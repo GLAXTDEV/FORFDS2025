@@ -145,6 +145,18 @@ a {
     user-select: none;
 }
 
+.math, .phy, .chm{
+    color: rgb(0, 47, 255);
+    font-weight: 700;
+    opacity: 1;
+}
+@media (min-width: 550px) {
+    .math, .phy, .chm{
+        color: cyan;
+    }
+}
+
+
 .saison {
     display: flex;
     gap: 20px;
@@ -600,12 +612,12 @@ iframe{
         flex-direction: row;
         flex-wrap: wrap;
         width: 100%;
-        gap: none;
+        gap: 40px;
     }
     .carte-pdf{
         display: flex;
         flex-direction: row;
-        flex: 0 0 33%;
+        flex: 0 0 23%;
     }
     iframe{
         border-radius: 0;
