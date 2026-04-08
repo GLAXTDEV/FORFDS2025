@@ -123,6 +123,9 @@ a {
         width: 40%;
         border-radius: 4px;
         text-align: center;
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.03),
+                inset 0 4px 4px rgba(255, 255, 255, 0.6),
+                inset 0 -4px 4px rgba(0, 0, 0, 0.03);
     }
 }
 
@@ -648,4 +651,31 @@ iframe{
     left: 20%;
     transform: translate(50% 50%);
     text-align: center;
+}
+
+.uph {
+    background-color: transparent;
+    padding: px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 0px;
+    left: 88%;
+    margin-bottom: 10px;
+    z-index: 1000;
+}
+.uph{
+    animation: haute 4000ms linear infinite;
+}
+@keyframes haute {
+    0%{
+        transform: translateY(0);
+    }
+    100%{
+        transform: translateY(-100%);
+    }
 }
