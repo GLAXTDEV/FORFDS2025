@@ -39,7 +39,7 @@ body {
 }
 @keyframes opacite {
     50%{
-        opacity: 0.5;
+        opacity: 0.2;
     }
     100%{
         opacity: 1;
@@ -116,6 +116,7 @@ a {
     padding: 10px 20px;
     border-radius: 8px;
     user-select: none;
+    text-align: start;
 }
 @media (min-width: 550px){
     .carte-enfant-1, .carte-enfant-2, .carte-enfant-3{
