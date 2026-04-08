@@ -11,7 +11,7 @@
 <body>
 
     <div class="carte-mere">
-        <p class="text-fds"><a href="javascript:void(0)" onclick="charger('page-accueil')" id="haut"><span class="text-1">faculté des sciences</span></a></p>
+        <p class="text-fds"><a href="javascript:void(0)" onclick="charger('page-accueil')"><span class="text-1">faculté des sciences</span></a></p>
         <div class="dressage">
             <div class="carte-enfant">
                 <div class="carte-enfant-1">
@@ -49,7 +49,11 @@
     </div>
 
     <h1 id="page-title">bienvenu</h1>
-    <div id="main-display">Page En Cours ...</div>
+    <div id="main-display">
+        Page En Cours ...
+        <br style="color: red;"><span>Si c’est lent vérifier votre connexion internet …</span>
+        <br><span style="color: green;">Si tout va bien et que la page ne s’affiche pas veillez l’actualiser de nouveau.</span>
+    </div>
 
     <template id="page-accueil" data-titre="">
         <h1></h1>
@@ -84,12 +88,12 @@
 </div>
 
 <br><div class="info-cadre">
-    <div style="font-size: 24px; text-transform: uppercase; box-shadow: 0 5px 10px rgb(112, 111, 111);
+    <div style="font-size: 24px; text-transform: uppercase; box-shadow: 0 5px 10px rgb(196, 195, 195);border-radius: 4px;
      width: 200px; text-align: center; margin: 10px auto; font-weight: 700; font-family: sans-serif; text-align: center;" >information</div>
 
     <br><p style="text-align: justify;">Pour vous faciliter les recherches sur la page de <span style="color: red;">TD</span> on a préféré mettre dans chaque page de TD sont <span style="color: red;">PDF respective</span>.
  <br>Par exemple <span style="color: blue;">si vous chercher TD de mathématique, vous allez vous rendre dans la section <span style="color: red; text-transform: capitalize;">m-docs</span> de la page Mathématique.</span> 
-<br>Et cela s’applique au deux autre.
+<br>Et cela s’applique aux deux autres.
 <br><hr style=" background-color: red; margin: 5px;">
 <p style="text-align: center; text-transform: capitalize; color: blue;"> Cliquer sur <span style="color: red;">le nom </span>(situe en bas ou à droite) du document pour <span style="color: red;">le télécharger</span> !</p>
 </p>
@@ -100,17 +104,17 @@
 <div class="bottom-elem">
 
   <div id="contacts">
-    <a href="mailto:theglaxt@gmail.com" class="mun"><img src="IMG/gmail.svg" alt="Gmail"  width="" height="30px" ></a>
-    <a href="https://discord.gg/ua2gcus2" class="mun"><img src="../IMG/discord.svg" alt="discorde" width="" height="30px"></a>
-    <a href="https://x.com/TheGlaxt" class="mun"><img src="../IMG/x.svg" alt="x (twitter)" width="" height="30px"></a>
-    <a href="https://www.instagram.com/glaxtdev?utm_source=qr&igsh=aHB6MmsxNms3amM1" class="mun"><img src="../IMG/instagram.svg" alt="instagram" width="" height="30px"></a>
+    <a href="mailto:theglaxt@gmail.com" target="_blank" rel="noopener noreferrer" class="mun"><img src="IMG/gmail.svg" alt="Gmail"  width="" height="30px" ></a>
+    <a href="https://discord.gg/ua2gcus2" target="_blank" rel="noopener noreferrer class="mun"><img src="../IMG/discord.svg" alt="discorde" width="" height="30px"></a>
+    <a href="https://x.com/TheGlaxt" target="_blank" rel="noopener noreferrer class="mun"><img src="../IMG/x.svg" alt="x (twitter)" width="" height="30px"></a>
+    <a href="https://www.instagram.com/glaxtdev?utm_source=qr&igsh=aHB6MmsxNms3amM1" target="_blank" rel="noopener noreferrer class="mun"><img src="../IMG/instagram.svg" alt="instagram" width="" height="30px"></a>
   </div>
   
   <div class="propos-site"><span class="avis-creator"></span>
     <p class="paragraphe-site" style="font-size: 10px; padding: 10px; user-select: none;"> &copy; <span style="color: black;">FDSWEB</span> Tout droits reserve.</p> 
   </div>
     
-<div class="uph"><a href="#haut"><img src="IMG/circle-chevron-up.svg" alt=""></a></div>
+
 </div>
 
     </template>
@@ -130,7 +134,7 @@
                 </div>
                 <div class="carte-pdf">
                     <iframe src="math/PHY 106 (1)_041023.pdf" frameborder="0"></iframe>
-                <br><a href="math/" download="">PHY106</a>
+                <br><a href="math/PHY 106 (1)_041023.pdf" download="">PHY106</a>
                 </div>
                 <div class="carte-pdf">
                     <iframe src="math/MATH100.pdf" frameborder="0"></iframe>
@@ -309,7 +313,7 @@
      <div class="position-pdf">
         <div class="carte-pdf">
             <iframe src="phy/ANG200.pdf" frameborder="0"></iframe>
-            <br><a href="phy/" download="">ANG200</a>
+            <br><a href="phy/ANG200.pdf" download="">ANG200</a>
         </div>
 
         <div class="carte-pdf">
@@ -487,7 +491,7 @@
         
         <div class="carte-pdf">
             <iframe src="phy/ANG200.pdf" frameborder="0"></iframe>
-            <br><a href="phy/" download="">ANG200</a>
+            <br><a href="phy/ANG200.pdf" download="">ANG200</a>
         </div>
 
         <div class="carte-pdf">
@@ -560,53 +564,6 @@
 
     </template>
 
-
-
-    <template id="page-harm-chm" data-titre="">
-      <div class="position-pdf">
-        <div class="carte-pdf">
-            <iframe src="chm/" frameborder="0"></iframe>
-            <a href="chm/" download="">ANG200</a>
-        </div>
-        <div class="carte-pdf">
-            <iframe src="chm/" frameborder="0"></iframe>
-            <a href="chm/" download="">ANG200</a>
-        </div>
-        <div class="carte-pdf">
-            <iframe src="chm/" frameborder="0"></iframe>
-            <a href="chm/" download="">ANG200</a>
-        </div>
-        <div class="carte-pdf">
-            <iframe src="chm/" frameborder="0"></iframe>
-            <a href="chm/" download="">ANG200</a>
-        </div>
-        <div class="carte-pdf">
-            <iframe src="chm/" frameborder="0"></iframe>
-            <a href="chm/" download="">ANG200</a>
-        </div>
-        <div class="carte-pdf">
-            <iframe src="chm/" frameborder="0"></iframe>
-            <a href="chm/" download="">ANG200</a>
-        </div>
-        <div class="carte-pdf">
-            <iframe src="chm/" frameborder="0"></iframe>
-            <a href="chm/" download="">ANG200</a>
-        </div>
-        <div class="carte-pdf">
-            <iframe src="chm/" frameborder="0"></iframe>
-            <a href="chm/" download="">ANG200</a>
-        </div>
-      </div>  
-
-<br><hr style="border-bottom: 3px solid white; margin: 20px;">
-        <div class="moi">
-            <div>
-                <a href="https://wa.me/message/HV4JYRVP3J2IP1" style="display: inline-block;"><img src="IMG/whatsapp.svg" alt="whatsapp" width="" height="30px">
-                    <span style="margin-left: 20px; margin-top: 30px; color: white;">Quelque chose!?</span>
-                </a>
-            </div>
-        </div>
-<br><hr>
 
     </template>
 
@@ -683,24 +640,24 @@
             <br><a href="chm/td chm/TD_ CHM103.pdf" download="">TD CHM103</a>
         </div>
         <div class="carte-pdf">
-            <iframe src="chm/" frameborder="0"></iframe>
-            <br><a href="chm/" download="">NON DISPO</a>
+            <iframe src="" frameborder="0"></iframe>
+            <br><a href="" download="">NON DISPO</a>
         </div>
         <div class="carte-pdf">
-            <iframe src="chm/" frameborder="0"></iframe>
-            <br><a href="chm/" download="">NON DISPO</a>
+            <iframe src="" frameborder="0"></iframe>
+            <br><a href="" download="">NON DISPO</a>
         </div>
         <div class="carte-pdf">
-            <iframe src="chm/" frameborder="0"></iframe>
-            <br><a href="chm/" download="">NON DISPO</a>
+            <iframe src="" frameborder="0"></iframe>
+            <br><a href="" download="">NON DISPO</a>
         </div>
         <div class="carte-pdf">
-            <iframe src="chm/" frameborder="0"></iframe>
-            <br><a href="chm/" download="">NON DISPO</a>
+            <iframe src="" frameborder="0"></iframe>
+            <br><a href="" download="">NON DISPO</a>
         </div>
         <div class="carte-pdf">
-            <iframe src="chm/" frameborder="0"></iframe>
-            <br><a href="chm/" download="">NON DISPO</a>
+            <iframe src="" frameborder="0"></iframe>
+            <br><a href="" download="">NON DISPO</a>
         </div>
       </div>
 
@@ -708,7 +665,7 @@
         <div class="moi">
             <div>
                 <a href="https://wa.me/message/HV4JYRVP3J2IP1" style="display: inline-block;"><img src="IMG/whatsapp.svg" alt="whatsapp" width="" height="30px">
-                    <span style="margin-left: 20px; margin-top: 30px; color: white;">Quelque chose!?</span>
+                    <span style="margin-left: 20px; margin-top: 30px; color: white; text-transform: capitalize;">Quelque chose!?</span>
                 </a>
             </div>
         </div>
@@ -726,7 +683,6 @@
     <template id="chm-ia">
         <p class="mi">En course de development...</p>
     </template>
-
 
 
     <script src="index.js"></script>

@@ -87,7 +87,7 @@ body {
 }
 @media (min-width: 550px){
     .text-fds a:hover{
-        background-color: white;
+        background-color: rgb(255, 253, 253, 0.7);
         box-shadow: 0 4px 5px;
     }
 }
@@ -419,7 +419,9 @@ a {
   user-select: none;
 
   overflow-y: auto; /* Active le scroll vertical */
-  box-shadow: 0 4px 15px rgb(156, 156, 156);
+  box-shadow: 0 4px 15px rgb(158, 158, 158),
+              inset 0px 15px 14px rgb(255, 255, 255),
+              inset 0px 5px 15px rgb(179, 178, 178);
 }
 @media screen and (min-width: 550px) {
    .main-scroll-wrapper{
@@ -578,7 +580,9 @@ a {
     height: auto;
     color: black;
     user-select: none;
-    box-shadow: 0 4PX 10PX rgb(199, 198, 198);
+    box-shadow: 0 4px 15px rgb(158, 158, 158),
+              inset 0px 15px 14px rgb(255, 255, 255),
+              inset 0px 5px 15px rgb(179, 178, 178);
 }
 @media (min-width: 550px){
     .info-cadre{
@@ -651,31 +655,4 @@ iframe{
     left: 20%;
     transform: translate(50% 50%);
     text-align: center;
-}
-
-.uph {
-    background-color: transparent;
-    padding: px;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    bottom: 0px;
-    left: 88%;
-    margin-bottom: 10px;
-    z-index: 1000;
-}
-.uph{
-    animation: haute 4000ms linear infinite;
-}
-@keyframes haute {
-    0%{
-        transform: translateY(0);
-    }
-    100%{
-        transform: translateY(-100%);
-    }
 }
