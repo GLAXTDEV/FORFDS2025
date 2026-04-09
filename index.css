@@ -591,25 +591,6 @@ a {
     }
 }
 
-.moi{
-    background-color: #fff;
-    border: 1px solid #2fbe3b;
-    background-color: #2fbe3b;
-    border-radius: 10px;
-    height: auto;
-    width: 210px;
-    padding: 5px;
-    margin: 0px auto;
-    margin-bottom: 10px;
-    box-shadow: 0 5px 10px rgb(15, 15, 15);
-    user-select: none;
-}
-.moi:hover{
-    background-color: #999999;
-    border-color: white;
-}
-
-
 .position-pdf{
     display: flex;
     flex-direction: column;
@@ -656,3 +637,4 @@ iframe{
     transform: translate(50% 50%);
     text-align: center;
 }
+
