@@ -24,7 +24,8 @@ body {
 }
 @media (min-width: 550px) {
     .carte-mere{
-    background-image: url(IMG/iconeFDS.png);
+    position: fixed;
+    background-image: url(IMG/font5.gif);
     background-position: center;
     background-repeat: repeat;
     background-size: contain;
@@ -78,7 +79,7 @@ body {
         color: white;
         border-radius: 5px;
         padding: 8px;
-        text-shadow: 0 10px 15px cyan;
+        text-shadow: 0 10px 15px rgb(255, 255, 255);
     }
 }
 
@@ -87,8 +88,8 @@ body {
 }
 @media (min-width: 550px){
     .text-fds a:hover{
-        background-color: rgb(255, 253, 253, 0.7);
-        box-shadow: 0 4px 5px;
+        backdrop-filter: blur(5px);
+        box-shadow: 0 0 5px rgb(255, 255, 255, 1);
     }
 }
 
@@ -110,7 +111,7 @@ a {
     border: 1px solid rgba(255, 255, 255, 0.8);
     box-shadow: 0 10px 15px rgba(0, 0, 0, 0.03),
                 inset 0 4px 4px rgba(255, 255, 255, 0.6),
-                inset 0 -4px 4px rgba(0, 0, 0, 0.02);
+                inset 0 -4px 4px 8px rgba(0, 0, 0, 0.02);
     text-transform: uppercase;
     font-size: 18px;
     padding: 10px 20px;
@@ -152,21 +153,25 @@ a {
 .math{
     color: rgb(255, 0, 234);
     font-weight: 700;
-    opacity: 0.5;
+    opacity: 1;
+    font-family: sans-serif;
 }
 .phy{
     color: rgb(4, 0, 255);
     font-weight: 700;
-    opacity: 0.5;
+    opacity: 1;
+    font-family: sans-serif;
 }
 .chm{
     color: rgb(0, 145, 24);
     font-weight: 700;
-    opacity: 0.5;
+    opacity: 1;
+    font-family: sans-serif;
 }
 @media (min-width: 550px) {
     .math, .phy, .chm{
-        color: cyan;
+        background-clip: text;
+        color: rgb(0, 255, 213);
     }
 }
 
@@ -348,6 +353,11 @@ a {
 
 #main-display{
     margin-top: 30px;
+}
+@media (min-width: 550px) {
+    #main-display{
+        margin-top: 190px;
+    }
 }
 
 
@@ -639,7 +649,7 @@ iframe{
     }
     iframe{
         border-radius: 0;
-        width: 200px;
+        width: 220px;
         height: 200px;
     }
 }
@@ -657,11 +667,11 @@ iframe{
     }
     iframe{
         border-radius: 0;
-        width: 200px;
+        width: 250px;
         height: 200px;
     }
 }
-iframe::-webkit-scrollbar-button{
+iframe::-webkit-scrollbar{
     display: none;
 }
 .mi{
