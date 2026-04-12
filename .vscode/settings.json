@@ -1,0 +1,11 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "name": "GLAXT DB",
+            "database": "mabase.db"
+        }
+    ],
+    "sqltools.useNodeRuntime": true
+}

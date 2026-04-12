@@ -609,11 +609,10 @@ iframe{
 
 @media screen and (min-width: 550px) {
     .position-pdf{
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        width: 100%;
-        gap: 40px;
+        display: grid;
+        align-items: center;
+        justify-items: center;
+        grid-template-columns: repeat(2, 1fr);
     }
     .carte-pdf{
         display: flex;
@@ -622,11 +621,49 @@ iframe{
     }
     iframe{
         border-radius: 0;
-        width: 100%;
-        height: 250px;
+        width: 200px;
+        height: 200px;
     }
 }
-
+@media screen and (min-width: 900px){
+    .position-pdf{
+        display: grid;
+        align-items: center;
+        justify-items: center;
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .carte-pdf{
+        display: flex;
+        flex-direction: row;
+        flex: 0 0 30%;
+    }
+    iframe{
+        border-radius: 0;
+        width: 200px;
+        height: 200px;
+    }
+}
+@media screen and (min-width: 2000px){
+    .position-pdf{
+        display: grid;
+        align-items: center;
+        justify-items: center;
+        grid-template-columns: repeat(4, 1fr);
+    }
+    .carte-pdf{
+        display: flex;
+        flex-direction: row;
+        flex: 0 0 30%;
+    }
+    iframe{
+        border-radius: 0;
+        width: 200px;
+        height: 200px;
+    }
+}
+iframe::-webkit-scrollbar-button{
+    display: none;
+}
 .mi{
     font-size: 15px;
     font-weight: 700;
