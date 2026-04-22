@@ -616,7 +616,7 @@ a {
 }
 
 iframe{
-    box-shadow: 0 2px 5px;
+    box-shadow: 0 2px 5px rgba(146, 146, 146);
     border-radius: 10px;
     user-select: none;
     width: 150px;
@@ -627,9 +627,9 @@ iframe{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 10px 0;
-    transform: translate(5px);
     align-items: center;
     justify-content: center;
+    place-items: center;
 }
 
 @media screen and (min-width: 550px) {
