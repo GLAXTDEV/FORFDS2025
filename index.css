@@ -174,7 +174,7 @@ a {
         background-clip: text;
         color: rgb(0, 0, 0);
         font-weight: 900;
-        font-family: 'Times New Roman', Times, serif;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     }
     .math:hover{
         color: darkcyan;
