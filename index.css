@@ -626,8 +626,8 @@ iframe{
 .position-pdf{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 10px 5px;
-    transform: translate(15px);
+    gap: 0px;
+    transform: translate(5px);
     align-items: center;
     justify-content: center;
 }
