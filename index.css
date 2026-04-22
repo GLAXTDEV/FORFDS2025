@@ -25,18 +25,19 @@ body {
 @media (min-width: 550px) {
     .carte-mere{
     position: fixed;
-    background-image: url(IMG/font5.gif);
+    background-image: url(IMG/back38.jpg);
     background-position: center;
     background-repeat: repeat;
-    background-size: contain;
+    background-size: cover;
     }
 }
 
 .text-1{
     font-size: 24px;
-    text-shadow: 0 2px 10px;
+    text-shadow: 0 2px 5px;
     padding: 10px;
     animation: opacite 2000ms linear infinite;
+    color: red;
 }
 @keyframes opacite {
     50%{
@@ -110,7 +111,7 @@ a {
     transition: all 0.3s ease;
     border: 1px solid rgba(255, 255, 255, 0.8);
     box-shadow: 0 10px 15px rgba(0, 0, 0, 0.03),
-                inset 0 4px 4px rgba(255, 255, 255, 0.6),
+                inset 0 -4px 4px rgba(255, 255, 255, 0.6),
                 inset 0 -4px 4px 8px rgba(0, 0, 0, 0.02);
     text-transform: uppercase;
     font-size: 18px;
@@ -122,11 +123,11 @@ a {
 @media (min-width: 550px){
     .carte-enfant-1, .carte-enfant-2, .carte-enfant-3{
         width: 40%;
-        border-radius: 4px;
+        border: none;
+        border-radius: 0px;
         text-align: center;
-        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.03),
-                inset 0 4px 4px rgba(255, 255, 255, 0.6),
-                inset 0 -4px 4px rgba(0, 0, 0, 0.03);
+        box-shadow: none;
+        backdrop-filter: none;
     }
 }
 
@@ -171,7 +172,18 @@ a {
 @media (min-width: 550px) {
     .math, .phy, .chm{
         background-clip: text;
-        color: rgb(0, 255, 213);
+        color: rgb(0, 0, 0);
+        font-weight: 900;
+        font-family: 'Times New Roman', Times, serif;
+    }
+    .math:hover{
+        color: darkcyan;
+    }
+    .phy:hover{
+        color: blueviolet;
+    }
+    .chm:hover{
+        color: darkgreen;
     }
 }
 
@@ -188,16 +200,18 @@ a {
 }
 @media (min-width: 550px){
     .saison{
-        color: white;
-        background-image: url(IMG/font13.gif);
+        color: rgb(0, 47, 255);
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
+        font-weight: 600;
+        box-shadow: 0 2px 5px rgb(255, 255, 255, 0.5);
     }
     .saison:hover{
-        color: orange;
-        font-weight: 700;
-        font-size: 18pxpx;
+        color: rgb(0, 140, 255);
+        font-weight: 900;
+        font-size: 18px;
+        background-color: #eee;
     }
 }
 
@@ -601,20 +615,21 @@ a {
     }
 }
 
-.position-pdf{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 30px;
-}
-
 iframe{
-    box-shadow: 0 5px 10px rgb(179, 179, 179), 
-                inset 0 4px 10px rgb(255, 255, 255, 0.5),
-                inset 0 -4px 4px 8px rgb(0, 0, 0, 0.5);
+    box-shadow: 0 2px 5px;
     border-radius: 10px;
     user-select: none;
+    width: 150px;
+    height: 150px;
+}
+
+.position-pdf{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px 5px;
+    transform: translate(15px);
+    align-items: center;
+    justify-content: center;
 }
 
 @media screen and (min-width: 550px) {
