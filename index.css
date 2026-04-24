@@ -12,15 +12,18 @@ body {
 
 
 .carte-mere {
-    background-color: #eeeeee;
-    position: relative;
+    background-color: #eee;
+    background-size: 200px;
+    background-position: center;
+    position: fixed;
     width: 100%;
     top: 0;
     left: 0;
-    padding: 10px 20px;
+    padding: 5px 10px;
     z-index: 1000;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     user-select: none;
+
 }
 @media (min-width: 550px) {
     .carte-mere{
@@ -30,15 +33,24 @@ body {
         width: 200px;
         height: 100vh;
         z-index: 1000;
+        background-image: none;
+        background-color: #fff;
+
     }
 }
 
 .text-1{
     font-size: 24px;
-    text-shadow: 0 2px 5px;
-    padding: 10px;
-    animation: opacite 2000ms linear infinite;
-    color: red;
+    text-shadow: 0 2px 5px rgb(0, 0, 0);
+    padding: 0px;
+    animation: opacite 3000ms linear infinite;
+    color: rgb(255, 255, 255);
+    font-weight: 900;
+}
+@media (min-width: 550px) {
+    .text-1{
+        color: red;
+    }
 }
 @keyframes opacite {
     50%{
@@ -56,19 +68,28 @@ body {
 .text-fds {
     text-align: center;
     font-family: 'Poppins', sans-serif;
-    font-weight: bold;
+    font-weight: 900;
     margin-top: 5px;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
+    margin-left: 15px;
     text-transform: uppercase;
-    border-bottom: 2px solid #b6b5b5;
+    border-bottom: 0px solid #b6b5b5;
     border-width: 100%;
     user-select: none;
+    letter-spacing: 100%;
+
 }
 @media (min-width: 550px){
     .text-fds{
         text-align: center;
         font-weight: 100;
         border-bottom: 0;
+        letter-spacing: 8%;
+        box-shadow: 0 1px 1px 2px rgb(255, 255, 255, 0.5);
+        background-color: #fff;
+        border-radius: 20px;
+        margin-left: -8px;
+        color: #0199ff;
     }
 }
 
@@ -98,7 +119,8 @@ body {
 
 
 .dressage {
-    margin-left: -8px;
+    margin-left: -10px;
+    background-color: #fff;
 }
 
 a {
@@ -111,16 +133,16 @@ a {
 .carte-enfant-1, .carte-enfant-2, .carte-enfant-3 {
     backdrop-filter: blur(10px);
     transition: all 0.3s ease;
-    border: 1px solid rgba(255, 255, 255, 0.8);
-    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.03),
-                inset 0 -4px 4px rgba(255, 255, 255, 0.6),
-                inset 0 -4px 4px 8px rgba(0, 0, 0, 0.02);
+    border: 1px solid rgba(255, 255, 255);
+    box-shadow: 0 10px 15px 5px rgba(218, 217, 217);
     text-transform: uppercase;
     font-size: 18px;
     padding: 10px 20px;
+    margin: 5px 10px;
     border-radius: 8px;
     user-select: none;
     text-align: start;
+    
 }
 @media (min-width: 550px){
     .carte-enfant-1, .carte-enfant-2, .carte-enfant-3{
@@ -134,11 +156,22 @@ a {
 
 .carte-enfant {
     display: flex;
-    gap: 40px;
-    align-items: center;
-    overflow-x: scroll;
+    gap: 10px;
+    align-items: start;
+    overflow-x: auto;
     user-select: none;
+    justify-content: space-around;
+    position: fixed;
+    width: 100%;
+    margin-top: 5px;
+    background-color: #fff;
 }
+@media (min-width: 550px) {
+    .carte-enfant{
+        position: relative;
+    }
+}
+
 .carte-enfant::-webkit-scrollbar{
     display: none;
 }
@@ -149,8 +182,9 @@ a {
         overflow-x: none;
         justify-content: center;
         align-items: start;
-        width: 100%;
+        width: 200px;
         height: 100%;
+        margin-top: 10px;
     }
 }
 
@@ -207,13 +241,13 @@ a {
 
 .saison {
     display: flex;
-    gap: 20px;
+    gap: 0px;
     margin-top: 10px;
     border-bottom: 1px solid #bebcbc;
     color: darkblue;
     user-select: none;
     user-select: none;
-    opacity: 0.8;
+    opacity: 1;
 }
 @media (min-width: 550px){
     .saison{
@@ -289,7 +323,7 @@ a {
 @keyframes scroll {
     from {
         opacity: 0;
-        transform: translateY(-10px);
+        transform: translateY(-15px);
     }
     to {
         opacity: 1;
@@ -380,7 +414,7 @@ a {
 }
 
 #main-display{
-    margin-top: 30px;
+    margin-top: 120px;
 }
 @media (min-width: 550px) {
     #main-display{
