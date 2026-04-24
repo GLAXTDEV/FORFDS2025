@@ -166,12 +166,6 @@ a {
     margin-top: 5px;
     background-color: #fff;
 }
-@media (min-width: 550px) {
-    .carte-enfant{
-        position: relative;
-    }
-}
-
 .carte-enfant::-webkit-scrollbar{
     display: none;
 }
@@ -330,6 +324,7 @@ a {
         transform: translateY(0);
     }
 }
+
 
 /* Conteneur principal pour le contenu SPA */
 #view {
