@@ -5,14 +5,14 @@
 }
 
 body {
-    background-color: #eee;
+    background-color: #eeeeee;
     height: 100vh;
     color: #050505;
 }
 
 
 .carte-mere {
-    background-color: #eee;
+    background-color: #fff;
     background-size: 200px;
     background-position: center;
     position: fixed;
@@ -27,24 +27,17 @@ body {
 }
 @media (min-width: 550px) {
     .carte-mere{
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 200px;
-        height: 100vh;
-        z-index: 1000;
-        background-image: none;
         background-color: #fff;
-
+        position: relative;
     }
 }
 
 .text-1{
     font-size: 24px;
     text-shadow: 0 2px 5px rgb(0, 0, 0);
-    padding: 0px;
+    padding: 2px;
     animation: opacite 3000ms linear infinite;
-    color: rgb(255, 255, 255);
+    color: rgb(255, 0, 0);
     font-weight: 900;
 }
 @media (min-width: 550px) {
@@ -77,7 +70,6 @@ body {
     border-width: 100%;
     user-select: none;
     letter-spacing: 100%;
-
 }
 @media (min-width: 550px){
     .text-fds{
@@ -90,6 +82,7 @@ body {
         border-radius: 20px;
         margin-left: -8px;
         color: #0199ff;
+        letter-spacing: 100%;
     }
 }
 
@@ -120,7 +113,7 @@ body {
 
 .dressage {
     margin-left: -10px;
-    background-color: #fff;
+
 }
 
 a {
@@ -134,7 +127,7 @@ a {
     backdrop-filter: blur(10px);
     transition: all 0.3s ease;
     border: 1px solid rgba(255, 255, 255);
-    box-shadow: 0 10px 15px 5px rgba(218, 217, 217);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
     text-transform: uppercase;
     font-size: 18px;
     padding: 10px 20px;
@@ -142,8 +135,9 @@ a {
     border-radius: 8px;
     user-select: none;
     text-align: start;
-    
 }
+
+
 @media (min-width: 550px){
     .carte-enfant-1, .carte-enfant-2, .carte-enfant-3{
         display: flex;
@@ -158,34 +152,32 @@ a {
     display: flex;
     gap: 10px;
     align-items: start;
-    overflow-x: auto;
+    overflow-x: scroll;
     user-select: none;
     justify-content: space-around;
-    position: fixed;
-    width: 100%;
-    margin-top: 5px;
-    background-color: #fff;
 }
+@keyframes scroll {
+    0%{
+        transform: translateX(0);
+    }    
+    100%{
+        transform: translate(-100%);
+    } 
+}
+
 .carte-enfant::-webkit-scrollbar{
     display: none;
 }
 @media (min-width: 550px) {
     .carte-enfant{
-        display: flex;
-        flex-direction: column;
-        overflow-x: none;
-        justify-content: center;
-        align-items: start;
-        width: 200px;
-        height: 100%;
-        margin-top: 10px;
+        position: relative;
     }
 }
 
 .sous-carte-math, .sous-carte-phys, .sous-carte-chim {
     color: rgb(0, 0, 0);
     text-transform: capitalize;
-    margin-left: -5px;
+    margin-left: -0px;
     color: darkblue;
     margin-top: 10px;
     user-select: none;
@@ -199,6 +191,10 @@ a {
     font-weight: 700;
     opacity: 1;
     font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
 
 }
 .phy{
@@ -206,12 +202,20 @@ a {
     font-weight: 700;
     opacity: 1;
     font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
 }
 .chm{
     color: rgb(0, 145, 24);
     font-weight: 700;
     opacity: 1;
     font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
 }
 @media (min-width: 550px) {
     .math, .phy, .chm{
@@ -283,7 +287,7 @@ a {
     display: none;
 }
 
-.math-active-design:checked ~ .sous-carte-math {
+.carte-enfant-1:hover .sous-carte-math {
     display: block;
     animation: scroll 0.5s ease-in-out;
 }
@@ -296,7 +300,7 @@ a {
     display: none;
 }
 
-.phys-active-design:checked ~ .sous-carte-phys {
+.carte-enfant-2:hover .sous-carte-phys {
     display: block;
     animation: scroll 0.5s ease-in-out;
 }
@@ -309,7 +313,7 @@ a {
     display: none;
 }
 
-.chim-active-design:checked ~ .sous-carte-chim {
+.carte-enfant-3:hover .sous-carte-chim {
     display: block;
     animation: scroll 0.5s ease-in-out;
 }
@@ -659,7 +663,7 @@ a {
 }
 
 iframe{
-    box-shadow: 0 2px 5px rgba(146, 146, 146);
+    box-shadow: 0 2px 5px 1px rgba(146, 146, 146);
     border-radius: 10px;
     user-select: none;
     width: 150px;
@@ -674,6 +678,7 @@ iframe{
     justify-content: center;
     place-items: center;
 }
+
 
 @media screen and (min-width: 550px) {
     .position-pdf{
@@ -690,7 +695,7 @@ iframe{
     iframe{
         border-radius: 0;
         width: 70%;
-        height: 100%;
+        height: 220px;        
     }
 }
 @media screen and (min-width: 900px){
@@ -746,20 +751,58 @@ iframe::-webkit-scrollbar{
 
 @media (min-width: 550px) {
     #main-display{
-        width: 70%;
-        margin-left: 30%;
-        margin-top: 15px;
-
+        margin-top: 70px;
     }
 
 }
-@media screen and (min-width: 700px){
-    #main-display{
-        margin-left: 20%;
-    }
+
+.carte-pdf{
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    align-items: center;
+    justify-content: center;
 }
-@media screen and (min-width: 700px){
-    #main-display{
-        margin-left: 25%;
+
+.carte-pdf a{
+    margin-top: -12px;
+    margin-bottom: 5px;
+    color: black;
+    font-weight: 700;
+    text-shadow: 0 1px 1px rgb(255, 255, 255);
+    box-shadow: 0 0 4px 0px rgb(129, 129, 129);
+    background-color: #eee;
+    padding: 5px;
+    width: auto;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.carte-pdf a:hover{
+    color: rgb(128, 5, 243);
+    text-shadow: 0 1px 1px rgb(255, 255, 255);
+    background-color: #eee;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+@media (min-width: 550px) {
+    .carte-pdf a{
+        border-radius: 0;
     }
+    .carte-pdf a:hover{
+        border-radius: 0;
+    }
+    
+}
+
+.info-banner {
+  background-color: #f8f9fa; /* Gris très clair */
+  border-left: 4px solid #007bff; /* Petite barre bleue sur le côté */
+  padding: 15px;
+  margin: 20px 0;
+  font-size: 0.9em;
+  color: #ff0000;
+  border-radius: 4px;
 }
