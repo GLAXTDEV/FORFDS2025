@@ -135,6 +135,7 @@ a {
     border-radius: 8px;
     user-select: none;
     text-align: start;
+    
 }
 
 
@@ -142,9 +143,13 @@ a {
     .carte-enfant-1, .carte-enfant-2, .carte-enfant-3{
         display: flex;
         flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 50%;
         gap: 0px;
         box-shadow: none;
-        border: none;
+        border: 1px solid rgb(111, 0, 255, 0.2);
+        box-shadow: 0 1px 5px 0px rgb(158, 158, 158);
     }
 }
 
@@ -175,15 +180,10 @@ a {
 }
 
 .sous-carte-math, .sous-carte-phys, .sous-carte-chim {
-    color: rgb(0, 0, 0);
-    text-transform: capitalize;
-    margin-left: -0px;
-    color: darkblue;
-    margin-top: 10px;
-    user-select: none;
+    
+
 }
 @media (min-width: 550px) {
-    
 }
 
 .math{
@@ -239,25 +239,29 @@ a {
 
 .saison {
     display: flex;
-    gap: 0px;
     margin-top: 10px;
-    border-bottom: 1px solid #bebcbc;
-    color: darkblue;
-    user-select: none;
+    border-bottom: 0px solid #bebcbc;
+    color: rgb(0, 0, 233);
     user-select: none;
     opacity: 1;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 @media (min-width: 550px){
     .saison{
-        color: rgb(0, 47, 255);
-        font-weight: 600;
-        
+        border: 1px solid #00f7ff;
+        justify-content: center;
+        align-self: center;
+        padding: 3px;
+        border-radius: 4px;
+        box-shadow: 0 1px 5px 0px rgb(199, 199, 199);
+        font-weight: 600; 
     }
     .saison:hover{
-        color: rgb(0, 140, 255);
+        color: rgb(0, 0, 0);
         font-weight: 900;
         font-size: 18px;
-        background-color: #eee;
+        background-color: #affffb;
+        transition: all 0.3s ease;
     }
 }
 
@@ -687,15 +691,11 @@ iframe{
         justify-items: center;
         grid-template-columns: repeat(2, 1fr);
     }
-    .carte-pdf{
-        display: flex;
-        flex-direction: row;
-        flex: 0 0 30%;
-    }
+    
     iframe{
         border-radius: 0;
-        width: 70%;
-        height: 220px;        
+        width: 100%;
+        height: 250px;        
     }
 }
 @media screen and (min-width: 900px){
