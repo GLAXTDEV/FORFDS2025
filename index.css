@@ -15,7 +15,7 @@ body {
     background-color: #fff;
     background-size: 200px;
     background-position: center;
-    position: fixed;
+    position: relative;
     width: 100%;
     top: 0;
     left: 0;
@@ -27,6 +27,7 @@ body {
 }
 @media (min-width: 550px) {
     .carte-mere{
+        position: fixed;
         background-color: #fff;
         position: relative;
     }
@@ -123,7 +124,7 @@ a {
     user-select: none;
 }
 
-.carte-enfant-1, .carte-enfant-2, .carte-enfant-3 {
+.carte-enfant-1, .carte-enfant-2, .carte-enfant-3, .carte-enfant-4, .carte-enfant-5 {
     backdrop-filter: blur(10px);
     transition: all 0.3s ease;
     border: 1px solid rgba(255, 255, 255);
@@ -140,7 +141,7 @@ a {
 
 
 @media (min-width: 550px){
-    .carte-enfant-1, .carte-enfant-2, .carte-enfant-3{
+    .carte-enfant-1, .carte-enfant-2, .carte-enfant-3, .carte-enfant-4, .carte-enfant-5{
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -214,8 +215,28 @@ a {
     align-items: center;
     width: 100px;
 }
+.bpa{
+    color: rgb(0, 162, 255);
+    font-weight: 700;
+    opacity: 1;
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+}
+.bpv{
+    color: rgb(255, 0, 0);
+    font-weight: 700;
+    opacity: 1;
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+}
 @media (min-width: 550px) {
-    .math, .phy, .chm{
+    .math, .phy, .chm, .bpa, .bpv{
         background-clip: text;
         color: rgb(0, 0, 0);
         font-weight: 900;
@@ -231,18 +252,25 @@ a {
     .chm:hover{
         color: darkgreen;
     }
+    .bpa:hover{
+        color: darkblue;
+    }
+    .bpv:hover{
+        color: darkred;
+    }
 }
 
 
 .saison {
     display: flex;
     margin-top: 10px;
-    border-bottom: 0px solid #bebcbc;
+    border-bottom: 1px solid #bebcbc;
     color: rgb(0, 0, 233);
     user-select: none;
     opacity: 1;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
+
 @media (min-width: 550px){
     .saison{
         border: 1px solid #00f7ff;
@@ -265,7 +293,7 @@ a {
 .saison a {
     color: darkblue;
     transition: color 0.3s ease;
-    user-select: none;
+    user-select: none;    
 }
 
 .saison a:hover {
@@ -288,7 +316,7 @@ a {
     display: none;
 }
 
-.carte-enfant-1:hover .sous-carte-math {
+.carte-enfant-1:hover .sous-carte-math{
     display: block;
     animation: scroll 0.5s ease-in-out;
 }
@@ -314,7 +342,35 @@ a {
     display: none;
 }
 
+
 .carte-enfant-3:hover .sous-carte-chim {
+    display: block;
+    animation: scroll 0.5s ease-in-out;
+}
+
+
+.bpa-active-design{
+    display: none;
+}
+.sous-carte-bpa{
+    display: none;
+}
+
+.carte-enfant-4:hover .sous-carte-bpa{
+    display: block;
+    animation: scroll 0.5s ease-in-out;
+}
+
+.bpv-active-design{
+    display: none;
+}
+
+.sous-carte-bpv{
+    display: none;
+}
+
+
+.carte-enfant-5:hover .sous-carte-bpv{
     display: block;
     animation: scroll 0.5s ease-in-out;
 }
@@ -329,6 +385,18 @@ a {
         transform: translateY(0);
     }
 }
+
+.sous-carte-bpa, .sous-carte-bpv, .sous-carte-chim, .sous-carte-phys, .sous-carte-math {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #eee;
+    border-radius: 5px;
+    box-shadow: 0 -2px -5px rgba(209, 209, 209, 0.6);
+}
+p {
+    user-select: none;
+}
+
 
 
 /* Conteneur principal pour le contenu SPA */
@@ -414,7 +482,7 @@ a {
 }
 
 #main-display{
-    margin-top: 120px;
+    margin-top: 20px;
 }
 @media (min-width: 550px) {
     #main-display{
@@ -664,12 +732,15 @@ a {
 }
 
 object{ 
-    box-shadow: 0 2px 5px 1px rgba(146, 146, 146);
+    box-shadow: 0 2px 5px 1px rgba(146, 146, 146),
+                inset 0px 15px 14px rgb(119, 119, 119),
+                inset 0px 5px 15px rgb(117, 117, 117);
     border-radius: 10px;
     user-select: none;
     width: 150px;
     height: 150px;
 }
+
 
 .position-pdf{
     display: grid;
