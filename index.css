@@ -885,22 +885,25 @@ object:hover{
     justify-content: center;
     align-items: center;
     background-image: url(IMG/pdfsvg.svg);
+    background-color: rgb(20, 36, 80);
     background-position: center;
-    background-size: 50px;
+    background-size: 10px;
     box-shadow: 0 2px 8px 0px rgb(177, 177, 177);
 }
 
 .POSE a{
     display: inline-block;
-    border: 1px solid rgb(218, 218, 218);
+    border: 2px solid rgb(255, 255, 255);
+    color: #fff;
     background-color: transparent;
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(1px);
     margin: 0px auto;
+    padding: 8px;
+    border-radius: 30px;
 }
 .POSE a:hover{
     background-color: transparent;
     border: 1px solid rgb(163, 163, 163);
     box-shadow: 0 0 10px 0px rgba(255, 255, 255, 0.5);
     transition: all 0.3s ease;
-
 }
