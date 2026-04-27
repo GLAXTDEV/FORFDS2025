@@ -179,10 +179,7 @@ a {
     }
 }
 
-.sous-carte-math, .sous-carte-phys, .sous-carte-chim {
-    
 
-}
 @media (min-width: 550px) {
 }
 
@@ -738,6 +735,12 @@ object{
 object::-webkit-scrollbar{
     display: none;
 }
+
+object:hover{
+    border: 1px solid cyan;
+    box-shadow: 0 0 10px 0px rgba(0, 255, 255, 0.5);
+    transition: all 0.3s ease;
+}
 .mi{
     font-size: 15px;
     font-weight: 700;
@@ -805,4 +808,28 @@ object::-webkit-scrollbar{
   font-size: 0.9em;
   color: #ff0000;
   border-radius: 4px;
+}
+.POSE{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(IMG/pdfsvg.svg);
+    background-position: center;
+    background-size: 50px;
+    box-shadow: 0 2px 8px 0px rgb(177, 177, 177);
+}
+
+.POSE a{
+    display: inline-block;
+    border: 1px solid rgb(218, 218, 218);
+    background-color: transparent;
+    backdrop-filter: blur(5px);
+    margin: 0px auto;
+}
+.POSE a:hover{
+    background-color: transparent;
+    border: 1px solid rgb(163, 163, 163);
+    box-shadow: 0 0 10px 0px rgba(255, 255, 255, 0.5);
+    transition: all 0.3s ease;
+
 }
