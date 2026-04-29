@@ -14,4 +14,3 @@
 window.onload = () => { 
   charger('page-accueil');
 };
-
