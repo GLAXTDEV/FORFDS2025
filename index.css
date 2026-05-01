@@ -5,17 +5,19 @@
 }
 
 body {
-    background-color: #eeeeee;
+    background: 50% 50% / 100% 100% no-repeat;
+    background: linear-gradient(rgb(85, 85, 255));
     height: 100vh;
     color: #050505;
+    user-select: none;
 }
 
 
 .carte-mere {
-    background-color: #fff;
-    background-size: 200px;
+    background: linear-gradient(rgb(86, 14, 255), rgb(85, 85, 255));
+    background-size: contain;
     background-position: center;
-    position: relative;
+    position: fixed;
     width: 100%;
     top: 0;
     left: 0;
@@ -27,9 +29,8 @@ body {
 }
 @media (min-width: 550px) {
     .carte-mere{
-        position: fixed;
-        background-color: #fff;
         position: relative;
+        background: linear-gradient(#fff, rgb(63, 63, 255));
     }
 }
 
@@ -76,11 +77,9 @@ body {
     .text-fds{
         text-align: center;
         font-weight: 100;
-        border-bottom: 0;
         letter-spacing: 8%;
-        box-shadow: 0 1px 1px 2px rgb(255, 255, 255, 0.5);
-        background-color: #fff;
-        border-radius: 20px;
+        box-shadow: 0 -1px 1px rgb(255, 255, 255, 0.5);
+        border-radius: 4px;
         margin-left: -8px;
         color: #0199ff;
         letter-spacing: 100%;
@@ -114,7 +113,6 @@ body {
 
 .dressage {
     margin-left: -10px;
-
 }
 
 a {
@@ -127,7 +125,7 @@ a {
 .carte-enfant-1, .carte-enfant-2, .carte-enfant-3, .carte-enfant-4, .carte-enfant-5, .carte-enfant-6 {
     backdrop-filter: blur(10px);
     transition: all 0.3s ease;
-    border: 1px solid rgba(255, 255, 255);
+    border: 2px solid rgba(255, 255, 255);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     text-transform: uppercase;
     font-size: 18px;
@@ -136,7 +134,7 @@ a {
     border-radius: 8px;
     user-select: none;
     text-align: start;
-    
+    background: linear-gradient(rgb(238, 130, 238, 0.3), rgb(0, 0, 255, 0.3)); 
 }
 
 
@@ -150,8 +148,9 @@ a {
         gap: 0px;
         box-shadow: none;
         border: 1px solid rgb(111, 0, 255, 0.2);
-        background-color: #ffffff;
-        box-shadow: 0 1px 5px 0px rgb(158, 158, 158, 0.1);
+        background: linear-gradient(rgb(255, 255, 255), rgb(73, 73, 231));
+        box-shadow: 0 1px 2px 0px rgb(158, 158, 158, 0.1);
+        border: none;
     }
 }
 
@@ -160,10 +159,9 @@ a {
     gap: 10px;
     align-items: start;
     overflow-x: scroll;
-    overflow-y: hidden;
+    overflow-y: none;
     user-select: none;
-    justify-content: space-around;
-    
+    justify-content: space-around;    
 }
 
 @keyframes scroll {
@@ -184,7 +182,6 @@ a {
     }
 }
 
-
 @media (min-width: 550px) {
 }
 
@@ -197,8 +194,8 @@ a {
     justify-content: center;
     align-items: center;
     width: 100px;
-
 }
+
 .phy{
     color: rgb(4, 0, 255);
     font-weight: 700;
@@ -209,6 +206,7 @@ a {
     align-items: center;
     width: 100px;
 }
+
 .chm{
     color: rgb(0, 145, 24);
     font-weight: 700;
@@ -219,6 +217,7 @@ a {
     align-items: center;
     width: 100px;
 }
+
 .bpa{
     color: rgb(0, 162, 255);
     font-weight: 700;
@@ -229,6 +228,7 @@ a {
     align-items: center;
     width: 100px;
 }
+
 .bpv{
     color: rgb(255, 0, 0);
     font-weight: 700;
@@ -253,11 +253,9 @@ a {
 
 @media (min-width: 550px) {
     .math, .phy, .chm, .bpa, .bpv, .geo{
-        background-clip: text;
         color: rgb(0, 0, 0);
         font-weight: 900;
-        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-        
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;        
     }
     .math:hover{
         color: darkcyan;
@@ -283,35 +281,37 @@ a {
 .saison {
     display: flex;
     margin-top: 10px;
-    border-bottom: 1px solid #bebcbc;
+    border-radius: 3px;
+    padding: 5px;
     color: rgb(0, 0, 233);
     user-select: none;
-    font-weight: 900;
+    font-weight: 200;
     opacity: 1;
     font-family: Georgia, 'Times New Roman', Times, serif;
+    background: linear-gradient(rgb(255, 255, 255), rgb(0, 0, 243, 0.1));
 }
 
 @media (min-width: 550px){
     .saison{
-        border: 0.5px solid rgba(0, 0, 0, 0.3);
         justify-content: center;
         align-self: center;
         padding: 3px;
         border-radius: 4px;
-        box-shadow: 0 -1px -5px 0px rgb(199, 199, 199);
-        font-weight: 700; 
+        box-shadow: 0 1px 2px 0px rgb(172, 172, 172);
+        font-weight: 700;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; 
     }
     .saison:hover{
-        color: rgb(0, 0, 0);
+        color: rgba(0, 0, 0, 0.8);
         font-size: 18px;
         background-color: #ffffff;
-        transition: all 0.3s ease;
+        transition: all 0.1s ease;
     }
 }
 
 .saison a {
-    color: darkblue;
-    transition: color 0.3s ease;
+    color: rgb(0, 0, 201);
+    transition: color 0.2s ease;
     user-select: none;    
 }
 
@@ -522,7 +522,9 @@ p {
 }
 
 #main-display{
-    margin-top: 20px;
+    margin-top: 130px;
+    background: 50% 50% / 100% 100% no-repeat;
+    background-image: linear-gradient(rgb(85, 85, 255), rgb(230, 230, 230));
 }
 @media (min-width: 550px) {
     #main-display{
@@ -590,7 +592,7 @@ p {
 /* Conteneur principal avec hauteur limitée et scroll */
 .main-scroll-wrapper {
   max-width: 600px;
-  max-height: 400px; /* Ajuste la hauteur selon tes besoins */
+  max-height: 800px; /* Ajuste la hauteur selon tes besoins */
   margin: 20px;
   padding: 20px;
   border: 1px solid #ffffff;
@@ -598,16 +600,31 @@ p {
   background-color: rgb(238, 238, 240);
   user-select: none;
   width: 89%;
-  overflow-y: auto; /* Active le scroll vertical */
+  overflow-y: none; /* Active le scroll vertical */
   box-shadow: 0 4px 15px rgb(158, 158, 158),
               inset 0px 15px 14px rgb(255, 255, 255),
               inset 0px 5px 15px rgb(179, 178, 178);
+  animation: scrol 2000ms linear infinite alternate;
 }
+@keyframes scrol {
+    0%{
+        transform: translateY(0);
+    }
+    100%{
+        transform: translateY(-10px);
+    }
+}
+
+.main-scroll-wrapper:hover {
+    animation: none;
+    transform: translateY(0);
+}
+
 @media screen and (min-width: 550px) {
    .main-scroll-wrapper{
       margin: 30px auto;
       max-width: 800px;
-      max-height: 600px;
+      max-height: 750px;
       box-shadow: 0 4px 5px rgb(172, 172, 172);
       border-radius: 0;
       max-width: 90%;  
@@ -634,9 +651,7 @@ p {
 .features-list {
   list-style: none;
   padding: 0;
-  user-select: none;
-
-  
+  user-select: none; 
 }
 
 
@@ -693,7 +708,6 @@ p {
    background-size: contain;
    background-repeat: repeat;
    transform: translateY(60%);
-
 }
 
 .propos-site{
@@ -742,12 +756,59 @@ p {
    box-shadow: 0 2px 5px rgb(221, 220, 220);
    border-radius: 0;
    user-select: none;
-
 }
+#contacts a{
+   color: rgb(0, 0, 255);
+   font-weight: 700;
+   text-shadow: 0 1px 1px rgb(255, 255, 255);
+   box-shadow: 0 0 4px 0px rgb(190, 190, 190);
+   background-color: #eee;
+   padding: 5px;
+   width: auto;
+   border-radius: 5px;
+   transition: all 0.1s ease;
+   transform: scale(1.05);
+   text-align: center;
+   background: linear-gradient(rgb(0, 255, 0, 0.3), rgb(255, 0, 255, 0.3), rgb(255, 255, 255, 0.3));
+   height: 40px;
+   animation: sal 2s linear infinite alternate;
+}
+@keyframes sal {
+   0%{
+      transform: scale(1.05);
+   }
+   100%{
+      transform: scale(1.15);
+   }
+}
+#contacts a:hover{
+   animation: none;
+}
+
 @media screen and (min-width: 550px){
    #contacts{
       gap: 30px;
       box-shadow: none;
+   }
+   
+   #contacts a{
+    background: transparent;
+    box-shadow: none;
+   }
+
+   #contacts a :hover{
+   color: rgb(0, 0, 255);
+   font-weight: 700;
+   text-shadow: 0 1px 1px rgb(255, 255, 255);
+   box-shadow: 0 0 4px 0px rgb(129, 129, 129);
+   background-color: #eee;
+   padding: 5px;
+   width: auto;
+   border-radius: 5px;
+   transition: all 0.1s ease;
+   transform: scale(1.05);
+   text-align: center;
+   background-color: green;
    }
 }
 
@@ -764,7 +825,14 @@ p {
     box-shadow: 0 4px 15px rgb(158, 158, 158),
               inset 0px 15px 14px rgb(255, 255, 255),
               inset 0px 5px 15px rgb(179, 178, 178);
+    animation: scrol 2000ms linear infinite alternate;
 }
+
+.info-cadre:hover{
+    animation: none;
+    transform: translateY(0);
+}
+
 @media (min-width: 550px){
     .info-cadre{
         width: 90%;
@@ -852,7 +920,7 @@ object:hover{
     border: 1px solid cyan;
     box-shadow: 0 0 10px 0px rgba(0, 255, 255, 0.5);
     transition: all 0.3s ease;
-    transform: scale(1.1);
+    transform: scale(1.03);
 }
 .mi{
     font-size: 15px;
@@ -923,9 +991,9 @@ object:hover{
     justify-content: center;
     align-items: center;
     background-image: url(IMG/pdfsvg.svg);
-    background-color: rgb(30, 47, 95);
+    background-color: rgb(0, 0, 255);
     background-position: center;
-    background-size: 5%;
+    background-size: 20%;
     box-shadow: 0 2px 8px 0px rgb(177, 177, 177);
 }
 
@@ -942,11 +1010,14 @@ object:hover{
 }
 @keyframes opacit {
     50%{
-        opacity: 0.7;
+        opacity: 0.9;
+        transform: scale(0.9);
     }
     100%{
         opacity: 1;
+        transform: scale(1);
     }
+
 
 }
 
@@ -978,8 +1049,20 @@ object:hover{
     padding: 10px;
     border-radius: 5px;
     box-shadow: 0 1px 2px rgb(185, 185, 185);
+    animation: scale 3s linear infinite alternate;
 }
-
+@keyframes scale {
+    0%{
+        transform: scale(1);
+    }
+    100%{
+        transform: scale(1.02);
+    }
+}
+.dimensiomPhoto:hover{
+    animation: none;
+    transform: translateY(0);
+}
 
 .tablePhoto{
     display: grid;
@@ -1011,7 +1094,7 @@ object:hover{
     color: cyan;
     border: 2px solid rgb(163, 163, 163);
     box-shadow: 0 0 10px 0px rgba(255, 255, 255, 0.5);
-    transition: all 0.3s ease;
+    transition: all 0.1s ease;
     transform: scale(1.1);
     padding: 5px;
     border-radius: 20px;
@@ -1040,17 +1123,7 @@ object:hover{
     border-radius: 5px;
     margin: 8px;
     }
-    .views a{
-        animation: rotation 5s linear infinite;
-    }
-    @keyframes rotation {
-        from{
-            transform: rotate(0deg) scale(1.1);
-        }
-        to{
-            transform: rotate(360deg) scale(1.1);
-        }
-    }
+    
     .dimensiomPhoto:hover{
         box-shadow: 0 0 15px 0px rgb(177, 177, 177);
         transition: all 0.3s ease;
