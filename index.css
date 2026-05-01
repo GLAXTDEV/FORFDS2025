@@ -19,7 +19,7 @@ body {
     background-image: url(IMG/back41.jpg);
     background-size: contain;
     background-position: center;
-    position: relative;
+    position: fixed;
     width: 100%;
     top: 0;
     left: 0;
@@ -128,6 +128,7 @@ a {
 
 .carte-enfant-1, .carte-enfant-2, .carte-enfant-3, .carte-enfant-4, .carte-enfant-5, .carte-enfant-6 {
     backdrop-filter: blur(10px);
+    background-color: rgb(255, 255, 255);
     transition: all 0.3s ease;
     border: 2px solid rgba(255, 255, 255);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
@@ -138,7 +139,6 @@ a {
     border-radius: 8px;
     user-select: none;
     text-align: start;
-    background: linear-gradient(); 
 }
 
 
@@ -169,7 +169,7 @@ a {
     top: 55px;
     width: 100%;
     overflow-x: auto;
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(0px);
     margin-left: -10px;
 }
 
@@ -182,7 +182,7 @@ a {
         top: 70px;
         width: 100%;
         overflow-x: auto;
-        backdrop-filter: blur(8px);
+        backdrop-filter: blur(0px);
     }
 }
 
@@ -289,7 +289,6 @@ a {
     font-weight: 200;
     opacity: 1;
     font-family: Georgia, 'Times New Roman', Times, serif;
-    background: linear-gradient();
 }
 
 @media (min-width: 550px){
@@ -505,21 +504,16 @@ p {
 }
 
 #main-display{
-    margin-top: 60px;
+    margin-top: 120px;
     background-attachment: fixed;
     background-image: url(IMG/);
-    background-size: contain;
-    background-position: center;
-    background-repeat: repeat;
+    height: 100vh;
 }
 @media (min-width: 550px) {
     #main-display{
         margin-top: 60px;
         background-attachment: fixed;
-        background-image: url(IMG/);
-        background-size: contain;
-        background-position: center;
-        background-repeat: repeat;
+        height: 100vh;
     }
 }
 
@@ -530,7 +524,7 @@ p {
   white-space: nowrap;
   width: 100%;
  /* Optionnel */
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(0px);
   padding: 10px 0;
   user-select: none;
 }
@@ -785,7 +779,7 @@ p {
 }
 
 .info-cadre{
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(255, 255, 255, 0.5);
     width: 89%;
     border-color: white;
     border-radius: 8px;
@@ -819,7 +813,7 @@ object{
     border-radius: 10px;
     user-select: none;
     width: 150px;
-    height: 150px;
+    height: 190px;
 }
 
 
@@ -843,8 +837,8 @@ object{
     
     object{
         border-radius: 0;
-        width: 100%;
-        height: 250px;        
+        width: 150px;
+        height: 280px;        
     }
 }
 @media screen and (min-width: 900px){
@@ -888,23 +882,28 @@ object::-webkit-scrollbar{
     display: none;
 }
 
-object:hover{
-    border: 1px solid cyan;
-    box-shadow: 0 0 10px 0px rgba(0, 255, 255, 0.5);
-    transition: all 0.3s ease;
-    transform: scale(1.03);
-}
-
 .carte-pdf{
     display: flex;
     flex-direction: column;
     gap: 0px;
     align-items: center;
     justify-content: center;
+    border: 1px solid rgb(255, 255, 255, 0.1);
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 1px 2px rgb(7, 7, 7);
+    background-color: rgb(0, 0, 0, 0.8);
+    margin-bottom: 10px;
+    height: auto;
+}
+.carte-pdf:hover{
+    transform: scale(1.03);
+    border-color: rgb(0, 255, 255);
+    transition: all 0.1s ease;
 }
 
 .carte-pdf a{
-    margin-top: -15px;
+    margin-top: -0px;
     margin-bottom: 8px;
     color: black;
     font-weight: 700;
@@ -924,7 +923,7 @@ object:hover{
     background-color: #fff;
     padding: 5px;
     border-radius: 5px;
-    transform: scale(1.09);
+    transform: scale();
      transition: all 0.1s ease;
 }
 
@@ -954,11 +953,13 @@ object:hover{
     justify-content: center;
     align-items: center;
     background-image: url(IMG/pdfsvg.svg);
-    backdrop-filter: blur(50px);
+    backdrop-filter: blur(0px);
+    background-color: rgb(255, 255, 255, 0.5);
     background-position: center;
-    background-size: 20%;
+    background-size: 4%;
     box-shadow: 0 2px 8px 0px rgb(177, 177, 177, 0.1);
 }
+
 
 .POSE a{
     display: inline-block;
@@ -980,8 +981,6 @@ object:hover{
         opacity: 1;
         transform: scale(1);
     }
-
-
 }
 
 
@@ -1007,7 +1006,7 @@ object:hover{
 
 .dimensiomPhoto{
     width: 150px;
-    height: 200px;
+    height: 250px;
     padding: 10px;
     border-radius: 5px;
     box-shadow: 0 1px 2px rgb(185, 185, 185, 0.2);
@@ -1092,4 +1091,31 @@ object:hover{
         transform: scale(1.05);
     }
 
+}
+
+.pdf-warning {
+  display: flex;
+  align-items: center;
+  background-color: #fff4e5; /* Orange très clair */
+  border-left: 5px solid #ffa117; /* Bordure vive */
+  color: #664d03;
+  padding: 15px 20px;
+  border-radius: 8px;
+  margin: 20px 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.warning-icon {
+  font-size: 24px;
+  margin-right: 15px;
+}
+
+.warning-content {
+  line-height: 1.5;
+  font-size: 0.95rem;
+}
+
+.warning-content strong {
+  color: #856404;
 }
