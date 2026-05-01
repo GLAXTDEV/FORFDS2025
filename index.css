@@ -5,8 +5,10 @@
 }
 
 body {
-    background: 50% 50% / 100% 100% no-repeat;
-    background: linear-gradient(rgb(85, 85, 255));
+    background-image: url(IMG/back42.jpg);
+    background-size: contain;
+    background-position: center;
+    background-repeat: repeat;
     height: 100vh;
     color: #050505;
     user-select: none;
@@ -14,29 +16,31 @@ body {
 
 
 .carte-mere {
-    background: linear-gradient(rgb(86, 14, 255), rgb(85, 85, 255));
+    background-image: url(IMG/back41.jpg);
     background-size: contain;
     background-position: center;
-    position: fixed;
+    position: relative;
     width: 100%;
     top: 0;
     left: 0;
     padding: 5px 10px;
     z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     user-select: none;
 
 }
 @media (min-width: 550px) {
     .carte-mere{
         position: relative;
-        background: linear-gradient(#fff, rgb(63, 63, 255));
+        background-image: url(IMG/back38.jpg);
+        background-size: contain;
+        background-position: center;
     }
 }
 
 .text-1{
     font-size: 24px;
-    text-shadow: 0 2px 5px rgb(0, 0, 0);
+    text-shadow: 0 2px 5px rgb(0, 0, 0, 0.1);
     padding: 2px;
     animation: opacite 3000ms linear infinite;
     color: rgb(255, 0, 0);
@@ -78,7 +82,7 @@ body {
         text-align: center;
         font-weight: 100;
         letter-spacing: 8%;
-        box-shadow: 0 -1px 1px rgb(255, 255, 255, 0.5);
+        box-shadow: 0 -1px 1px rgb(255, 255, 255, 0.1);
         border-radius: 4px;
         margin-left: -8px;
         color: #0199ff;
@@ -96,7 +100,7 @@ body {
         color: white;
         border-radius: 5px;
         padding: 8px;
-        text-shadow: 0 10px 15px rgb(255, 255, 255);
+        text-shadow: 0 10px 15px rgb(255, 255, 255, 0.1);
     }
 }
 
@@ -112,7 +116,7 @@ body {
 
 
 .dressage {
-    margin-left: -10px;
+    margin-left: 0px;
 }
 
 a {
@@ -134,7 +138,7 @@ a {
     border-radius: 8px;
     user-select: none;
     text-align: start;
-    background: linear-gradient(rgb(238, 130, 238, 0.3), rgb(0, 0, 255, 0.3)); 
+    background: linear-gradient(); 
 }
 
 
@@ -148,9 +152,8 @@ a {
         gap: 0px;
         box-shadow: none;
         border: 1px solid rgb(111, 0, 255, 0.2);
-        background: linear-gradient(rgb(255, 255, 255), rgb(73, 73, 231));
-        box-shadow: 0 1px 2px 0px rgb(158, 158, 158, 0.1);
-        border: none;
+        background: linear-gradient();
+        box-shadow: 0 0px 5px 0px rgb(158, 158, 158, 0.8);
     }
 }
 
@@ -162,15 +165,12 @@ a {
     overflow-y: none;
     user-select: none;
     justify-content: space-around;    
-}
-
-@keyframes scroll {
-    0%{
-        transform: translateX(0);
-    }    
-    100%{
-        transform: translate(-100%);
-    } 
+    position: fixed;
+    top: 55px;
+    width: 100%;
+    overflow-x: auto;
+    backdrop-filter: blur(5px);
+    margin-left: -10px;
 }
 
 .carte-enfant::-webkit-scrollbar{
@@ -178,11 +178,12 @@ a {
 }
 @media (min-width: 550px) {
     .carte-enfant{
-        position: relative;
+        position: absolute;
+        top: 70px;
+        width: 100%;
+        overflow-x: auto;
+        backdrop-filter: blur(8px);
     }
-}
-
-@media (min-width: 550px) {
 }
 
 .math{
@@ -288,7 +289,7 @@ a {
     font-weight: 200;
     opacity: 1;
     font-family: Georgia, 'Times New Roman', Times, serif;
-    background: linear-gradient(rgb(255, 255, 255), rgb(0, 0, 243, 0.1));
+    background: linear-gradient();
 }
 
 @media (min-width: 550px){
@@ -302,9 +303,9 @@ a {
         font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; 
     }
     .saison:hover{
-        color: rgba(0, 0, 0, 0.8);
+        color: white;
         font-size: 18px;
-        background-color: #ffffff;
+        background-color: rgb(0, 0, 255, 0.8);
         transition: all 0.1s ease;
     }
 }
@@ -320,11 +321,6 @@ a {
     text-decoration: underline;
 }
 
-.saison a.active {
-    color: rgb(128, 5, 243);
-    text-decoration: underline;
-    font-weight: bold;
-}
 
 /* Styles pour les checkboxes */
 .sous-carte-math {
@@ -409,34 +405,21 @@ a {
 }
 
 
-
-@keyframes scroll {
-    from {
-        opacity: 0;
-        transform: translateY(-15px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
 .sous-carte-bpa, .sous-carte-bpv, .sous-carte-chim, .sous-carte-phys, .sous-carte-math, .sous-carte-geo {
     margin-top: 10px;
     padding: 10px;
-    background-color: rgb(0, 0, 0, 0.1);
+    background-color: rgb(0, 0, 0, 0.05);
     border-radius: 5px;
-    box-shadow: 0 -1px -1px rgba(209, 209, 209, 0.6);
+    box-shadow: 0 -2px 1px rgba(209, 209, 209, 0.5);
 }
 @media (min-width: 550px) {
     .sous-carte-bpa, .sous-carte-bpv, .sous-carte-chim, .sous-carte-phys, .sous-carte-math, .sous-carte-geo{
-        background-color: transparent;
+        background-color: rgba(4, 0, 255, 0.05);
     }
 }
 p {
     user-select: none;
 }
-
 
 
 /* Conteneur principal pour le contenu SPA */
@@ -522,13 +505,21 @@ p {
 }
 
 #main-display{
-    margin-top: 130px;
-    background: 50% 50% / 100% 100% no-repeat;
-    background-image: linear-gradient(rgb(85, 85, 255), rgb(230, 230, 230));
+    margin-top: 60px;
+    background-attachment: fixed;
+    background-image: url(IMG/);
+    background-size: contain;
+    background-position: center;
+    background-repeat: repeat;
 }
 @media (min-width: 550px) {
     #main-display{
-        margin-top: 10px;
+        margin-top: 60px;
+        background-attachment: fixed;
+        background-image: url(IMG/);
+        background-size: contain;
+        background-position: center;
+        background-repeat: repeat;
     }
 }
 
@@ -550,7 +541,6 @@ p {
       margin: 5px auto;
       border-radius: 50px;
    }
- 
 }
 
 
@@ -572,11 +562,8 @@ p {
 }
 @media screen and (min-width: 550px) {
    .scroll-text{
-      font-size: 30px;
-      
-      
+      font-size: 30px;   
    }
-   
 }
 
 /* L'animation : on déplace de 0 à -50% (car on a deux blocs identiques) */
@@ -595,15 +582,16 @@ p {
   max-height: 800px; /* Ajuste la hauteur selon tes besoins */
   margin: 20px;
   padding: 20px;
-  border: 1px solid #ffffff;
+  border: 1px solid rgb(255, 255, 255, 0.1);
   border-radius: 10px;
-  background-color: rgb(238, 238, 240);
+  backdrop-filter: blur(10px);
+  color: #fff;
   user-select: none;
   width: 89%;
   overflow-y: none; /* Active le scroll vertical */
-  box-shadow: 0 4px 15px rgb(158, 158, 158),
-              inset 0px 15px 14px rgb(255, 255, 255),
-              inset 0px 5px 15px rgb(179, 178, 178);
+  box-shadow: 0 4px 15px rgb(158, 158, 158, 0.1),
+              inset 0px 15px 14px rgb(255, 255, 255, 0.1),
+              inset 0px 5px 15px rgb(179, 178, 178, 0.1);
   animation: scrol 2000ms linear infinite alternate;
 }
 @keyframes scrol {
@@ -625,7 +613,7 @@ p {
       margin: 30px auto;
       max-width: 800px;
       max-height: 750px;
-      box-shadow: 0 4px 5px rgb(172, 172, 172);
+      box-shadow: 0 4px 5px rgb(172, 172, 172, 0.1);
       border-radius: 0;
       max-width: 90%;  
       border-radius: 10px;
@@ -654,7 +642,6 @@ p {
   user-select: none; 
 }
 
-
 .features-list li {
   margin-bottom: 12px;
   padding-left: 5px;
@@ -668,7 +655,7 @@ p {
   padding: 15px;
   background-color: #fff9e6; /* Jaune très clair pour l'attention */
   border-left: 5px solid #f1c40f; /* Barre latérale jaune */
-  border-radius: 0px;
+  border-radius: 5px;
   user-select: none;
 }
 
@@ -699,38 +686,22 @@ p {
   background: #a8a8a8;
 }
 
-
-
-
-
 .bottom-elem {
-   background-color: #ffffff;
+   backdrop-filter: blur(5px);
    background-size: contain;
    background-repeat: repeat;
-   transform: translateY(60%);
+   transform: translateY(100%);
 }
 
 .propos-site{
    display: flex;
    flex-direction: column;
    align-items: center;
-   gap: 10px;
-}
-
-.avis-creator{
-   text-transform: uppercase;
-   font-family: Verdana, Geneva, Tahoma, sans-serif;
-   font-weight: 700;
-   font-size: 20px;
-}
-@media screen and (min-width: 550px){
-   .avis-creator{
-      font-size: 35px;
-   }
+   gap: 0px;
 }
 
 .paragraphe-site{
-   word-spacing: 5px;
+   word-spacing: 0px;
    font-size: 18px;
    font-weight: 50;
    font-family: sans-serif;
@@ -751,9 +722,9 @@ p {
    width: 100%;
    padding: 10px;
    margin: 10px auto;
-   background-color: rgba(255, 255, 255);
+   background-color: rgba(255, 255, 255, 0.1);
    z-index: 0;
-   box-shadow: 0 2px 5px rgb(221, 220, 220);
+   box-shadow: 0 2px 5px rgb(221, 220, 220, 0.1);
    border-radius: 0;
    user-select: none;
 }
@@ -769,7 +740,7 @@ p {
    transition: all 0.1s ease;
    transform: scale(1.05);
    text-align: center;
-   background: linear-gradient(rgb(0, 255, 0, 0.3), rgb(255, 0, 255, 0.3), rgb(255, 255, 255, 0.3));
+   background: linear-gradient(to right, #eee, #ddd);
    height: 40px;
    animation: sal 2s linear infinite alternate;
 }
@@ -783,6 +754,7 @@ p {
 }
 #contacts a:hover{
    animation: none;
+   background-color: rgb(0, 255, 0);
 }
 
 @media screen and (min-width: 550px){
@@ -806,14 +778,14 @@ p {
    width: auto;
    border-radius: 5px;
    transition: all 0.1s ease;
-   transform: scale(1.05);
+   transform: scale(1.08);
    text-align: center;
    background-color: green;
    }
 }
 
 .info-cadre{
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.8);
     width: 89%;
     border-color: white;
     border-radius: 8px;
@@ -822,9 +794,9 @@ p {
     height: auto;
     color: black;
     user-select: none;
-    box-shadow: 0 4px 15px rgb(158, 158, 158),
-              inset 0px 15px 14px rgb(255, 255, 255),
-              inset 0px 5px 15px rgb(179, 178, 178);
+    box-shadow: 0 4px 15px rgb(158, 158, 158, 0.1),
+              inset 0px 15px 14px rgb(255, 255, 255, 0.1),
+              inset 0px 5px 15px rgb(179, 178, 178, 0.1);
     animation: scrol 2000ms linear infinite alternate;
 }
 
@@ -922,17 +894,6 @@ object:hover{
     transition: all 0.3s ease;
     transform: scale(1.03);
 }
-.mi{
-    font-size: 15px;
-    font-weight: 700;
-    color: red;
-    position: absolute;
-    top: 50%;
-    left: 20%;
-    transform: translate(50% 50%);
-    text-align: center;
-}
-
 
 .carte-pdf{
     display: flex;
@@ -943,13 +904,13 @@ object:hover{
 }
 
 .carte-pdf a{
-    margin-top: -12px;
-    margin-bottom: 5px;
+    margin-top: -15px;
+    margin-bottom: 8px;
     color: black;
     font-weight: 700;
     text-shadow: 0 1px 1px rgb(255, 255, 255);
     box-shadow: 0 0 4px 0px rgb(129, 129, 129);
-    background-color: #eee;
+    background-color: rgb(255, 255, 255, 0.4);
     padding: 5px;
     width: auto;
     border-radius: 5px;
@@ -960,10 +921,11 @@ object:hover{
 .carte-pdf a:hover{
     color: rgb(128, 5, 243);
     text-shadow: 0 1px 1px rgb(255, 255, 255);
-    background-color: #eee;
+    background-color: #fff;
     padding: 5px;
     border-radius: 5px;
-    transform: scale(1.15);
+    transform: scale(1.09);
+     transition: all 0.1s ease;
 }
 
 
@@ -986,22 +948,23 @@ object:hover{
   color: #ff0000;
   border-radius: 4px;
 }
+
 .POSE{
     display: flex;
     justify-content: center;
     align-items: center;
     background-image: url(IMG/pdfsvg.svg);
-    background-color: rgb(0, 0, 255);
+    backdrop-filter: blur(50px);
     background-position: center;
     background-size: 20%;
-    box-shadow: 0 2px 8px 0px rgb(177, 177, 177);
+    box-shadow: 0 2px 8px 0px rgb(177, 177, 177, 0.1);
 }
 
 .POSE a{
     display: inline-block;
     border: 2px solid rgb(255, 255, 255);
-    color: #00f7ff;
-    background-color: transparent;
+    color: #1100ff;
+    background-color: white;
     backdrop-filter: blur(1px);
     margin: 0px auto;
     padding: 8px;
@@ -1034,13 +997,12 @@ object:hover{
 }
 
 .PhotoCadre{
-    border: 4px solid rgb(255, 255, 255);
+    border: 4px solid rgb(255, 255, 255, 0.3);
     width: 90%;
     border-radius: 10px;
-    background-color: #fff;
-    box-shadow: 0 5px 10px rgb(243, 243, 243), 0 0 10px 0px rgb(177, 177, 177);
+    background-color: rgba(0, 0, 0, 0.5);
+    box-shadow: 0 1px 5px rgb(243, 243, 243, 0.1), 0 0 10px 0px rgb(177, 177, 177, 0.1);
     margin: 10px auto;
-    background-color: #fff;
 }
 
 .dimensiomPhoto{
@@ -1048,7 +1010,7 @@ object:hover{
     height: 200px;
     padding: 10px;
     border-radius: 5px;
-    box-shadow: 0 1px 2px rgb(185, 185, 185);
+    box-shadow: 0 1px 2px rgb(185, 185, 185, 0.2);
     animation: scale 3s linear infinite alternate;
 }
 @keyframes scale {
@@ -1125,7 +1087,7 @@ object:hover{
     }
     
     .dimensiomPhoto:hover{
-        box-shadow: 0 0 15px 0px rgb(177, 177, 177);
+        box-shadow: none;
         transition: all 0.3s ease;
         transform: scale(1.05);
     }
