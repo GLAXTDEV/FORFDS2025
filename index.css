@@ -6,12 +6,59 @@
 
 body {
     background-image: url(IMG/back42.jpg);
-    background-size: contain;
+    background-size: cover;
     background-position: center;
     background-repeat: repeat;
     height: 100vh;
     color: #050505;
     user-select: none;
+}
+
+.modeFont{
+    background-image: url(IMG/back11.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: repeat;
+    height: 100vh;
+    color: #050505;
+    user-select: none;
+}
+
+#bouton{
+    position: fixed;
+    bottom: 3%;
+    right: 0px;
+    border: none;
+    padding: 10px;
+    border-radius: 20px;
+    background-color: transparent;
+    box-shadow: 0 0 5px 0px rgb(255, 255, 255, 0.5);
+    text-transform: uppercase;
+    font-weight: 700;
+    color: white;
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 15%;
+    height: 40px;
+    margin-right: 8px;
+}
+
+@media (min-width: 550px) {
+    #bouton{
+        position: absolute;
+        top: 18px;
+        padding: 10px;
+        right: 100px;
+        font-size: 18px;
+        width: 60px;
+        margin-right: 8px;
+    }
+    #bouton:hover{
+        background-color: rgb(255, 255, 255, 0.5);
+        box-shadow: 0 0 10px 0px rgb(255, 255, 255, 0.8);
+    }
 }
 
 
@@ -740,29 +787,27 @@ p {
 #contacts a{
    color: rgb(0, 0, 255);
    font-weight: 700;
-   text-shadow: 0 1px 1px rgb(255, 255, 255);
-   box-shadow: 0 0 4px 0px rgb(190, 190, 190);
-   background-color: #eee;
+   text-shadow: 0 0px 1px rgb(255, 255, 255);
+   box-shadow: 0px 2px 0px 1px rgb(255, 255, 255);
+   backdrop-filter: blur(10px);
    padding: 5px;
    width: auto;
    border-radius: 5px;
    transition: all 0.1s ease;
    transform: scale(1.05);
    text-align: center;
-   background: linear-gradient(to right, #eee, #ddd);
    height: 40px;
    animation: sal 2s linear infinite alternate;
 }
 @keyframes sal {
    0%{
-      transform: scale(1.05);
+      transform: scale(1.01);
    }
    100%{
       transform: scale(1.15);
    }
 }
 #contacts a:hover{
-   animation: none;
    background-color: rgb(0, 255, 0);
 }
 

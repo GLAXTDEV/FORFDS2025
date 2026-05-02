@@ -14,3 +14,10 @@
 window.onload = () => { 
   charger('page-accueil');
 };
+
+const btn = document.getElementById('bouton');
+const pageBody = document.body;
+btn.addEventListener('click', () => {
+  pageBody.classList.toggle('modeFont');
+  btn.textContent = "!"
+});
