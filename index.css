@@ -128,9 +128,9 @@ a {
 
 .carte-enfant-1, .carte-enfant-2, .carte-enfant-3, .carte-enfant-4, .carte-enfant-5, .carte-enfant-6 {
     backdrop-filter: blur(10px);
-    background-color: rgb(255, 255, 255);
+    background-color: transparent;
     transition: all 0.3s ease;
-    border: 2px solid rgba(255, 255, 255);
+    border: 1px solid rgba(255, 255, 255);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     text-transform: uppercase;
     font-size: 18px;
@@ -139,6 +139,8 @@ a {
     border-radius: 8px;
     user-select: none;
     text-align: start;
+    background-color: white;
+    width: 100%;
 }
 
 
@@ -148,12 +150,13 @@ a {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        width: 50%;
+        width: 100px;
         gap: 0px;
         box-shadow: none;
-        border: 1px solid rgb(111, 0, 255, 0.2);
-        background: linear-gradient();
-        box-shadow: 0 0px 5px 0px rgb(158, 158, 158, 0.8);
+        border: none;
+        font-size: 20px;
+        background-color: transparent;
+        
     }
 }
 
@@ -254,8 +257,8 @@ a {
 
 @media (min-width: 550px) {
     .math, .phy, .chm, .bpa, .bpv, .geo{
-        color: rgb(0, 0, 0);
-        font-weight: 900;
+        color: rgb(253, 255, 255);
+        font-weight: 700;
         font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;        
     }
     .math:hover{
@@ -289,6 +292,7 @@ a {
     font-weight: 200;
     opacity: 1;
     font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: white;
 }
 
 @media (min-width: 550px){
@@ -296,16 +300,16 @@ a {
         justify-content: center;
         align-self: center;
         padding: 3px;
-        border-radius: 4px;
-        box-shadow: 0 1px 2px 0px rgb(172, 172, 172);
+        border-radius: 10px;
+        box-shadow: 0 0px 1px 0px rgb(172, 172, 172, 0.1);
         font-weight: 700;
-        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; 
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     }
     .saison:hover{
         color: white;
-        font-size: 18px;
-        background-color: rgb(0, 0, 255, 0.8);
-        transition: all 0.1s ease;
+        font-size: 20px;
+        background-color: rgb(0, 0, 255, 1);
+        transition: all 0.2s ease;
     }
 }
 
@@ -332,7 +336,7 @@ a {
 
 .carte-enfant-1:hover .sous-carte-math{
     display: block;
-    animation: scroll 0.5s ease-in-out;
+    animation: scroll 0.3s ease-in-out;
     
     
 }
@@ -347,7 +351,7 @@ a {
 
 .carte-enfant-2:hover .sous-carte-phys {
     display: block;
-    animation: scroll 0.5s ease-in-out;
+    animation: scroll 0.3s ease-in-out;
 }
 
 .sous-carte-chim {
@@ -361,7 +365,7 @@ a {
 
 .carte-enfant-3:hover .sous-carte-chim {
     display: block;
-    animation: scroll 0.5s ease-in-out;
+    animation: scroll 0.3s ease-in-out;
 }
 
 
@@ -374,7 +378,7 @@ a {
 
 .carte-enfant-4:hover .sous-carte-bpa{
     display: block;
-    animation: scroll 0.5s ease-in-out;
+    animation: scroll 0.3s ease-in-out;
 }
 
 .bpv-active-design{
@@ -388,7 +392,7 @@ a {
 
 .carte-enfant-5:hover .sous-carte-bpv{
     display: block;
-    animation: scroll 0.5s ease-in-out;
+    animation: scroll 0.3s ease-in-out;
 }
 
 .geo-active-design{
@@ -400,7 +404,18 @@ a {
 
 .carte-enfant-6:hover .sous-carte-geo{
     display: block;
-    animation: scroll 0.5s ease-in-out;
+    animation: scroll 0.3s ease-in-out;
+}
+
+@keyframes scroll {
+    0% {
+        opacity: 0;
+        transform: translateY(-10px) scale(0) rotate(-15deg);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1) rotate(0deg);
+    }
 }
 
 
