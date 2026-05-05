@@ -872,13 +872,11 @@ p {
 }
 
 object{ 
-    box-shadow: 0 2px 5px 1px rgba(146, 146, 146),
-                inset 0px 15px 14px rgb(119, 119, 119),
-                inset 0px 5px 15px rgb(117, 117, 117);
-    border-radius: 10px;
+    box-shadow: 0 2px 5px 0px rgb(255, 255, 255);
+    border-radius: 5px;
     user-select: none;
-    width: 150px;
-    height: 190px;
+    width: 135px;
+    height: 110px;
 }
 
 
@@ -1019,11 +1017,13 @@ object::-webkit-scrollbar{
     align-items: center;
     background-image: url(IMG/pdfsvg.svg);
     backdrop-filter: blur(0px);
-    background-color: rgba(5, 5, 5, 0.5);
+    background-color: rgba(0, 0, 0, 0.5);
     background-position: center;
-    background-size: 20%;
-    box-shadow: 0 2px 8px 0px rgb(177, 177, 177, 0.1);
+    background-size: 90px cover;
+    border: 1px solid rgba(255, 255, 255, 1);
+    box-shadow: 0 2px 5px 0px rgb(0, 0, 0);
 }
+
 
 
 .POSE a{
@@ -1038,9 +1038,9 @@ object::-webkit-scrollbar{
     animation: opacit 2s linear infinite;
 }
 @keyframes opacit {
-    50%{
+    35%{
         opacity: 0.9;
-        transform: scale(0.9);
+        transform: scale(0.8);
     }
     100%{
         opacity: 1;
