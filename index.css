@@ -57,14 +57,14 @@ body {
     }
     #bouton:hover{
         background-color: rgb(255, 255, 255, 0.5);
-        box-shadow: 0 0 10px 0px rgb(255, 255, 255, 0.8);
+        box-shadow: 0 0 5px 0px rgb(255, 255, 255, 0.8);
     }
 }
 
 
 .carte-mere {
     background-image: url(IMG/back41.jpg);
-    background-size: contain;
+    background-size: cover;
     background-position: center;
     position: fixed;
     width: 100%;
@@ -80,7 +80,7 @@ body {
     .carte-mere{
         position: relative;
         background-image: url(IMG/back38.jpg);
-        background-size: contain;
+        background-size: 200px;
         background-position: center;
     }
 }
@@ -306,7 +306,12 @@ a {
     .math, .phy, .chm, .bpa, .bpv, .geo{
         color: rgb(253, 255, 255);
         font-weight: 700;
-        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;        
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;  
+        border: 1px solid white;
+        padding: 8px;     
+        border-radius: 8px;
+        box-shadow: 0 2px 3px rgb(0, 0, 0);
+        background-color: rgb(0, 0, 0, 0.6);
     }
     .math:hover{
         color: darkcyan;
@@ -788,7 +793,7 @@ p {
    color: rgb(0, 0, 255);
    font-weight: 700;
    text-shadow: 0 0px 1px rgb(255, 255, 255);
-   box-shadow: 0px 2px 0px 1px rgb(255, 255, 255);
+   box-shadow: 0px 1px 0px 0px rgb(255, 255, 255, 0.4);
    backdrop-filter: blur(10px);
    padding: 5px;
    width: auto;
@@ -808,7 +813,7 @@ p {
    }
 }
 #contacts a:hover{
-   background-color: rgb(0, 255, 0);
+   background-color: rgb(0, 255, 0, 0.5);
 }
 
 @media screen and (min-width: 550px){
@@ -1014,9 +1019,9 @@ object::-webkit-scrollbar{
     align-items: center;
     background-image: url(IMG/pdfsvg.svg);
     backdrop-filter: blur(0px);
-    background-color: rgb(255, 255, 255, 0.5);
+    background-color: rgba(5, 5, 5, 0.5);
     background-position: center;
-    background-size: 4%;
+    background-size: 20%;
     box-shadow: 0 2px 8px 0px rgb(177, 177, 177, 0.1);
 }
 
