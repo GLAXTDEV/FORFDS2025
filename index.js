@@ -18,6 +18,7 @@ window.onload = () => {
 const btn = document.getElementById('bouton');
 const pageBody = document.body;
 btn.addEventListener('click', () => {
+  alert('Cette fonctionnalité nécessite une bonne vitesse de connexion internet')
   pageBody.classList.toggle('modeFont');
   btn.textContent = "!"
 });
