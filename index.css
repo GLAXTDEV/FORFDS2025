@@ -90,13 +90,20 @@ body {
     padding: 0px;
     animation: opacite 3000ms linear infinite;
     color: rgb(255, 255, 255);
-    font-weight: 100;
-    
+    font-weight: 100;  
 }
+.text-1:hover{
+    color: aqua;
+    text-shadow: 0 5px 10px cyan;
+}
+
 @media (min-width: 550px) {
     .text-1{
         color: rgb(2, 2, 2);
         font-weight: 900;
+    }
+    .text-1:hover{
+        color: #eee;
     }
 }
 @keyframes opacite {
@@ -157,8 +164,7 @@ a {
         width: 100%;
         box-shadow: none;
         border-left: 8px solid blue;
-        border-top: 8px solid blue;
-        border-radius: 8px 1px 15px 0px;
+        border-radius: 0px 0px 15px 0px;
         font-size: 18px;
         background-color: white;
         letter-spacing: none;
@@ -305,7 +311,7 @@ a {
         justify-content: center;
         align-self: center;
         padding: 3px;
-        border-radius: 10px;
+        border-radius: 0px 0px 8px 0px;
         box-shadow: 0 2px 5px 0px rgba(0, 0, 0, 0.4);
         font-weight: 400;
         font-family: Arial, Helvetica, sans-serif;

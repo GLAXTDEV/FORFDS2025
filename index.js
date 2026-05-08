@@ -19,13 +19,9 @@ const btn = document.getElementById('bouton');
 const pageBody = document.body;
 btn.addEventListener('click', () => {
   if (pageBody.classList.toggle('modeFont')){
-    btn.textContent = "G"
-    alert("Cette fonctionnalité nécessite une bonne connexion, veillez rappuie dessus immédiatement si votre connexion n’est pas rapide.")
+    btn.textContent = "☀️"
   }
   else {
-    btn.textContent = "🏞️"
-  }
- 
+    btn.textContent = "🌙"
+  };
 });
-
- 
