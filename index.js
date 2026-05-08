@@ -18,6 +18,13 @@ window.onload = () => {
 const btn = document.getElementById('bouton');
 const pageBody = document.body;
 btn.addEventListener('click', () => {
-  pageBody.classList.toggle('modeFont');
-  btn.textContent = "!"
+  if (pageBody.classList.toggle('modeFont')){
+    btn.textContent = "G"
+  }
+  else {
+    btn.textContent = "🏞️"
+  }
+ 
 });
+
+ 
