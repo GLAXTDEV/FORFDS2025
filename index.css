@@ -84,7 +84,7 @@ body {
     }
 }
 
-.text-1{
+#text-1{
     font-size: 24px;
     text-shadow: 0 2px 5px 8px rgba(100, 21, 76, 1);
     padding: 0px;
@@ -92,17 +92,17 @@ body {
     color: rgb(255, 255, 255);
     font-weight: 100;  
 }
-.text-1:hover{
+#text-1:hover{
     color: aqua;
     text-shadow: 0 5px 10px cyan;
 }
 
 @media (min-width: 550px) {
-    .text-1{
+    #text-1{
         color: rgb(2, 2, 2);
         font-weight: 900;
     }
-    .text-1:hover{
+    #text-1:hover{
         color: #eee;
     }
 }
@@ -134,6 +134,7 @@ body {
     }
 }
 
+
 a {
     text-decoration: none;
     display: inline-block;
@@ -163,10 +164,7 @@ a {
         align-items: center;
         width: 100%;
         box-shadow: none;
-        border-left: 8px solid blue;
-        border-radius: 0px 0px 15px 0px;
-        font-size: 18px;
-        background-color: white;
+        background-color: transparent;
         letter-spacing: none;
     }
 }
@@ -267,28 +265,14 @@ a {
 
 @media (min-width: 550px) {
     .math, .phy, .chm, .bpa, .bpv, .geo{
-        color: rgb(0, 0, 0);
+        color: rgb(255, 255, 255);
         font-family: sans-serif;
-        font-weight: 700; 
+        font-weight: 600; 
         width: 130px;
-    }
-    .math:hover{
-        color: rgb(0, 255, 255);
-    }
-    .phy:hover{
-        color: rgb(132, 0, 255);
-    }
-    .chm:hover{
-        color: rgb(0, 255, 0);
-    }
-    .bpa:hover{
-        color: rgb(0, 0, 255);
-    }
-    .bpv:hover{
-        color: rgb(255, 0, 0);
-    }
-    .geo:hover{
-        color: rgb(149, 0, 255);
+        font-size: 15px;
+        background: linear-gradient(100deg, #7674e2, rgb(173, 10, 179));
+        padding: 8px;
+        border-radius: 30px;
     }
 }
 
@@ -303,7 +287,7 @@ a {
     font-weight: 100;
     opacity: 1;
     font-family: Georgia, 'Times New Roman', Times, serif;
-    background-color: white;  
+    background-color: white;
 }
 
 @media (min-width: 550px){
@@ -311,14 +295,14 @@ a {
         justify-content: center;
         align-self: center;
         padding: 3px;
-        border-radius: 0px 0px 8px 0px;
+        border-radius: 10px;
         box-shadow: 0 2px 5px 0px rgba(0, 0, 0, 0.4);
         font-weight: 400;
         font-family: Arial, Helvetica, sans-serif;
     }
     .saison:hover{
         color: white;
-        background-color: rgb(0, 0, 255, 1);
+        background-color: rgb(6, 6, 61);
         transition: all 0.2s ease;
     }
 }
@@ -433,8 +417,8 @@ a {
 }
 @media (min-width: 550px) {
     .sous-carte-bpa, .sous-carte-bpv, .sous-carte-chim, .sous-carte-phys, .sous-carte-math, .sous-carte-geo{
-        background-color: rgba(4, 0, 255, 5);
-        border-radius: 2px 1px 10px 0;
+        background: linear-gradient(100deg, rgb(85, 56, 216), rgb(148, 34, 114));
+        border-radius: 15px;
     }
 }
 p {

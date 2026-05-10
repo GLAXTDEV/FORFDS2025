@@ -25,3 +25,9 @@ btn.addEventListener('click', () => {
     btn.textContent = "🌙"
   };
 });
+
+const accueil = document.querySelector('#text-1');
+accueil.addEventListener('click', () => {
+  accueil.textContent = "accueil";
+  accueil.style.animation = "none";
+});
