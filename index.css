@@ -731,7 +731,6 @@ p {
    color: rgb(0, 0, 255);
    font-weight: 700;
    text-shadow: 0 0px 1px rgb(255, 255, 255);
-   box-shadow: 0px 1px 0px 0px rgb(255, 255, 255, 0.4);
    backdrop-filter: blur(10px);
    padding: 5px;
    width: auto;
@@ -762,7 +761,7 @@ p {
     box-shadow: none;
    }
 
-   #contacts a :hover{
+   #contacts a:hover{
    color: rgb(0, 0, 255);
    font-weight: 700;
    text-shadow: 0 1px 1px rgb(255, 255, 255);
@@ -883,17 +882,18 @@ object::-webkit-scrollbar{
     gap: 0px;
     align-items: center;
     justify-content: center;
-    border: 1px solid rgb(255, 255, 255, 0.1);
+    border: 0px solid rgb(255, 255, 255);
     padding: 10px;
     border-radius: 10px;
-    box-shadow: 0 1px 2px rgb(7, 7, 7);
-    background-color: rgb(0, 0, 0, white);
-    margin-bottom: 10px;
+    box-shadow: 0 6px 6px 0px rgb(0, 0, 0),
+               0 1px 1px 0px rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    margin-bottom: 15px;
     height: auto;
 }
 .carte-pdf:hover{
-    transform: scale(1.03);
-    border-color: rgb(0, 255, 255);
+    transform: scale(1.05);
     transition: all 0.1s ease;
 }
 
@@ -951,44 +951,41 @@ object::-webkit-scrollbar{
     background-position: center;
     background-size: cover;
     background-color: rgb(121, 9, 9);
-    border: 1px solid rgba(255, 255, 255, 1);
-    box-shadow: 0 2px 5px 0px rgb(0, 0, 0);
+    border: 0px solid rgba(255, 255, 255, 1);
+    box-shadow: 0 0px 2px 0px rgb(0, 0, 0);
 }
 
 
 
 .POSE a{
     display: inline-block;
-    border: 2px solid rgb(255, 255, 255);
+    border: 0px solid rgb(255, 255, 255);
     color: #1100ff;
-    background-color: white;
-    backdrop-filter: blur(1px);
+    background-color: rgb(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
     margin: 0px auto;
     padding: 8px;
-    border-radius: 30px;
-    animation: opacit 2s linear infinite;
+    border-radius: 50px;
+    animation: opacit 2s linear infinite alternate;
+    font-family: sans-serif;
+    text-transform: capitalize;
 }
+.POSE a:hover{
+    background-color: transparent;
+    color: rgb(255, 255, 255);
+    border-radius: 50px;
+    padding: 8px;
+}
+
 @keyframes opacit {
     35%{
         opacity: 0.9;
-        transform: scale(0.8);
+        transform: scale(0.85);
     }
     100%{
         opacity: 1;
         transform: scale(1);
     }
-}
-
-
-.POSE a:hover{
-    background-color: transparent;
-    border: 2px solid rgb(163, 163, 163);
-    box-shadow: 0 0 10px 0px rgba(255, 255, 255, 0.5);
-    transition: all 0.3s ease;
-    transform: scale(0.8);
-    padding: 8px;
-    border-radius: 30px;
-    color: cyan;
 }
 
 .PhotoCadre{
@@ -1008,6 +1005,11 @@ object::-webkit-scrollbar{
     box-shadow: 0 1px 2px rgb(185, 185, 185, 0.2);
     animation: scale 3s linear infinite alternate;
 }
+.dimensiomPhoto:hover{
+    animation: none;
+    transform: translateY(0);
+}
+
 @keyframes scale {
     0%{
         transform: scale(1);
@@ -1015,10 +1017,6 @@ object::-webkit-scrollbar{
     100%{
         transform: scale(1.02);
     }
-}
-.dimensiomPhoto:hover{
-    animation: none;
-    transform: translateY(0);
 }
 
 .tablePhoto{

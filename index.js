@@ -35,3 +35,5 @@ accueil.addEventListener('click', () => {
     accueil.style.animation = "";
   }, 4000)
 });
+
+
