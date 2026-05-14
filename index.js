@@ -30,4 +30,8 @@ const accueil = document.querySelector('#text-1');
 accueil.addEventListener('click', () => {
   accueil.textContent = "accueil";
   accueil.style.animation = "none";
+  window.setTimeout(() =>{
+    accueil.textContent = "ARCHIVES";
+    accueil.style.animation = "";
+  }, 4000)
 });
