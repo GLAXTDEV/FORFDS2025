@@ -35,21 +35,3 @@ accueil.addEventListener('click', () => {
     accueil.style.animation = "";
   }, 4000);
 });
-
-const aff = document.querySelector('#Zone');
-const listeDocs = [
-  {titre: "math", link: "", image: ""},
-  {titre: "physique", link: "", image: ""},
-  {titre: "chimie", link: "", image: ""},
-  {titre: "bpa", link: "", image: ""},
-  {titre: "bpv", link: "", image: ""},
-  {titre: "geo", link: "", image: ""},
-];
-
-listeDocs.forEach((element) => {
-  const creeElemt = document.createElement('div');
-  creeElemt.style.padding = "10px";
-  creeElemt.style.margin = "10px";
-  creeElemt.innerHTML = `<div>${element.titre}</div>`;
-  aff.appendChild(creeElemt);
-});

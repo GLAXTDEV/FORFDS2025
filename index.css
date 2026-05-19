@@ -5,7 +5,7 @@
 }
 
 body {
-    background: linear-gradient(90deg, #5C0A28);
+    background: linear-gradient(90deg,#5C0A28);
     background-size: cover;
     background-position: center;
     background-repeat: repeat;
@@ -735,7 +735,7 @@ p {
    backdrop-filter: blur(10px);
    padding: 5px;
    width: auto;
-   border-radius: 10px;
+   border-radius: 5px;
    transition: all 0.1s ease;
    transform: scale(1.05);
    text-align: center;
@@ -758,19 +758,20 @@ p {
    }
    
    #contacts a{
-    background: transparent;
     box-shadow: none;
+    animation: none;
+    background-color: none;
    }
 
    #contacts a:hover{
    color: rgb(0, 0, 255);
    font-weight: 700;
-   text-shadow: 0 1px 1px rgb(255, 255, 255);
+   text-shadow: 0 1px -1px rgb(255, 255, 255);
    padding: 5px;
    width: auto;
    border-radius: 5px;
    transition: all 0.1s ease;
-   transform: scale(1.08);
+   transform: scale(1.28);
    text-align: center;
    }
 }
@@ -820,7 +821,46 @@ object{
     justify-content: center;
     place-items: center;
 }
+#Zone{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-flow: column;
+    overflow-x: scroll;
+    padding: 15px;
+    place-items: center;
+    justify-items: center;
+    align-items: center;
+}
+#Zone::-webkit-scrollbar{
+    display: none;
+}
 
+#Zone p{
+    color: red;
+    margin: 5px;
+    text-transform: uppercase;
+    border-radius: 4px;
+    padding: 4px;
+}
+#Zone img{
+    border-radius: 10px;
+    z-index: -1;
+}
+
+#Zone a{
+    display: inline-block;
+    color: rgb(255, 255, 255, 1);
+    margin-right: 3px;
+    text-transform: capitalize;
+    border: 1px solid rgb(255, 255, 255, 0.25);
+    padding: 2px;
+    border-radius: 4px;
+    text-align: center;
+}
+#Zone a:hover{
+    background-color: white;
+    color: black;
+}
 
 @media screen and (min-width: 550px) {
     .position-pdf{
