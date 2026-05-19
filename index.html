@@ -157,15 +157,15 @@
 <script>
     const aff = document.querySelector('#Zone');
     const listeDocs = [
-    {titre: "mathematiques", link: "math/td math/TD2_MTH104_UL.pdf", image: "img/pdf5.png"},
-    {titre: "physique", link: "phy/td phy/TRAVAUX DIRIGES UE PHY 110_2021.pdf", image: "img/pdf5.png"},
-    {titre: "chimie", link: "chm/td chm/TD_ CHM103.pdf", image: "img/pdf5.png"},
-    ]
+    {titre: "mathematiques", link: "math/td math/TD2_MTH104_UL.pdf", image: "IMG/pdf5.png"},
+    {titre: "physique", link: "phy/td phy/TRAVAUX DIRIGES UE PHY 110_2021.pdf", image: "IMG/pdf5.png"},
+    {titre: "chimie", link: "chm/td chm/TD_ CHM103.pdf", image: "IMG/pdf5.png"},
+    ];
     listeDocs.forEach((element) => {
         const creeElemt = document.createElement('div');
         creeElemt.style.margin = "10px";
-        creeElemt.style.borderRadius = "10px"
-        creeElemt.style.boxShadow = "0 3px 6px"
+        creeElemt.style.borderRadius = "10px";
+        creeElemt.style.boxShadow = "0 3px 6px";
         creeElemt.style.padding = "15px";
         creeElemt.innerHTML = `<img src="${element.image}" height="100px" width=""><p class="titre">${element.titre}</p>
         <a href="${element.link}" download>download</a> <a href="${element.link}" target="_bank">ouvrir</a>`;
