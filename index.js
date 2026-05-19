@@ -19,10 +19,10 @@ const btn = document.getElementById('bouton');
 const pageBody = document.body;
 btn.addEventListener('click', () => {
   if (pageBody.classList.toggle('modeFont')){
-    btn.textContent = "☀️"
+    btn.textContent = "☀️";
   }
   else {
-    btn.textContent = "🌙"
+    btn.textContent = "🌙";
   };
 });
 
@@ -33,7 +33,23 @@ accueil.addEventListener('click', () => {
   window.setTimeout(() =>{
     accueil.textContent = "ARCHIVES";
     accueil.style.animation = "";
-  }, 4000)
+  }, 4000);
 });
 
+const aff = document.querySelector('#Zone');
+const listeDocs = [
+  {titre: "math", link: "", image: ""},
+  {titre: "physique", link: "", image: ""},
+  {titre: "chimie", link: "", image: ""},
+  {titre: "bpa", link: "", image: ""},
+  {titre: "bpv", link: "", image: ""},
+  {titre: "geo", link: "", image: ""},
+];
 
+listeDocs.forEach((element) => {
+  const creeElemt = document.createElement('div');
+  creeElemt.style.padding = "10px";
+  creeElemt.style.margin = "10px";
+  creeElemt.innerHTML = `<div>${element.titre}</div>`;
+  aff.appendChild(creeElemt);
+});
