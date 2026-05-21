@@ -148,7 +148,7 @@ a {
     font-size: 16px;
     padding: 7px;
     margin: 5px;
-    border-radius: 5px;
+    border-radius: 20px;
     user-select: none;
     text-align: start;
     background-color: rgb(255, 255, 255, 1);
@@ -413,7 +413,7 @@ a {
     margin-top: 10px;
     padding: 10px;
     background-color: rgba(47, 0, 255, 0.8);
-    border-radius: 4px;
+    border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
 }
 @media (min-width: 550px) {
@@ -923,18 +923,17 @@ object::-webkit-scrollbar{
     gap: 0px;
     align-items: center;
     justify-content: center;
-    border: 0px solid rgb(255, 255, 255);
     padding: 10px;
     border-radius: 10px;
-    background-color: rgba(0, 0, 0, 0.2);
+    background: linear-gradient(rgba(238, 130, 238, 0.651), rgba(0, 0, 255, 0.534));
     backdrop-filter: blur(10px);
     margin-bottom: 15px;
     height: auto;
 }
 .carte-pdf:hover{
-    transform: scale(1.01);
+    transform: scale(1.01) translateY(-10px);
     transition: all 0.1s ease;
-    box-shadow: 0 5px 10px black;
+    box-shadow: 0 3px 6px black;
 }
 
 .carte-pdf a{
@@ -954,11 +953,10 @@ object::-webkit-scrollbar{
 
 .carte-pdf a:hover{
     color: rgb(128, 5, 243);
-    background-color: #fff;
+    background-color: #57565f;
     padding: 5px;
-    border-radius: 5px;
-    transform: scale();
-     transition: all 0.1s ease;
+    color: white;
+    transition: all 0.1s ease;
 }
 
 
