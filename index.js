@@ -20,18 +20,11 @@ const pageBody = document.body;
 btn.addEventListener('click', () => {
   if (pageBody.classList.toggle('modeFont')){
     btn.textContent = "☀️";
+    btn.style.backgroundColor = "white";
+
   }
   else {
     btn.textContent = "🌙";
+    btn.style.backgroundColor ="black";
   };
-});
-
-const accueil = document.querySelector('#text-1');
-accueil.addEventListener('click', () => {
-  accueil.textContent = "accueil";
-  accueil.style.animation = "none";
-  window.setTimeout(() =>{
-    accueil.textContent = "ARCHIVES";
-    accueil.style.animation = "";
-  }, 4000);
 });
