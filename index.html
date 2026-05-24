@@ -11,7 +11,7 @@
 
     <div class="carte-mere">
         <p class="text-fds"><span id="text-1">ARCHIVES</span></p>
-        <div><button id="bouton">🌙</button></div>
+        
         <div class="dressage">
             <div class="carte-enfant">
 
@@ -156,6 +156,7 @@
 </div>
 
 <div id="Zone"></div>
+<div><button id="bouton">🌙</button></div>
 
 <script>
     const aff = document.querySelector('#Zone');
@@ -167,6 +168,7 @@
     listeDocs.forEach((element) => {
         const creeElemt = document.createElement('div');
         creeElemt.style.margin = "10px";
+        creeElemt.style.backgroundColor = "#ccc"
         creeElemt.style.borderRadius = "10px";
         creeElemt.style.boxShadow = "0 3px 6px black";
         creeElemt.style.padding = "15px";
@@ -174,6 +176,20 @@
         <a href="${element.link}" download>download</a> <a href="${element.link}" target="_bank">ouvrir</a>`;
         aff.appendChild(creeElemt);
     });
+
+    const btn = document.getElementById('bouton');
+const pageBody = document.body;
+btn.addEventListener('click', () => {
+  if (pageBody.classList.toggle('modeFont')){
+    btn.textContent = "☀️";
+    btn.style.backgroundColor = "white";
+
+  }
+  else {
+    btn.textContent = "🌙";
+    btn.style.backgroundColor ="black";
+  };
+});
 </script>
 
 

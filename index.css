@@ -6,8 +6,7 @@
 
 body {
     background: linear-gradient(
-        90deg,
-        #5C0A28, black);
+        #eee);
     background-size: cover;
     background-position: center;
     background-repeat: repeat;
@@ -67,7 +66,7 @@ body {
 
 
 .carte-mere {
-    background: linear-gradient(50deg, #5C0A28 30%, rgba(26, 22, 92, 1));
+    background: linear-gradient(#fff);
     position: fixed;
     width: 100%;
     top: 0;
@@ -92,7 +91,7 @@ body {
     color: transparent;
     font-weight: 700;
     font-family: sans-serif;
-    -webkit-text-stroke: 0.7px violet;
+    -webkit-text-stroke: 0.7px rgb(117, 117, 117);
 }
 #text-1:hover{
     color: rgb(255, 255, 255);
@@ -152,12 +151,15 @@ a {
     border-radius: 20px;
     user-select: none;
     text-align: start;
-    background-color: rgb(255, 255, 255, 1);
+    background-color: rgb(255, 255, 255, 0);
     width: 100%;
+    backdrop-filter: blur(100px);
+    cursor: pointer;
 }
 .carte-enfant-1{
     margin-left: 120px;
 }
+
 .carte-enfant-0{
     transition: all 0.3s ease;
     text-transform: uppercase;
@@ -167,15 +169,17 @@ a {
     border-radius: 0px 0px 5px 0px;
     user-select: none;
     text-align: start;
-    background: linear-gradient(360deg,rgba(26, 22, 92, 1)30%, #5C0A28 );
+    background: linear-gradient(#ccc);
     position: fixed;
     top: auto;
-    left: -10px;
+    left: 0px;
     width: 113px;
     z-index: 1;
-    box-shadow: 0 2px 0px black;
+    box-shadow: 0 0px 1px black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-
 
 @media (min-width: 550px){
     .carte-enfant-1, .carte-enfant-2, .carte-enfant-3, .carte-enfant-4, .carte-enfant-5, .carte-enfant-6{
@@ -226,9 +230,10 @@ a {
 .home{
     text-transform: capitalize;
     font-family: sans-serif;
-    font-weight: 700;
+    font-weight: 500;
     padding: 15px;
     font-size: 20px;
+    text-align: start;
     color: rgb(255, 255, 255);
     -webkit-text-stroke: 0.7px rgb(255, 255, 255);
 }
@@ -242,6 +247,7 @@ a {
     justify-content: center;
     align-items: center;
     width: 100px;
+    cursor: pointer;
 }
 
 .phy{
@@ -253,6 +259,7 @@ a {
     justify-content: center;
     align-items: center;
     width: 100px;
+    cursor: pointer;
 }
 
 .chm{
@@ -264,6 +271,7 @@ a {
     justify-content: center;
     align-items: center;
     width: 100px;
+    cursor: pointer;
 }
 
 .bpa{
@@ -275,6 +283,7 @@ a {
     justify-content: center;
     align-items: center;
     width: 100px;
+    cursor: pointer;
 }
 
 .bpv{
@@ -286,6 +295,7 @@ a {
     justify-content: center;
     align-items: center;
     width: 100px;
+    cursor: pointer;
 }
 
 .geo{
@@ -297,6 +307,7 @@ a {
     justify-content: center;
     align-items: center;
     width: 100px;
+    cursor: pointer;
 }
 
 @media (min-width: 550px) {
@@ -309,6 +320,7 @@ a {
         background: linear-gradient(100deg, #7674e2, rgb(173, 10, 179));
         padding: 8px;
         border-radius: 30px;
+        cursor: pointer;
     }
 }
 
@@ -319,7 +331,7 @@ a {
     border-radius: 3px;
     padding: 5px;
     color: rgb(0, 0, 0);
-    text-shadow: 0 1px 5px;
+    text-shadow: 0 1px 5px black;
     user-select: none;
     font-weight: 100;
     opacity: 1;
@@ -448,7 +460,7 @@ a {
 .sous-carte-bpa, .sous-carte-bpv, .sous-carte-chim, .sous-carte-phys, .sous-carte-math, .sous-carte-geo {
     margin-top: 10px;
     padding: 10px;
-    background-color: rgba(47, 0, 255, 0.8);
+    background-color: rgba(47, 0, 255, 1);
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
     padding: 10px 30px;
@@ -548,7 +560,6 @@ p {
 #main-display{
     margin-top: 100px;
     background-attachment: fixed;
-    background-image: url(IMG/);
     height: 100vh;
 }
 @media (min-width: 550px) {
@@ -573,7 +584,7 @@ p {
 }
 @media screen and (min-width: 550px) {
    .scroll-container{
-      width: 100%;
+      width: 80%;
       padding: 20px 0;
       margin: 5px auto;
       border-radius: 0px;
@@ -629,20 +640,6 @@ p {
   box-shadow: 0 5px 10px 5px rgb(0, 0, 0, 0.1),
             0px 5px 10px 5px rgb(0, 0, 0, 0.1),
             0px 5px 10px 5px rgb(0, 0, 0, 0.1);
-  animation: scrol 2000ms linear infinite alternate;
-}
-@keyframes scrol {
-    0%{
-        transform: translateY(0);
-    }
-    100%{
-        transform: translateY(-10px);
-    }
-}
-
-.main-scroll-wrapper:hover {
-    animation: none;
-    transform: translateY(0);
 }
 
 @media screen and (min-width: 550px) {
@@ -650,12 +647,11 @@ p {
       margin: 30px auto;
       max-width: 800px;
       max-height: 750px;
-      box-shadow: 0 4px 5px rgb(172, 172, 172, 0.1);
-      border-radius: 0;
+      box-shadow: 0 4px 5px rgb(172, 172, 172, 0.1)
+      0 5px 8px;
       max-width: 90%;  
       border-radius: 10px;
-   }
-   
+   } 
 }
 
 
@@ -671,7 +667,6 @@ p {
       user-select: none;
    }
 }
-
 
 .features-list {
   list-style: none;
@@ -692,7 +687,7 @@ p {
   padding: 15px;
   background-color: #fff9e6; /* Jaune très clair pour l'attention */
   border-left: 5px solid #f1c40f; /* Barre latérale jaune */
-  border-radius: 5px;
+  border-radius: 0px 5px 5px 0px;
   user-select: none;
 }
 
@@ -745,11 +740,6 @@ p {
    font-style: oblique;
    color: rgb(0, 179, 0);
 }
-@media screen and (min-width: 550px){
-   .paragraphe-site{
-      font-size: 28px;
-   }
-}
 
 #contacts {
    display: flex;
@@ -769,7 +759,7 @@ p {
    color: rgb(0, 0, 255);
    font-weight: 700;
    text-shadow: 0 0px 1px rgb(255, 255, 255);
-   backdrop-filter: blur(10px);
+   backdrop-filter: blur(100px);
    padding: 5px;
    width: auto;
    border-radius: 5px;
@@ -777,15 +767,6 @@ p {
    transform: scale(1.05);
    text-align: center;
    height: 40px;
-   animation: sal 2s linear infinite alternate;
-}
-@keyframes sal {
-   0%{
-      transform: scale(1.01);
-   }
-   100%{
-      transform: scale(1.15);
-   }
 }
 
 @media screen and (min-width: 550px){
@@ -815,8 +796,8 @@ p {
 
 .info-cadre{
     background: linear-gradient(rgb(255, 255, 255, 0.8)); 
-    width: 89%;
-    border:1px solid white;
+    width: 90%;
+    border: 1px solid white;
     border-radius: 8px;
     padding: 10px;
     margin: 0 auto;
@@ -826,12 +807,6 @@ p {
     box-shadow: 0 5px 10px 5px rgb(0, 0, 0, 0.1),
             0px 5px 10px 5px rgb(0, 0, 0, 0.1),
             0px 5px 10px 5px rgb(0, 0, 0, 0.1);
-    animation: scrol 2000ms linear infinite alternate;
-}
-
-.info-cadre:hover{
-    animation: none;
-    transform: translateY(0);
 }
 
 @media (min-width: 550px){
@@ -842,7 +817,6 @@ p {
 }
 
 object{ 
-    box-shadow: 0 2px 5px 0px rgb(255, 255, 255);
     border-radius: 4px;
     user-select: none;
     width: 135px;
@@ -853,7 +827,7 @@ object{
 .position-pdf{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 10px 0;
+    gap: 5px 0;
     align-items: center;
     justify-content: center;
     place-items: center;
@@ -962,13 +936,14 @@ object::-webkit-scrollbar{
     justify-content: center;
     padding: 10px;
     border-radius: 10px;
-    background: linear-gradient(50deg, #5C0A28 30%, rgba(26, 22, 92, 1));
+    background: linear-gradient(#ccc);
     backdrop-filter: blur(10px);
     margin-bottom: 15px;
     height: auto;
+    box-shadow: 0 3px 5px black;
 }
 .carte-pdf:hover{
-    transform: scale(1.01) translateY(-10px);
+    transform: translateY(-10px);
     transition: all 0.1s ease;
     box-shadow: 0 3px 6px black;
 }
@@ -999,12 +974,11 @@ object::-webkit-scrollbar{
 
 @media (min-width: 550px) {
     .carte-pdf a{
-        border-radius: 0;
+        border-radius: 8px;
     }
     .carte-pdf a:hover{
         border-radius: 0;
-    }
-    
+    }   
 }
 
 .info-banner {
@@ -1024,25 +998,22 @@ object::-webkit-scrollbar{
     background-image: url(IMG/pdf\ svg1.png);
     background-position: center;
     background-size: cover;
-    background-color: rgb(121, 9, 9);
-    border: 0px solid rgba(255, 255, 255, 1);
-    box-shadow: 0 0px 2px 0px rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255);
 }
 
 
 
 .POSE a{
     display: inline-block;
-    border: 0px solid rgb(255, 255, 255);
     color: #1100ff;
-    background-color: rgb(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
+    background-color: rgb(255, 255, 255, 0);
+    backdrop-filter: blur(0px);
     margin: 0px auto;
     padding: 8px;
-    border-radius: 50px;
+    border-radius: 20px;
     animation: opacit 2s linear infinite alternate;
-    font-family: sans-serif;
-    text-transform: capitalize;
+    font-family: serif;
+    text-transform: lowercase;
 }
 .POSE a:hover{
     background-color: transparent;
@@ -1063,11 +1034,10 @@ object::-webkit-scrollbar{
 }
 
 .PhotoCadre{
-    border: 0px solid rgb(255, 255, 255, 0.3);
     width: 90%;
     border-radius: 10px;
-    background-color: rgba(0, 0, 0, 0.5);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2), 0 0 10px 0px rgba(0, 0, 0, 0.5);
+    background-color: #eee;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0);
     margin: 10px auto;
 }
 
@@ -1076,22 +1046,9 @@ object::-webkit-scrollbar{
     height: 250px;
     padding: 10px;
     border-radius: 5px;
-    box-shadow: 0 1px 2px rgb(185, 185, 185, 0.2);
     animation: scale 3s linear infinite alternate;
 }
-.dimensiomPhoto:hover{
-    animation: none;
-    transform: translateY(0);
-}
 
-@keyframes scale {
-    0%{
-        transform: scale(1);
-    }
-    100%{
-        transform: scale(1.02);
-    }
-}
 
 .tablePhoto{
     display: grid;
@@ -1134,7 +1091,7 @@ object::-webkit-scrollbar{
     font-size: 20px;
     font-weight: 900;
     font-family: sans-serif;
-    color: rgb(0, 0, 255);
+    color: rgb(88, 88, 201);
     text-shadow: 0 2px 2px rgb(255, 255, 255, 0.3);
     margin: 15px 10px;
     text-align: center;
