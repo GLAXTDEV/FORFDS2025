@@ -5,14 +5,26 @@
 }
 
 body {
+    margin: 0;
+      padding: 0;
+      background-image: url('https://copilot.microsoft.com/th/id/BCO.29a1e4db-8ba7-406a-b493-a1c0d780a367.png');
+      background-size: cover;       /* L’image couvre tout l’écran */
+      background-repeat: no-repeat; /* Pas de répétition */
+      background-attachment: fixed; /* Fixe lors du scroll */
+      background-position: center;  /* Centrée */
+      height: 100vh;
+}
+@media (min-width:550px) {
+    body {
     background: linear-gradient(
-        #eee);
+        #380404);
     background-size: cover;
     background-position: center;
     background-repeat: repeat;
     height: 100vh;
     color: #050505;
     user-select: none;
+}
 }
 
 .modeFont{
@@ -32,7 +44,7 @@ body {
     border: none;
     padding: 10px;
     border-radius: 20px;
-    background-color: white;
+    background: linear-gradient(rgb(255, 255, 255, 0.1));
     box-shadow: 0 1px 3px 0px rgba(2, 2, 2);
     z-index: 1;
     text-transform: uppercase;
@@ -66,7 +78,7 @@ body {
 
 
 .carte-mere {
-    background: linear-gradient(#fff);
+    backdrop-filter: blur(100px);
     position: fixed;
     width: 100%;
     top: 0;
@@ -91,7 +103,7 @@ body {
     color: transparent;
     font-weight: 700;
     font-family: sans-serif;
-    -webkit-text-stroke: 0.7px rgb(117, 117, 117);
+    -webkit-text-stroke: 0.7px rgb(13, 90, 121);
 }
 #text-1:hover{
     color: rgb(255, 255, 255);
@@ -151,7 +163,8 @@ a {
     border-radius: 20px;
     user-select: none;
     text-align: start;
-    background-color: rgb(255, 255, 255, 0);
+    backdrop-filter: blur(100px);
+    border: 0.1px solid #ccc;
     width: 100%;
     backdrop-filter: blur(100px);
     cursor: pointer;
@@ -169,7 +182,7 @@ a {
     border-radius: 0px 0px 5px 0px;
     user-select: none;
     text-align: start;
-    background: linear-gradient(#ccc);
+    backdrop-filter: blur(100px);
     position: fixed;
     top: auto;
     left: 0px;
@@ -191,6 +204,7 @@ a {
         box-shadow: none;
         background-color: transparent;
         letter-spacing: none;
+        border: none;
     }
     .carte-enfant-1{
         margin-left: 0px;
@@ -795,9 +809,9 @@ p {
 }
 
 .info-cadre{
-    background: linear-gradient(rgb(255, 255, 255, 0.8)); 
+    background: linear-gradient(rgb(255, 255, 255, 0.1)); 
     width: 90%;
-    border: 1px solid white;
+    border: 0px solid white;
     border-radius: 8px;
     padding: 10px;
     margin: 0 auto;
@@ -813,6 +827,7 @@ p {
     .info-cadre{
         width: 90%;
         border-radius: 10px;
+        background-color: #fdfdfd;
     }
 }
 
@@ -936,7 +951,6 @@ object::-webkit-scrollbar{
     justify-content: center;
     padding: 10px;
     border-radius: 10px;
-    background: linear-gradient(#ccc);
     backdrop-filter: blur(10px);
     margin-bottom: 15px;
     height: auto;
@@ -1036,7 +1050,7 @@ object::-webkit-scrollbar{
 .PhotoCadre{
     width: 90%;
     border-radius: 10px;
-    background-color: #eee;
+    background: linear-gradient(rgb(255, 255, 255, 0.1));
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0);
     margin: 10px auto;
 }
