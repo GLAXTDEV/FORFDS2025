@@ -156,7 +156,6 @@
 </div>
 
 <div id="Zone"></div>
-<div><button id="bouton">🌙</button></div>
 
 <script>
     const aff = document.querySelector('#Zone');
@@ -176,20 +175,6 @@
         <a href="${element.link}" download>download</a> <a href="${element.link}" target="_bank">ouvrir</a>`;
         aff.appendChild(creeElemt);
     });
-
-    const btn = document.getElementById('bouton');
-const pageBody = document.body;
-btn.addEventListener('click', () => {
-  if (pageBody.classList.toggle('modeFont')){
-    btn.textContent = "☀️";
-    btn.style.backgroundColor = "white";
-
-  }
-  else {
-    btn.textContent = "🌙";
-    btn.style.backgroundColor ="black";
-  };
-});
 </script>
 
 

@@ -16,66 +16,16 @@ body {
 }
 @media (min-width:550px) {
     body {
-    background: linear-gradient(
-        #380404);
-    background-size: cover;
-    background-position: center;
-    background-repeat: repeat;
-    height: 100vh;
-    color: #050505;
-    user-select: none;
+    margin: 0;
+      padding: 0;
+      background-image: url('https://copilot.microsoft.com/th/id/BCO.44503fae-dfb5-48c6-8248-ab5473203e96.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-attachment: fixed;
+      height: 100vh;
 }
 }
-
-.modeFont{
-    background-image: url(IMG/back11.jpg);
-    background-size: cover;
-    background-position: center;
-    background-repeat: repeat;
-    height: 100vh;
-    color: white;
-    user-select: none;
-}
-
-#bouton{
-    position: fixed;
-    bottom: 5%;
-    right: 12px;
-    border: none;
-    padding: 10px;
-    border-radius: 20px;
-    background: linear-gradient(rgb(255, 255, 255, 0.1));
-    box-shadow: 0 1px 3px 0px rgba(2, 2, 2);
-    z-index: 1;
-    text-transform: uppercase;
-    font-weight: 700;
-    font-family: sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 40px;
-    height: 40px;
-    margin-right: 8px;
-}
-
-@media (min-width: 550px) {
-    #bouton{
-        position: absolute;
-        top: 5px;
-        padding: 0px;
-        right: 100px;
-        font-size: 18px;
-        width: 30px;
-        height: 30px;
-        margin-right: 8px;
-    }
-    #bouton:hover{
-        background-color: transparent;
-        box-shadow: 0 0 5px 0px rgba(0, 0, 0, 0.8);
-        z-index: 500;
-    }
-}
-
 
 .carte-mere {
     backdrop-filter: blur(100px);
@@ -92,7 +42,7 @@ body {
 @media (min-width: 550px) {
     .carte-mere{
         position: relative;
-        background: linear-gradient(50deg, rgb(255, 255, 255) 5%, rgb(20, 20, 99));
+        background: linear-gradient(90deg, rgb(197, 41, 41), rgb(64, 64, 190), rgb(131, 230, 131));
         box-shadow: none;   
     }
 }
@@ -182,12 +132,12 @@ a {
     border-radius: 0px 0px 5px 0px;
     user-select: none;
     text-align: start;
-    backdrop-filter: blur(100px);
+    backdrop-filter: blur(1000px);
     position: fixed;
     top: auto;
     left: 0px;
     width: 113px;
-    z-index: 1;
+    z-index: 99;
     box-shadow: 0 0px 1px black;
     display: flex;
     justify-content: center;
@@ -221,7 +171,7 @@ a {
     overflow-x: scroll;
     overflow-y: none;
     user-select: none;
-    justify-content: space-around;    
+    justify-content: space-around;
     position: fixed;
     top: 55px;
     width: 100%;
@@ -351,6 +301,7 @@ a {
     opacity: 1;
     font-family: Georgia, 'Times New Roman', Times, serif;
     background-color: white;
+    backdrop-filter: blur(110px);
 }
 
 @media (min-width: 550px){
@@ -598,7 +549,7 @@ p {
 }
 @media screen and (min-width: 550px) {
    .scroll-container{
-      width: 80%;
+      width: 100%;
       padding: 20px 0;
       margin: 5px auto;
       border-radius: 0px;
@@ -644,10 +595,12 @@ p {
   max-height: 800px; /* Ajuste la hauteur selon tes besoins */
   margin: 20px;
   padding: 20px;
-  border: 1px solid rgb(255, 255, 255, 0.1);
+  border: 0px solid rgb(255, 255, 255, 0.1);
   border-radius: 10px;
   background: linear-gradient(rgb(255, 255, 255, 0.1));
+  backdrop-filter: blur(1px);
   color: #000000;
+  text-indent: 10px;
   user-select: none;
   width: 89%;
   overflow-y: none; /* Active le scroll vertical */
@@ -810,6 +763,7 @@ p {
 
 .info-cadre{
     background: linear-gradient(rgb(255, 255, 255, 0.1)); 
+    backdrop-filter: blur(1px);
     width: 90%;
     border: 0px solid white;
     border-radius: 8px;
@@ -821,13 +775,13 @@ p {
     box-shadow: 0 5px 10px 5px rgb(0, 0, 0, 0.1),
             0px 5px 10px 5px rgb(0, 0, 0, 0.1),
             0px 5px 10px 5px rgb(0, 0, 0, 0.1);
+    text-indent: 5px;
 }
 
 @media (min-width: 550px){
     .info-cadre{
         width: 90%;
         border-radius: 10px;
-        background-color: #fdfdfd;
     }
 }
 
@@ -887,6 +841,7 @@ object{
     background-color: white;
     color: black;
 }
+
 
 @media screen and (min-width: 550px) {
     .position-pdf{
@@ -1009,7 +964,9 @@ object::-webkit-scrollbar{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url(IMG/pdf\ svg1.png);
+    background-image: url(https://copilot.microsoft.com/th/id/BCO.7656a3b9-7086-46fc-a3ef-a985a4969349.png);
+    cursor: pointer;
+    transition: transform 0.3s ease;
     background-position: center;
     background-size: cover;
     background-color: rgb(255, 255, 255);
