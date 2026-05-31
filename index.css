@@ -113,10 +113,9 @@ a {
     border-radius: 20px;
     user-select: none;
     text-align: start;
-    backdrop-filter: blur(100px);
+    backdrop-filter: blur(10px);
     border: 0.1px solid #ccc;
     width: 100%;
-    backdrop-filter: blur(100px);
     cursor: pointer;
 }
 .carte-enfant-1{
@@ -132,13 +131,13 @@ a {
     border-radius: 0px 0px 5px 0px;
     user-select: none;
     text-align: start;
-    backdrop-filter: blur(1000px);
+    backdrop-filter: brightness(3%);
     position: fixed;
     top: auto;
     left: 0px;
     width: 113px;
-    z-index: 99;
-    box-shadow: 0 0px 1px black;
+    z-index: 999;
+    box-shadow: 0 2px 4px black;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -198,7 +197,7 @@ a {
     padding: 15px;
     font-size: 20px;
     text-align: start;
-    color: rgb(255, 255, 255);
+    color: cyan;
     -webkit-text-stroke: 0.7px rgb(255, 255, 255);
 }
 
