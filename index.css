@@ -738,7 +738,6 @@ p {
     text-decoration: none;
     color: rgb(255, 255, 255);
     font-size: 1.6rem;
-    backdrop-filter: brightness();
     transition: 0.3s ease;
     border: 2px solid;
     box-shadow: 0 2px 5px rgb(0, 0, 0, 0.3);
