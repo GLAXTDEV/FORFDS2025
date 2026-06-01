@@ -338,7 +338,7 @@ a {
 
 .carte-enfant-1:hover .sous-carte-math{
     display: block;
-    animation: scroll 0.3s ease-in-out;
+    animation: scroll 0.3s ease;
     
     
 }
@@ -690,6 +690,11 @@ p {
    background-repeat: repeat;
    transform: translateY(100%);
 }
+.bottom-elem h3{
+    text-indent: 70px;
+    color: rgb(0, 255, 0);
+    padding: 4px;
+}
 
 .propos-site{
    display: flex;
@@ -721,19 +726,40 @@ p {
    border-radius: 0;
    user-select: none;
 }
-#contacts a{
-   color: rgb(0, 0, 255);
-   font-weight: 700;
-   text-shadow: 0 0px 1px rgb(255, 255, 255);
-   backdrop-filter: blur(100px);
-   padding: 5px;
-   width: auto;
-   border-radius: 5px;
-   transition: all 0.1s ease;
-   transform: scale(1.05);
-   text-align: center;
-   height: 40px;
+
+.icon_link{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-size: 1.6rem;
+    backdrop-filter: brightness();
+    transition: 0.3s ease;
+    border: 2px solid;
+    box-shadow: 0 2px 5px rgb(0, 0, 0, 0.3);
 }
+.whatsapp{
+    background: linear-gradient(rgb(0, 211, 0));
+}
+.instagram{
+    background: linear-gradient(Orange, red);
+}
+.discord{
+    background: linear-gradient(#1a1a8c);
+}
+.x{
+    background: linear-gradient(black);
+}
+
+.icon_link:hover{
+    transform: translateY(-10px);
+}
+
 
 @media screen and (min-width: 550px){
    #contacts{
@@ -745,18 +771,6 @@ p {
     box-shadow: none;
     animation: none;
     background-color: none;
-   }
-
-   #contacts a:hover{
-   color: rgb(0, 0, 255);
-   font-weight: 700;
-   text-shadow: 0 1px -1px rgb(255, 255, 255);
-   padding: 5px;
-   width: auto;
-   border-radius: 5px;
-   transition: all 0.1s ease;
-   transform: scale(1.28);
-   text-align: center;
    }
 }
 
