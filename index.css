@@ -28,14 +28,14 @@ body {
 }
 
 .carte-mere {
-    backdrop-filter: blur(100px);
+    background-color: #fff;
     position: fixed;
     width: 100%;
     top: 0;
     left: 0;
     padding: 5px 10px;
     z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     user-select: none;
 
 }
@@ -53,24 +53,20 @@ body {
     color: transparent;
     font-weight: 700;
     font-family: sans-serif;
-    -webkit-text-stroke: 0.7px rgb(13, 90, 121);
-}
-#text-1:hover{
-    color: rgb(255, 255, 255);
+    color: #000000;
+    font-weight: 900;
 }
 
 @media (min-width: 550px) {
     #text-1{
-        color: rgb(2, 2, 2);
-        font-weight: 900;
-    }
-    #text-1:hover{
-        color: #eee;
+        color: rgb(255, 255, 255);
+        font-weight: 700;
+        font-family: 'Times New Roman', Times, serif;
     }
 }
 @keyframes opacite {
     50%{
-        opacity: 0.2;
+        opacity: 0.1;
     }
     100%{
         opacity: 1;
@@ -80,22 +76,13 @@ body {
 .text-fds {
     text-align: center;
     text-transform: uppercase;
-    border-width: 100%;
     user-select: none;
-    letter-spacing: 50%;
+    letter-spacing: 70%;
     display: flex;
     justify-content: center;
     align-items: center;
     width: auto;
 }
-@media (min-width: 550px){
-    .text-fds{
-        text-align: center;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        letter-spacing: 100%;
-    }
-}
-
 
 a {
     text-decoration: none;
@@ -113,10 +100,9 @@ a {
     border-radius: 20px;
     user-select: none;
     text-align: start;
-    backdrop-filter: blur(10px);
-    border: 0.1px solid #ccc;
     width: 100%;
     cursor: pointer;
+    box-shadow: 0 2px 2px rgb(0, 0, 0, 0.5);
 }
 .carte-enfant-1{
     margin-left: 120px;
@@ -125,19 +111,19 @@ a {
 .carte-enfant-0{
     transition: all 0.3s ease;
     text-transform: uppercase;
-    letter-spacing: 5%;
+    letter-spacing: 0;
     font-size: 16px;
     padding: 13px;
     border-radius: 0px 0px 5px 0px;
     user-select: none;
     text-align: start;
-    backdrop-filter: brightness(3%);
+    backdrop-filter: brightness(50%);
     position: fixed;
     top: auto;
     left: 0px;
     width: 113px;
     z-index: 999;
-    box-shadow: 0 2px 4px black;
+    box-shadow: 0 2px 5px black;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -191,14 +177,13 @@ a {
     }
 }
 .home{
-    text-transform: capitalize;
+    text-transform: uppercase;
     font-family: sans-serif;
-    font-weight: 500;
+    font-weight: 700;
     padding: 15px;
     font-size: 20px;
     text-align: start;
-    color: cyan;
-    -webkit-text-stroke: 0.7px rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
 }
 
 .math{
@@ -211,6 +196,7 @@ a {
     align-items: center;
     width: 100px;
     cursor: pointer;
+    padding: 5px;
 }
 
 .phy{
@@ -223,6 +209,7 @@ a {
     align-items: center;
     width: 100px;
     cursor: pointer;
+    padding: 5px;
 }
 
 .chm{
@@ -235,6 +222,7 @@ a {
     align-items: center;
     width: 100px;
     cursor: pointer;
+    padding: 5px;
 }
 
 .bpa{
@@ -247,6 +235,7 @@ a {
     align-items: center;
     width: 100px;
     cursor: pointer;
+    padding: 5px;
 }
 
 .bpv{
@@ -259,6 +248,7 @@ a {
     align-items: center;
     width: 100px;
     cursor: pointer;
+    padding: 5px;
 }
 
 .geo{
@@ -271,6 +261,7 @@ a {
     align-items: center;
     width: 100px;
     cursor: pointer;
+    padding: 5px;
 }
 
 @media (min-width: 550px) {
@@ -294,13 +285,14 @@ a {
     border-radius: 3px;
     padding: 5px;
     color: rgb(0, 0, 0);
-    text-shadow: 0 1px 5px black;
+    text-shadow: 0 0px -5px black;
     user-select: none;
     font-weight: 100;
     opacity: 1;
     font-family: Georgia, 'Times New Roman', Times, serif;
     background-color: white;
     backdrop-filter: blur(110px);
+    margin-left: -15px;
 }
 
 @media (min-width: 550px){
@@ -312,6 +304,7 @@ a {
         box-shadow: 0 2px 5px 0px rgba(0, 0, 0, 0.4);
         font-weight: 600;
         font-family: Arial, Helvetica, sans-serif;
+        margin-left: 0;
     }
     .saison:hover{
         color: white;
@@ -406,7 +399,7 @@ a {
 
 .carte-enfant-6:hover .sous-carte-geo{
     display: block;
-    animation: scroll 0.3s ease-in-out;
+    animation: scroll 0.8s ease-in-out;
 }
 
 @keyframes scroll {
@@ -424,9 +417,8 @@ a {
 .sous-carte-bpa, .sous-carte-bpv, .sous-carte-chim, .sous-carte-phys, .sous-carte-math, .sous-carte-geo {
     margin-top: 10px;
     padding: 10px;
-    background-color: rgba(47, 0, 255, 1);
     border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
     padding: 10px 30px;
 }
 @media (min-width: 550px) {
@@ -685,28 +677,28 @@ p {
 }
 
 .bottom-elem {
-   backdrop-filter: blur(5px);
-   background-size: contain;
-   background-repeat: repeat;
+   backdrop-filter: BRIGHTNESS(30%);
    transform: translateY(100%);
 }
 .bottom-elem h3{
-    text-indent: 70px;
-    color: rgb(0, 255, 0);
-    padding: 4px;
+    text-indent: 0px;
+    color: transparent;
+    padding: 5px;
+    margin: 2px;
+    background: linear-gradient(5deg, RED, blue, Orange);
+    background-position: center;
+    background-size: contain;
+    background-clip: text;
 }
 
 .propos-site{
    display: flex;
    flex-direction: column;
    align-items: center;
-   gap: 0px;
 }
 
 .paragraphe-site{
-   word-spacing: 0px;
    font-size: 18px;
-   font-weight: 50;
    font-family: sans-serif;
    font-style: oblique;
    color: rgb(0, 179, 0);
@@ -716,14 +708,12 @@ p {
    display: flex;
    justify-content: center;
    align-items: center;
-   gap: 20px;
+   gap: 3px;
    width: 100%;
    padding: 10px;
+   height: auto;
    margin: 10px auto;
-   background-color: rgba(255, 255, 255, 0.1);
    z-index: 0;
-   box-shadow: 0 0px 2px rgb(221, 220, 220, 0.1);
-   border-radius: 0;
    user-select: none;
 }
 
@@ -731,32 +721,38 @@ p {
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    padding: 10px;
-    width: 50px;
-    height: 50px;
+    padding: 0px;
+    width: 35px;
+    height: 35px;
     border-radius: 50%;
     text-decoration: none;
     color: rgb(255, 255, 255);
-    font-size: 1.6rem;
+    font-size: 1.1rem;
     transition: 0.3s ease;
-    border: 2px solid;
+    border: 0.1px solid #ccc;
     box-shadow: 0 2px 5px rgb(0, 0, 0, 0.3);
 }
-.whatsapp{
+@media (min-width: 500px) {
+    .icon_link{
+        width: 40px;
+        height: 40px;
+    }
+}
+.whatsapp:hover{
     background: linear-gradient(rgb(0, 211, 0));
 }
-.instagram{
+.instagram:hover{
     background: linear-gradient(Orange, red);
 }
-.discord{
+.discord:hover{
     background: linear-gradient(#1a1a8c);
 }
-.x{
+.x:hover{
     background: linear-gradient(black);
 }
 
 .icon_link:hover{
-    transform: translateY(-10px);
+    transform: translateY(-5px);
 }
 
 
