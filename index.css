@@ -34,25 +34,18 @@ body {
     top: 0;
     left: 0;
     padding: 0px;
-    z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
     user-select: none;
 
 }
 @media (min-width: 550px) {
     .carte-mere{
         position: relative;
-        background: linear-gradient(90deg, rgb(197, 41, 41), rgb(64, 64, 190), rgb(131, 230, 131));
         box-shadow: none;   
     }
 }
 
-.haut{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 0px;
-}
 .icon-link{
     display: inline-flex;
     justify-content: center;
@@ -67,25 +60,8 @@ body {
 .icon-link:hover{
     color: red;
 }
-.msg{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 2px;
-    border-radius: 5px;
-}
-.msg:hover{
-    box-shadow: 0 4px 6px rgb(0, 0, 0, 0.3);
-    transition: 0.4s ease;
-}
-.msg div{
-    color: rgb(53, 49, 49);
-    text-transform: capitalize;
-    font-size: 10px;
-}
 
-#text-1{
+.text-fds a{
     font-size: 24px;
     animation: opacite 3000ms linear infinite alternate;
     color: transparent;
@@ -95,13 +71,6 @@ body {
     font-weight: 900;
 }
 
-@media (min-width: 550px) {
-    #text-1{
-        color: rgb(255, 255, 255);
-        font-weight: 700;
-        font-family: 'Times New Roman', Times, serif;
-    }
-}
 @keyframes opacite {
     50%{
         opacity: 0.1;
@@ -128,7 +97,7 @@ a {
     user-select: none;
 }
 
-.carte-enfant-0, .carte-enfant-1, .carte-enfant-2, .carte-enfant-3, .carte-enfant-4, .carte-enfant-5, .carte-enfant-6 {
+.carte-enfant-1, .carte-enfant-2, .carte-enfant-3, .carte-enfant-4, .carte-enfant-5, .carte-enfant-6 {
     transition: all 0.3s ease;
     text-transform: uppercase;
     letter-spacing: 5%;
@@ -189,19 +158,6 @@ a {
         width: 100%;
         overflow-x: auto;
     }
-}
-.home{
-    text-transform: uppercase;
-    font-family: sans-serif;
-    font-weight: 700;
-    padding: 15px;
-    font-size: 20px;
-    text-align: start;
-    color: rgb(0, 0, 0);
-    cursor: pointer;
-    width: 100px;
-    padding: 5px;
-    margin-left: 10px;
 }
 
 .math{
