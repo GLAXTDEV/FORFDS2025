@@ -1,16 +1,8 @@
-﻿function charger(templateId){
-  const template = document.getElementById(templateId);
-  const mainDisplay = document.getElementById('main-display');
-  const pageTitle = document.getElementById('page-title');
-  if (!template) {
-    console.log("erro")
-  };
-  const nouveauTitre = template.getAttribute('data-titre');
-  const nouveauContenu = template.content.cloneNode(true);
-  pageTitle.innerText = nouveauTitre;
-  mainDisplay.innerHTML ="";
-  mainDisplay.appendChild(nouveauContenu);
+﻿function show(id){
+  //caher tout les page 'page'
+  document.querySelectorAll('.page').forEach(pageActive =>{
+    pageActive.classList.remove('active');
+  });
+  //afficher celui sur qui on clique
+  document.getElementById(id).classList.add('active');
 }
-window.onload = () => { 
-  charger('page-accueil');
-};
