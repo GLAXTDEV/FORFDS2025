@@ -221,7 +221,7 @@ header{
 
 /*partie de carte*/
 
-.carte, .carteP{
+.carte, .carteP, .carteC{
     padding: 5px;
     margin: 5px;
     background-color: #fff;
@@ -231,7 +231,6 @@ header{
     img{
         width: 100%;
         border-radius: 10px;
-        border: 1px solid #333;
     }
     h3{
         color: black;
@@ -265,12 +264,18 @@ header{
     border: 1px solid rgb(0, 0, 255);
 }
 .carteP:hover{
-    transform: translateY(-2px) scale(1.02);
+    transform: translateY(-2px) scale(1.01);
     transition: 440ms ease;
 }
 .carte:hover{
     transform: translateY(-2px);
     transition: 440ms ease;
+    border: 1px solid #d9ff00;
+}
+.carteC:hover{
+    transform: translateY(-2px);
+    transition: 440ms ease;
+    border: 1px solid #09ff00;
 }
 
 

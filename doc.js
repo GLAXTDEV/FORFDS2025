@@ -41,7 +41,7 @@ lesDocumentsMathematiqueH.forEach(doc => {
 
 const mathM = document.querySelector('.page-math-M');
 const lesDocumentsMathematiqueM =[
-    {image: "IMG/pdf3.jpg", nomDoc: "ANG 200", lien: "phy/ang201new.pdf"},
+    {image: "IMG/pdf3.jpg", nomDoc: "ANG 201", lien: "phy/ang201new.pdf"},
     {image: "IMG/pdf3.jpg", nomDoc: "MTH102 (Anneaux)", lien: "math/ChapII Anneaux 2014.pdf"},
     {image: "IMG/pdf3.jpg", nomDoc: "MTH 102 CHAP 1&2", lien: "math/Cours Chapitre 1&2  de MTH 102.pdf"},
     {image: "IMG/pdf3.jpg", nomDoc: "MTH 160", lien: "math/cours complet de MTH160.pdf"},
@@ -63,8 +63,8 @@ lesDocumentsMathematiqueM.forEach(doc => {
         `;
         mathM.appendChild(carteH);
         afficherTaille(doc.lien, carteH.querySelector('.taille'));
-
 });
+
 const mathTD = document.querySelector('.page-math-TD');
 const lesDocumentsMathematiqueTD = [
     {image: "IMG/pdf3.jpg", nomDoc: "MTH 108 corrigee 19-20", lien: "/math/td math/Corrigéde MTH108.pdf"},
@@ -110,7 +110,6 @@ lesDocumentsMathematiqueTD.forEach(doc => {
 
 });
 
-
 const physicH = document.querySelector('.page-physic-H');
 const lesDocumentsPhysiqueH = [
     {image: "IMG/pdf5.png", nomDoc: "ANG 200", lien: "math/ANG200.pdf"},
@@ -123,9 +122,8 @@ const lesDocumentsPhysiqueH = [
     {image: "IMG/pdf5.png", nomDoc: "MTH 100", lien: "phy/MATH100.pdf"},
     {image: "IMG/pdf5.png", nomDoc: "MTH 101", lien: "phy/Cours MTH 101 complet.pdf"},
     {image: "IMG/pdf5.png", nomDoc: "MTH 103", lien: "phy/MTH103.pdf"},
-    {image: "IMG/pdf5.png", nomDoc: "MTH 106", lien: "math/MTH106.pdf"},
-    {image: "IMG/pdf5.png", nomDoc: "MTH 108", lien: "math/Cours complet de PHY 108.pdf"},
-
+    {image: "IMG/pdf5.png", nomDoc: "CHM 101", lien: "chm/CHM101 Cours complet.pdf"},
+    {image: "IMG/pdf5.png", nomDoc: "CHM 106", lien: "chm/CHM106.pdf"},
 ];
 lesDocumentsPhysiqueH.forEach(doc => {
         const carteH = document.createElement('div');
@@ -144,22 +142,143 @@ lesDocumentsPhysiqueH.forEach(doc => {
 });
 
 const physicM = document.querySelector('.page-physic-M');
+const lesDocumentsPhysicM = [
+    {image: "IMG/pdf5.png", nomDoc: "ANG 201", lien: "phy/ang201new.pdf"},
+    {image: "IMG/pdf5.png", nomDoc: "MTH102 (Anneaux)", lien: "math/ChapII Anneaux 2014.pdf"},
+    {image: "IMG/pdf5.png", nomDoc: "MTH 102 CHAP 1&2", lien: "math/Cours Chapitre 1&2  de MTH 102.pdf"},
+    {image: "IMG/pdf5.png", nomDoc: "MTH 104", lien: "math/MATH104 now.pdf"},
+    {image: "IMG/pdf5.png", nomDoc: "PHY 110", lien: "math/cours complet de PHY 110.pdf"},
+    {image: "IMG/pdf5.png", nomDoc: "PHY 108", lien: "math/Cours complet de PHY 108.pdf"},
+    {image: "IMG/pdf5.png", nomDoc: "CHM 103", lien: "phy/PRESENTATION-CHM103-2026_023819.pdf"},
+    {image: "IMG/pdf5.png", nomDoc: "INFO 100", lien: "phy/COURS DINFO 100.pdf"},
+];
+lesDocumentsPhysicM.forEach(doc => {
+        const carteH = document.createElement('div');
+        carteH.className = "carteP";
+        carteH.innerHTML = `
+            <img src="${doc.image}" alt="${doc.nomDoc}">
+            <h3>${doc.nomDoc}<span class="taille"></span></h3>
+            <div class="carteDiv">
+                <a href="${doc.lien}" target="_blank">Ouvrir</a>
+                <a href="${doc.lien}" download>Télécharger</a>
+            </div>
+
+        `;
+        physicM.appendChild(carteH);
+        afficherTaille(doc.lien, carteH.querySelector('.taille'));
+});
 
 const physicTD = document.querySelector('.page-physic-TD');
+const lesDocumentsPhysicTD = [
+    {image: "IMG/pdf5.png", nomDoc: "EXERCICE ELECTROSTATIQUE", lien: "phy/td phy/12-Exo-elect_Cours PHY104.pdf"},
+    {image: "IMG/pdf5.png", nomDoc: "PHY 110 EXAMEN 20-21", lien: "phy/td phy/Corrige_Type_Examen_PHY110_2021.pdf"},
+    {image: "IMG/pdf5.png", nomDoc: "PHY 110 TD 21", lien: "phy/td phy/TRAVAUX DIRIGES UE PHY 110_2021.pdf"},
+    {image: "IMG/pdf5.png", nomDoc: "PHY 110 CORRIGE TD 21", lien: "phy/td phy/CORRIGE_TYPE_TD_PHY110.pdf"},
+    {image: "IMG/pdf5.png", nomDoc: "ELECTRO_STATIQUE_CINETIQUE", lien: "phy/td phy/ELECTROCINETIQUE.pdf"},
+    {image: "IMG/pdf5.png", nomDoc: "PHY 106 EXAMEN 18-19", lien: "phy/td phy/épreuves Phy106.pdf"},
+    {image: "IMG/pdf5.png", nomDoc: "COMPILATION PHY110", lien: "phy/td phy/Exam PHY 110. pdf (2).pdf"},
+    {image: "IMG/pdf5.png", nomDoc: "INFO 100 EXAMEN 21-22", lien: "phy/td phy/Examen INF100 2022.pdf"},
+    {image: "IMG/pdf5.png", nomDoc: "INFO 100 EXAMEN 23-24", lien: "phy/td phy/Examen INF100 2024.pdf"},
+    {image: "IMG/pdf5.png", nomDoc: "INFO 100 EXAMEN 24-25", lien: "phy/td phy/Examen INF100 2025.pdf"},
+    {image: "IMG/pdf5.png", nomDoc: "ELECTROMAGNETISME LIVRE", lien: "phy/td phy/Livre_Electromagnétisme-1.pdf"},
+    {image: "IMG/pdf5.png", nomDoc: "ELETROMAGNETISME EXO-CORRIGE", lien: "phy/td phy/Livre_Exos corrigés.pdf"},
+    {image: "IMG/pdf5.png", nomDoc: "MAGNETOSTATIQUE EXO-CORRIGE", lien: "phy/td phy/magnétostatique exercices.pdf"},
+    {image: "IMG/pdf5.png", nomDoc: "PHY 106 TD1", lien: "phy/td phy/MECANIQUE_TD_COMPLET_1_avec_CORRIGE.pdf"},
+    {image: "IMG/pdf5.png", nomDoc: "PHY 106 TD2", lien: "phy/td phy/MECANIQUE_TD_COMPLET_2_avec_CORRIGE.pdf"},
+    {image: "IMG/pdf5.png", nomDoc: "PHY 108 TD", lien: "phy/td phy/TD PH108.pdf"},
+    {image: "IMG/pdf5.png", nomDoc: "PHY 104 TD 23", lien: "phy/td phy/TD PHY104.pdf"},
+    {image: "IMG/pdf5.png", nomDoc: "PHY 104 TD 17-18", lien: "phy/td phy/TD.pdf"},
+    {image: "IMG/pdf5.png", nomDoc: "PHY 108 TD", lien: "phy/td phy/TD_PHY108.pdf"},
+];
+lesDocumentsPhysicTD.forEach(doc => {
+        const carteH = document.createElement('div');
+        carteH.className = "carteP";
+        carteH.innerHTML = `
+            <img src="${doc.image}" alt="${doc.nomDoc}">
+            <h3>${doc.nomDoc}<span class="taille"></span></h3>
+            <div class="carteDiv">
+                <a href="${doc.lien}" target="_blank">Ouvrir</a>
+                <a href="${doc.lien}" download>Télécharger</a>
+            </div>
+        `;
+        physicTD.appendChild(carteH);
+        afficherTaille(doc.lien, carteH.querySelector('.taille'));
+});
 
 
 const chmH = document.querySelector('.page-chm-H');
-const chmM = document.querySelector('.page-chm-M');
-const chmTD = document.querySelector('.page-chm-TD');
-
-const lesDocumentsPhysique = [
-    {image: "" ,nomDoc: "", lien: ""},
-    {image: "" ,nomDoc: "", lien: ""},
-    {image: "" ,nomDoc: "", lien: ""},
-    {image: "" ,nomDoc: "", lien: ""},
-    {image: "" ,nomDoc: "", lien: ""},
-    {image: "" ,nomDoc: "", lien: ""},
-    {image: "" ,nomDoc: "", lien: ""},
-    {image: "" ,nomDoc: "", lien: ""},
-    {image: "" ,nomDoc: "", lien: ""},
+lesDocumentsChmH = [
+    {image: "IMG/pdf4.jpg", nomDoc: "ANG 200", lien: "math/ANG200.pdf"},
+    {image: "IMG/pdf4.jpg", nomDoc: "PHY 104", lien: "phy/PHY 104.pdf"},
+    {image: "IMG/pdf4.jpg", nomDoc: "PHY 106 cinematic", lien: "phy/PHY106 _ Chap 1 cinematic.pdf"},
+    {image: "IMG/pdf4.jpg", nomDoc: "PHY 106 Mvts des particuliers", lien: "phy/PHY106_Chap_2_Mvts_particuliers.pdf"},
+    {image: "IMG/pdf4.jpg", nomDoc: "PHY 106 Cpst de mouvement", lien: "phy/PHY106_Chap3.pdf"},
+    {image: "IMG/pdf4.jpg", nomDoc: "PHY 106 Point materiel", lien: "phy/PHY106_point_materiel.pdf"},
+    {image: "IMG/pdf4.jpg", nomDoc: "PHY 106 Outils mathematiques", lien: "phy/PHY106_OutilsMathématique.pdf"},
+    {image: "IMG/pdf4.jpg", nomDoc: "MTH 100", lien: "phy/MATH100.pdf"},
+    {image: "IMG/pdf4.jpg", nomDoc: "MTH 101", lien: "phy/Cours MTH 101 complet.pdf"},
+    {image: "IMG/pdf4.jpg", nomDoc: "MTH 103", lien: "phy/MTH103.pdf"},
+    {image: "IMG/pdf4.jpg", nomDoc: "CHM 101", lien: "chm/CHM101 Cours complet.pdf"},
+    {image: "IMG/pdf4.jpg", nomDoc: "CHM 106", lien: "chm/CHM106.pdf"},
 ];
+lesDocumentsChmH.forEach(doc => {
+        const carteH = document.createElement('div');
+        carteH.className = "carteC";
+        carteH.innerHTML = `
+            <img src="${doc.image}" alt="${doc.nomDoc}">
+            <h3>${doc.nomDoc}<span class="taille"></span></h3>
+            <div class="carteDiv">
+                <a href="${doc.lien}" target="_blank">Ouvrir</a>
+                <a href="${doc.lien}" download>Télécharger</a>
+            </div>
+        `;
+        chmH.appendChild(carteH);
+        afficherTaille(doc.lien, carteH.querySelector('.taille'));
+});
+const chmM = document.querySelector('.page-chm-M');
+const lesDocumentsChmM = [
+    {image: "IMG/pdf4.jpg", nomDoc: "ANG 201", lien: "phy/ang201new.pdf"},
+    {image: "IMG/pdf4.jpg", nomDoc: "MTH102 (Anneaux)", lien: "math/ChapII Anneaux 2014.pdf"},
+    {image: "IMG/pdf4.jpg", nomDoc: "MTH 102 CHAP 1&2", lien: "math/Cours Chapitre 1&2  de MTH 102.pdf"},
+    {image: "IMG/pdf4.jpg", nomDoc: "MTH 104", lien: "math/MATH104 now.pdf"},
+    {image: "IMG/pdf4.jpg", nomDoc: "PHY 110", lien: "math/cours complet de PHY 110.pdf"},
+    {image: "IMG/pdf4.jpg", nomDoc: "PHY 108", lien: "math/Cours complet de PHY 108.pdf"},
+    {image: "IMG/pdf4.jpg", nomDoc: "CHM 103", lien: "phy/PRESENTATION-CHM103-2026_023819.pdf"},
+    {image: "IMG/pdf4.jpg", nomDoc: "INFO 100", lien: "phy/COURS DINFO 100.pdf"},
+    {image: "IMG/pdf4.jpg", nomDoc: "MTH106", lien: "chm/MTH106.pdf"},
+];
+lesDocumentsChmM.forEach(doc => {
+        const carteH = document.createElement('div');
+        carteH.className = "carteC";
+        carteH.innerHTML = `
+            <img src="${doc.image}" alt="${doc.nomDoc}">
+            <h3>${doc.nomDoc}<span class="taille"></span></h3>
+            <div class="carteDiv">
+                <a href="${doc.lien}" target="_blank">Ouvrir</a>
+                <a href="${doc.lien}" download>Télécharger</a>
+            </div>
+        `;
+        chmM.appendChild(carteH);
+        afficherTaille(doc.lien, carteH.querySelector('.taille'));
+});
+
+const chmTD = document.querySelector('.page-chm-TD');
+const lesDocumentsChmTD = [
+    {image: "IMG/pdf4.jpg" ,nomDoc: "CHM 106 TD", lien: "chm/td chm/3 CHM106_TD THERMO.pdf"},
+    {image: "IMG/pdf4.jpg" ,nomDoc: "TABLEAUX PERIODIQUE", lien: "chm/td chm/tableau-periodic.pdf"},
+    {image: "IMG/pdf4.jpg" ,nomDoc: "CHM 103 TD", lien: "chm/td chm/TD_ CHM103.pdf"},
+];
+lesDocumentsChmTD.forEach(doc => {
+        const carteH = document.createElement('div');
+        carteH.className = "carteC";
+        carteH.innerHTML = `
+            <img src="${doc.image}" alt="${doc.nomDoc}">
+            <h3>${doc.nomDoc}<span class="taille"></span></h3>
+            <div class="carteDiv">
+                <a href="${doc.lien}" target="_blank">Ouvrir</a>
+                <a href="${doc.lien}" download>Télécharger</a>
+            </div>
+        `;
+        chmTD.appendChild(carteH);
+        afficherTaille(doc.lien, carteH.querySelector('.taille'));
+});
