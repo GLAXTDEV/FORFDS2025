@@ -220,7 +220,8 @@ header{
 }
 
 /*partie de carte*/
-.carte{
+
+.carte, .carteP{
     padding: 5px;
     margin: 5px;
     background-color: #fff;
@@ -245,26 +246,48 @@ header{
             border-radius: 8px;
             color: blue;
         }
+        a:hover{
+            border: 1px solid rgb(0, 0, 0);
+        }
         a:active{
             background-color: blue;
             color: #fff;
         }
     }
 }
+.carteP{
+    border: 1px solid rgb(0, 0, 255, 0.091);
+    img{
+        border: none;
+    }
+}
+.carteP:hover{
+    border: 1px solid rgb(0, 0, 255);
+}
+.carteP:hover{
+    transform: translateY(-2px) scale(1.02);
+    transition: 440ms ease;
+}
+.carte:hover{
+    transform: translateY(-2px);
+    transition: 440ms ease;
+}
+
+
 @media (width > 450px) {
-    .page-math-H, .page-math-M, .page-math-E, .page-physic-H, .page-physic-M, .page-physic-E, .page-chm-H, .page-chm-M, .page-chm-E, .page-physic-TD, .page-chm-TD, .page-math-TD{
+    .page-math-H, .page-math-M, .page-physic-H, .page-physic-M, .page-chm-H, .page-chm-M, .page-physic-TD, .page-chm-TD, .page-math-TD{
         display: grid;
         grid-template-columns: repeat(2, 1fr);
     }
 }
 @media (width > 600px) {
-    .page-math-H, .page-math-M, .page-math-E, .page-physic-H, .page-physic-M, .page-physic-E, .page-chm-H, .page-chm-M, .page-chm-E, .page-physic-TD, .page-chm-TD, .page-math-TD{
+    .page-math-H, .page-math-M, .page-physic-H, .page-physic-M, .page-chm-H, .page-chm-M, .page-physic-TD, .page-chm-TD, .page-math-TD{
         display: grid;
         grid-template-columns: repeat(3, 1fr);
     }
 }
 @media (width > 1000px) {
-    .page-math-H, .page-math-M, .page-math-E, .page-physic-H, .page-physic-M, .page-physic-E, .page-chm-H, .page-chm-M, .page-chm-E, .page-physic-TD, .page-chm-TD, .page-math-TD{
+    .page-math-H, .page-math-M, .page-physic-H, .page-physic-M, .page-chm-H, .page-chm-M, .page-physic-TD, .page-chm-TD, .page-math-TD{
         display: grid;
         grid-template-columns: repeat(4, 1fr);
     }
