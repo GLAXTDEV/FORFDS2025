@@ -46,6 +46,7 @@ const lesDocumentsMathematiqueM =[
     {image: "IMG/pdf3.jpg", nomDoc: "MTH 102 CHAP 1&2", lien: "math/Cours Chapitre 1&2  de MTH 102.pdf"},
     {image: "IMG/pdf3.jpg", nomDoc: "MTH 160", lien: "math/cours complet de MTH160.pdf"},
     {image: "IMG/pdf3.jpg", nomDoc: "MTH 104", lien: "math/MATH104 now.pdf"},
+    {image: "IMG/pdf3.jpg", nomDoc: "MTH 109", lien: "math/Cours complet de MTH 109.pdf"},
     {image: "IMG/pdf3.jpg", nomDoc: "PHY 110", lien: "math/cours complet de PHY 110.pdf"},
     {image: "IMG/pdf3.jpg", nomDoc: "PHY 108", lien: "math/Cours complet de PHY 108.pdf"},
 ];
