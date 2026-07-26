@@ -1,4 +1,22 @@
-﻿function show(id) {
+﻿let deferredPrompt = null;
+let installPromptShown = false;
+
+const SITE_UPDATE_VERSION = 2;
+const SITE_UPDATES = [
+  {
+    version: 1,
+    title: 'Nouveaux documents ajoutés',
+    message: 'Des documents supplémentaires ont été ajoutés dans les sections disponibles.'
+  },
+  {
+    version: 2,
+    title: 'Nouvelles fonctionnalités',
+    message: 'Recherche, installation comme application et notifications de mises à jour sont maintenant activées.'
+  }
+];
+const UPDATE_VERSION_KEY = 'docsLastSeenUpdateVersion';
+
+function show(id) {
   // cacher toutes les pages 'page'
   document.querySelectorAll('.page').forEach(pageActive => {
     pageActive.classList.remove('active');
@@ -17,6 +35,114 @@
   }
 }
 
+function showInstallPrompt() {
+  const prompt = document.getElementById('installPrompt');
+  const installButton = document.getElementById('installButton');
+
+  if (!prompt || installPromptShown) return;
+
+  installPromptShown = true;
+  prompt.hidden = false;
+  prompt.classList.add('show');
+
+  if (installButton) {
+    installButton.disabled = !deferredPrompt;
+    installButton.textContent = deferredPrompt ? 'Installer' : 'Installer depuis le navigateur';
+  }
+}
+
+function hideInstallPrompt() {
+  const prompt = document.getElementById('installPrompt');
+  if (prompt) {
+    prompt.hidden = true;
+    prompt.classList.remove('show');
+  }
+}
+
+async function installApp() {
+  if (!deferredPrompt) {
+    hideInstallPrompt();
+    return;
+  }
+
+  deferredPrompt.prompt();
+  const choiceResult = await deferredPrompt.userChoice;
+
+  if (choiceResult.outcome === 'accepted') {
+    hideInstallPrompt();
+  } else {
+    hideInstallPrompt();
+  }
+
+  deferredPrompt = null;
+}
+
+function initInstallPrompt() {
+  const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+  const dismissed = localStorage.getItem('pwaInstallDismissed') === 'true';
+
+  if (isStandalone || dismissed) {
+    hideInstallPrompt();
+    return;
+  }
+
+  window.addEventListener('beforeinstallprompt', (event) => {
+    event.preventDefault();
+    deferredPrompt = event;
+    window.setTimeout(showInstallPrompt, 500);
+  });
+
+  window.addEventListener('appinstalled', () => {
+    hideInstallPrompt();
+    localStorage.setItem('pwaInstallDismissed', 'true');
+  });
+
+  window.setTimeout(showInstallPrompt, 5000);
+}
+
+function registerServiceWorker() {
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('./sw.js').catch(console.error);
+  }
+}
+
+function showUpdateToast() {
+  const toast = document.getElementById('updateToast');
+  if (!toast) return;
+
+  const lastSeenVersion = Number(localStorage.getItem(UPDATE_VERSION_KEY) || 0);
+  const pendingUpdates = SITE_UPDATES.filter(update => update.version > lastSeenVersion);
+
+  if (!pendingUpdates.length) return;
+
+  const items = pendingUpdates.map(update => `<li>${update.title} : ${update.message}</li>`).join('');
+  toast.innerHTML = `
+    <div class="update-toast__title">Nouveautés disponibles</div>
+    <div>Des mises à jour ont été ajoutées au site.</div>
+    <ul class="update-toast__list">${items}</ul>
+  `;
+  toast.hidden = false;
+  toast.classList.add('show');
+
+  if ('Notification' in window && Notification.permission === 'default') {
+    Notification.requestPermission().catch(() => {});
+  }
+
+  if ('Notification' in window && Notification.permission === 'granted') {
+    new Notification('Nouveautés DOCS 2025', {
+      body: pendingUpdates[0].title + ' — ' + pendingUpdates[0].message,
+      icon: './icons/icon.svg'
+    });
+  }
+
+  localStorage.setItem(UPDATE_VERSION_KEY, String(SITE_UPDATE_VERSION));
+
+  window.setTimeout(() => {
+    toast.classList.remove('show');
+    toast.hidden = true;
+  }, 8000);
+}
+
 // Remplacer 'load' par 'DOMContentLoaded' pour s'exécuter IMMÉDIATEMENT
 document.addEventListener('DOMContentLoaded', () => {
   const pageEnMemoire = localStorage.getItem('pageSauvegardee');
@@ -24,8 +150,13 @@ document.addEventListener('DOMContentLoaded', () => {
   if (pageEnMemoire && document.getElementById(pageEnMemoire)) {
     show(pageEnMemoire);
   } else {
-    show('accueil'); // Votre page par défaut
+    show('accueil');
   }
+
+  initInstallPrompt();
+  registerServiceWorker();
+  initSearch();
+  showUpdateToast();
 });
 
 
@@ -66,4 +197,16 @@ function initSearch() {
   applySearch();
 }
 
-document.addEventListener('DOMContentLoaded', initSearch);
+const installButton = document.getElementById('installButton');
+if (installButton) {
+  installButton.addEventListener('click', installApp);
+}
+
+const dismissInstallButton = document.getElementById('dismissInstallButton');
+if (dismissInstallButton) {
+  dismissInstallButton.addEventListener('click', () => {
+    localStorage.setItem('pwaInstallDismissed', 'true');
+    hideInstallPrompt();
+  });
+}
+
