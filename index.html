@@ -117,10 +117,29 @@
                     </div>
                 </section>
             </div>
-            <div>
-                <img src="" alt="tape 1">
-                <img src="" alt="tape 2">
-                <img src="" alt="tape 3">
+            <div class="installCadre">
+                <p>install on screen</p>
+                <div class="tapeInstall" aria-label="Galerie d’images"> 
+                    <div class="tapeInstall__item">
+                        <img src="tapeInstall/tape 1.jpg" alt="tape 1" loading="lazy">
+                    </div>
+                    <div class="tapeInstall__item">
+                        <img src="tapeInstall/tape 2.jpg" alt="tape 2" loading="lazy">
+                    </div>
+                    <div class="tapeInstall__item">
+                        <img src="tapeInstall/tape 3.jpg" alt="tape 3" loading="lazy">
+                    </div>
+                    <div class="tapeInstall__item">
+                        <img src="tapeInstall/other tape.jpg" alt="ou attendre la notification" loading="lazy">
+                    </div>
+                </div>
+            </div>
+            <div id="imageModal" class="image-modal" hidden>
+                <div class="image-modal__backdrop" data-close="true"></div>
+                <div class="image-modal__content">
+                    <button class="image-modal__close" type="button" aria-label="Fermer la vue agrandie">×</button>
+                    <img id="modalImage" src="" alt="Vue agrandie">
+                </div>
             </div>
             
                 <footer class="social-footer">

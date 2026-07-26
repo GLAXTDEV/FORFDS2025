@@ -156,6 +156,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initInstallPrompt();
   registerServiceWorker();
   initSearch();
+  initImageGallery();
   showUpdateToast();
 });
 
@@ -195,6 +196,67 @@ function initSearch() {
 
   searchInput.addEventListener('input', applySearch);
   applySearch();
+}
+
+function openImageModal(src, alt = '') {
+  const modal = document.getElementById('imageModal');
+  const modalImage = document.getElementById('modalImage');
+
+  if (!modal || !modalImage) return;
+
+  modalImage.src = src;
+  modalImage.alt = alt;
+  modal.hidden = false;
+  document.body.classList.add('modal-open');
+}
+
+function closeImageModal() {
+  const modal = document.getElementById('imageModal');
+  const modalImage = document.getElementById('modalImage');
+
+  if (!modal) return;
+
+  modal.hidden = true;
+  document.body.classList.remove('modal-open');
+
+  if (modalImage) {
+    modalImage.src = '';
+    modalImage.alt = '';
+  }
+}
+
+function initImageGallery() {
+  const gallery = document.querySelector('.tapeInstall');
+  if (!gallery) return;
+
+  gallery.addEventListener('click', (event) => {
+    const card = event.target.closest('.tapeInstall__item');
+    const image = card ? card.querySelector('img') : null;
+
+    if (!image) return;
+    openImageModal(image.getAttribute('src'), image.getAttribute('alt'));
+  });
+
+  const modal = document.getElementById('imageModal');
+  const closeButton = document.querySelector('.image-modal__close');
+
+  if (modal) {
+    modal.addEventListener('click', (event) => {
+      if (event.target.matches('[data-close="true"]')) {
+        closeImageModal();
+      }
+    });
+  }
+
+  if (closeButton) {
+    closeButton.addEventListener('click', closeImageModal);
+  }
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+      closeImageModal();
+    }
+  });
 }
 
 const installButton = document.getElementById('installButton');
