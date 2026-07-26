@@ -22,7 +22,7 @@ body.modal-open{
     animation: apparaitre 1s ease;
 }
 @keyframes apparaitre {
-    0%{opacity: 0; transform: scale(0.75);}
+    0%{opacity: 0; transform: scale(0.7);}
     100%{opacity: 100%; transform: scale(1);}
 }
 
@@ -93,10 +93,11 @@ header{
     a{
         display: inline-block;
         text-decoration: none;
-        color: #ffffff;
+        color: #fff;
         text-transform: uppercase;
         animation: opacite 3100ms infinite alternate;
         user-select: none;
+        text-wrap: nowrap;
     }  
 }
 @keyframes opacite {
@@ -317,16 +318,20 @@ header{
 
 .carte, .carteP, .carteC{
     padding: 5px;
-    margin: 5px;
+    margin: 5px 10px;
     background-color: #fff;
     border: 1px solid #eee;
     border-radius: 10px;
     box-shadow: 0 10px 15px rgb(0, 0, 0, 0.098);
+    @media (width > 500px) {
+        margin: 5px;
+    }
     img{
         width: 100%;
         border-radius: 10px;
         user-select: none;
         pointer-events: none;
+        border: 1px solid #eee;
     }
     h3{
         color: black;
@@ -352,12 +357,7 @@ header{
         }
     }
 }
-.carteP{
-    border: 1px solid rgb(0, 0, 255, 0.091);
-    img{
-        border: none;
-    }
-}
+
 .carteP:hover{
     border: 1px solid rgb(0, 0, 255);
 }
