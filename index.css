@@ -11,19 +11,67 @@ body{
 .page{
     display: none;
     position: relative;
-    top: 110px;
+    top: 150px;
 }
 .active{
     display: block;
+    animation: apparaitre 1s ease;
 }
+@keyframes apparaitre {
+    0%{opacity: 0; transform: scale(0.89);}
+    100%{opacity: 100%; transform: scale(1);}
+}
+
 /*header le haut*/
 header{
     position: fixed;
     width: 100%;
     top: 0;
     left: 0;
-    box-shadow: 0 10px 15px rgb(0, 0, 0, 0.098);
+    box-shadow: 0 10px 15px rgb(0, 0, 0, 0.05);
     z-index: 999;
+    background-color: rgb(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+}
+
+/*recherche bar*/
+.recherche-docs{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    max-width: 520px;
+    width: min(92%, 520px);
+    margin: 10px auto 6px;
+    padding: 8px 12px;
+    border: 1px solid #dbe4ff;
+    border-radius: 999px;
+    background: #f8f9ff;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+}
+
+.recherche-docs i{
+    color: #4f46e5;
+}
+
+.recherche-docs input{
+    width: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 0.95rem;
+    color: #111827;
+}
+
+.recherche-docs input::placeholder{
+    color: #6b7280;
+}
+
+.search-empty-message{
+    display: none;
+    margin: 20px auto;
+    text-align: center;
+    color: #6b7280;
+    font-style: italic;
 }
 
 .imgDuHaut{
@@ -35,19 +83,23 @@ header{
     background-image: url(IMG/en-tete.jpg);
     background-position: center;
     background-size: contain;
+    @media (width > 500px) {
+        background-image: url(IMG/myfont7.jpg);
+    }
     a{
         display: inline-block;
         text-decoration: none;
         color: #ffffff;
         text-transform: uppercase;
-        animation: opacite 2000ms infinite alternate;
+        animation: opacite 3100ms infinite alternate;
         user-select: none;
     }  
 }
 @keyframes opacite {
-        0%{opacity: 0;}
-        90%{opacity: 1; transform: scale(1.1);}
+    0%{opacity: 0; transform: scale(0.7)}
+    100%{opacity: 1; transform: scale(1)}
 }
+
 
 .sous-nav-mpc{
     display: flex;
@@ -57,19 +109,20 @@ header{
     backdrop-filter: blur(10px);
     li{
         list-style: none;
-        border: 1px solid #eee;
         border-radius: 6px;
         padding: 4px;
         margin: 4px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         a{
             text-decoration: none;
-            
-            display: flex;
+            display: inline-flex;
             align-items: center;
             height: auto;
             justify-content: center;
             button{
-                border: 1px solid #fff;
+                border: none;
                 background-color: #fff;
                 border-radius: px;
                 color: blue;
@@ -97,10 +150,9 @@ header{
     top: 100%;
     left: 10px;
     background-color: #fff;
-    border-radius: 8px;
+    border-radius: 4px;
     margin: 4px;
     padding: 5px 10px;
-    border: 2px solid #eee;
     box-shadow: 0 15px 25px rgb(0, 0, 0, 0.08);
     z-index: 22;
     p{
@@ -119,6 +171,7 @@ header{
         border: none;
         background-color: #eee;
         user-select: none;
+        border-radius: 3px;
     }
     a{
         color: black;
@@ -128,6 +181,11 @@ header{
 }
 .sous-nav-mpc0:focus-within .saisons{
     display: grid;
+    animation: opacity 1s ease;
+}
+@keyframes opacity {
+    0%{opacity: 0; transform: scale(0.8)}
+    100%{opacity: 1; transform: scale(1)}
 }
 
 .saisons1{
@@ -136,10 +194,9 @@ header{
     top: 100%;
     left: 90px;
     background-color: #fff;
-    border-radius: 8px;
+    border-radius: 4px;
     margin: 4px;
     padding: 5px 10px;
-    border: 2px solid #eee;
     box-shadow: 0 15px 25px rgb(0, 0, 0, 0.08);
     z-index: 22;
     p{
@@ -158,6 +215,7 @@ header{
         border: none;
         background-color: #eee;
         user-select: none;
+        border-radius: 3px;
     }
     a{
         color: black;
@@ -167,7 +225,9 @@ header{
 }
 .sous-nav-mpc1:focus-within .saisons1{
     display: grid;
+    animation: opacity 1s ease;
 }
+
 
 .saisons2{
     display: none;
@@ -175,10 +235,9 @@ header{
     top: 100%;
     left: 120px;
     background-color: #fff;
-    border-radius: 8px;
+    border-radius: 4px;
     margin: 4px;
     padding: 5px 10px;
-    border: 2px solid #eee;
     box-shadow: 0 15px 25px rgb(0, 0, 0, 0.08);
     z-index: 22;
     p{
@@ -197,6 +256,7 @@ header{
         border: none;
         background-color: #eee;
         user-select: none;
+        border-radius: 3px;
     }
     a{
         color: black;
@@ -206,6 +266,36 @@ header{
 }
 .sous-nav-mpc2:focus-within .saisons2{
     display: grid;
+    animation: opacity 1s ease;
+}
+@media (width > 500px) {
+    .saisons{
+        top: 30px;
+    }
+    .saisons1{
+        top: 30px;
+    }
+    .saisons2{
+        top: 30px;
+    }
+    .sous-nav-mpc0:focus-within .saisons{
+        display: none;
+    }
+    .sous-nav-mpc0:hover .saisons{
+        display: grid;
+    }
+    .sous-nav-mpc1:focus-within .saisons1{
+        display: none;
+    }
+    .sous-nav-mpc1:hover .saisons1{
+        display: grid;
+    }
+    .sous-nav-mpc2:focus-within .saisons2{
+        display: none;
+    }
+    .sous-nav-mpc2:hover .saisons2{
+        display: grid;
+    }
 }
 @media (width > 599px) {
     .saisons{
@@ -231,9 +321,12 @@ header{
     img{
         width: 100%;
         border-radius: 10px;
+        user-select: none;
+        pointer-events: none;
     }
     h3{
         color: black;
+        user-select: none;
     }
     .carteDiv, h3{
         padding: 5px;
@@ -244,6 +337,7 @@ header{
             padding: 5px;
             border-radius: 8px;
             color: blue;
+            user-select: none;
         }
         a:hover{
             border: 1px solid rgb(0, 0, 0);
@@ -297,3 +391,122 @@ header{
         grid-template-columns: repeat(4, 1fr);
     }
 }
+
+
+.accueil-wrapper{
+    display: grid;
+    gap: 16px;
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 12px 16px 28px;
+}
+
+.accueil-hero,
+.accueil-notice,
+.accueil-infos{
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+    padding: 18px 20px;
+}
+
+.accueil-hero h2,
+.accueil-infos h3,
+.accueil-notice h3{
+    margin-bottom: 10px;
+    color: #dc2626;
+}
+
+.features-list{
+    list-style: none;
+    display: grid;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.accueil-notice{
+    border-left: 4px solid #f59e0b;
+    background: #fff7ed;
+}
+
+.accueil-infos p{
+    margin-bottom: 10px;
+    line-height: 1.6;
+    color: #374151;
+}
+
+.accueil-infos span{
+    color: #dc2626;
+    font-weight: 700;
+}
+
+.info-highlight span{
+    color: #2563eb;
+}
+
+.info-note{
+    font-style: italic;
+}
+
+.info-banner,
+.pdf-warning{
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    margin-top: 12px;
+    padding: 12px;
+    border-radius: 12px;
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+}
+
+.warning-icon{
+    font-size: 1.2rem;
+}
+
+.social-footer{
+    margin: 0px 16px ;
+    padding: 18px 16px;
+    text-align: center;
+    background: linear-gradient(135deg, #f8fafc, #eef2ff);
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+
+    h3{
+    margin-bottom: 12px;
+    color: #1f2937;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    }
+}
+
+.social-links{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    a{
+    display: inline-flex;
+    text-decoration: none;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #ffffff;
+    color: #2563eb;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+    }
+    a:hover{
+    transform: translateY(-2px);
+    background: #2563eb;
+    color: #ffffff;
+    }
+}
+
+
+
+

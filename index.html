@@ -1,21 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document & Cours</title>
+    <title>DOCS 2025</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="index.css">
+    <link rel="shortcut icon" href="img/pdf svg1.png" type="image/x-icon">
 </head>
 <body>
     <header>
-        <h1 class="imgDuHaut"><a href="#" onclick="show('accueil')">cours Td examen</a></h1>
+        <h1 class="imgDuHaut"><a href="#" onclick="show('accueil')">cours Td examen 
+</a></h1>
+        <div class="recherche-docs">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="searchDocs" placeholder="Rechercher un document par son nom" aria-label="Rechercher un document">
+        </div>
 
         <nav class="nav-mpc">
             <ul class="sous-nav-mpc">
 
                 <li class="sous-nav-mpc0">
-                    <a href="#"><button class="btn">mathematiques</button></a>
+                    <a><button class="btn">mathematiques +</button></a>
                     <ul class="saisons">
                         <p>Parcours mathematiques</p>
                         <div class="saison">
@@ -27,7 +33,7 @@
                 </li>
                 
                 <li class="sous-nav-mpc1">
-                    <a href="#"><button class="btn">physique</button></a>
+                    <a><button class="btn">physique +</button></a>
                     <ul class="saisons1">
                         <p>Parcours physique</p>
                         <div class="saison">
@@ -39,7 +45,7 @@
                 </li>
 
                 <li class="sous-nav-mpc2">
-                    <a href="#"><button class="btn">chimie</button></a>
+                    <a><button class="btn">chimie +</button></a>
                     <ul class="saisons2">
                         <p>Parcours chimie</p>
                         <div class="saison">
@@ -56,8 +62,65 @@
     
     <main>
         <section class="page active" id="accueil">
-            <p>first page</p>
+            <p id="search-empty-message" class="search-empty-message">Aucun document ne correspond à votre recherche.</p>
+
+            <div class="accueil-wrapper">
+                <section class="accueil-hero">
+                    <h2>Docs !</h2>
+                    <p>Nous avons conçu ce site avec une mission simple : <strong>lever tous les obstacles administratifs</strong> et vous offrir un accès fluide à vos ressources pédagogiques. Parce que votre temps est précieux, nous avons supprimé toute contrainte technique.</p>
+                    <ul class="features-list">
+                        <li>🚀 <strong>Accès Libre :</strong> Récupérez vos documents <strong>sans aucune authentification</strong>.</li>
+                        <li>🌙 <strong>24h/24 & 7j/7 :</strong> La plateforme reste en ligne en permanence pour vos révisions.</li>
+                    </ul>
+                </section>
+
+                <section class="accueil-notice">
+                    <h3>⚠️ NB : Une précision importante</h3>
+                    <p>Veuillez noter que la mise à jour des contenus concerne <strong>exclusivement les nouveaux bacheliers de 2025</strong>. Ces ressources sont spécifiquement calibrées pour cette promotion et ne concernent que ces derniers.</p>
+                </section>
+
+                <section class="accueil-infos">
+                    <h3>Informations sur les pages des documents</h3>
+                    <p>Pour vous faciliter les recherches sur la page de <span>TD</span>, nous avons préféré placer dans chaque page de TD son <span>PDF respectif</span>.</p>
+                    <p>Par exemple, si vous cherchez un TD de mathématique, vous devez vous rendre dans la section <span>td examen</span> de la page Mathématique.</p>
+                    <p class="info-note"><span>NB :</span> Certains documents ne sont pas encore disponibles, mais nous les mettrons à jour dès que possible.</p>
+
+                    <div class="info-banner">
+                        <p><strong>⚙️ Note d'optimisation :</strong> Bien que ce site soit conçu pour être ultra-léger, certains documents volumineux peuvent ralentir l'affichage si votre connexion internet est lente.</p>
+                    </div>
+
+                    <div class="pdf-warning">
+                        <div class="warning-icon">⚠️</div>
+                        <div class="warning-content">
+                            <strong>Note importante :</strong> L'ouverture directe peut être lente pour les fichiers volumineux. Les documents de plus de <strong>5 Mo</strong> doivent être téléchargés directement pour garantir l'accès facile.
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+                <footer class="social-footer">
+                    <h3>Suivez-nous</h3>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/profile.php?id=61580614880427" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                        <a href="https://x.com/TheGlaxt" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
+                            <i class="fa-brands fa-x-twitter"></i>
+                        </a>
+                        <a href="mailto:glaxt.gx@gmail.com" aria-label="Gmail">
+                            <i class="fa-solid fa-envelope"></i>
+                        </a>
+                        <a href="https://www.instagram.com/glaxtdev?igsh=aHB6MmsxNms3amM1" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/glaxt-undefined-04907b3ba?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                            <i class="fa-brands fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </footer>
+                <br>
         </section>
+
         <section class="page" id="math-H"><div class="page-math-H"></div></section>
         <section class="page" id="math-M"><div class="page-math-M"></div></section>
         <section class="page" id="math-TD"><div class="page-math-TD"></div></section>
@@ -71,6 +134,7 @@
         <section class="page" id="chm-TD"><div class="page-chm-TD"></div></section>
 
     </main>
+
     <script src="index.js"></script>
     <script src="doc.js"></script>
 </body>
