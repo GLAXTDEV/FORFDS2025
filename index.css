@@ -882,3 +882,37 @@ body.dark-mode .pdf-warning {
     color: #f3f4f6;
 }
 
+body.dark-mode .carte{
+    background-color: rgb(55, 65, 81);
+    box-shadow: 0 20px 35px rgb(0, 0, 0, 0.5);
+    a{
+        color: #fff;
+        border: 1px solid #eee;
+    }
+    h3{
+        color: #d1d5db;
+    }
+}
+body.dark-mode .carteP{
+    background-color: rgb(55, 65, 81);
+    box-shadow: 0 20px 35px rgb(0, 0, 0, 0.5);
+    border: none;
+    a{
+        color: #fff;
+        border: 1px solid #eee;
+    }
+    h3{
+        color: #d1d5db;
+    }
+}
+body.dark-mode .carteC{
+    background-color: rgb(55, 65, 81);
+    box-shadow: 0 20px 35px rgb(0, 0, 0, 0.5);
+    a{
+        color: #fff;
+        border: 1px solid #eee;
+    }
+    h3{
+        color: #d1d5db;
+    }
+}
