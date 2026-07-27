@@ -217,11 +217,61 @@ function closeImageModal() {
   if (!modal) return;
 
   modal.hidden = true;
+  modalImage.src = '';
   document.body.classList.remove('modal-open');
+}
 
-  if (modalImage) {
-    modalImage.src = '';
-    modalImage.alt = '';
+/* Theme Toggle Functionality */
+const THEME_KEY = 'docs-theme-mode';
+const THEME_DARK = 'dark-mode';
+
+function initializeTheme() {
+  const savedTheme = localStorage.getItem(THEME_KEY);
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  
+  if (savedTheme === THEME_DARK || (!savedTheme && prefersDark)) {
+    document.body.classList.add(THEME_DARK);
+  }
+  updateThemeToggleIcon();
+}
+
+function toggleTheme() {
+  document.body.classList.toggle(THEME_DARK);
+  const isDarkMode = document.body.classList.contains(THEME_DARK);
+  localStorage.setItem(THEME_KEY, isDarkMode ? THEME_DARK : 'light-mode');
+  updateThemeToggleIcon();
+}
+
+function updateThemeToggleIcon() {
+  const themeToggle = document.getElementById('themeToggle');
+  const isDarkMode = document.body.classList.contains(THEME_DARK);
+  
+  if (themeToggle) {
+    if (isDarkMode) {
+      themeToggle.innerHTML = '<i class="fa-solid fa-sun"></i>';
+      themeToggle.setAttribute('aria-label', 'Passer au mode clair');
+    } else {
+      themeToggle.innerHTML = '<i class="fa-solid fa-moon"></i>';
+      themeToggle.setAttribute('aria-label', 'Passer au mode sombre');
+    }
+  }
+}
+
+// Initialize theme when document loads
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', function() {
+    initializeTheme();
+    const themeToggle = document.getElementById('themeToggle');
+    if (themeToggle) {
+      themeToggle.addEventListener('click', toggleTheme);
+    }
+  });
+} else {
+  // DOM already loaded
+  initializeTheme();
+  const themeToggle = document.getElementById('themeToggle');
+  if (themeToggle) {
+    themeToggle.addEventListener('click', toggleTheme);
   }
 }
 
