@@ -70,7 +70,7 @@
                         <p>Exercices</p>
                         <div class="saison">
                             <li><a href="#" target="_blank" rel="noopener noreferrer" id="bouton">videos</a></li>
-                            <li><a href="#" onclick="show('image-page')">image</a></li>
+                            <li><a href="#" onclick="show('hImagePage')">image</a></li>
                         </div>
                     </ul>
                 </li>
@@ -189,8 +189,14 @@
         <section class="page" id="chm-H"><div class="page-chm-H"></div></section>
         <section class="page" id="chm-M"><div class="page-chm-M"></div></section>
         <section class="page" id="chm-TD"><div class="page-chm-TD"></div></section>
-        <section class="page" id="image-page">des image correction ici !</section>
+        <section class="page" id="hImagePage">
+            <div class="hPageImage" id="hPageImageContainer"></div>
+        </section>
 
+<!-- Modale d'agrandissement (uniquement la boîte et l'image) -->
+<div id="hImageModal" class="hModal">
+  <img class="hModalContent" id="hImgModalTarget" alt="Image agrandie">
+</div>
     </main>
 
     <script src="index.js"></script>

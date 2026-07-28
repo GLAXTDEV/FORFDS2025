@@ -292,3 +292,52 @@ btne.addEventListener('click', () => {
     window.location.href = "https://glaxtdev.github.io/VIDEO-PAGE/";
   }
 });
+
+
+const pageImage = document.querySelector('#hPageImageContainer');
+const modal = document.getElementById('hImageModal');
+const modalImg = document.getElementById('hImgModalTarget');
+
+const listeImage = [
+    { titre: "titre 1", explication: "", link: "correction Image/back36.jpg" },
+    { titre: "titr 2", explication: "", link: "correction Image/back38.jpg" },
+    { titre: "titre 3", explication: "", link: "correction Image/back37.jpg" },
+    { titre: "titre 4", explication: "", link: "correction Image/back37.jpg" },
+    { titre: "titre 5", explication: "", link: "correction Image/back37.jpg" },
+    { titre: "titre 6", explication: "", link: "correction Image/back37.jpg" },
+];
+
+listeImage.forEach(lesImage => {
+    const creation = document.createElement('div');
+    creation.className = "carteImage"; 
+
+    creation.innerHTML = `
+    <div>
+        <img src="${lesImage.link}" alt="${lesImage.titre}" class="imgTrigger">
+        <div class="detailsgeneral">
+            <div class="imagedetails">
+                <h3>${lesImage.titre}</h3>
+                <a href="${lesImage.link}" download>download</a>
+            </div>
+            <div class="imagedetails2">
+                <div>Explication:</div>
+                <p>${lesImage.explication}</p>
+            </div>
+        </div>
+    </div>
+    `;
+    
+    // Ouvre la modale au clic sur l'image
+    const imgElement = creation.querySelector('.imgTrigger');
+    imgElement.addEventListener('click', () => {
+        modalImg.src = lesImage.link;
+        modal.classList.add('active');
+    });
+
+    pageImage.appendChild(creation);
+});
+
+// Ferme la modale en cliquant n'importe où sur le fond flou
+modal.addEventListener('click', () => {
+    modal.classList.remove('active');
+});
