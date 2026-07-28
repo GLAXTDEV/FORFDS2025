@@ -283,3 +283,12 @@ lesDocumentsChmTD.forEach(doc => {
         chmTD.appendChild(carteH);
         afficherTaille(doc.lien, carteH.querySelector('.taille'));
 });
+
+const btne = document.querySelector('#bouton');
+
+btne.addEventListener('click', () => {
+  const avert = window.confirm("Attention : L'accès à cette page nécessite une bonne connexion internet. L'utilisation d'une connexion limitée est déconseillée. Voulez-vous continuer ?");
+  if (avert) {
+    window.location.href = "https://glaxtdev.github.io/VIDEO-PAGE/";
+  }
+});

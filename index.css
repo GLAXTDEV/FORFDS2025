@@ -126,6 +126,7 @@ header{
             align-items: center;
             height: auto;
             justify-content: center;
+            text-wrap: nowrap;
             button{
                 border: none;
                 background-color: #fff;
@@ -134,6 +135,7 @@ header{
                 user-select: none;
                 padding: 4px;
                 text-transform: capitalize;
+                
             }
         }
     }

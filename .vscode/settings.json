@@ -7,5 +7,6 @@
             "database": "mabase.db"
         }
     ],
-    "sqltools.useNodeRuntime": true
+    "sqltools.useNodeRuntime": true,
+    "liveServer.settings.port": 5501
 }
