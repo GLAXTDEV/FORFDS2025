@@ -289,7 +289,7 @@ const btne = document.querySelector('#bouton');
 btne.addEventListener('click', () => {
   const avert = window.confirm("Attention : L'accès à cette page nécessite une *bonne connexion* internet. L'utilisation d'une *connexion limitée* est déconseillée. Voulez-vous continuer ?");
   if (avert === true) {
-    window.location.href = "https://glaxtdev.github.io/VIDEO-PAGE/";
+    window.location.href = "https://docs2025video.vercel.app/";
   } else{ window.location.href = ""}
 });
 
