@@ -877,7 +877,12 @@ body.dark-mode .tapeInstall__item {
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
 }
 
-body.dark-mode .info-banner,
+body.dark-mode .info-banner{
+    color: #ffffff;
+    background: none;
+    border-color: #4b5563;
+    visibility: visible;
+}
 body.dark-mode .pdf-warning {
     background: #374151;
     border-color: #4b5563;
@@ -1015,4 +1020,10 @@ body.dark-mode .carteC{
         display: grid;
         grid-template-columns: repeat(4, 1fr);
     }
+}
+.sign{
+    text-align: center;
+    margin: 20px 0;
+    color: #6b7280;
+    font-size: 0.7rem;
 }
