@@ -179,6 +179,13 @@ header{
         background-color: #eee;
         user-select: none;
         border-radius: 3px;
+        span{
+            margin: 3px;
+            color: #000;
+            text-transform: uppercase;
+            font-weight: 700;
+            text-shadow: 1px 1px 1px 1px rgb(0, 0, 0);
+        }
     }
     li:active{
         transform: scale(1.02);
@@ -226,6 +233,13 @@ header{
         background-color: #eee;
         user-select: none;
         border-radius: 3px;
+        span{
+            margin: 3px;
+            color: #000;
+            text-transform: uppercase;
+            font-weight: 700;
+            text-shadow: 1px 1px 1px 1px rgb(0, 0, 0);
+        }
     }
     a{
         color: black;
@@ -270,6 +284,9 @@ header{
         span{
             margin: 3px;
             color: #000;
+            text-transform: uppercase;
+            font-weight: 700;
+            text-shadow: 1px 1px 1px 1px rgb(0, 0, 0);
         }
     }
     a{
