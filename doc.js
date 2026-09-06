@@ -299,12 +299,16 @@ const modal = document.getElementById('hImageModal');
 const modalImg = document.getElementById('hImgModalTarget');
 
 const listeImage = [
-    { titre: "titre 1", explication: "", link: "correction Image/back36.jpg" },
-    { titre: "titr 2", explication: "", link: "correction Image/back38.jpg" },
-    { titre: "titre 3", explication: "", link: "correction Image/back37.jpg" },
-    { titre: "titre 4", explication: "", link: "correction Image/back37.jpg" },
-    { titre: "titre 5", explication: "", link: "correction Image/back37.jpg" },
-    { titre: "titre 6", explication: "", link: "correction Image/back37.jpg" },
+    {link: "image scientifique/English verbs.jpg" },
+    {link: "image scientifique/mathematics angle.jpg" },
+    {link: "image scientifique/mathématiques identité.jpg" },
+    {link: "image scientifique/mathématiques intégrale 1.jpg" },
+    {link: "image scientifique/mathématiques intégrale 2.jpg" },
+    {link: "image scientifique/mathématiques intégrale 3.jpg" },
+    {link: "image scientifique/mathématiques type d'intégration.jpg" },
+    {link: "image scientifique/mathématiques volume.jpg" },
+    {link: "image scientifique/mathématiques équation quadratique.jpg" },
+    {link: "image scientifique/physique symbole.jpg" },
 ];
 
 listeImage.forEach(lesImage => {
@@ -314,16 +318,6 @@ listeImage.forEach(lesImage => {
     creation.innerHTML = `
     <div>
         <img src="${lesImage.link}" alt="${lesImage.titre}" class="imgTrigger">
-        <div class="detailsgeneral">
-            <div class="imagedetails">
-                <h3>${lesImage.titre}</h3>
-                <a href="${lesImage.link}" download>download</a>
-            </div>
-            <div class="imagedetails2">
-                <div>Explication:</div>
-                <p>${lesImage.explication}</p>
-            </div>
-        </div>
     </div>
     `;
     

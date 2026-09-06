@@ -170,7 +170,7 @@ header{
     }
     .saison{
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
         gap: 10px;
         background-attachment: fixed;
     }
@@ -179,6 +179,9 @@ header{
         background-color: #eee;
         user-select: none;
         border-radius: 3px;
+    }
+    li:active{
+        transform: scale(1.02);
     }
     a{
         color: black;
@@ -199,7 +202,7 @@ header{
     display: none;
     position: absolute;
     top: 100%;
-    left: 90px;
+    left: 10px;
     background-color: #fff;
     border-radius: 4px;
     margin: 4px;
@@ -214,7 +217,7 @@ header{
     }
     .saison{
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
         gap: 10px;
         background-attachment: fixed;
     }
@@ -240,7 +243,7 @@ header{
     display: none;
     position: absolute;
     top: 100%;
-    left: 120px;
+    left: 10px;
     background-color: #fff;
     border-radius: 4px;
     margin: 4px;
@@ -255,7 +258,7 @@ header{
     }
     .saison{
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
         gap: 10px;
         background-attachment: fixed;
     }
@@ -264,6 +267,10 @@ header{
         background-color: #eee;
         user-select: none;
         border-radius: 3px;
+        span{
+            margin: 3px;
+            color: #000;
+        }
     }
     a{
         color: black;
@@ -314,6 +321,10 @@ header{
     .saisons2{
         left: 200px;
     }
+}
+.btn:active{
+    transform: scale(0.9);
+    transition: 10ms ease;
 }
 
 /*partie de carte*/
@@ -959,17 +970,19 @@ body.dark-mode .carteC{
 }
 
 .carteImage {
-  margin: 10px 20px;
+  margin: 4px;
   background-color: #fff;
-  padding: 10px;
+  padding: 1px;
   border-radius: 10px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  width: auto;  
 
   img {
     width: 100%;
-    height: 200px;
+    height: 180px;
     cursor: pointer;
     transition: transform 0.2s ease;
+    object-fit: contain;
 
     &:hover {
       transform: scale(1.02);
@@ -978,30 +991,19 @@ body.dark-mode .carteC{
 
   .imagedetails {
     display: flex;
-    flex-direction: column;
-    gap: 1px;
-    background-color: #09ff00;
-    border-radius: 10px;
-    width: 90px;
+    flex-direction: row;
+    gap: 10px;
+    border-radius: 5px;
+    width: 90%;
+    background-color: #eee;
     padding: 10px;
-
-    h3 {
-      text-transform: uppercase;
-    }
-  }
-
-  .imagedetails2 {
-    margin: 4px;
-
-    p {
-      background-color: #eee;
-    }
+    margin: 0 auto;
   }
 }
 
 #hPageImageContainer{
     display: grid;
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(2, 1fr);
 }
 @media (width > 500px) {
     #hPageImageContainer{
