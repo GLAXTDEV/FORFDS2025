@@ -300,15 +300,31 @@ const modalImg = document.getElementById('hImgModalTarget');
 
 const listeImage = [
     {link: "image scientifique/English verbs.jpg" },
+    {link: "image scientifique/English verbs end by er.jpg" },
+    {link: "image scientifique/English verbs.jpg" },
+    {link: "image scientifique/English time tense.jpg" },
+    {link: "image scientifique/English synonymes.jpg" },
+    {link: "image scientifique/English antonymes.jpg" },
     {link: "image scientifique/mathematics angle.jpg" },
+    {link: "image scientifique/mathématiques à propos des intégral.jpg" },
+    {link: "image scientifique/mathématiques développement.jpg" },
+    {link: "image scientifique/mathématiques differentiation.jpg" },
+    {link: "image scientifique/mathématiques équation quadratique.jpg" },
+    {link: "image scientifique/mathématiques formule de suite.jpg" },
+    {link: "image scientifique/mathématiques formule des théorème binomial.jpg" },
+    {link: "image scientifique/mathématiques intégrale.jpg" },
     {link: "image scientifique/mathématiques identité.jpg" },
     {link: "image scientifique/mathématiques intégrale 1.jpg" },
     {link: "image scientifique/mathématiques intégrale 2.jpg" },
     {link: "image scientifique/mathématiques intégrale 3.jpg" },
+    {link: "image scientifique/mathématiques puissance.jpg" },
+    {link: "image scientifique/mathématiques somme.jpg" },
     {link: "image scientifique/mathématiques type d'intégration.jpg" },
     {link: "image scientifique/mathématiques volume.jpg" },
-    {link: "image scientifique/mathématiques équation quadratique.jpg" },
     {link: "image scientifique/physique symbole.jpg" },
+    {link: "image scientifique/physique const.jpg" },
+    {link: "image scientifique/physique constante.jpg" },
+    {link: "image scientifique/physique unité de mesure.jpg" },
 ];
 
 listeImage.forEach(lesImage => {

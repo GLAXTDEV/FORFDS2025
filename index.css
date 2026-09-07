@@ -155,7 +155,7 @@ header{
     display: none;
     position: absolute;
     top: 100%;
-    left: 10px;
+    right: -2.5px;
     background-color: #fff;
     border-radius: 4px;
     margin: 4px;
@@ -209,7 +209,7 @@ header{
     display: none;
     position: absolute;
     top: 100%;
-    left: 10px;
+    right: -2.5px;
     background-color: #fff;
     border-radius: 4px;
     margin: 4px;
@@ -257,7 +257,7 @@ header{
     display: none;
     position: absolute;
     top: 100%;
-    left: 10px;
+    right: -2.5px;
     background-color: #fff;
     border-radius: 4px;
     margin: 4px;
