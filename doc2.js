@@ -17,14 +17,13 @@ liste0.forEach(m=>{
 
 const matiere1 = document.querySelector("");
 const liste1= [
-    {image: "IMG/pdf5.png", nomDoc: "PHY 112", lien: "phy/"},
     {image: "IMG/pdf5.png", nomDoc: "PHY 202", lien: "phy/"},
+    {image: "IMG/pdf5.png", nomDoc: "PHY 203 (TP)", lien: "phy/"},
     {image: "IMG/pdf5.png", nomDoc: "PHY 204", lien: "phy/"},
-    {image: "IMG/pdf5.png", nomDoc: "PHY 200", lien: "phy/"},
-    {image: "IMG/pdf5.png", nomDoc: "PHY 211", lien: "phy/"},
+    {image: "IMG/pdf5.png", nomDoc: "PHY 112", lien: "phy/"},
+    {image: "IMG/pdf5.png", nomDoc: "CHM 211", lien: "phy/"},
     {image: "IMG/pdf5.png", nomDoc: "CHM 141", lien: "phy/"},
-    {image: "IMG/pdf5.png", nomDoc: "CHM 107", lien: "phy/"},
-    {image: "IMG/pdf5.png", nomDoc: "TP PHY 203", lien: "phy/"},
+    {image: "IMG/pdf5.png", nomDoc: "MTH 107", lien: "phy/"},
 ];
 liste1.forEach(m1=>{
     const nouveau1 = document.createElement("div");

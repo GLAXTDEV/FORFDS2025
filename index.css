@@ -216,41 +216,55 @@ header{
     display: none;
     position: absolute;
     top: 100%;
-    right: -2.5px;
+    left: auto;
+    transform: translate(110px, 1px);
     background-color: #fff;
-    border: 3px double rgb(0, 0, 0, 0.2);
     border-radius: 4px;
     margin: 4px;
     padding: 5px 10px;
     box-shadow: 0 15px 25px rgb(0, 0, 0, 0.08);
     z-index: 22;
+    @media (width > 500px) {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: auto;
+        transform: translate(0px, 0px);
+        background-color: #fff;
+        border-radius: 4px;
+        margin: 4px;
+        padding: 5px 10px;
+        box-shadow: 0 15px 25px rgb(0, 0, 0, 0.08);
+        z-index: 22;
+    }
+
     p{
         text-wrap: nowrap;
         margin-bottom: 8px;
         color: blue;
         user-select: none;
         font-weight: 700;
-        text-transform: capitalize;
+        text-transform: uppercase;
+        text-align: center;
+        @media (width > 500px){
+            text-align: start;
+        }
     }
     .saison{
         display: grid;
-        grid-template-columns: repeat(1, 1fr);
+        grid-template-columns: repeat(2, 1fr);
         gap: 10px;
         background-attachment: fixed;
-        top: 100%;
-        left: 0;
-    }
-    @media (width > 500px) {
-        .saison{
+        @media (width > 500px) {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(2, 1fr);
             gap: 10px;
             background-attachment: fixed;
+        
         }
     }
+    
     li{
-        border: 1px solid rgb(0, 0, 0,0.5);
-        background-color: #eee;
         user-select: none;
         border-radius: 6px;
         span{
@@ -263,66 +277,79 @@ header{
     }
     li:active{
         transform: scale(0.97);
+        box-shadow: 0 4px 8px rgb(0, 0, 0, 0.2);
     }
     a{
-        font-weight: 600px;
+        font-weight: 700px;
         color: rgb(0, 0, 0);
         text-transform: uppercase;
         display: inline-block;
     }
 }
-.sous-nav-mpc0:focus-within .saisons{
-    display: grid;
-    animation: opacity 1s ease;
-}
-@keyframes opacity {
-    0%{opacity: 0; transform: scale(0.8)}
-    100%{opacity: 1; transform: scale(1)}
+@media (width < 500px) {
+    .sous-nav-mpc0:focus-within .saisons{
+        display: grid;
+        animation: opacity 0.5s ease;
+    }
+    @keyframes opacity {
+        0%{opacity: 0; transform: scale(0.0)}
+        100%{opacity: 1; transform: scale(1) translate(110px, 1px);}
+    }
 }
 
 .saisons1{
     display: none;
     position: absolute;
     top: 100%;
-    right: -2.5px;
-    background-color: #fff;
-    border: 3px double rgb(0, 0, 0, 0.2);   
+    right: auto;
+    transform: translate(0, 0);
+    background-color: #fff;  
     border-radius: 4px;
     margin: 4px;
     padding: 5px 10px;
     box-shadow: 0 15px 25px rgb(0, 0, 0, 0.08);
     z-index: 22;
+    @media (width > 500px) {
+        display: none;
+        position: absolute;
+        top: 100%;
+        right: auto;
+        transform: translate(0, 0);
+        background-color: #fff;  
+        border-radius: 4px;
+        margin: 4px;
+        padding: 5px 10px;
+        box-shadow: 0 15px 25px rgb(0, 0, 0, 0.08);
+        z-index: 22;
+    }
     p{
         text-wrap: nowrap;
         margin-bottom: 8px;
         color: blue;
         user-select: none;
+        text-align: center;
         font-weight: 700;
-        text-transform: capitalize;
+        text-transform: uppercase;
+        @media (width > 500px){
+            text-align: start;
+        }
     }
     .saison{
         display: grid;
-        grid-template-columns: repeat(1, 1fr);
+        grid-template-columns: repeat(2, 1fr);
         gap: 10px;
         background-attachment: fixed;
-        top: 100%;
-        left: 0;
-    }
-    @media (width > 500px) {
-        .saison{
+        @media (width > 500px) {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(2, 1fr);
             gap: 10px;
             background-attachment: fixed;
         }
     }
-
     li{
         border: none;
-        background-color: #eee;
         user-select: none;
         border-radius: 6px;
-        border: 1px solid rgb(0, 0, 0,0.5);
         span{
             margin: 3px;
             color: #000;
@@ -333,58 +360,78 @@ header{
     }
     li:active{
         transform: scale(0.97);
+        box-shadow: 0 4px 8px rgb(0, 0, 0, 0.2);
     }
     a{
-        font-weight: 600px;
+        font-weight: 700px;
         color: rgb(0, 0, 0);
         text-transform: uppercase;
         display: inline-block;
     }
 }
-.sous-nav-mpc1:focus-within .saisons1{
-    display: grid;
-    animation: opacity 1s ease;
+@media (width < 500px) {
+    .sous-nav-mpc1:focus-within .saisons1{
+        display: grid;
+        animation: opacity1 0.5s ease;
+    }
+    @keyframes opacity1 {
+        0%{opacity: 0; transform: scale(1.3)}
+        100%{opacity: 1; transform: scale(1)  translate(0);}
+    }
 }
 
 .saisons2{
     display: none;
     position: absolute;
     top: 100%;
-    right: -2.5px;
+    right: auto;
+    transform: translate(-50px, -2px);
     background-color: #fff;
-    border: 3px double rgb(0, 0, 0, 0.2);
     border-radius: 4px;
     margin: 4px;
     padding: 5px 10px;
     box-shadow: 0 15px 25px rgb(0, 0, 0, 0.08);
     z-index: 22;
+    @media (width > 500px) {
+        display: none;
+        position: absolute;
+        top: 100%;
+        right: auto;
+        transform: translate(0);
+        background-color: #fff;
+        border-radius: 4px;
+        margin: 4px;
+        padding: 5px 10px;
+        box-shadow: 0 15px 25px rgb(0, 0, 0, 0.08);
+        z-index: 22;
+    }
     p{
         text-wrap: nowrap;
         margin-bottom: 8px;
         color: blue;
         user-select: none;
         font-weight: 700;
-        text-transform: capitalize;
+        text-transform: uppercase;
+        text-align: center;
+        @media (width > 500px){
+            text-align: start;
+        }
     }
     .saison{
         display: grid;
-        grid-template-columns: repeat(1, 1fr);
+        grid-template-columns: repeat(2, 1fr);
         gap: 10px;
         background-attachment: fixed;
-        top: 100%;
-        left: 0;
-    }
-    @media (width > 500px) {
-        .saison{
+        @media (width > 500px) {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(2, 1fr);
             gap: 10px;
             background-attachment: fixed;
         }
     }
+    
     li{
         border: none;
-        background-color: #eee;
         user-select: none;
         border-radius: 3px;
         span{
@@ -397,44 +444,152 @@ header{
     }
     li:active{
         transform: scale(0.97);
+        box-shadow: 0 4px 8px rgb(0, 0, 0, 0.2);
     }
     a{
-        font-weight: 600px;
+        font-weight: 700px;
         color: rgb(0, 0, 0);
         text-transform: uppercase;
         display: inline-block;
     }
 }
-.sous-nav-mpc2:focus-within .saisons2{
-    display: grid;
-    animation: opacity 1s ease;
+@media (width < 500px) {
+    .sous-nav-mpc2:focus-within .saisons2{
+        display: grid;
+        animation: opacity2 0.5s ease;
+    }
+    @keyframes opacity2 {
+        0%{opacity: 0; transform: scale(0.0)}
+        100%{opacity: 1; transform: scale(1)  translate(-50px, -2px);}
+    }
 }
+
+.saisons3{
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: auto;
+    transform: translate(-55px, -2px);
+    background-color: #fff;
+    border-radius: 4px;
+    margin: 4px;
+    padding: 5px 10px;
+    box-shadow: 0 15px 25px rgb(0, 0, 0, 0.08);
+    z-index: 22;
+    @media (width > 500px) {
+        display: none;
+        position: absolute;
+        top: 100%;
+        right: auto;
+        transform: translate(90px, 2px);
+        background-color: #fff;
+        border-radius: 4px;
+        margin: 4px;
+        padding: 5px 10px;
+        box-shadow: 0 15px 25px rgb(0, 0, 0, 0.08);
+        z-index: 22;
+    }
+    p{
+        text-wrap: nowrap;
+        margin-bottom: 8px;
+        color: blue;
+        user-select: none;
+        font-weight: 700;
+        text-transform: uppercase;
+        text-align: center;
+        @media (width > 500px){
+            text-align: start;
+        }
+    }
+    .saison{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        background-attachment: fixed;
+        @media (width > 500px) {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            background-attachment: fixed;
+        }
+    }
+    
+    li{
+        border: none;
+        user-select: none;
+        border-radius: 3px;
+        span{
+            margin: 3px;
+            color: #000;
+            text-transform: uppercase;
+            font-weight: 700;
+            text-shadow: 1px 1px 1px 1px rgb(0, 0, 0);
+        }
+    }
+    li:active{
+        transform: scale(0.97);
+        box-shadow: 0 4px 8px rgb(0, 0, 0, 0.2);
+    }
+    a{
+        font-weight: 700px;
+        color: rgb(0, 0, 0);
+        text-transform: uppercase;
+        display: inline-block;
+    }
+}
+@media (width < 500px) {
+    .sous-nav-mpc3:focus-within .saisons3{
+        display: grid;
+        animation: opacity3 0.5s ease;
+    }
+    @keyframes opacity3 {
+        0%{opacity: 0; transform: scale(0.0)}
+        100%{opacity: 1; transform: scale(1) translate(-55px, -2px);}
+    }
+}
+
 @media (width > 500px) {
     .saisons{
         top: 30px;
     }
+
     .saisons1{
         top: 30px;
     }
+
     .saisons2{
         top: 30px;
     }
+
+    .saisons3{
+        top: 30px;
+    }
+
     .sous-nav-mpc0:focus-within .saisons{
         display: none;
     }
     .sous-nav-mpc0:hover .saisons{
         display: grid;
     }
+
     .sous-nav-mpc1:focus-within .saisons1{
         display: none;
     }
     .sous-nav-mpc1:hover .saisons1{
         display: grid;
     }
+
     .sous-nav-mpc2:focus-within .saisons2{
         display: none;
     }
     .sous-nav-mpc2:hover .saisons2{
+        display: grid;
+    }
+
+    .sous-nav-mpc3:focus-within .saisons3{
+        display: none;
+    }
+    .sous-nav-mpc3:hover .saisons3{
         display: grid;
     }
 }
@@ -446,6 +601,9 @@ header{
         left: 118px;                                                                                          
     }
     .saisons2{
+        left: 200px;
+    }
+    .saisons3{
         left: 200px;
     }
 }
@@ -1155,4 +1313,311 @@ body.dark-mode .carteC{
     margin: 20px 0;
     color: #6b7280;
     font-size: 0.7rem;
+}
+
+/* Ajustements responsifs des sous-menus, sans modifier les regles precedentes. */
+.sous-nav-mpc{
+    width: 100%;
+    box-sizing: border-box;
+    align-items: stretch;
+}
+
+.sous-nav-mpc > li{
+    position: relative;
+    min-width: 0;
+}
+
+.sous-nav-mpc > li > a,
+.sous-nav-mpc > li > a > .btn{
+    max-width: 100%;
+}
+
+.sous-nav-mpc > li > a > .btn{
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.saisons,
+.saisons1,
+.saisons2,
+.saisons3{
+    box-sizing: border-box;
+    width: min(280px, calc(100vw - 20px));
+    max-width: calc(100vw - 20px);
+    margin: 4px 0;
+    padding: 10px;
+    animation: none;
+    transform: none;
+}
+
+.saisons .saison,
+.saisons1 .saison,
+.saisons2 .saison,
+.saisons3 .saison{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px;
+}
+
+.saisons li,
+.saisons1 li,
+.saisons2 li,
+.saisons3 li{
+    min-width: 0;
+    margin: 0;
+    padding: 4px;
+}
+
+.saisons li a,
+.saisons1 li a,
+.saisons2 li a,
+.saisons3 li a{
+    display: block;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    white-space: normal;
+}
+
+@media (max-width: 359px){
+    .sous-nav-mpc{
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 2px;
+        padding-inline: 4px;
+    }
+
+    .sous-nav-mpc > li{
+        margin: 2px;
+        padding: 2px;
+    }
+
+    .sous-nav-mpc > li > a,
+    .sous-nav-mpc > li > a > .btn{
+        width: 100%;
+        font-size: 0.72rem;
+    }
+
+    .saisons,
+    .saisons1,
+    .saisons2,
+    .saisons3{
+        left: 50%;
+        right: auto;
+        top: 100%;
+        transform: translateX(-50%);
+        width: min(270px, calc(100vw - 12px));
+        max-width: calc(100vw - 12px);
+    }
+}
+
+@media (min-width: 360px) and (max-width: 499px){
+    .sous-nav-mpc{
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 2px;
+        padding-inline: 5px;
+    }
+
+    .sous-nav-mpc > li{
+        margin: 2px;
+        padding: 2px;
+    }
+
+    .sous-nav-mpc > li > a,
+    .sous-nav-mpc > li > a > .btn{
+        width: 100%;
+        font-size: clamp(0.58rem, 2.4vw, 0.72rem);
+    }
+
+    .saisons,
+    .saisons1,
+    .saisons2,
+    .saisons3{
+        left: 50%;
+        right: auto;
+        top: 100%;
+        transform: translateX(-50%);
+        width: min(280px, calc(100vw - 12px));
+        max-width: calc(100vw - 12px);
+    }
+
+    .sous-nav-mpc0:focus-within .saisons,
+    .sous-nav-mpc1:focus-within .saisons1,
+    .sous-nav-mpc2:focus-within .saisons2,
+    .sous-nav-mpc3:focus-within .saisons3{
+        animation: none !important;
+    }
+}
+
+@media (max-width: 499px){
+    .sous-nav-mpc0:focus-within .saisons,
+    .sous-nav-mpc1:focus-within .saisons1,
+    .sous-nav-mpc2:focus-within .saisons2,
+    .sous-nav-mpc3:focus-within .saisons3{
+        animation: none !important;
+    }
+
+    .saisons,
+    .saisons1,
+    .saisons2,
+    .saisons3{
+        transform: none;
+    }
+
+    .saisons,
+    .saisons1{
+        left: 0;
+        right: auto;
+    }
+
+    .saisons2,
+    .saisons3{
+        left: auto;
+        right: 0;
+    }
+}
+
+@media (min-width: 500px) and (max-width: 699px){
+    .sous-nav-mpc{
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 4px;
+        padding-inline: 8px;
+    }
+
+    .sous-nav-mpc > li{
+        margin: 3px;
+    }
+
+    .sous-nav-mpc > li > a,
+    .sous-nav-mpc > li > a > .btn{
+        width: 100%;
+        font-size: clamp(0.68rem, 1.8vw, 0.85rem);
+    }
+
+    .saisons,
+    .saisons1,
+    .saisons2,
+    .saisons3{
+        left: 50%;
+        right: auto;
+        top: 100%;
+        transform: translateX(-50%);
+    }
+
+    .sous-nav-mpc0:hover .saisons,
+    .sous-nav-mpc1:hover .saisons1,
+    .sous-nav-mpc2:hover .saisons2,
+    .sous-nav-mpc3:hover .saisons3{
+        display: grid;
+    }
+}
+
+@media (min-width: 700px) and (max-width: 999px){
+    .sous-nav-mpc{
+        display: flex;
+        justify-content: center;
+        gap: clamp(4px, 1.5vw, 14px);
+        padding-inline: 10px;
+    }
+
+    .sous-nav-mpc > li{
+        flex: 1 1 0;
+        max-width: 190px;
+        margin: 3px;
+    }
+
+    .sous-nav-mpc > li > a,
+    .sous-nav-mpc > li > a > .btn{
+        width: 100%;
+    }
+
+    .saisons,
+    .saisons1,
+    .saisons2,
+    .saisons3{
+        left: 50%;
+        right: auto;
+        top: 100%;
+        transform: translateX(-50%);
+    }
+
+    .sous-nav-mpc0:hover .saisons,
+    .sous-nav-mpc1:hover .saisons1,
+    .sous-nav-mpc2:hover .saisons2,
+    .sous-nav-mpc3:hover .saisons3{
+        display: grid;
+    }
+}
+
+@media (min-width: 1000px) and (max-width: 1399px){
+    .sous-nav-mpc{
+        justify-content: center;
+        gap: 16px;
+        padding-inline: 16px;
+    }
+
+    .sous-nav-mpc > li{
+        flex: 0 1 190px;
+    }
+
+    .saisons,
+    .saisons1,
+    .saisons2,
+    .saisons3{
+        left: 50%;
+        right: auto;
+        top: 100%;
+        transform: translateX(-50%);
+    }
+}
+
+@media (min-width: 1400px){
+    .sous-nav-mpc{
+        justify-content: center;
+        gap: 24px;
+        padding-inline: 24px;
+    }
+
+    .sous-nav-mpc > li{
+        flex: 0 1 210px;
+    }
+
+    .saisons,
+    .saisons1,
+    .saisons2,
+    .saisons3{
+        left: 50%;
+        right: auto;
+        top: 100%;
+        transform: translateX(-50%);
+    }
+}
+
+@media (hover: none) and (pointer: coarse){
+    .sous-nav-mpc > li{
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    .sous-nav-mpc0:focus-within .saisons,
+    .sous-nav-mpc1:focus-within .saisons1,
+    .sous-nav-mpc2:focus-within .saisons2,
+    .sous-nav-mpc3:focus-within .saisons3{
+        animation: none;
+    }
+
+    .sous-nav-mpc > li:focus-within .saisons,
+    .sous-nav-mpc > li:focus-within .saisons1,
+    .sous-nav-mpc > li:focus-within .saisons2,
+    .sous-nav-mpc > li:focus-within .saisons3{
+        display: grid;
+    }
+}
+
+@media (max-width: 359px){
+    .sous-nav-mpc0:focus-within .saisons,
+    .sous-nav-mpc1:focus-within .saisons1,
+    .sous-nav-mpc2:focus-within .saisons2,
+    .sous-nav-mpc3:focus-within .saisons3{
+        animation: none !important;
+    }
 }
