@@ -325,6 +325,13 @@ const listeImage = [
     {link: "image scientifique/physique const.jpg" },
     {link: "image scientifique/physique constante.jpg" },
     {link: "image scientifique/physique unité de mesure.jpg" },
+    {link: "image scientifique/1082693566756004231.jpg10 Math Graphs You NEED to Know! 📈🧠.jpg" },
+    {link: "image scientifique/10 Math Graphs You NEED to Know! 📈🧠.jpg" },
+    {link: "image scientifique/class 12th electrochemistry.jpg" },
+    {link: "image scientifique/📚 Unit Conversions Made Easy _ Metric Conversion Chart.jpg" },
+    {link: "image scientifique/download (1).jpg" },
+    {link: "image scientifique/Periodic Table.jpg" },
+    {link: "image scientifique/download.jpg" },
 ];
 
 listeImage.forEach(lesImage => {

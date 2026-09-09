@@ -27,6 +27,9 @@ function show(id) {
   if (targetPage) {
     targetPage.classList.add('active');
     localStorage.setItem('pageSauvegardee', id);
+    if (window.siteLoader) {
+      window.siteLoader.startPageLoading(targetPage);
+    }
   }
 
   // S'assure que applySearch existe avant de l'appeler pour éviter des erreurs

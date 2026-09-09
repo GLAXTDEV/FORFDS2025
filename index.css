@@ -11,6 +11,67 @@ body{
 body.modal-open{
     overflow: hidden;
 }
+
+body.is-loading{
+    overflow: hidden;
+}
+
+.site-loader{
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    background: rgba(255, 255, 255, 0.94);
+    color: #1f2937;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 180ms ease, visibility 180ms ease;
+    visibility: hidden;
+}
+
+.site-loader.is-visible{
+    opacity: 1;
+    pointer-events: auto;
+    visibility: visible;
+}
+
+.site-loader__spinner{
+    width: 48px;
+    height: 48px;
+    border: 4px solid #dbe4ff;
+    border-top-color: #4f46e5;
+    border-radius: 50%;
+    animation: site-loader-spin 800ms linear infinite;
+}
+
+.site-loader__message{
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+@keyframes site-loader-spin{
+    to{ transform: rotate(360deg); }
+}
+
+body.dark-mode .site-loader{
+    background: rgba(31, 41, 55, 0.96);
+    color: #f3f4f6;
+}
+
+body.dark-mode .site-loader__spinner{
+    border-color: #4b5563;
+    border-top-color: #818cf8;
+}
+
+@media (prefers-reduced-motion: reduce){
+    .site-loader__spinner{
+        animation-duration: 1600ms;
+    }
+}
 /*les page SPA*/
 .page{
     display: none;
@@ -130,7 +191,7 @@ header{
             button{
                 border: none;
                 background-color: #fff;
-                border-radius: px;
+                border-radius: 6px;
                 color: blue;
                 user-select: none;
                 padding: 4px;
@@ -157,6 +218,7 @@ header{
     top: 100%;
     right: -2.5px;
     background-color: #fff;
+    border: 3px double rgb(0, 0, 0, 0.2);
     border-radius: 4px;
     margin: 4px;
     padding: 5px 10px;
@@ -167,18 +229,30 @@ header{
         margin-bottom: 8px;
         color: blue;
         user-select: none;
+        font-weight: 700;
+        text-transform: capitalize;
     }
     .saison{
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(1, 1fr);
         gap: 10px;
         background-attachment: fixed;
+        top: 100%;
+        left: 0;
+    }
+    @media (width > 500px) {
+        .saison{
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            background-attachment: fixed;
+        }
     }
     li{
-        border: none;
+        border: 1px solid rgb(0, 0, 0,0.5);
         background-color: #eee;
         user-select: none;
-        border-radius: 3px;
+        border-radius: 6px;
         span{
             margin: 3px;
             color: #000;
@@ -188,12 +262,13 @@ header{
         }
     }
     li:active{
-        transform: scale(1.02);
+        transform: scale(0.97);
     }
     a{
-        color: black;
-        font-weight: 500px;
-        text-transform: capitalize;
+        font-weight: 600px;
+        color: rgb(0, 0, 0);
+        text-transform: uppercase;
+        display: inline-block;
     }
 }
 .sous-nav-mpc0:focus-within .saisons{
@@ -211,6 +286,7 @@ header{
     top: 100%;
     right: -2.5px;
     background-color: #fff;
+    border: 3px double rgb(0, 0, 0, 0.2);   
     border-radius: 4px;
     margin: 4px;
     padding: 5px 10px;
@@ -221,18 +297,32 @@ header{
         margin-bottom: 8px;
         color: blue;
         user-select: none;
+        font-weight: 700;
+        text-transform: capitalize;
     }
     .saison{
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(1, 1fr);
         gap: 10px;
         background-attachment: fixed;
+        top: 100%;
+        left: 0;
     }
+    @media (width > 500px) {
+        .saison{
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            background-attachment: fixed;
+        }
+    }
+
     li{
         border: none;
         background-color: #eee;
         user-select: none;
-        border-radius: 3px;
+        border-radius: 6px;
+        border: 1px solid rgb(0, 0, 0,0.5);
         span{
             margin: 3px;
             color: #000;
@@ -241,10 +331,14 @@ header{
             text-shadow: 1px 1px 1px 1px rgb(0, 0, 0);
         }
     }
+    li:active{
+        transform: scale(0.97);
+    }
     a{
-        color: black;
-        font-weight: 500px;
-        text-transform: capitalize;
+        font-weight: 600px;
+        color: rgb(0, 0, 0);
+        text-transform: uppercase;
+        display: inline-block;
     }
 }
 .sous-nav-mpc1:focus-within .saisons1{
@@ -252,13 +346,13 @@ header{
     animation: opacity 1s ease;
 }
 
-
 .saisons2{
     display: none;
     position: absolute;
     top: 100%;
     right: -2.5px;
     background-color: #fff;
+    border: 3px double rgb(0, 0, 0, 0.2);
     border-radius: 4px;
     margin: 4px;
     padding: 5px 10px;
@@ -269,12 +363,24 @@ header{
         margin-bottom: 8px;
         color: blue;
         user-select: none;
+        font-weight: 700;
+        text-transform: capitalize;
     }
     .saison{
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(1, 1fr);
         gap: 10px;
         background-attachment: fixed;
+        top: 100%;
+        left: 0;
+    }
+    @media (width > 500px) {
+        .saison{
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            background-attachment: fixed;
+        }
     }
     li{
         border: none;
@@ -289,10 +395,14 @@ header{
             text-shadow: 1px 1px 1px 1px rgb(0, 0, 0);
         }
     }
+    li:active{
+        transform: scale(0.97);
+    }
     a{
-        color: black;
-        font-weight: 500px;
-        text-transform: capitalize;
+        font-weight: 600px;
+        color: rgb(0, 0, 0);
+        text-transform: uppercase;
+        display: inline-block;
     }
 }
 .sous-nav-mpc2:focus-within .saisons2{

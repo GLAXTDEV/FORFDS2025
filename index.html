@@ -14,6 +14,11 @@
     <link rel="icon" type="image/png" href="https://copilot.microsoft.com/th/id/BCO.c3398f7c-780d-4f18-ac52-f1c6927b9ce2.png">
 </head>
 <body>
+    <div id="siteLoader" class="site-loader is-visible" role="status" aria-live="polite" aria-hidden="false">
+        <div class="site-loader__spinner" aria-hidden="true"></div>
+        <p class="site-loader__message">Chargement...</p>
+    </div>
+
     <header>
         <h1 class="imgDuHaut"><a href="#" onclick="show('accueil')">cours Td examen</a></h1>
         <div class="recherche-docs">
@@ -33,13 +38,11 @@
                     <ul class="saisons">
                         <p>Parcours mathematiques</p>
                         <div class="saison">
-                            <li><a href="#" onclick="show('math-H')">Harmattant <span>I</span></a></li>
-                            <li><a href="#" onclick="show('math-M')">mousson <span>I</span></a></li>
-                            <li><a href="#" onclick="show('math-TD')">td examen <span>I</span></a></li>
-
-                            <li><a href="#" onclick="show('math-H2')">Harmattant <span>II</span></a></li>
-                            <li><a href="#" onclick="show('math-M2')">mousson <span>II</span></a></li>
-                            <li><a href="#" onclick="show('math-TD2')">td examen <span>II</span></a></li>
+                            <li><a href="#" onclick="show('math-H')">Harmattant <span>1</span></a></li>
+                            <li><a href="#" onclick="show('math-M')">mousson <span>1</span></a></li> 
+                            <li><a href="#" onclick="show('math-H2')">Harmattant <span>2</span></a></li>
+                            <li><a href="#" onclick="show('math-M2')">mousson <span>2</span></a></li>
+                            <li><a href="#" onclick="show('math-TD')">all td & examen <span></span></a></li>
                         </div>
                     </ul>
                 </li>
@@ -49,13 +52,11 @@
                     <ul class="saisons1">
                         <p>Parcours physique</p>
                         <div class="saison">
-                            <li><a href="#" onclick="show('physic-H')">Harmattant <span>I</span></a></li>
-                            <li><a href="#" onclick="show('physic-M')">mousson <span>I</span></a></li>
-                            <li><a href="#" onclick="show('physic-TD')">td examen <span>I</span></a></li>
-                            
-                            <li><a href="#" onclick="show('physic-H2')">Harmattant <span>II</span></a></li>
-                            <li><a href="#" onclick="show('physic-M2')">mousson <span>II</span></a></li>
-                            <li><a href="#" onclick="show('physic-TD2')">td examen <span>II</span></a></li>
+                            <li><a href="#" onclick="show('physic-H')">Harmattant <span>1</span></a></li>
+                            <li><a href="#" onclick="show('physic-M')">mousson <span>1</span></a></li>
+                            <li><a href="#" onclick="show('physic-H2')">Harmattant <span>2</span></a></li>
+                            <li><a href="#" onclick="show('physic-M2')">mousson <span>2</span></a></li>  
+                            <li><a href="#" onclick="show('physic-TD')">all td & examen <span></span></a></li>
                         </div>
                     </ul>
                 </li>
@@ -65,13 +66,11 @@
                     <ul class="saisons2">
                         <p>Parcours chimie</p>
                         <div class="saison">
-                            <li><a href="#" onclick="show('chm-H')">Harmattant <span>I</span></a></li>
-                            <li><a href="#" onclick="show('chm-M')">mousson <span>I</span></a></li>
-                            <li><a href="#" onclick="show('chm-TD')">td examen <span>I</span></a></li>
-
-                            <li><a href="#" onclick="show('chm-H2')">Harmattant <span>II</span></a></li>
-                            <li><a href="#" onclick="show('chm-M2')">mousson <span>II</span></a></li>
-                            <li><a href="#" onclick="show('chm-TD2')">td examen <span>II</span></a></li>
+                            <li><a href="#" onclick="show('chm-H')">Harmattant <span>1</span></a></li>
+                            <li><a href="#" onclick="show('chm-M')">mousson <span>1</span></a></li>  
+                            <li><a href="#" onclick="show('chm-H2')">Harmattant <span>2</span></a></li>
+                            <li><a href="#" onclick="show('chm-M2')">mousson <span>2</span></a></li>
+                            <li><a href="#" onclick="show('chm-TD')">all td & examen <span></span></a></li>
                         </div>
                     </ul>
                 </li>
@@ -194,14 +193,22 @@
         <section class="page" id="math-H"><div class="page-math-H"></div></section>
         <section class="page" id="math-M"><div class="page-math-M"></div></section>
         <section class="page" id="math-TD"><div class="page-math-TD"></div></section>
+        <section class="page" id="math-H2"><div class="page-math-H2"></div></section>
+        <section class="page" id="math-M2"><div class="page-math-M2"></div></section>
+
 
         <section class="page" id="physic-H"><div class="page-physic-H"></div></section>
         <section class="page" id="physic-M"><div class="page-physic-M"></div></section>
         <section class="page" id="physic-TD"><div class="page-physic-TD"></div></section>
+        <section class="page" id="physic-H2"><div class="page-physic-H2"></div></section>
+        <section class="page" id="physic-M2"><div class="page-physic-M2"></div></section>
 
         <section class="page" id="chm-H"><div class="page-chm-H"></div></section>
         <section class="page" id="chm-M"><div class="page-chm-M"></div></section>
         <section class="page" id="chm-TD"><div class="page-chm-TD"></div></section>
+        <section class="page" id="chm-H2"><div class="page-chm-H2"></div></section>
+        <section class="page" id="chm-M2"><div class="page-chm-M2"></div></section>
+
         <section class="page" id="hImagePage">
             <div class="hPageImage" id="hPageImageContainer"></div>
         </section>
@@ -212,7 +219,9 @@
 </div>
     </main>
 
+    <script src="loading.js"></script>
     <script src="index.js"></script>
     <script src="doc.js"></script>
+    <script src="doc2.js"></script>
 </body>
 </html>
