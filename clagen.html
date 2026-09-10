@@ -1,0 +1,145 @@
+<div class="general-calculator">
+  <header class="general-calculator__header">
+    <div>
+      <p class="general-calculator__eyebrow">Laboratoire mathématique docs</p>
+      <h2>docs_mathematiques</h2>
+      <p>Expressions, limites, dérivées, intégrales et courbes dans un seul espace.</p>
+    </div>
+    <span class="general-calculator__status" id="calgenStatus">Chargement du moteur...</span>
+  </header>
+
+  <nav class="general-calculator__tabs" aria-label="Outils de calcul">
+    <button class="calgen-tab is-active" type="button" data-panel="expressionPanel">Expression</button>
+    <button class="calgen-tab" type="button" data-panel="limitPanel">Limite</button>
+    <button class="calgen-tab" type="button" data-panel="derivativePanel">Dérivée</button>
+    <button class="calgen-tab" type="button" data-panel="integralPanel">Intégrale</button>
+    <button class="calgen-tab" type="button" data-panel="primitivePanel">Primitive</button>
+    <button class="calgen-tab" type="button" data-panel="graphPanel">Courbe</button>
+    <button class="calgen-tab" type="button" data-panel="probabilityPanel">Probabilités</button>
+  </nav>
+
+  <section class="calgen-panel is-visible" id="expressionPanel">
+    <div class="calgen-grid calgen-grid--two">
+      <label>Expression
+        <input id="expressionInput" type="text" value="sin(x)^2 + cos(x)^2" placeholder="Ex. sqrt(9) + 2^3">
+      </label>
+      <label>Valeur de x (facultative)
+        <input id="expressionX" type="number" step="any" placeholder="Ex. 1.5">
+      </label>
+    </div>
+    <button class="calgen-primary" id="evaluateExpression" type="button">Calculer l'expression</button>
+    <div class="calgen-output" id="expressionOutput" aria-live="polite">Le résultat apparaîtra ici.</div>
+  </section>
+
+  <section class="calgen-panel" id="limitPanel" hidden>
+    <div class="calgen-grid calgen-grid--four">
+      <label>Expression f(x)
+        <input id="limitExpression" type="text" value="(sin(x))/x" placeholder="Ex. (x^2 - 1)/(x - 1)">
+      </label>
+      <label>Variable <input id="limitVariable" type="text" value="x" maxlength="3"></label>
+      <label>Vers <input id="limitPoint" type="text" value="0" placeholder="inf ou -inf"></label>
+      <label>Direction
+        <select id="limitDirection"><option value="both">Des deux côtés</option><option value="+">À droite</option><option value="-">À gauche</option></select>
+      </label>
+    </div>
+    <div class="calgen-grid calgen-grid--two">
+      <label>Numérateur pour l'Hôpital (facultatif)<input id="limitNumerator" type="text" placeholder="Ex. x^2 - 1"></label>
+      <label>Dénominateur pour l'Hôpital (facultatif)<input id="limitDenominator" type="text" placeholder="Ex. x - 1"></label>
+    </div>
+    <button class="calgen-primary" id="calculateLimit" type="button">Calculer la limite</button>
+    <div class="calgen-output" id="limitOutput" aria-live="polite">La limite apparaîtra ici.</div>
+  </section>
+
+  <section class="calgen-panel" id="derivativePanel" hidden>
+    <div class="calgen-grid calgen-grid--three">
+      <label>Fonction f(x)<input id="derivativeExpression" type="text" value="x^3 * sin(x)" placeholder="Ex. x^4 + 2*x"></label>
+      <label>Variable<input id="derivativeVariable" type="text" value="x" maxlength="3"></label>
+      <label>Ordre n<input id="derivativeOrder" type="number" min="1" max="12" value="1"></label>
+    </div>
+    <button class="calgen-primary" id="calculateDerivative" type="button">Dériver</button>
+    <div class="calgen-output" id="derivativeOutput" aria-live="polite">La dérivée apparaîtra ici.</div>
+  </section>
+
+  <section class="calgen-panel" id="integralPanel" hidden>
+    <div class="calgen-grid calgen-grid--four">
+      <label>Fonction f(x)<input id="integralExpression" type="text" value="x^2" placeholder="Ex. exp(-x^2)"></label>
+      <label>Variable<input id="integralVariable" type="text" value="x" maxlength="3"></label>
+      <label>Borne a<input id="integralStart" type="number" step="any" value="0"></label>
+      <label>Borne b<input id="integralEnd" type="number" step="any" value="1"></label>
+    </div>
+    <div class="calgen-grid calgen-grid--two">
+      <label>u(x), pour une intégration par parties (facultatif)<input id="partsU" type="text" placeholder="Ex. x"></label>
+      <label>dv, pour une intégration par parties (facultatif)<input id="partsDv" type="text" placeholder="Ex. cos(x) dx"></label>
+    </div>
+    <button class="calgen-primary" id="calculateIntegral" type="button">Intégrer</button>
+    <div class="calgen-output" id="integralOutput" aria-live="polite">L'intégrale apparaîtra ici.</div>
+  </section>
+
+  <section class="calgen-panel" id="primitivePanel" hidden>
+    <div class="calgen-grid calgen-grid--three">
+      <label>Fonction f(x)<input id="primitiveExpression" type="text" value="x^2 + cos(x)" placeholder="Ex. 3*x^2 + 2*sin(x)"></label>
+      <label>Variable<input id="primitiveVariable" type="text" value="x" maxlength="3"></label>
+      <label>Constante C<input id="primitiveConstant" type="text" value="C" maxlength="8"></label>
+    </div>
+    <button class="calgen-primary" id="calculatePrimitive" type="button">Trouver une primitive</button>
+    <div class="calgen-output" id="primitiveOutput" aria-live="polite">La primitive apparaîtra ici.</div>
+    <p class="calgen-help">La calculatrice traite les polynômes, sommes, produits par constantes, puissances, exponentielles et fonctions trigonométriques usuelles.</p>
+  </section>
+
+  <section class="calgen-panel" id="graphPanel" hidden>
+    <div class="calgen-grid calgen-grid--four">
+      <label>Fonction f(x)<input id="graphExpression" type="text" value="sin(x)" placeholder="Ex. x^2 - 4"></label>
+      <label>x min<input id="graphMin" type="number" step="any" value="-10"></label>
+      <label>x max<input id="graphMax" type="number" step="any" value="10"></label>
+      <label>Échelle Y automatique<select id="graphAutoY"><option value="yes">Oui</option><option value="no">Non</option></select></label>
+    </div>
+    <button class="calgen-primary" id="drawGraph" type="button">Tracer la courbe</button>
+    <div class="graph-wrap"><canvas id="functionGraph" width="1000" height="520"></canvas></div>
+    <div class="calgen-output graph-points" id="graphPoints" aria-live="polite">Les points remarquables apparaîtront ici.</div>
+    <p class="calgen-help">Utilisez les fonctions de mathjs : sin, cos, tan, log, sqrt, exp, abs, pi, e.</p>
+  </section>
+
+  <section class="calgen-panel" id="probabilityPanel" hidden>
+    <div class="calgen-grid calgen-grid--two">
+      <label>Modèle
+        <select id="probabilityModel">
+          <option value="combinatorics">Combinatoire</option>
+          <option value="binomial">Loi binomiale</option>
+          <option value="poisson">Loi de Poisson</option>
+          <option value="geometric">Loi géométrique</option>
+          <option value="hypergeometric">Loi hypergéométrique</option>
+          <option value="normal">Loi normale</option>
+          <option value="bayes">Bayes et probabilités conditionnelles</option>
+          <option value="statistics">Statistiques descriptives</option>
+        </select>
+      </label>
+      <label>Calcul demandé
+        <select id="probabilityQuery">
+          <option value="exact">P(X = k)</option>
+          <option value="atMost">P(X ≤ k)</option>
+          <option value="atLeast">P(X ≥ k)</option>
+        </select>
+      </label>
+    </div>
+    <div class="calgen-grid calgen-grid--four" id="probabilityFields">
+      <label id="probNField">n <input id="probN" type="number" min="0" step="1" value="10"></label>
+      <label id="probKField">k <input id="probK" type="number" min="0" step="1" value="3"></label>
+      <label id="probPField">p <input id="probP" type="number" min="0" max="1" step="any" value="0.5"></label>
+      <label id="probLambdaField">λ <input id="probLambda" type="number" min="0" step="any" value="2"></label>
+      <label id="probMeanField">Moyenne μ <input id="probMean" type="number" step="any" value="0"></label>
+      <label id="probStdField">Écart-type σ <input id="probStd" type="number" min="0" step="any" value="1"></label>
+      <label id="probTotalField">Population totale N <input id="probTotal" type="number" min="0" step="1" value="50"></label>
+      <label id="probSuccessField">Succès dans la population K <input id="probSuccess" type="number" min="0" step="1" value="10"></label>
+      <label id="probDrawField">Tirages n <input id="probDraw" type="number" min="0" step="1" value="5"></label>
+      <label id="probPaField">P(A) <input id="probPa" type="number" min="0" max="1" step="any" value="0.2"></label>
+      <label id="probBGivenAField">P(B|A) <input id="probBGivenA" type="number" min="0" max="1" step="any" value="0.8"></label>
+      <label id="probBGivenNotAField">P(B|non A) <input id="probBGivenNotA" type="number" min="0" max="1" step="any" value="0.1"></label>
+      <label id="probDataField">Données séparées par des virgules <input id="probData" type="text" value="2, 4, 4, 6, 8"></label>
+    </div>
+    <button class="calgen-primary" id="calculateProbability" type="button">Calculer la probabilité</button>
+    <div class="calgen-output" id="probabilityOutput" aria-live="polite">Le résultat apparaîtra ici.</div>
+    <p class="calgen-help">Les probabilités sont exprimées entre 0 et 1, avec leur pourcentage. Pour une loi normale, k représente la valeur étudiée.</p>
+  </section>
+
+  <div class="calgen-toast" id="calgenError" role="alert" hidden></div>
+</div>

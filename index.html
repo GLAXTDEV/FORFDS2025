@@ -9,6 +9,8 @@
     <title>DOCS 2025</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="calculatrice.css">
+    <link rel="stylesheet" href="clagen.css">
     <link rel="manifest" href="manifest.json">
     <link rel="apple-touch-icon" href="icons/icon.svg">
     <link rel="icon" type="image/png" href="https://copilot.microsoft.com/th/id/BCO.c3398f7c-780d-4f18-ac52-f1c6927b9ce2.png">
@@ -78,10 +80,12 @@
                 <li class="sous-nav-mpc3">
                     <a><button class="btn">(•_•)</button></a>
                     <ul class="saisons3">
-                        <p>other</p>
+                        <p>docs tools</p>
                         <div class="saison">
                             <li><a href="#" id="bouton" target="_blank" style="color: red;">docs_videos</a></li>
                             <li><a href="#" onclick="show('hImagePage')">formules</a></li>
+                            <li><a href="#" onclick="show('calculatrice_generale')" style="color: yellow;">calc.gx</a></li>
+                            <li><a href="#" onclick="show('calcul_matrice')" style="color: blue;">matrice</a></li>
                             <li><a href="https://docs-compteur.vercel.app/" target="_blank" style="color:violet;">docs_timer</a></li>
                         </div>
                     </ul>
@@ -210,6 +214,9 @@
         <section class="page" id="chm-H2"><div class="page-chm-H2"></div></section>
         <section class="page" id="chm-M2"><div class="page-chm-M2"></div></section>
 
+        <section class="page" id="calcul_matrice"><div class="page-calcul_matrice"></div></section>
+        <section class="page" id="calculatrice_generale"><div class="page-calculatrice_generale"></div></section>
+
         <section class="page" id="hImagePage">
             <div class="hPageImage" id="hPageImageContainer"></div>
         </section>
@@ -224,5 +231,7 @@
     <script src="index.js"></script>
     <script src="doc.js"></script>
     <script src="doc2.js"></script>
+    <script src="calculatrice.js"></script>
+    <script src="calgen.js"></script>
 </body>
 </html>

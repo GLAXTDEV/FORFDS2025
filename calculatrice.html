@@ -1,0 +1,47 @@
+<div class="matrix-calculator">
+  <header class="matrix-calculator__header">
+    <p class="matrix-calculator__eyebrow">Outil de calcul</p>
+    <h2>Operation matricielle Docs</h2>
+    <p class="matrix-calculator__intro">Choisissez les dimensions de vos matrices, remplissez les cellules puis sélectionnez une opération.</p>
+  </header>
+
+  <form class="matrix-calculator__settings" id="matrixSettings">
+    <label>Lignes A <input id="matrixRowsA" type="number" min="1" max="12" value="3"></label>
+    <label>Colonnes A <input id="matrixColsA" type="number" min="1" max="12" value="3"></label>
+    <label>Lignes B <input id="matrixRowsB" type="number" min="1" max="12" value="3"></label>
+    <label>Colonnes B <input id="matrixColsB" type="number" min="1" max="12" value="3"></label>
+    <label>Opération
+      <select id="matrixOperation">
+        <option value="add">A + B</option>
+        <option value="subtract">A - B</option>
+        <option value="multiply">A × B</option>
+        <option value="scalar">k × A</option>
+        <option value="transposeA">Transposée de A</option>
+        <option value="transposeB">Transposée de B</option>
+        <option value="determinantA">Déterminant de A</option>
+        <option value="determinantB">Déterminant de B</option>
+        <option value="inverseA">Inverse de A</option>
+        <option value="inverseB">Inverse de B</option>
+      </select>
+    </label>
+    <label id="scalarField" hidden>Scalaire k <input id="matrixScalar" type="number" step="any" value="2"></label>
+    <button class="matrix-calculator__primary" type="submit">Calculer</button>
+    <button class="matrix-calculator__secondary" id="matrixClear" type="button">Effacer</button>
+  </form>
+
+  <div class="matrix-calculator__matrices">
+    <section class="matrix-calculator__panel">
+      <h3>Matrice A</h3>
+      <div class="matrix-grid" id="matrixA"></div>
+    </section>
+    <section class="matrix-calculator__panel">
+      <h3>Matrice B</h3>
+      <div class="matrix-grid" id="matrixB"></div>
+    </section>
+  </div>
+
+  <section class="matrix-calculator__result" aria-live="polite">
+    <h3>Résultat</h3>
+    <p class="matrix-calculator__message" id="matrixResult">Votre résultat apparaîtra ici.</p>
+  </section>
+</div>
