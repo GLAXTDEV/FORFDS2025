@@ -74,6 +74,18 @@
     $('#calculateProbability').addEventListener('click', () => run(() => calculateProbability(), '#probabilityOutput'));
     $('#probabilityModel').addEventListener('change', updateProbabilityFields);
     updateProbabilityFields();
+    $('#calculateComplex').addEventListener('click', () => mathReady.then(() => {
+      try { calculateComplex(); } catch (error) { showError(error.message); }
+    }).catch(error => showError(error.message)));
+    $('#calculateComplexTransform').addEventListener('click', () => mathReady.then(() => {
+      try { calculateComplexTransform(); } catch (error) { showError(error.message); }
+    }).catch(error => showError(error.message)));
+    if (savedState.values && savedState.values.complexInput) {
+      mathReady.then(() => { try { calculateComplex(); } catch {} });
+    }
+    if (savedState.values && savedState.values.complexTransformParameter) {
+      mathReady.then(() => { try { calculateComplexTransform(); } catch {} });
+    }
     if (savedState.activePanel) {
       const savedTab = root.querySelector(`[data-panel="${savedState.activePanel}"]`);
       if (savedTab) {
@@ -252,6 +264,128 @@
     if (model === 'normal') return calculateNormal();
     if (model === 'bayes') return calculateBayes();
     return calculateStatistics();
+  }
+
+  function calculateComplex() {
+    const input = root.querySelector('#complexInput').value.trim();
+    const unit = root.querySelector('#complexAngleUnit').value;
+    const z = parseComplex(input, unit);
+    const real = z.re;
+    const imaginary = z.im;
+    const modulus = Math.hypot(real, imaginary);
+    const argument = Math.atan2(imaginary, real);
+    const displayedArgument = unit === 'deg' ? argument * 180 / Math.PI : argument;
+    const conjugate = math.complex(real, -imaginary);
+    const inverse = modulus === 0 ? null : math.complex(real / (modulus * modulus), -imaginary / (modulus * modulus));
+    const square = math.complex(real * real - imaginary * imaginary, 2 * real * imaginary);
+    const cube = math.multiply(square, z);
+    const sign = imaginary < 0 ? ' - ' : ' + ';
+    const cartesian = `${formatComplexPart(real)}${sign}${formatComplexPart(Math.abs(imaginary))}i`;
+    const trigonometric = `${format(modulus)} [cos(${format(displayedArgument)}${unit === 'deg' ? '°' : ''}) + i sin(${format(displayedArgument)}${unit === 'deg' ? '°' : ''})]`;
+    const exponential = `${format(modulus)} exp(i·${format(displayedArgument)}${unit === 'deg' ? '°' : ''})`;
+    const output = `<div class="complex-properties"><h3>Étude de z = ${escapeHtml(cartesian)}</h3><ul><li>Partie réelle : <strong>Re(z) = ${format(real)}</strong></li><li>Partie imaginaire : <strong>Im(z) = ${format(imaginary)}</strong></li><li>Module : <strong>|z| = ${format(modulus)}</strong></li><li>Argument principal : <strong>arg(z) = ${format(displayedArgument)}${unit === 'deg' ? '°' : ' rad'}</strong></li><li>Conjugué : <strong>${escapeHtml(formatComplex(conjugate))}</strong></li><li>Opposé : <strong>${escapeHtml(formatComplex(math.complex(-real, -imaginary)))}</strong></li><li>Inverse : <strong>${inverse ? escapeHtml(formatComplex(inverse)) : 'non défini, car z = 0'}</strong></li><li>z² : <strong>${escapeHtml(formatComplex(square))}</strong></li><li>z³ : <strong>${escapeHtml(formatComplex(cube))}</strong></li></ul><h4>Formes équivalentes</h4><p class="calgen-output__formula">Cartésienne : ${escapeHtml(cartesian)}<br>Trigonométrique : ${escapeHtml(trigonometric)}<br>Exponentielle : ${escapeHtml(exponential)}</p></div>`;
+    root.querySelector('#complexOutput').innerHTML = output;
+    drawComplexPlane(real, imaginary, modulus, argument);
+    persistFormState();
+    return '';
+  }
+
+  function parseComplex(input, unit) {
+    const normalized = input.replace(/\s+/g, '').replace(/π/g, 'pi').replace(/−/g, '-');
+    const polarMatch = normalized.match(/^([+-]?(?:\d*\.?\d+|pi))(?:∠|<)(.+)$/i);
+    if (polarMatch) {
+      const radius = evaluateComplexNumber(polarMatch[1]);
+      const angle = evaluateComplexNumber(polarMatch[2]) * (unit === 'deg' ? Math.PI / 180 : 1);
+      return math.complex(radius * Math.cos(angle), radius * Math.sin(angle));
+    }
+    try {
+      const value = math.complex(normalized.replace(/j/g, 'i'));
+      if (Number.isFinite(value.re) && Number.isFinite(value.im)) return value;
+    } catch {}
+    throw new Error('Format complexe invalide. Utilisez par exemple 3+4i ou 5∠π/4.');
+  }
+
+  function evaluateComplexNumber(value) {
+    try { return Number(math.evaluate(value.replace(/pi/gi, 'pi'))); } catch { throw new Error('Le module ou l’argument polaire est invalide.'); }
+  }
+
+  function formatComplexPart(value) { return format(value); }
+  function formatComplex(value) {
+    const sign = value.im < 0 ? ' - ' : ' + ';
+    return `${format(value.re)}${sign}${format(Math.abs(value.im))}i`;
+  }
+
+  function drawComplexPlane(real, imaginary, modulus, argument) {
+    const canvas = root.querySelector('#complexPlane');
+    const context = canvas.getContext('2d');
+    const width = canvas.width; const height = canvas.height; const origin = { x: width / 2, y: height / 2 };
+    const scale = Math.min(width, height) / (2 * Math.max(5, modulus * 1.25));
+    const point = { x: origin.x + real * scale, y: origin.y - imaginary * scale };
+    const style = getComputedStyle(root.querySelector('.general-calculator'));
+    context.clearRect(0, 0, width, height);
+    context.fillStyle = style.getPropertyValue('--calgen-panel'); context.fillRect(0, 0, width, height);
+    context.strokeStyle = '#b9c6d4'; context.lineWidth = 1; context.beginPath();
+    for (let x = origin.x % scale; x < width; x += scale) { context.moveTo(x, 0); context.lineTo(x, height); }
+    for (let y = origin.y % scale; y < height; y += scale) { context.moveTo(0, y); context.lineTo(width, y); }
+    context.stroke();
+    context.strokeStyle = style.getPropertyValue('--calgen-ink'); context.lineWidth = 2; context.beginPath(); context.moveTo(0, origin.y); context.lineTo(width, origin.y); context.moveTo(origin.x, 0); context.lineTo(origin.x, height); context.stroke();
+    context.strokeStyle = '#7c3aed'; context.lineWidth = 3; context.beginPath(); context.moveTo(origin.x, origin.y); context.lineTo(point.x, point.y); context.stroke();
+    context.fillStyle = '#c2410c'; context.beginPath(); context.arc(point.x, point.y, 7, 0, Math.PI * 2); context.fill();
+    context.fillStyle = style.getPropertyValue('--calgen-ink'); context.font = '15px sans-serif'; context.fillText('Im', origin.x + 8, 18); context.fillText('Re', width - 28, origin.y - 8); context.fillText(`z (${format(real)} ; ${format(imaginary)})`, Math.min(point.x + 10, width - 150), Math.max(point.y - 10, 22)); context.fillText(`|z| = ${format(modulus)}`, 14, height - 16); context.fillText(`arg = ${format(argument)} rad`, 14, height - 38);
+  }
+
+  function calculateComplexTransform() {
+    const z = parseComplex(root.querySelector('#complexInput').value.trim(), root.querySelector('#complexAngleUnit').value);
+    const type = root.querySelector('#complexTransformType').value;
+    const parameterText = root.querySelector('#complexTransformParameter').value.trim();
+    const centerText = root.querySelector('#complexTransformCenter').value.trim();
+    const extraText = root.querySelector('#complexTransformExtra').value.trim();
+    const center = parseComplex(centerText || '0', 'rad');
+    const parameter = parseComplex(parameterText || '0', 'rad');
+    const extra = parseComplex(extraText || '0', 'rad');
+    let image;
+    let formula;
+    if (type === 'translation') { image = addComplex(z, parameter); formula = `z’ = z + t, avec t = ${formatComplex(parameter)}`; }
+    if (type === 'rotation') { image = addComplex(center, multiplyComplex(rotationFactor(angleValue(parameterText)), subtractComplex(z, center))); formula = `z’ = a + e^(iθ)(z-a), θ = ${parameterText}°`; }
+    if (type === 'homothety') { image = addComplex(center, scaleComplex(subtractComplex(z, center), parameter.re)); formula = `z’ = a + k(z-a), k = ${format(parameter.re)}, a = ${formatComplex(center)}`; }
+    if (type === 'directSimilarity') { image = addComplex(center, multiplyComplex(scaleComplex(subtractComplex(z, center), parameter.re), rotationFactor(angleValue(extraText)))); formula = `z’ = a + k e^(iθ)(z-a), k = ${format(parameter.re)}, θ = ${extraText}°`; }
+    if (type === 'indirectSimilarity') { image = addComplex(center, multiplyComplex(scaleComplex(conjugateComplex(subtractComplex(z, center)), parameter.re), rotationFactor(angleValue(extraText)))); formula = `z’ = a + k e^(iθ)conj(z-a), k = ${format(parameter.re)}, θ = ${extraText}°`; }
+    if (type === 'reflection') { image = multiplyComplex(rotationFactor(2 * angleValue(extraText)), conjugateComplex(z)); formula = `z’ = e^(2iθ)conj(z), axe d’angle θ = ${extraText}°`; }
+    if (type === 'centralSymmetry') { image = subtractComplex(scaleComplex(center, 2), z); formula = `z’ = 2a - z, centre a = ${formatComplex(center)}`; }
+    if (type === 'affine') { image = addComplex(multiplyComplex(center, z), extra); formula = `z’ = αz + β, α = ${formatComplex(center)}, β = ${formatComplex(extra)}`; }
+    if (!image) throw new Error('Transformation complexe inconnue.');
+    root.querySelector('#complexTransformOutput').innerHTML = `<h3>Image du point</h3><p class="calgen-output__value">z’ = ${escapeHtml(formatComplex(image))}</p><p class="calgen-output__formula">${escapeHtml(formula)}</p><p>Point initial : ${escapeHtml(formatComplex(z))}<br>Point image : ${escapeHtml(formatComplex(image))}</p>`;
+    drawComplexTransformPlane(z, image, type);
+    persistFormState();
+  }
+
+  function angleValue(value) {
+    const parsed = Number.parseFloat(String(value).replace(',', '.'));
+    if (!Number.isFinite(parsed)) throw new Error('L’angle doit être exprimé en degrés.');
+    return parsed * Math.PI / 180;
+  }
+
+  function addComplex(left, right) { return math.complex(left.re + right.re, left.im + right.im); }
+  function subtractComplex(left, right) { return math.complex(left.re - right.re, left.im - right.im); }
+  function scaleComplex(value, factor) { return math.complex(value.re * factor, value.im * factor); }
+  function conjugateComplex(value) { return math.complex(value.re, -value.im); }
+  function multiplyComplex(left, right) { return math.complex(left.re * right.re - left.im * right.im, left.re * right.im + left.im * right.re); }
+  function rotationFactor(angle) { return math.complex(Math.cos(angle), Math.sin(angle)); }
+
+  function drawComplexTransformPlane(original, image, type) {
+    const canvas = root.querySelector('#complexTransformPlane');
+    const context = canvas.getContext('2d');
+    const width = canvas.width; const height = canvas.height; const origin = { x: width / 2, y: height / 2 };
+    const radius = Math.max(4, Math.hypot(original.re, original.im), Math.hypot(image.re, image.im));
+    const scale = Math.min(width, height) / (2 * radius * 1.35);
+    const point = value => ({ x: origin.x + value.re * scale, y: origin.y - value.im * scale });
+    const first = point(original); const second = point(image); const style = getComputedStyle(root.querySelector('.general-calculator'));
+    context.clearRect(0, 0, width, height); context.fillStyle = style.getPropertyValue('--calgen-panel'); context.fillRect(0, 0, width, height);
+    context.strokeStyle = '#b9c6d4'; context.lineWidth = 1; context.beginPath(); context.moveTo(0, origin.y); context.lineTo(width, origin.y); context.moveTo(origin.x, 0); context.lineTo(origin.x, height); context.stroke();
+    context.setLineDash([7, 5]); context.strokeStyle = '#7c3aed'; context.beginPath(); context.moveTo(first.x, first.y); context.lineTo(second.x, second.y); context.stroke(); context.setLineDash([]);
+    context.fillStyle = '#2563eb'; context.beginPath(); context.arc(first.x, first.y, 7, 0, Math.PI * 2); context.fill();
+    context.fillStyle = '#c2410c'; context.beginPath(); context.arc(second.x, second.y, 7, 0, Math.PI * 2); context.fill();
+    context.fillStyle = style.getPropertyValue('--calgen-ink'); context.font = '15px sans-serif'; context.fillText('Im', origin.x + 8, 18); context.fillText('Re', width - 28, origin.y - 8); context.fillText(`z = ${formatComplex(original)}`, 16, height - 38); context.fillText(`z’ = ${formatComplex(image)}`, 16, height - 16); context.fillText(type, 16, 22);
   }
 
   function updateProbabilityFields() {

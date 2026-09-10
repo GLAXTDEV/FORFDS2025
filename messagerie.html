@@ -1,0 +1,67 @@
+<div class="messenger">
+  <header class="messenger__header">
+    <div>
+      <p class="messenger__eyebrow">Docs messagerie</p>
+      <h2>Messagerie</h2>
+      <p>Échangez des messages texte avec les autres utilisateurs de la plateforme.</p>
+    </div>
+    <span class="messenger__status" id="messengerStatus">Connexion...</span>
+  </header>
+
+  <div class="messenger__layout">
+    <aside class="messenger__profile">
+      <div class="messenger__profile-heading"><h3>Mon profil</h3><button class="messenger__edit-profile" id="editProfile" type="button" hidden>Modifier</button></div>
+      <div class="messenger__avatar-preview" id="profileAvatarPreview" aria-hidden="true">?</div>
+      <div id="profileSetup">
+        <label>Nom affiché
+        <input id="profileName" type="text" maxlength="40" placeholder="Votre nom">
+        </label>
+        <label>Photo de profil (depuis le téléphone, facultative)
+          <input id="profileAvatar" type="file" accept="image/png,image/jpeg,image/webp,image/gif">
+        </label>
+        <button class="messenger__button" id="saveProfile" type="button">Enregistrer le profil</button>
+        <p class="messenger__hint">Choisissez une photo dans la galerie ou les fichiers de votre téléphone.</p>
+      </div>
+      <section class="messenger__admin-login" id="adminLoginSection">
+        <h4>Administration</h4>
+        <input id="adminKey" type="password" placeholder="Clé administrateur principale">
+        <button class="messenger__button" id="adminLogin" type="button">Ouvrir</button>
+      </section>
+    </aside>
+
+    <section class="messenger__conversation" aria-label="Conversation publique">
+      <div class="messenger__toolbar">
+        <h3>Messages publics</h3>
+        <button class="messenger__refresh" id="refreshMessages" type="button" title="Actualiser les messages">Actualiser</button>
+      </div>
+      <div class="messenger__administrators" id="publicAdministrators" aria-label="Administrateurs"></div>
+      <div class="messenger__banned" id="messagingBanned" hidden>Vous ne pouvez pas discuter pour l’instant. Votre accès à la messagerie a été bloqué par l’administration.</div>
+      <div class="messenger__locked" id="messagingLocked" hidden>La messagerie est temporairement verrouillée par l’administration.</div>
+      <div class="messenger__messages" id="messageList" aria-live="polite">
+        <p class="messenger__empty">Chargement des messages...</p>
+      </div>
+      <form class="messenger__composer" id="messageForm">
+        <label class="messenger__sr-only" for="messageInput">Votre message</label>
+        <textarea id="messageInput" maxlength="1000" rows="3" placeholder="Écrivez un message texte..." required></textarea>
+        <div class="messenger__composer-footer">
+          <span id="messageCounter">0 / 1000</span>
+          <button class="messenger__button messenger__button--primary" type="submit">Envoyer</button>
+        </div>
+      </form>
+    </section>
+  </div>
+  <button class="messenger__focus-button" id="focusMessages" type="button" aria-pressed="false">Agrandir la messagerie</button>
+  <section class="messenger__admin" id="adminPanel" hidden>
+    <div class="messenger__admin-header"><h3>Administration</h3><div><button class="messenger__refresh" id="logoutAdmin" type="button">Déconnecter</button><button class="messenger__refresh" id="closeAdmin" type="button">Fermer</button></div></div>
+    <div class="messenger__admin-actions">
+      <button class="messenger__button" id="toggleMessaging" type="button">Verrouiller la messagerie</button>
+      <label>Identifiant utilisateur à gérer <input id="adminTargetUser" type="text" placeholder="Identifiant userId"></label>
+      <button class="messenger__button" id="banUser" type="button">Bannir</button>
+      <button class="messenger__button" id="unbanUser" type="button">Débannir</button>
+      <button class="messenger__button" id="promoteAdmin" type="button">Nommer administrateur</button>
+      <button class="messenger__button" id="removeAdmin" type="button">Supprimer administrateur</button>
+    </div>
+    <div class="messenger__admin-lists" id="adminLists"></div>
+  </section>
+  <div class="messenger__notice" id="messengerNotice" role="status" hidden></div>
+</div>

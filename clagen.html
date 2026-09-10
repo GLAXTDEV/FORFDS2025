@@ -16,6 +16,7 @@
     <button class="calgen-tab" type="button" data-panel="primitivePanel">Primitive</button>
     <button class="calgen-tab" type="button" data-panel="graphPanel">Courbe</button>
     <button class="calgen-tab" type="button" data-panel="probabilityPanel">Probabilités</button>
+    <button class="calgen-tab" type="button" data-panel="complexPanel">Nombres complexes</button>
   </nav>
 
   <section class="calgen-panel is-visible" id="expressionPanel">
@@ -139,6 +140,54 @@
     <button class="calgen-primary" id="calculateProbability" type="button">Calculer la probabilité</button>
     <div class="calgen-output" id="probabilityOutput" aria-live="polite">Le résultat apparaîtra ici.</div>
     <p class="calgen-help">Les probabilités sont exprimées entre 0 et 1, avec leur pourcentage. Pour une loi normale, k représente la valeur étudiée.</p>
+  </section>
+
+  <section class="calgen-panel" id="complexPanel" hidden>
+    <div class="calgen-grid calgen-grid--two">
+      <label>Nombre complexe z
+        <input id="complexInput" type="text" value="3 + 4i" placeholder="Ex. 3+4i, -2i ou 5∠π/4">
+      </label>
+      <label>Unité de l’argument
+        <select id="complexAngleUnit"><option value="rad">Radians</option><option value="deg">Degrés</option></select>
+      </label>
+    </div>
+    <button class="calgen-primary" id="calculateComplex" type="button">Étudier le complexe</button>
+    <div class="complex-layout">
+      <div class="calgen-output" id="complexOutput" aria-live="polite">Les caractéristiques de z apparaîtront ici.</div>
+      <div class="complex-figure-wrap"><canvas id="complexPlane" width="620" height="480"></canvas></div>
+    </div>
+    <div class="complex-transform">
+      <h3>Transformations du plan complexe</h3>
+      <div class="calgen-grid calgen-grid--two">
+        <label>Transformation
+          <select id="complexTransformType">
+            <option value="translation">Translation</option>
+            <option value="rotation">Rotation</option>
+            <option value="homothety">Homothétie</option>
+            <option value="directSimilarity">Similitude directe</option>
+            <option value="indirectSimilarity">Similitude indirecte</option>
+            <option value="reflection">Symétrie axiale</option>
+            <option value="centralSymmetry">Symétrie centrale</option>
+            <option value="affine">Transformation affine z’ = αz + β</option>
+          </select>
+        </label>
+        <label>Paramètre principal
+          <input id="complexTransformParameter" type="text" value="1" placeholder="Translation : t · rotation : angle · homothétie : k">
+        </label>
+      </div>
+      <div class="calgen-grid calgen-grid--two">
+        <label>Centre ou paramètre α
+          <input id="complexTransformCenter" type="text" value="0 + 0i" placeholder="Centre a, ou α pour affine">
+        </label>
+        <label>Paramètre β ou angle en degrés
+          <input id="complexTransformExtra" type="text" value="0 + 0i" placeholder="β pour affine, angle pour rotation/similitude">
+        </label>
+      </div>
+      <button class="calgen-primary" id="calculateComplexTransform" type="button">Transformer z</button>
+      <div class="calgen-output" id="complexTransformOutput" aria-live="polite">L’image z’ apparaîtra ici.</div>
+      <div class="complex-figure-wrap"><canvas id="complexTransformPlane" width="900" height="480"></canvas></div>
+    </div>
+    <p class="calgen-help">Écriture cartésienne : a + bi. Écriture polaire : r∠θ, avec θ en radians ou degrés selon le choix.</p>
   </section>
 
   <div class="calgen-toast" id="calgenError" role="alert" hidden></div>

@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="calculatrice.css">
     <link rel="stylesheet" href="clagen.css">
+    <link rel="stylesheet" href="messagerie.css">
     <link rel="manifest" href="manifest.json">
     <link rel="apple-touch-icon" href="icons/icon.svg">
     <link rel="icon" type="image/png" href="https://copilot.microsoft.com/th/id/BCO.c3398f7c-780d-4f18-ac52-f1c6927b9ce2.png">
@@ -84,9 +85,10 @@
                         <div class="saison">
                             <li><a href="#" id="bouton" target="_blank" style="color: red;">docs_videos</a></li>
                             <li><a href="#" onclick="show('hImagePage')">formules</a></li>
-                            <li><a href="#" onclick="show('calculatrice_generale')" style="color: yellow;">calc.gx</a></li>
+                            <li><a href="#" onclick="show('calculatrice_generale')" style="color: rgb(255, 145, 0);">calc.gx</a></li>
                             <li><a href="#" onclick="show('calcul_matrice')" style="color: blue;">matrice</a></li>
                             <li><a href="https://docs-compteur.vercel.app/" target="_blank" style="color:violet;">docs_timer</a></li>
+                            <li><a href="#" onclick="show('messagerie')" style="color: #0f766e;">messagerie</a></li>
                         </div>
                     </ul>
                 </li>
@@ -216,6 +218,7 @@
 
         <section class="page" id="calcul_matrice"><div class="page-calcul_matrice"></div></section>
         <section class="page" id="calculatrice_generale"><div class="page-calculatrice_generale"></div></section>
+        <section class="page" id="messagerie"><div class="page-messagerie"></div></section>
 
         <section class="page" id="hImagePage">
             <div class="hPageImage" id="hPageImageContainer"></div>
@@ -233,5 +236,6 @@
     <script src="doc2.js"></script>
     <script src="calculatrice.js"></script>
     <script src="calgen.js"></script>
+    <script src="messagerie.js"></script>
 </body>
 </html>
