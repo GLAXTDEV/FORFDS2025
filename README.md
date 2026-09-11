@@ -27,6 +27,8 @@ ADMIN_KEY=choisir-une-cle-secrete
 DB_PATH=/data/message.sqlite
 ```
 
+Dans Railway, le volume doit être monté exactement sur `/data`. Si aucun volume n'est disponible, utilisez temporairement `DB_PATH=./message.sqlite`, mais les messages pourront être perdus lors d'un redeploiement.
+
 7. Générer un domaine public dans Railway.
 
 Le projet utilise le port fourni automatiquement par Railway. Les messages et les administrateurs restent conservés grâce au volume `/data`.

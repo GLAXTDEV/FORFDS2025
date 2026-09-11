@@ -2,9 +2,11 @@ const express = require('express');
 const sqlite3 = require('sqlite3').verbose();
 const crypto = require('crypto');
 const path = require('path');
+const fs = require('fs');
 const app = express();
 const port = Number(process.env.PORT || 3000);
 const databasePath = process.env.DB_PATH || path.join(__dirname, 'message.sqlite');
+fs.mkdirSync(path.dirname(databasePath), { recursive: true });
 const db = new sqlite3.Database(databasePath);
 const ADMIN_KEY = process.env.ADMIN_KEY || '';
 const allowedOrigins = (process.env.CORS_ORIGIN || '').split(',').map(origin => origin.trim()).filter(Boolean);
@@ -20,6 +22,10 @@ app.use((req, res, next) => {
     res.header('Access-Control-Allow-Headers', 'Content-Type, Accept, X-User-Id, X-Admin-Key, X-Admin-Session');
     if (req.method === 'OPTIONS') return res.sendStatus(204);
     next();
+});
+
+db.on('error', error => {
+    console.error('Erreur SQLite :', error.message);
 });
 
 // Créer la table au démarrage
@@ -232,7 +238,7 @@ app.post('/envoi', (req, res) => {
 });
 
 // Lancer le serveur sur le port 3000
-app.listen(port, () => {
+app.listen(port, '0.0.0.0', () => {
     console.log(`Le serveur est allumé sur le port ${port}`);
     console.log(`Base SQLite : ${databasePath}`);
     if (!ADMIN_KEY) console.warn('Administration désactivée : définissez ADMIN_KEY dans l’environnement.');
