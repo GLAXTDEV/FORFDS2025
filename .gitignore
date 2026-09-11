@@ -1,0 +1,12 @@
+node_modules/
+.env
+.env.*
+!.env.example
+message.sqlite
+message.sqlite-shm
+message.sqlite-wal
+server.log
+server-error.log
+npm-start.log
+npm-start-error.log
+.vscode/

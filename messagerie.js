@@ -15,9 +15,11 @@
   let administrators = [];
 
   function getApiUrl() {
-    if (window.location.port === '3000') return '/api/messages';
-    const host = window.location.hostname || 'localhost';
-    return `http://${host}:3000/api/messages`;
+    if (window.DOCS_API_URL) return `${window.DOCS_API_URL.replace(/\/$/, '')}/api/messages`;
+    if (window.location.port && window.location.port !== '3000' && /^(localhost|127\.0\.0\.1)$/.test(window.location.hostname)) {
+      return `http://${window.location.hostname}:3000/api/messages`;
+    }
+    return '/api/messages';
   }
 
   fetch('messagerie.html')
