@@ -3,30 +3,52 @@
     <div>
       <p class="messenger__eyebrow">Docs messagerie</p>
       <h2>Messagerie</h2>
-      <p>Échangez des messages texte avec les autres utilisateurs de la plateforme.</p>
+      <p>Entrez votre nom et discutez avec les autres étudiants. Aucun compte n’est nécessaire.</p>
     </div>
     <span class="messenger__status" id="messengerStatus">Connexion...</span>
   </header>
 
-  <div class="messenger__layout">
+  <!-- Écran d'accueil : saisie du nom (identité de l'appareil) -->
+  <section class="messenger__auth" id="authScreen">
+    <div class="messenger__auth-card">
+      <h3>Choisissez votre nom</h3>
+      <p>Entrez le nom qui s'affichera dans la discussion. Votre appareil sera identifié automatiquement, ce qui permet au créateur de gérer le groupe.</p>
+      <label class="messenger__auth-label">Nom affiché
+        <input id="startName" type="text" maxlength="40" placeholder="Ex : Glaxt">
+      </label>
+      <button class="messenger__button messenger__button--primary" id="startButton" type="button">Entrer dans la discussion</button>
+      <p class="messenger__auth-warning" id="authWarning" hidden></p>
+      <p class="messenger__hint">Votre identifiant d’appareil reste privé : seul le créateur peut le consulter.</p>
+    </div>
+  </section>
+
+  <div class="messenger__layout" id="messengerLayout" hidden>
     <aside class="messenger__profile">
       <div class="messenger__profile-heading"><h3>Mon profil</h3><button class="messenger__edit-profile" id="editProfile" type="button" hidden>Modifier</button></div>
       <div class="messenger__avatar-preview" id="profileAvatarPreview" aria-hidden="true">?</div>
-      <div id="profileSetup">
+      <div class="messenger__identity">
+        <strong id="profileIdentityName">—</strong>
+        <span class="messenger__role-badge" id="profileRoleBadge" hidden></span>
+        <span class="messenger__email" id="profileEmail"></span>
+      </div>
+      <div class="messenger__owner-claim" id="ownerClaimBox">
+        <label>Code créateur (si vous êtes le créateur)
+          <input id="ownerCode" type="password" placeholder="Code secret">
+        </label>
+        <button class="messenger__button messenger__button--small" id="claimOwner" type="button">Devenir créateur</button>
+      </div>
+      <div id="profileSetup" hidden>
         <label>Nom affiché
         <input id="profileName" type="text" maxlength="40" placeholder="Votre nom">
         </label>
-        <label>Photo de profil (depuis le téléphone, facultative)
+        <label>Photo de profil (facultative)
           <input id="profileAvatar" type="file" accept="image/png,image/jpeg,image/webp,image/gif">
         </label>
         <button class="messenger__button" id="saveProfile" type="button">Enregistrer le profil</button>
-        <p class="messenger__hint">Choisissez une photo dans la galerie ou les fichiers de votre téléphone.</p>
+        <p class="messenger__hint">Choisissez une photo dans la galerie ou les fichiers de votre téléphone (300 Ko max).</p>
       </div>
-      <section class="messenger__admin-login" id="adminLoginSection">
-        <h4>Administration</h4>
-        <input id="adminKey" type="password" placeholder="Clé administrateur principale">
-        <button class="messenger__button" id="adminLogin" type="button">Ouvrir</button>
-      </section>
+      <button class="messenger__button messenger__button--ghost" id="logoutButton" type="button">Se déconnecter</button>
+      <button class="messenger__button messenger__button--ghost" id="openAdmin" type="button" hidden>Ouvrir l’administration</button>
     </aside>
 
     <section class="messenger__conversation" aria-label="Conversation publique">
@@ -34,7 +56,7 @@
         <h3>Messages publics</h3>
         <button class="messenger__refresh" id="refreshMessages" type="button" title="Actualiser les messages">Actualiser</button>
       </div>
-      <div class="messenger__administrators" id="publicAdministrators" aria-label="Administrateurs"></div>
+      <div class="messenger__administrators" id="publicAdministrators" aria-label="Équipe de modération"></div>
       <div class="messenger__banned" id="messagingBanned" hidden>Vous ne pouvez pas discuter pour l’instant. Votre accès à la messagerie a été bloqué par l’administration.</div>
       <div class="messenger__locked" id="messagingLocked" hidden>La messagerie est temporairement verrouillée par l’administration.</div>
       <div class="messenger__messages" id="messageList" aria-live="polite">
@@ -42,26 +64,43 @@
       </div>
       <form class="messenger__composer" id="messageForm">
         <label class="messenger__sr-only" for="messageInput">Votre message</label>
+        <div id="imagePreview" class="messenger__image-preview" hidden>
+          <img id="imagePreviewImg" alt="Aperçu de l’image">
+          <button type="button" id="removeImage" aria-label="Retirer l’image">×</button>
+        </div>
         <textarea id="messageInput" maxlength="1000" rows="3" placeholder="Écrivez un message texte..." required></textarea>
         <div class="messenger__composer-footer">
+          <label class="messenger__attach" title="Joindre une image">
+            <i class="fa-solid fa-image"></i>
+            <input id="imageInput" type="file" accept="image/png,image/jpeg,image/webp,image/gif" hidden>
+          </label>
           <span id="messageCounter">0 / 1000</span>
           <button class="messenger__button messenger__button--primary" type="submit">Envoyer</button>
         </div>
       </form>
     </section>
   </div>
-  <button class="messenger__focus-button" id="focusMessages" type="button" aria-pressed="false">Agrandir la messagerie</button>
+  <button class="messenger__focus-button" id="focusMessages" type="button" aria-pressed="false" hidden>Agrandir la messagerie</button>
+
+  <!-- Panneau d'administration : créateur = tout / admin = bannir uniquement -->
   <section class="messenger__admin" id="adminPanel" hidden>
-    <div class="messenger__admin-header"><h3>Administration</h3><div><button class="messenger__refresh" id="logoutAdmin" type="button">Déconnecter</button><button class="messenger__refresh" id="closeAdmin" type="button">Fermer</button></div></div>
-    <div class="messenger__admin-actions">
-      <button class="messenger__button" id="toggleMessaging" type="button">Verrouiller la messagerie</button>
-      <label>Identifiant utilisateur à gérer <input id="adminTargetUser" type="text" placeholder="Identifiant userId"></label>
-      <button class="messenger__button" id="banUser" type="button">Bannir</button>
-      <button class="messenger__button" id="unbanUser" type="button">Débannir</button>
-      <button class="messenger__button" id="promoteAdmin" type="button">Nommer administrateur</button>
-      <button class="messenger__button" id="removeAdmin" type="button">Supprimer administrateur</button>
+    <div class="messenger__admin-header">
+      <h3 id="adminPanelTitle">Administration</h3>
+      <div>
+        <button class="messenger__refresh" id="toggleMessaging" type="button" hidden>Verrouiller la messagerie</button>
+        <button class="messenger__refresh" id="closeAdmin" type="button">Fermer</button>
+      </div>
     </div>
+    <p class="messenger__admin-note" id="adminRoleNote"></p>
     <div class="messenger__admin-lists" id="adminLists"></div>
+    <section class="messenger__ip-bans" id="ipBanBox" hidden>
+      <h4>Adresses IP bloquées</h4>
+      <div class="messenger__ip-ban-input">
+        <input id="ipToBan" type="text" placeholder="Ex : 41.82.10.5" maxlength="64">
+        <button class="messenger__button messenger__button--small messenger__button--danger" id="banIpButton" type="button">Bloquer cette IP</button>
+      </div>
+      <div class="messenger__ip-list" id="ipBanList"></div>
+    </section>
   </section>
   <div class="messenger__notice" id="messengerNotice" role="status" hidden></div>
 </div>

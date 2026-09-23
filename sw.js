@@ -1,4 +1,4 @@
-const CACHE_NAME = 'docs2025-cache-v3';
+const CACHE_NAME = 'docs2025-cache-v4';
 const URLs_TO_CACHE = ['./', './index.html', './index.css', './index.js', './doc.js', './manifest.json', './messagerie.html', './messagerie.css', './messagerie.js'];
 
 self.addEventListener('install', event => {
@@ -17,7 +17,14 @@ self.addEventListener('activate', event => {
 });
 
 self.addEventListener('fetch', event => {
+  const request = event.request;
+  const url = new URL(request.url);
+  // On ne met jamais en cache les appels API ni les requêtes non GET.
+  if (request.method !== 'GET' || url.pathname.startsWith('/api/') || url.origin !== self.location.origin) {
+    event.respondWith(fetch(request));
+    return;
+  }
   event.respondWith(
-    caches.match(event.request).then(cached => cached || fetch(event.request))
+    caches.match(request).then(cached => cached || fetch(request))
   );
 });

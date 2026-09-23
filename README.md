@@ -1,12 +1,29 @@
 # DOCS 2025
 
 Application pédagogique avec calculatrices, documents et messagerie Node.js/SQLite.
+La messagerie fonctionne **sans compte** : chaque personne saisit son nom et discute.
+L'appareil est identifié automatiquement (identifiant local), ce qui permet au créateur
+de gérer, bannir ou supprimer quelqu'un.
+
+## Rôles
+| Rôle | Droits |
+| --- | --- |
+| **Créateur** (`owner`) | Nommer/retirer des admins, bannir/débannir, **supprimer des appareils** (identifiant visible), verrouiller/déverrouiller la discussion, supprimer des messages, écrire en bulles **rouges** |
+| **Administrateur** (`admin`) | Bannir/débannir des comptes uniquement, écrire en bulles **bleues** |
+| **Utilisateur** (`user`) | Écrire des messages (bulles blanches/noir, style WhatsApp) |
+
+Le **premier appareil enregistré devient le créateur automatiquement**. Sinon, n'importe quel appareil
+peut devenir créateur en saisissant le **code secret** (`OWNER_CODE`, par défaut `codeglaxt2516@`)
+dans la page messagerie. Un seul créateur à la fois.
+
+**Suppression** : quand le créateur supprime un appareil, celui-ci ne peut plus jamais envoyer de
+message, même s'il revient sur le site (son identifiant reste bloqué).
 
 ## Lancer localement
 
 ```powershell
 npm install
-$env:ADMIN_KEY = "votre-cle-secrete"
+$env:OWNER_CODE = "codeglaxt2516@"
 $env:PORT = "3000"
 npm start
 ```
@@ -23,7 +40,7 @@ Ouvrir ensuite `http://localhost:3000`.
 6. Ajouter ces variables dans Railway :
 
 ```env
-ADMIN_KEY=choisir-une-cle-secrete
+OWNER_CODE=codeglaxt2516@
 DB_PATH=/data/message.sqlite
 ```
 
@@ -31,11 +48,11 @@ Dans Railway, le volume doit être monté exactement sur `/data`. Si aucun volum
 
 7. Générer un domaine public dans Railway.
 
-Le projet utilise le port fourni automatiquement par Railway. Les messages et les administrateurs restent conservés grâce au volume `/data`.
+Le projet utilise le port fourni automatiquement par Railway. Les messages et les comptes restent conservés grâce au volume `/data`.
 
 ## Sécurité
 
-Ne jamais publier `ADMIN_KEY`, `.env` ou `message.sqlite` dans GitHub. Ces fichiers sont ignorés par `.gitignore`.
+Ne jamais publier `.env` ou `message.sqlite` dans GitHub. Ces fichiers sont ignorés par `.gitignore`.
 
 ## Déploiement séparé du frontend
 

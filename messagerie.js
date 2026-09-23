@@ -4,24 +4,23 @@
   const root = document.querySelector('.page-messagerie');
   if (!root) return;
 
-  const PROFILE_KEY = 'docs2025.messagerie.profil';
-  const USER_KEY = 'docs2025.messagerie.userId';
-  const ADMIN_KEY = 'docs2025.messagerie.adminKey';
-  const ADMIN_SESSION_KEY = 'docs2025.messagerie.adminSession';
-  const API_URL = getApiUrl();
+  const TOKEN_KEY = 'docs2025.messagerie.token';
+  const DEVICE_KEY = 'docs2025.messagerie.deviceId';
+  const API_BASE = getApiBase();
+  const IMAGE_MAX_BYTES =900000; // ~900 Ko avant encodage base64
+  let token = localStorage.getItem(TOKEN_KEY) || '';
+  let deviceId = localStorage.getItem(DEVICE_KEY) || '';
+  let me = null;
   let messages = [];
-  let isAdminView = false;
+  let staff = [];
+  let locked = false;
   let isBanned = false;
-  let administrators = [];
+  let pendingImage = '';
+  let refreshTimer = null;
 
-  function getApiUrl() {
-    if (window.DOCS_API_URL) return `${window.DOCS_API_URL.replace(/\/$/, '')}/api/messages`;
-    if (window.location.port && window.location.port !== '3000' && /^(localhost|127\.0\.0\.1)$/.test(window.location.hostname)) {
-      return `http://${window.location.hostname}:3000/api/messages`;
-    }
-    return '/api/messages';
-  }
-
+  /* ---------------------------------------------------------------- *
+   * Chargement du gabarit                                             *
+   * ---------------------------------------------------------------- */
   fetch('messagerie.html')
     .then(response => {
       if (!response.ok) throw new Error(`Impossible de charger messagerie.html (${response.status}).`);
@@ -35,69 +34,189 @@
       root.innerHTML = `<p class="messenger__notice is-error">${escapeHtml(error.message)}</p>`;
     });
 
+  function getApiBase() {
+    if (window.DOCS_API_URL) return window.DOCS_API_URL.replace(/\/$/, '');
+    return '';
+  }
+
+  function api(path) {
+    return `${API_BASE}${path}`;
+  }
+
+  const ADMIN_ACTION_PATH = '/api/admin/action';
+
+  /* ---------------------------------------------------------------- *
+   * Initialisation                                                    *
+   * ---------------------------------------------------------------- */
   function initialize() {
-    restoreProfile();
-    updateAvatarPreview();
+    bindEvents();
+    restoreProfileForm();
+    boot();
+  }
+
+  function bindEvents() {
     const input = root.querySelector('#messageInput');
     input.addEventListener('input', () => {
       root.querySelector('#messageCounter').textContent = `${input.value.length} / 1000`;
     });
+    root.querySelector('#startButton').addEventListener('click', startSession);
+    root.querySelector('#startName').addEventListener('keydown', event => { if (event.key === 'Enter') startSession(); });
+    root.querySelector('#claimOwner').addEventListener('click', claimOwner);
     root.querySelector('#profileAvatar').addEventListener('change', previewSelectedAvatar);
     root.querySelector('#saveProfile').addEventListener('click', saveProfile);
     root.querySelector('#editProfile').addEventListener('click', showProfileSetup);
+    root.querySelector('#logoutButton').addEventListener('click', logout);
     root.querySelector('#messageForm').addEventListener('submit', sendMessage);
     root.querySelector('#refreshMessages').addEventListener('click', () => loadMessages(true));
     root.querySelector('#focusMessages').addEventListener('click', toggleFocusMessages);
-    root.querySelector('#adminLogin').addEventListener('click', adminLogin);
-    root.querySelector('#logoutAdmin').addEventListener('click', logoutAdmin);
+    root.querySelector('#openAdmin').addEventListener('click', openAdminPanel);
     root.querySelector('#closeAdmin').addEventListener('click', () => { root.querySelector('#adminPanel').hidden = true; });
     root.querySelector('#toggleMessaging').addEventListener('click', toggleMessaging);
-    root.querySelector('#banUser').addEventListener('click', () => adminAction('ban'));
-    root.querySelector('#unbanUser').addEventListener('click', () => adminAction('unban'));
-    root.querySelector('#promoteAdmin').addEventListener('click', () => adminAction('promote'));
-    root.querySelector('#removeAdmin').addEventListener('click', () => adminAction('removeAdmin'));
-    restoreProfileVisibility();
-    restoreAdminSession();
-    loadMessages(false);
-    window.setInterval(() => loadMessages(false), 10000);
+    root.querySelector('#banIpButton').addEventListener('click', () => {
+      const input = root.querySelector('#ipToBan');
+      const value = input.value.trim();
+      if (!value) return showNotice('Entrez une adresse IP.', true);
+      banIpDirect(value).then(() => { input.value = ''; });
+    });
+    root.querySelector('#imageInput').addEventListener('change', previewSelectedImage);
+    root.querySelector('#removeImage').addEventListener('click', clearPendingImage);
+    const modal = document.getElementById('imageModal');
+    if (modal) modal.addEventListener('click', event => { if (event.target.matches('[data-close="true"]')) closeImageModal(); });
   }
 
-  function getUserId() {
-    let userId = localStorage.getItem(USER_KEY);
-    if (!userId) {
-      userId = window.crypto && crypto.randomUUID ? crypto.randomUUID() : `${Date.now()}-${Math.random().toString(36).slice(2)}`;
-      localStorage.setItem(USER_KEY, userId);
+  /* ---------------------------------------------------------------- *
+   * Identité de l'appareil                                            *
+   * ---------------------------------------------------------------- */
+  function getOrCreateDeviceId() {
+    if (!deviceId) {
+      deviceId = (window.crypto && crypto.randomUUID)
+        ? crypto.randomUUID()
+        : `dev-${Date.now()}-${Math.random().toString(36).slice(2)}`;
+      localStorage.setItem(DEVICE_KEY, deviceId);
     }
-    return userId;
+    return deviceId;
   }
 
-  function getProfile() {
+  async function boot() {
     try {
-      const profile = JSON.parse(localStorage.getItem(PROFILE_KEY) || '{}');
-      return { name: String(profile.name || '').trim(), avatar: String(profile.avatar || '').trim() };
-    } catch { return { name: '', avatar: '' }; }
-  }
+      const config = await fetchJson(api('/api/config'), { auth: false });
+      locked = Boolean(config.locked);
+    } catch { /* continue */ }
 
-  function restoreProfile() {
-    const profile = getProfile();
-    root.querySelector('#profileName').value = profile.name;
-    root.querySelector('#profileAvatar').value = '';
-  }
-
-  async function saveProfile() {
-    const name = root.querySelector('#profileName').value.trim();
-    if (!name) { showNotice('Choisissez un nom de profil avant de continuer.', true); return; }
-    const file = root.querySelector('#profileAvatar').files[0];
-    let avatar = getProfile().avatar;
-    if (file) {
-      if (!file.type.startsWith('image/')) { showNotice('Choisissez un fichier image.', true); return; }
-      if (file.size > 500000) { showNotice('La photo doit peser moins de 500 Ko.', true); return; }
-      avatar = await readFile(file);
+    if (token) {
+      try {
+        const session = await fetchJson(api('/api/auth/me'), { auth: false });
+        me = session.user;
+        applySession(session);
+        showMessenger();
+        startPolling();
+        return;
+      } catch (error) {
+        if (error.status === 403) { showAuthScreen(error.message); return; }
+        token = ''; localStorage.removeItem(TOKEN_KEY);
+      }
     }
-    localStorage.setItem(PROFILE_KEY, JSON.stringify({ name, avatar }));
-    updateAvatarPreview();
-    restoreProfileVisibility();
-    showNotice('Profil enregistré.');
+    showAuthScreen();
+  }
+
+  let lastKnownName = '';
+
+  function showAuthScreen(message) {
+    root.querySelector('#authScreen').hidden = false;
+    root.querySelector('#messengerLayout').hidden = true;
+    root.querySelector('#focusMessages').hidden = true;
+    root.querySelector('#adminPanel').hidden = true;
+    setStatus('Non connecté');
+    const warning = root.querySelector('#authWarning');
+    if (message) { warning.hidden = false; warning.textContent = message; }
+    else warning.hidden = true;
+    const nameInput = root.querySelector('#startName');
+    if (nameInput && !nameInput.value) nameInput.value = lastKnownName;
+  }
+
+  async function startSession() {
+    const nameInput = root.querySelector('#startName');
+    const name = nameInput ? nameInput.value.trim() : '';
+    const warning = root.querySelector('#authWarning');
+    if (!name) { warning.hidden = false; warning.textContent = 'Entrez un nom avant d’entrer.'; return; }
+    const button = root.querySelector('#startButton');
+    button.disabled = true;
+    try {
+      const result = await fetchJson(api('/api/identity'), {
+        method: 'POST', auth: false,
+        body: { deviceId: getOrCreateDeviceId(), name }
+      });
+      token = result.token;
+      localStorage.setItem(TOKEN_KEY, token);
+      me = result.user;
+      lastKnownName = me.name || name;
+      const session = await fetchJson(api('/api/auth/me'));
+      applySession(session);
+      showMessenger();
+      startPolling();
+      showNotice('Bienvenue ' + (me.name || name) + ' !');
+    } catch (error) {
+      warning.hidden = false;
+      warning.textContent = error.message;
+    } finally { button.disabled = false; }
+  }
+
+  async function claimOwner() {
+    const code = root.querySelector('#ownerCode').value.trim();
+    if (!code) return showNotice('Entrez le code créateur.', true);
+    try {
+      const result = await fetchJson(api('/api/owner/claim'), {
+        method: 'POST',
+        body: { code: code }
+      });
+      me = result.user;
+      renderIdentity();
+      showNotice('Vous êtes maintenant le créateur.');
+      loadMessages(false);
+    } catch (error) { showNotice(error.message, true); }
+  }
+
+  function applySession(session) {
+    if (session.user) me = session.user;
+    locked = Boolean(session.locked);
+    isBanned = Boolean(session.banned || (me && me.banned));
+    if (me) lastKnownName = me.name || lastKnownName;
+    renderIdentity();
+    restoreProfileForm();
+  }
+
+  async function logout() {
+    try { await fetchJson(api('/api/auth/logout'), { method: 'POST' }); } catch { /* ignore */ }
+    token = '';
+    me = null;
+    messages = [];
+    staff = [];
+    localStorage.removeItem(TOKEN_KEY);
+    stopPolling();
+    showAuthScreen();
+    showNotice('Vous avez quitté la discussion.');
+  }
+
+  function showMessenger() {
+    root.querySelector('#authScreen').hidden = true;
+    root.querySelector('#messengerLayout').hidden = false;
+    root.querySelector('#focusMessages').hidden = isBanned;
+    root.querySelector('#openAdmin').hidden = !(me && (me.role === 'owner' || me.role === 'admin'));
+    setStatus('Connectée');
+    loadMessages(false);
+  }
+
+  /* ---------------------------------------------------------------- *
+   * Profil                                                            *
+   * ---------------------------------------------------------------- */
+  function restoreProfileForm() {
+    if (!me) return;
+    const setup = root.querySelector('#profileSetup');
+    root.querySelector('#profileName').value = me.name || '';
+    // Le formulaire de profil est replie par defaut, ouvert via « Modifier ».
+    setup.hidden = true;
+    root.querySelector('#editProfile').hidden = false;
+    updateAvatarPreview(me.avatar, me.name);
   }
 
   function showProfileSetup() {
@@ -105,18 +224,57 @@
     root.querySelector('#editProfile').hidden = true;
   }
 
-  function restoreProfileVisibility() {
-    const hasProfile = Boolean(getProfile().name);
-    root.querySelector('#profileSetup').hidden = hasProfile;
-    root.querySelector('#editProfile').hidden = !hasProfile;
+  function renderIdentity() {
+    if (!me) return;
+    root.querySelector('#profileIdentityName').textContent = me.name || '—';
+    const badge = root.querySelector('#profileRoleBadge');
+    const labels = { owner: 'Créateur', admin: 'Administrateur', user: '' };
+    const label = labels[me.role] || '';
+    badge.hidden = !label;
+    badge.textContent = label;
+    badge.className = `messenger__role-badge messenger__role-badge--${me.role}`;
+    // Le créateur voit son identifiant d'appareil (« identité du téléphone »).
+    const info = root.querySelector('#profileEmail');
+    if (me.role === 'owner' && me.deviceId) {
+      info.textContent = `Appareil : ${shortId(me.deviceId)}`;
+      info.hidden = false;
+    } else info.hidden = true;
+    // La zone « code créateur » n'est proposée qu'à ceux qui ne sont pas déjà créateur.
+    root.querySelector('#ownerClaimBox').hidden = me.role === 'owner';
+    updateAvatarPreview(me.avatar, me.name);
   }
 
   function previewSelectedAvatar() {
     const file = root.querySelector('#profileAvatar').files[0];
-    if (!file) return updateAvatarPreview();
+    if (!file) return updateAvatarPreview(me.avatar, me.name);
+    if (!file.type.startsWith('image/')) return showNotice('Choisissez un fichier image.', true);
+    if (file.size > 300000) return showNotice('La photo doit peser moins de 300 Ko.', true);
     const reader = new FileReader();
-    reader.onload = () => renderAvatar(reader.result, getProfile().name);
+    reader.onload = () => updateAvatarPreview(String(reader.result), me.name);
     reader.readAsDataURL(file);
+  }
+
+  async function saveProfile() {
+    if (!me) return;
+    const name = root.querySelector('#profileName').value.trim();
+    if (!name) return showNotice('Choisissez un nom affiché avant de continuer.', true);
+    const file = root.querySelector('#profileAvatar').files[0];
+    const button = root.querySelector('#saveProfile');
+    button.disabled = true;
+    try {
+      let avatar = me.avatar || '';
+      if (file) {
+        if (file.size > 300000) throw new Error('La photo doit peser moins de 300 Ko.');
+        avatar = await readFile(file);
+      }
+      const result = await fetchJson(api('/api/profile'), { method: 'POST', body: { name: name, avatar: avatar } });
+      me = result.user;
+      renderIdentity();
+      restoreProfileForm();
+      showNotice('Profil enregistré.');
+      loadMessages(false);
+    } catch (error) { showNotice(error.message, true); }
+    finally { button.disabled = false; }
   }
 
   function readFile(file) {
@@ -128,13 +286,7 @@
     });
   }
 
-  function updateAvatarPreview() {
-    const preview = root.querySelector('#profileAvatarPreview');
-    const profile = getProfile();
-    renderAvatar(profile.avatar, profile.name);
-  }
-
-  function renderAvatar(source, name) {
+  function updateAvatarPreview(source, name) {
     const preview = root.querySelector('#profileAvatarPreview');
     preview.replaceChildren();
     if (source) {
@@ -146,124 +298,83 @@
     } else preview.textContent = initials(name);
   }
 
+  /* ---------------------------------------------------------------- *
+   * Messages                                                          *
+   * ---------------------------------------------------------------- */
+  function startPolling() { stopPolling(); refreshTimer = window.setInterval(() => loadMessages(false), 8000); }
+  function stopPolling() { if (refreshTimer) window.clearInterval(refreshTimer); refreshTimer = null; }
+
   async function loadMessages(manual) {
+    if (!me) return;
     try {
-      const response = await fetch(API_URL, { headers: { Accept: 'application/json', 'x-user-id': getUserId(), 'x-admin-session': localStorage.getItem(ADMIN_SESSION_KEY) || '' } });
-      if (!response.ok) throw new Error('Le serveur de messagerie est indisponible.');
-      const payload = await response.json();
-      messages = Array.isArray(payload) ? payload : payload.messages || [];
-      administrators = payload.administrators || [];
-      setMessagingBanned(Boolean(payload.banned));
-      setMessagingLocked(Boolean(payload.locked));
-      renderAdministrators();
+      const payload = await fetchJson(api('/api/messages'));
+      messages = payload.messages || [];
+      staff = payload.staff || [];
+      isBanned = Boolean(payload.banned);
+      locked = Boolean(payload.locked);
+      if (payload.me) { me = payload.me; renderIdentity(); }
+      applyMessagingState();
+      renderStaff();
       renderMessages();
       setStatus('Connectée');
+      if (root.querySelector('#adminPanel').hidden === false) loadAdminState().catch(() => {});
       if (manual) showNotice('Messages actualisés.');
     } catch (error) {
+      if (error.status === 401) { await logout(); return; }
       setStatus('Hors connexion');
-      if (manual) showNotice(`${error.message} Lancez server.js pour partager les messages.`, true);
-      renderMessages();
+      if (manual) showNotice(error.message, true);
     }
   }
 
   async function sendMessage(event) {
     event.preventDefault();
-    const profile = getProfile();
+    if (!me) return showNotice('Connectez-vous avant d’envoyer un message.', true);
     const input = root.querySelector('#messageInput');
     const text = input.value.trim();
-    if (!profile.name) { showNotice('Enregistrez votre profil avant d’envoyer un message.', true); return; }
-    if (!text) return;
+    if (!text && !pendingImage) return;
+    if (text && pendingImage) return showNotice('Envoyez soit un texte, soit une image, pas les deux.', true);
     const button = root.querySelector('.messenger__button--primary');
     button.disabled = true;
     try {
-      const response = await fetch(API_URL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify({ userId: getUserId(), name: profile.name, avatar: profile.avatar, text })
-      });
-      const result = await response.json().catch(() => ({}));
-      if (!response.ok) throw new Error(result.error || 'Le message n’a pas pu être envoyé.');
+      await fetchJson(api('/api/messages'), { method: 'POST', body: { text, image: pendingImage } });
       input.value = '';
       root.querySelector('#messageCounter').textContent = '0 / 1000';
+      clearPendingImage();
       await loadMessages(false);
     } catch (error) { showNotice(error.message, true); }
-    finally { button.disabled = false; }
+    finally { button.disabled = false; applyMessagingState(); }
   }
 
-  async function adminLogin() {
-    const key = root.querySelector('#adminKey').value;
-    try {
-      const response = key
-        ? await fetch(`${API_URL.replace('/api/messages', '/api/admin/login')}`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ key, userId: getUserId() }) })
-        : await adminFetch('/state');
-      const result = await response.json();
-      if (!response.ok) throw new Error(result.error || 'Accès refusé.');
-      if (result.sessionToken) localStorage.setItem(ADMIN_SESSION_KEY, result.sessionToken);
-      if (key) localStorage.removeItem(ADMIN_KEY);
-      isAdminView = true;
-      root.querySelector('#adminLoginSection').hidden = true;
-      root.querySelector('#adminPanel').hidden = false;
-      await loadAdminState();
-      showNotice('Administration ouverte.');
-    } catch (error) { showNotice(error.message, true); }
+  function previewSelectedImage() {
+    const file = root.querySelector('#imageInput').files[0];
+    if (!file) return clearPendingImage();
+    if (!file.type.startsWith('image/')) return showNotice('Choisissez un fichier image.', true);
+    if (file.size > IMAGE_MAX_BYTES) return showNotice('L’image doit peser moins de 900 Ko.', true);
+    readFile(file).then(data => {
+      pendingImage = data;
+      root.querySelector('#imagePreviewImg').src = data;
+      root.querySelector('#imagePreview').hidden = false;
+      root.querySelector('#messageInput').value = '';
+      root.querySelector('#messageCounter').textContent = '0 / 1000';
+    }).catch(error => showNotice(error.message, true));
   }
 
-  async function restoreAdminSession() {
-    if (!localStorage.getItem(ADMIN_SESSION_KEY)) return;
-    try {
-      const response = await adminFetch('/state');
-      if (!response.ok) throw new Error('Session admin expirée.');
-      isAdminView = true;
-      root.querySelector('#adminLoginSection').hidden = true;
-      root.querySelector('#adminPanel').hidden = false;
-      await loadAdminState();
-    } catch {
-      localStorage.removeItem(ADMIN_SESSION_KEY);
-    }
+  function clearPendingImage() {
+    pendingImage = '';
+    root.querySelector('#imageInput').value = '';
+    root.querySelector('#imagePreviewImg').src = '';
+    root.querySelector('#imagePreview').hidden = true;
   }
 
-  async function logoutAdmin() {
-    try {
-      const response = await adminFetch('/logout', { method: 'POST' });
-      const result = await response.json().catch(() => ({}));
-      if (!response.ok) throw new Error(result.error || 'Déconnexion impossible.');
-      localStorage.removeItem(ADMIN_SESSION_KEY);
-      isAdminView = false;
-      root.querySelector('#adminPanel').hidden = true;
-      root.querySelector('#adminLoginSection').hidden = false;
-      await loadMessages(false);
-      showNotice('Session admin fermée.');
-    } catch (error) { showNotice(error.message, true); }
-  }
-
-  async function loadAdminState() {
-    const response = await adminFetch('/state');
-    const state = await response.json();
-    if (!response.ok) throw new Error(state.error || 'Accès administrateur refusé.');
-    isAdminView = true;
-    setMessagingLocked(state.locked);
-    root.querySelector('#toggleMessaging').textContent = state.locked ? 'Déverrouiller la messagerie' : 'Verrouiller la messagerie';
-    root.querySelector('#adminLists').innerHTML = `<p><strong>Administrateurs :</strong> ${state.admins.length ? state.admins.map(admin => `${escapeHtml(admin.userId)} (${escapeHtml(admin.role)})`).join(', ') : 'Aucun'}</p><p><strong>Utilisateurs bannis :</strong> ${state.banned.length ? state.banned.map(user => escapeHtml(user.userId)).join(', ') : 'Aucun'}</p>`;
-    loadMessages(false);
-  }
-
-  async function adminAction(action) {
-    const targetUserId = root.querySelector('#adminTargetUser').value.trim();
-    try {
-      const response = await adminFetch('/action', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ action, targetUserId }) });
-      const result = await response.json();
-      if (!response.ok) throw new Error(result.error || 'Action refusée.');
-      await loadAdminState(); showNotice('Action administrateur effectuée.');
-    } catch (error) { showNotice(error.message, true); }
-  }
-
-  async function toggleMessaging() {
-    const locked = root.querySelector('#messagingLocked').hidden;
-    await adminAction(locked ? 'lock' : 'unlock');
-  }
-
-  function adminFetch(path, options = {}) {
-    return fetch(`${API_URL.replace('/api/messages', '/api/admin')}${path}`, { ...options, headers: { ...(options.headers || {}), 'x-admin-session': localStorage.getItem(ADMIN_SESSION_KEY) || '', 'x-user-id': getUserId(), Accept: 'application/json' } });
+  function applyMessagingState() {
+    const banned = root.querySelector('#messagingBanned');
+    const lockedNotice = root.querySelector('#messagingLocked');
+    banned.hidden = !isBanned;
+    lockedNotice.hidden = !locked || isBanned;
+    const disabled = isBanned || (locked && me && me.role !== 'owner');
+    root.querySelector('#messageInput').disabled = disabled;
+    root.querySelector('.messenger__button--primary').disabled = disabled;
+    root.querySelector('.messenger__attach').classList.toggle('is-disabled', disabled);
   }
 
   function renderMessages() {
@@ -276,68 +387,305 @@
       list.appendChild(empty);
       return;
     }
-    const currentUser = getUserId();
-    messages.forEach(message => {
-      const article = document.createElement('article');
-      const roleClass = message.role === 'primary' ? ' messenger__message--primary' : message.role === 'admin' ? ' messenger__message--admin' : '';
-      article.className = `messenger__message${message.isMine || message.userId === currentUser ? ' messenger__message--mine' : ''}${roleClass}`;
-      const avatar = document.createElement('div');
-      avatar.className = 'messenger__message-avatar';
-      if (message.avatar) {
-        const image = document.createElement('img'); image.src = message.avatar; image.alt = `Photo de ${message.name}`; image.onerror = () => { avatar.textContent = initials(message.name); }; avatar.appendChild(image);
-      } else avatar.textContent = initials(message.name);
-      const body = document.createElement('div'); body.className = 'messenger__message-body';
-      const meta = document.createElement('div'); meta.className = 'messenger__message-meta';
-      const name = document.createElement('span'); name.className = 'messenger__message-name'; name.textContent = message.name;
-      const time = document.createElement('time'); time.className = 'messenger__message-time'; time.textContent = formatDate(message.createdAt); if (message.createdAt) time.dateTime = message.createdAt;
-      const text = document.createElement('p'); text.className = 'messenger__message-text'; text.textContent = message.text;
-      meta.append(name);
-      if (isAdminView && message.userId) {
-        const userId = document.createElement('span'); userId.className = 'messenger__message-userid'; userId.textContent = `ID: ${message.userId}`; meta.appendChild(userId);
-      }
-      meta.append(time); body.append(meta, text); article.append(avatar, body); list.appendChild(article);
-    });
+    messages.forEach(message => list.appendChild(buildMessage(message)));
     list.scrollTop = list.scrollHeight;
   }
 
-  function renderAdministrators() {
+  function buildMessage(message) {
+    const article = document.createElement('article');
+    const mine = message.isMine ? ' messenger__message--mine' : '';
+    const roleClass = message.role === 'owner' ? ' messenger__message--owner'
+      : message.role === 'admin' ? ' messenger__message--admin' : '';
+    article.className = `messenger__message${mine}${roleClass}`;
+
+    const avatar = document.createElement('div');
+    avatar.className = 'messenger__message-avatar';
+    if (message.avatar) {
+      const image = document.createElement('img');
+      image.src = message.avatar;
+      image.alt = `Photo de ${message.name}`;
+      image.onerror = () => { avatar.textContent = initials(message.name); };
+      avatar.appendChild(image);
+    } else avatar.textContent = initials(message.name);
+
+    const body = document.createElement('div');
+    body.className = 'messenger__message-body';
+    const meta = document.createElement('div');
+    meta.className = 'messenger__message-meta';
+    const name = document.createElement('span');
+    name.className = 'messenger__message-name';
+    name.textContent = message.name;
+    if (message.role === 'owner') name.textContent += ' · créateur';
+    else if (message.role === 'admin') name.textContent += ' · admin';
+    const time = document.createElement('time');
+    time.className = 'messenger__message-time';
+    time.textContent = formatDate(message.createdAt);
+    if (message.createdAt) time.dateTime = message.createdAt;
+    meta.append(name, time);
+    body.append(meta);
+
+    if (message.text) {
+      const text = document.createElement('p');
+      text.className = 'messenger__message-text';
+      text.textContent = message.text;
+      body.appendChild(text);
+    }
+    if (message.image) {
+      const image = document.createElement('img');
+      image.className = 'messenger__message-image';
+      image.src = message.image;
+      image.alt = `Image envoyée par ${message.name}`;
+      image.loading = 'lazy';
+      image.addEventListener('click', () => openImageModal(message.image));
+      body.appendChild(image);
+    }
+    if (me && me.role === 'owner') {
+      const remove = document.createElement('button');
+      remove.type = 'button';
+      remove.className = 'messenger__message-delete';
+      remove.textContent = 'Supprimer';
+      remove.addEventListener('click', () => deleteMessage(message.id));
+      body.appendChild(remove);
+    }
+    article.append(avatar, body);
+    return article;
+  }
+
+  async function deleteMessage(id) {
+    if (!window.confirm('Supprimer définitivement ce message ?')) return;
+    try {
+      await fetchJson(api(`/api/messages/${id}`), { method: 'DELETE' });
+      showNotice('Message supprimé.');
+      loadMessages(false);
+    } catch (error) { showNotice(error.message, true); }
+  }
+
+  function renderStaff() {
     const container = root.querySelector('#publicAdministrators');
     container.replaceChildren();
-    if (!administrators.length) return;
+    if (!staff.length) return;
     const title = document.createElement('strong');
     title.className = 'messenger__administrators-title';
-    title.textContent = 'Administrateurs';
+    title.textContent = 'Équipe';
     container.appendChild(title);
-    administrators.forEach(admin => {
+    staff.forEach(member => {
       const item = document.createElement('span');
-      item.className = `messenger__administrator messenger__administrator--${admin.role}`;
+      item.className = `messenger__administrator messenger__administrator--${member.role}`;
       const avatar = document.createElement('span');
       avatar.className = 'messenger__administrator-avatar';
-      if (admin.avatar) {
+      if (member.avatar) {
         const image = document.createElement('img');
-        image.src = admin.avatar;
-        image.alt = `Photo de ${admin.name}`;
-        image.onerror = () => { avatar.textContent = initials(admin.name); };
+        image.src = member.avatar;
+        image.alt = `Photo de ${member.name}`;
+        image.onerror = () => { avatar.textContent = initials(member.name); };
         avatar.appendChild(image);
-      } else avatar.textContent = initials(admin.name);
+      } else avatar.textContent = initials(member.name);
       const name = document.createElement('span');
-      name.textContent = `${admin.name}${admin.role === 'primary' ? ' · principal' : ' · admin'}`;
+      name.textContent = `${member.name}${member.role === 'owner' ? ' · créateur' : ' · admin'}`;
       item.append(avatar, name);
       container.appendChild(item);
     });
   }
 
-  function setStatus(text) { root.querySelector('#messengerStatus').textContent = text; root.querySelector('#messengerStatus').classList.toggle('is-ready', text === 'Connectée'); }
-  function setMessagingBanned(banned) {
-    isBanned = banned;
-    root.querySelector('#messagingBanned').hidden = !banned;
-    root.querySelector('#focusMessages').hidden = banned;
-    root.querySelector('.messenger__conversation').hidden = banned;
-    root.querySelector('#messageInput').disabled = banned;
-    root.querySelector('.messenger__button--primary').disabled = banned;
-    if (banned) showNotice('Vous ne pouvez pas discuter pour l’instant.');
+  /* ---------------------------------------------------------------- *
+   * Administration (créateur = tout, admin = bannir)                  *
+   * ---------------------------------------------------------------- */
+  async function openAdminPanel() {
+    root.querySelector('#adminPanel').hidden = false;
+    try { await loadAdminState(); } catch (error) { showNotice(error.message, true); }
   }
-  function setMessagingLocked(locked) { root.querySelector('#messagingLocked').hidden = !locked || isBanned; root.querySelector('#messageInput').disabled = locked || isBanned; root.querySelector('.messenger__button--primary').disabled = locked || isBanned; }
+
+  async function loadAdminState() {
+    const state = await fetchJson(api('/api/admin/state'));
+    const isOwner = state.me && state.me.role === 'owner';
+    root.querySelector('#adminPanelTitle').textContent = isOwner ? 'Panneau du créateur' : 'Panneau administrateur';
+    root.querySelector('#adminRoleNote').textContent = isOwner
+      ? 'Vous êtes le créateur : nommez des admins, bannissez ou supprimez des appareils (leur IP est bloquée), verrouillez la discussion.'
+      : 'Vous êtes administrateur : vous pouvez uniquement bannir ou débannir des appareils.';
+    const toggle = root.querySelector('#toggleMessaging');
+    toggle.hidden = !isOwner;
+    toggle.textContent = state.locked ? 'Déverrouiller la discussion' : 'Verrouiller la discussion';
+    renderAccounts(state.accounts || [], isOwner);
+    renderIpBans(isOwner ? state.ipBans || [] : []);
+  }
+
+  function renderIpBans(ipBans) {
+    const box = root.querySelector('#ipBanBox');
+    if (!box) return;
+    if (!me || me.role !== 'owner') { box.hidden = true; return; }
+    box.hidden = false;
+    const list = box.querySelector('#ipBanList');
+    list.replaceChildren();
+    if (!ipBans.length) {
+      const empty = document.createElement('span');
+      empty.className = 'messenger__account-meta';
+      empty.textContent = 'Aucune adresse IP bloquée.';
+      list.appendChild(empty);
+      return;
+    }
+    ipBans.forEach(ban => {
+      const chip = document.createElement('span');
+      chip.className = 'messenger__ip-chip';
+      const label = document.createElement('span');
+      label.textContent = ban.ip;
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'messenger__button messenger__button--small';
+      btn.textContent = 'Débloquer';
+      btn.addEventListener('click', () => adminAction('unbanIp', null, ban.ip));
+      chip.append(label, btn);
+      list.appendChild(chip);
+    });
+  }
+
+  function renderAccounts(accounts, isOwner) {
+    const container = root.querySelector('#adminLists');
+    container.replaceChildren();
+    if (!accounts.length) {
+      const empty = document.createElement('p');
+      empty.textContent = 'Aucun compte.';
+      container.appendChild(empty);
+      return;
+    }
+    accounts.forEach(account => {
+      const row = document.createElement('div');
+      row.className = 'messenger__account';
+      if (account.banned) row.classList.add('is-banned');
+      if (account.deleted) row.classList.add('is-deleted');
+
+      const avatar = document.createElement('span');
+      avatar.className = 'messenger__account-avatar';
+      if (account.avatar) {
+        const image = document.createElement('img');
+        image.src = account.avatar;
+        image.alt = '';
+        image.onerror = () => { avatar.textContent = initials(account.name); };
+        avatar.appendChild(image);
+      } else avatar.textContent = initials(account.name);
+
+      const info = document.createElement('div');
+      info.className = 'messenger__account-info';
+      const name = document.createElement('strong');
+      name.textContent = account.name + (account.isMe ? ' (vous)' : '');
+      const idLine = document.createElement('span');
+      idLine.className = 'messenger__account-email';
+      idLine.textContent = isOwner ? `ID appareil : ${shortId(account.deviceId)}` : 'ID masqué';
+      const meta = document.createElement('span');
+      meta.className = 'messenger__account-meta';
+      const roleLabels = { owner: 'Créateur', admin: 'Administrateur', user: 'Utilisateur' };
+      const status = account.deleted ? ' · supprimé' : (account.banned ? ' · banni' : '');
+      meta.textContent = `${roleLabels[account.role] || account.role}${status}`;
+      info.append(name, idLine, meta);
+      if (isOwner && account.ip) {
+        const ipLine = document.createElement('span');
+        ipLine.className = 'messenger__account-email';
+        ipLine.textContent = `IP : ${account.ip}`;
+        info.appendChild(ipLine);
+      }
+      if (isOwner && account.ip) {
+        const ipLine = document.createElement('span');
+        ipLine.className = 'messenger__account-email';
+        ipLine.textContent = `IP : ${account.ip}`;
+        info.appendChild(ipLine);
+      }
+
+      const actions = document.createElement('div');
+      actions.className = 'messenger__account-actions';
+      if (account.role !== 'owner' && !account.isMe) {
+        if (account.deleted) {
+          if (isOwner) actions.appendChild(accountButton('Restaurer', () => adminAction('restoreUser', account.id)));
+        } else {
+          actions.appendChild(accountButton(account.banned ? 'Débannir' : 'Bannir', () => adminAction(account.banned ? 'unban' : 'ban', account.id)));
+          if (isOwner) {
+            if (account.role === 'admin') actions.appendChild(accountButton('Retirer admin', () => adminAction('demote', account.id)));
+            else actions.appendChild(accountButton('Nommer admin', () => adminAction('promote', account.id)));
+            actions.appendChild(accountButton('Supprimer', () => adminAction('deleteUser', account.id), true));
+          }
+        }
+      }
+      row.append(avatar, info, actions);
+      container.appendChild(row);
+    });
+  }
+
+  function accountButton(label, handler, danger) {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'messenger__button messenger__button--small' + (danger ? ' messenger__button--danger' : '');
+    button.textContent = label;
+    button.addEventListener('click', handler);
+    return button;
+  }
+
+  async function adminAction(action, targetUserId, ip) {
+    if (action === 'deleteUser' && !window.confirm('Supprimer cet appareil ? Son adresse IP sera aussi bloquée.')) return;
+    try {
+      const payload = { action: action, targetUserId: targetUserId };
+      if (ip) payload.ip = ip;
+      await fetchJson(api('/api/admin/action'), { method: 'POST', body: payload });
+      showNotice('Action effectuée.');
+      await loadAdminState();
+      loadMessages(false);
+    } catch (error) { showNotice(error.message, true); }
+  }
+
+  /** Bloque directement une adresse IP (créateur). */
+  async function banIpDirect(ip) {
+    try {
+      const payload = { action: 'banIp', ip: ip };
+      await fetchJson(api(ADMIN_ACTION_PATH), { method: 'POST', body: payload });
+      showNotice('Adresse IP bloquée.');
+      await loadAdminState();
+    } catch (error) { showNotice(error.message, true); }
+  }
+
+  async function toggleMessaging() {
+    const action = locked ? 'unlock' : 'lock';
+    try {
+      await fetchJson(api('/api/admin/action'), { method: 'POST', body: { action } });
+      locked = action === 'lock';
+      root.querySelector('#toggleMessaging').textContent = locked ? 'Déverrouiller la discussion' : 'Verrouiller la discussion';
+      applyMessagingState();
+      showNotice(locked ? 'Discussion verrouillée.' : 'Discussion déverrouillée.');
+    } catch (error) { showNotice(error.message, true); }
+  }
+
+  /* ---------------------------------------------------------------- *
+   * Utilitaires                                                       *
+   * ---------------------------------------------------------------- */
+  async function fetchJson(url, options = {}) {
+    const headers = { Accept: 'application/json' };
+    if (token && options.auth !== false) headers.Authorization = `Bearer ${token}`;
+    let body;
+    if (options.body) { headers['Content-Type'] = 'application/json'; body = JSON.stringify(options.body); }
+    const response = await fetch(url, { method: options.method || 'GET', headers, body });
+    const payload = await response.json().catch(() => ({}));
+    if (!response.ok) {
+      const error = new Error(payload.error || 'Erreur du serveur.');
+      error.status = response.status;
+      throw error;
+    }
+    return payload;
+  }
+
+  function openImageModal(src) {
+    const modal = document.getElementById('imageModal');
+    const image = document.getElementById('modalImage');
+    if (!modal || !image) return;
+    image.src = src;
+    modal.hidden = false;
+    document.body.classList.add('modal-open');
+  }
+
+  function closeImageModal() {
+    const modal = document.getElementById('imageModal');
+    const image = document.getElementById('modalImage');
+    if (!modal) return;
+    modal.hidden = true;
+    image.src = '';
+    document.body.classList.remove('modal-open');
+  }
+
   function toggleFocusMessages() {
     const messenger = root.querySelector('.messenger');
     const button = root.querySelector('#focusMessages');
@@ -346,8 +694,39 @@
     button.textContent = focused ? 'Réduire la messagerie' : 'Agrandir la messagerie';
     document.body.classList.toggle('messenger-focus-open', focused);
   }
-  function showNotice(message, error = false) { const notice = root.querySelector('#messengerNotice'); notice.textContent = message; notice.hidden = false; notice.classList.toggle('is-error', error); window.clearTimeout(showNotice.timer); showNotice.timer = window.setTimeout(() => { notice.hidden = true; }, 5000); }
-  function initials(name) { return name.trim().split(/\s+/).slice(0, 2).map(part => part[0]).join('').toUpperCase() || '?'; }
-  function formatDate(value) { const date = new Date(value); return Number.isNaN(date.getTime()) ? '' : date.toLocaleString('fr-FR', { dateStyle: 'short', timeStyle: 'short' }); }
-  function escapeHtml(value) { return String(value).replace(/[&<>"']/g, character => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[character])); }
+
+  function setStatus(text) {
+    const status = root.querySelector('#messengerStatus');
+    status.textContent = text;
+    status.classList.toggle('is-ready', text === 'Connectée');
+  }
+
+  function showNotice(message, error = false) {
+    const notice = root.querySelector('#messengerNotice');
+    notice.textContent = message;
+    notice.hidden = false;
+    notice.classList.toggle('is-error', error);
+    window.clearTimeout(showNotice.timer);
+    showNotice.timer = window.setTimeout(() => { notice.hidden = true; }, 5000);
+  }
+
+  function initials(name) {
+    return String(name || '').trim().split(/\s+/).slice(0, 2).map(part => part[0]).join('').toUpperCase() || '?';
+  }
+
+  /** Raccourcit un identifiant d'appareil pour l'affichage (ex : 1a2b3c4d...9f8e). */
+  function shortId(value) {
+    const id = String(value || '');
+    if (id.length <= 14) return id || '-';
+    return `${id.slice(0, 8)}...${id.slice(-4)}`;
+  }
+
+  function formatDate(value) {
+    const date = new Date(value);
+    return Number.isNaN(date.getTime()) ? '' : date.toLocaleString('fr-FR', { dateStyle: 'short', timeStyle: 'short' });
+  }
+
+  function escapeHtml(value) {
+    return String(value).replace(/[&<>"']/g, character => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[character]));
+  }
 })();

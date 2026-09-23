@@ -20,6 +20,7 @@
 .messenger__status { flex: 0 0 auto; border: 1px solid var(--messenger-line); border-radius: 999px; padding: 7px 11px; color: var(--messenger-muted); font-size: .78rem; font-weight: 800; }
 .messenger__status.is-ready { border-color: #79c9bc; color: var(--messenger-accent-dark); }
 .messenger__layout { display: grid; grid-template-columns: minmax(220px, .32fr) minmax(0, 1fr); gap: 18px; align-items: start; }
+.messenger__layout[hidden] { display: none; }
 .messenger__profile, .messenger__conversation { border: 1px solid var(--messenger-line); border-radius: 8px; background: var(--messenger-panel); box-shadow: 0 12px 32px rgba(28, 43, 66, .07); }
 .messenger__profile { padding: 18px; }
 .messenger__profile-heading, .messenger__admin-header { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
@@ -51,8 +52,11 @@
 .messenger__empty { margin: auto; color: var(--messenger-muted); }
 .messenger__message { display: flex; gap: 10px; align-items: flex-start; max-width: 86%; padding: 10px 12px; border: 1px solid var(--messenger-line); border-radius: 8px; background: var(--messenger-panel); }
 .messenger__message--mine { justify-self: end; border-color: #9bd5cc; background: #e5f5f2; }
-.messenger__message--primary { border: 2px solid #dc2626; }
-.messenger__message--admin { border: 2px solid #eab308; }
+/* Couleur des bulles selon le rôle de l'auteur */
+.messenger__message--owner { border: 2px solid #dc2626; background: #fef2f2; }
+.messenger__message--owner.messenger__message--mine { background: #fee2e2; }
+.messenger__message--admin { border: 2px solid #2563eb; background: #eff6ff; }
+.messenger__message--admin.messenger__message--mine { background: #dbeafe; }
 .messenger__message-avatar { flex: 0 0 auto; display: grid; place-items: center; width: 36px; height: 36px; border-radius: 50%; background: var(--messenger-accent); color: #fff; font-size: .95rem; font-weight: 800; overflow: hidden; }
 .messenger__message-avatar img { width: 100%; height: 100%; object-fit: cover; }
 .messenger__message-body { min-width: 0; }
@@ -87,5 +91,129 @@ body.messenger-focus-open { overflow: hidden; }
   .messenger__message { max-width: 94%; }
 }
 
-body.dark-mode .messenger { --messenger-ink: #e8eef7; --messenger-muted: #aeb9c8; --messenger-line: #3b485a; --messenger-panel: #202936; --messenger-soft: #172a2b; --messenger-accent: #2dd4bf; --messenger-accent-dark: #5eead4; }
+body.dark-mode .messenger {
+  --messenger-ink: #e8eef7;
+  --messenger-muted: #aeb9c8;
+  --messenger-line: #3b485a;
+  --messenger-panel: #202936;
+  --messenger-soft: #16202c;
+  --messenger-accent: #2dd4bf;
+  --messenger-accent-dark: #5eead4;
+}
+body.dark-mode .messenger__message { background: #202936; }
 body.dark-mode .messenger__message--mine { background: #1d3a38; }
+body.dark-mode .messenger__message--owner { background: #3b1416; border-color: #ef4444; }
+body.dark-mode .messenger__message--owner.messenger__message--mine { background: #4c1d1f; }
+body.dark-mode .messenger__message--admin { background: #12233f; border-color: #3b82f6; }
+body.dark-mode .messenger__message--admin.messenger__message--mine { background: #1a3255; }
+/* --- Écran de connexion Google --- */
+.messenger__auth { display: grid; place-items: center; padding: 40px 16px; }
+.messenger__auth[hidden] { display: none; }
+.messenger__auth-card {
+  width: min(440px, 100%);
+  padding: 32px 26px;
+  border: 1px solid var(--messenger-line);
+  border-radius: 14px;
+  background: var(--messenger-panel);
+  box-shadow: 0 18px 40px rgba(28, 43, 66, .10);
+  text-align: center;
+}
+.messenger__auth-icon {
+  display: grid; place-items: center;
+  width: 64px; height: 64px; margin: 0 auto 14px;
+  border-radius: 50%; background: #fff; border: 1px solid var(--messenger-line);
+  font-size: 1.9rem; color: #ea4335;
+}
+.messenger__auth-card h3 { margin: 0 0 10px; font-size: 1.35rem; }
+.messenger__auth-card p { margin: 0 0 18px; color: var(--messenger-muted); line-height: 1.5; }
+.messenger__auth-card #googleButton { display: flex; justify-content: center; }
+.messenger__auth-warning { color: #b42318; font-weight: 700; font-size: .85rem; }
+
+/* --- Identité & rôle --- */
+.messenger__identity { display: grid; gap: 4px; margin: 12px 0 16px; }
+.messenger__identity strong { font-size: 1rem; }
+.messenger__email { color: var(--messenger-muted); font-size: .78rem; overflow-wrap: anywhere; }
+.messenger__role-badge {
+  justify-self: start; margin-top: 2px; padding: 3px 10px;
+  border-radius: 999px; font-size: .72rem; font-weight: 800; color: #fff;
+}
+.messenger__role-badge--owner { background: #dc2626; }
+.messenger__role-badge--admin { background: #2563eb; }
+.messenger__button--ghost { width: 100%; margin-top: 10px; background: transparent; border: 1px solid var(--messenger-line); color: var(--messenger-ink); }
+.messenger__button--ghost:hover { background: var(--messenger-soft); }
+.messenger__button--small { min-height: 32px; padding: 5px 10px; font-size: .78rem; }
+.messenger__button--danger { background: #fee2e2; color: #b42318; }
+
+/* --- Composer : image --- */
+.messenger__image-preview { position: relative; margin-bottom: 10px; width: fit-content; }
+.messenger__image-preview img { max-width: 220px; max-height: 220px; border-radius: 8px; border: 1px solid var(--messenger-line); display: block; }
+.messenger__image-preview button {
+  position: absolute; top: -10px; right: -10px;
+  width: 26px; height: 26px; border: 0; border-radius: 50%;
+  background: #b42318; color: #fff; cursor: pointer; font-size: 1rem; line-height: 1;
+}
+.messenger__attach {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 38px; height: 38px; border-radius: 8px; cursor: pointer;
+  background: #e5edf0; color: var(--messenger-accent-dark); font-size: 1.05rem;
+}
+.messenger__attach:hover { filter: brightness(.95); }
+.messenger__attach.is-disabled { opacity: .45; pointer-events: none; }
+
+/* --- Messages : images & suppression --- */
+.messenger__message-image {
+  display: block; max-width: 260px; max-height: 260px;
+  margin-top: 6px; border-radius: 10px; border: 1px solid var(--messenger-line);
+  cursor: zoom-in;
+}
+.messenger__message-delete {
+  margin-top: 6px; border: 0; background: transparent;
+  color: #b42318; cursor: pointer; font-size: .72rem; font-weight: 800; text-decoration: underline;
+}
+
+/* --- Panneau admin : comptes --- */
+.messenger__admin-note { margin: 10px 0 0; color: var(--messenger-muted); font-size: .85rem; }
+.messenger__account {
+  display: flex; align-items: center; gap: 12px;
+  padding: 10px 12px; margin-top: 8px;
+  border: 1px solid var(--messenger-line); border-radius: 10px;
+  background: var(--messenger-panel);
+}
+.messenger__account.is-banned { border-color: #f0a6a6; background: #fff5f5; }
+.messenger__account-avatar {
+  flex: 0 0 auto; display: grid; place-items: center;
+  width: 40px; height: 40px; border-radius: 50%; overflow: hidden;
+  background: var(--messenger-accent); color: #fff; font-weight: 800;
+}
+.messenger__account-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.messenger__account-info { display: grid; gap: 2px; min-width: 0; flex: 1; }
+.messenger__account-email { color: var(--messenger-muted); font-size: .76rem; overflow-wrap: anywhere; }
+.messenger__account-meta { color: var(--messenger-muted); font-size: .72rem; }
+.messenger__account-actions { display: flex; flex-wrap: wrap; gap: 6px; justify-content: flex-end; }
+
+body.dark-mode .messenger__auth-icon { background: #2b3648; }
+body.dark-mode .messenger__account.is-banned { background: #3b1416; border-color: #7f1d1d; }
+body.dark-mode .messenger__button--danger { background: #4c1d1f; color: #fca5a5; }
+
+@media (max-width: 620px) {
+  .messenger__account { flex-wrap: wrap; }
+  .messenger__account-actions { width: 100%; justify-content: flex-start; }
+}/* --- Formulaire de démarrage (nom) --- */
+.messenger__auth-label { display: grid; gap: 6px; margin-bottom: 14px; text-align: left; color: var(--messenger-muted); font-size: .82rem; font-weight: 800; }
+.messenger__owner-claim { display: grid; gap: 8px; margin: 14px 0; padding-top: 14px; border-top: 1px solid var(--messenger-line); }
+.messenger__owner-claim[hidden] { display: none; }
+.messenger__account.is-deleted { opacity: .7; border-color: #cbd5e1; background: #f8fafc; }
+body.dark-mode .messenger__account.is-deleted { background: #1a2330; border-color: #3b485a; }
+/* --- IP bannies (panneau créateur) --- */
+.messenger__ip-bans { margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--messenger-line); }
+.messenger__ip-bans[hidden] { display: none; }
+.messenger__ip-bans h4 { margin: 0 0 10px; color: var(--messenger-accent-dark); }
+.messenger__ip-ban-input { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 12px; }
+.messenger__ip-ban-input input { flex: 1 1 220px; }
+.messenger__ip-list { display: flex; flex-wrap: wrap; gap: 8px; }
+.messenger__ip-chip {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 5px 8px 5px 12px; border: 1px solid #f0a6a6; border-radius: 999px;
+  background: #fff5f5; font-size: .78rem; font-weight: 800;
+}
+body.dark-mode .messenger__ip-chip { background: #3b1416; border-color: #7f1d1d; }
