@@ -1,6 +1,7 @@
 {
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "build": "npm rebuild sqlite3"
   },
   "dependencies": {
     "express": "^5.2.1",
