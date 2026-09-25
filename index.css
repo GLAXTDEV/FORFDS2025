@@ -465,7 +465,7 @@ header{
 }
 
 .saisons3{
-    display: grid;
+    display: none;
     position: absolute;
     top: 100%;
     right: auto;
