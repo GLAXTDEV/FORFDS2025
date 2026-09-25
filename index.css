@@ -465,7 +465,7 @@ header{
 }
 
 .saisons3{
-    display: none;
+    display: grid;
     position: absolute;
     top: 100%;
     right: auto;
@@ -518,6 +518,7 @@ header{
         border: none;
         user-select: none;
         border-radius: 3px;
+        font-weight: 700px;
         span{
             margin: 3px;
             color: #000;
@@ -528,7 +529,7 @@ header{
     }
     li:active{
         transform: scale(0.97);
-        box-shadow: 0 4px 8px rgb(0, 0, 0, 0.2);
+        box-shadow: 0 4px 8px rgb(0, 0, 0, 0.1);
     }
     a{
         font-weight: 700px;
