@@ -302,7 +302,7 @@ header{
     position: absolute;
     top: 100%;
     right: auto;
-    transform: translate(0, 0);
+    transform: translate(5px, 0);
     background-color: #fff;  
     border-radius: 4px;
     margin: 4px;
@@ -376,16 +376,26 @@ header{
     }
     @keyframes opacity1 {
         0%{opacity: 0; transform: scale(1.3)}
-        100%{opacity: 1; transform: scale(1)  translate(0, 0);}
+        100%{opacity: 1; transform: scale(1)  translate(5px, 0);}
     }
 }
-
+#mssg iframe{
+    height: 80vh;
+    min-width: calc(100%);
+    @media (width < 500px){
+        width: 95%;
+    }
+    margin: 5px;
+    border: 1px solid #eee;
+    border-radius: 6px;
+    position: fixed;
+}
 .saisons2{
     display: none;
     position: absolute;
     top: 100%;
     right: auto;
-    transform: translate(-50px, -2px);
+    transform: translate(-75px, -2px);
     background-color: #fff;
     border-radius: 4px;
     margin: 4px;
@@ -460,7 +470,7 @@ header{
     }
     @keyframes opacity2 {
         0%{opacity: 0; transform: scale(0.0)}
-        100%{opacity: 1; transform: scale(1)  translate(-50px, -2px);}
+        100%{opacity: 1; transform: scale(1)  translate(-75px, -2px);}
     }
 }
 
@@ -469,7 +479,7 @@ header{
     position: absolute;
     top: 100%;
     right: auto;
-    transform: translate(-90px, -2px);
+    transform: translate(-140px, -2px);
     background-color: #fff;
     border-radius: 4px;
     margin: 4px;
@@ -525,7 +535,14 @@ header{
             text-transform: uppercase;
             font-weight: 700;
             text-shadow: 1px 1px 1px 1px rgb(0, 0, 0);
+            
         }
+    }
+    .message{   
+        color: red;
+        font-weight: 700;
+        text-transform: uppercase;
+        text-shadow: 1px 1px 1px 1px rgb(0, 0, 0);
     }
     li:active{
         transform: scale(0.97);
@@ -545,7 +562,7 @@ header{
     }
     @keyframes opacity3 {
         0%{opacity: 0; transform: scale(0.0)}
-        100%{opacity: 1; transform: scale(1) translate(-90px, -2px);}
+        100%{opacity: 1; transform: scale(1) translate(-140px, -2px);}
     }
 }
 
