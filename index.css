@@ -394,6 +394,115 @@ header{
   /* Pour IE et Edge anciens */
   -ms-overflow-style: none;
 }
+
+.salon-page{
+    box-sizing: border-box;
+    padding: 0 clamp(12px, 3vw, 36px) 24px;
+}
+
+.salon-toolbar{
+    width: min(100%, 1320px);
+    margin: 0 auto 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.salon-eyebrow{
+    margin-bottom: 4px;
+    color: #2563eb;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+}
+
+.salon-toolbar h2{
+    color: #172554;
+    font-size: clamp(1.25rem, 3vw, 1.7rem);
+}
+
+.salon-toolbar > div > p:last-child{
+    margin-top: 4px;
+    color: #64748b;
+    font-size: 0.92rem;
+}
+
+.salon-open-link{
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 42px;
+    padding: 0 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    color: #1d4ed8;
+    background: #fff;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.salon-frame-wrap{
+    width: min(100%, 1320px);
+    height: clamp(520px, calc(100dvh - 290px), 900px);
+    margin: 0 auto;
+    overflow: hidden;
+    border: 1px solid #dbe4ee;
+    border-radius: 8px;
+    background: #fff;
+}
+
+.salon-frame-wrap iframe{
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+@media (max-width: 600px){
+    .salon-page{
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+
+    .salon-toolbar{
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .salon-toolbar > div > p:last-child{
+        max-width: 38ch;
+    }
+
+    .salon-frame-wrap{
+        height: max(520px, calc(100svh - 340px));
+        border-radius: 6px;
+    }
+}
+
+body.dark-mode .salon-toolbar h2{
+    color: #f1f5f9;
+}
+
+body.dark-mode .salon-toolbar > div > p:last-child{
+    color: #cbd5e1;
+}
+
+body.dark-mode .salon-open-link{
+    border-color: #475569;
+    color: #bfdbfe;
+    background: #1f2937;
+}
+
+body.dark-mode .salon-frame-wrap{
+    border-color: #475569;
+    background: #1f2937;
+}
+
 .saisons2{
     display: none;
     position: absolute;
