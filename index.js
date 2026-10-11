@@ -1,4 +1,4 @@
-﻿let deferredPrompt = null;
+let deferredPrompt = null;
 let installPromptShown = false;
 
 const SITE_UPDATE_VERSION = 2;
