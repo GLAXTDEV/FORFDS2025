@@ -51,7 +51,7 @@ body{
 .matrix-output td { min-width: 62px; padding: 8px 10px; border: 1px solid var(--matrix-line); border-radius: 4px; background: var(--matrix-panel); text-align: center; font-variant-numeric: tabular-nums; }
 .matrix-value { margin: 0; font-size: 1.15rem; font-weight: 800; }
 
-@media (max-width: 700px) {
+@media (max-width: 850px) {
   .matrix-calculator__matrices { grid-template-columns: 1fr; }
   .matrix-calculator__settings > * { flex: 1 1 120px; }
   .matrix-calculator__settings button { flex: 1 1 180px; }

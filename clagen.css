@@ -55,7 +55,7 @@
 #functionGraph { display: block; width: 100%; min-width: 620px; height: auto; }
 .calgen-toast { position: fixed; right: 18px; bottom: 18px; z-index: 1100; max-width: min(420px, calc(100vw - 36px)); padding: 13px 16px; border-left: 4px solid #b42318; background: #fff1f0; color: #8a1c13; box-shadow: 0 12px 30px rgba(0, 0, 0, .15); font-weight: 700; }
 
-@media (max-width: 760px) {
+@media (max-width: 1100px) {
   .general-calculator__header { align-items: start; flex-direction: column; }
   .calgen-grid--two, .calgen-grid--three, .calgen-grid--four { grid-template-columns: 1fr; }
   .calgen-panel { padding: 14px; }
