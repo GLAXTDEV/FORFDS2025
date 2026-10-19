@@ -177,7 +177,7 @@ header{
         list-style: none;
         border-radius: 6px;
         padding: 4px;
-        margin: 4px;
+        margin-top: 4px;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -191,11 +191,13 @@ header{
             button{
                 border: none;
                 background-color: #fff;
-                border-radius: 6px;
-                color: blue;
+                border-radius: 8px;
+                color: rgb(0, 0, 255);
                 user-select: none;
-                padding: 4px;
+                padding: 5px;
+                font-weight: 600;
                 text-transform: capitalize;
+                box-shadow: 0px 5px 5px 0px rgb(0, 0, 0, 0.05);
                 
             }
         }
@@ -219,10 +221,10 @@ header{
     left: auto;
     transform: translate(105px, 1px);
     background-color: #fff;
-    border-radius: 4px;
+    border-radius: 20px;
     margin: 4px;
     padding: 5px 10px;
-    box-shadow: 0 15px 25px rgb(0, 0, 0, 0.08);
+    box-shadow: 0 15px 25px rgb(0, 0, 0, 0.18);
     z-index: 22;
     @media (width > 500px) {
         display: none;
@@ -230,54 +232,55 @@ header{
         top: 100%;
         left: auto;
         transform: translate(0px, 0px);
-        background-color: #fff;
-        border-radius: 4px;
+        background-color: rgb(255, 255, 255);
+        border-radius: 4px 10px 10px 4px;
         margin: 4px;
         padding: 5px 10px;
-        box-shadow: 0 15px 25px rgb(0, 0, 0, 0.08);
+        box-shadow: 0 15px 25px rgb(0, 0, 0, 0.18);
         z-index: 22;
     }
 
     p{
         text-wrap: nowrap;
         margin-bottom: 8px;
-        color: blue;
+        color: rgb(0, 21, 255);
         user-select: none;
         font-weight: 700;
         text-transform: uppercase;
         text-align: center;
         @media (width > 500px){
             text-align: start;
+            padding: 3px;
         }
     }
     .saison{
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
+        gap: 5px;
         background-attachment: fixed;
         @media (width > 500px) {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
+            gap: 6px;
             background-attachment: fixed;
         
         }
     }
     
     li{
+        display: flex;
+        justify-content: center;
+        align-items: center;
         user-select: none;
-        border-radius: 6px;
+        border-radius: 20px;
+        box-shadow: 0 4px 8px rgb(0, 0, 0, 0.2);
         span{
-            margin: 3px;
-            color: #000;
-            text-transform: uppercase;
+            color: #575656;
             font-weight: 700;
-            text-shadow: 1px 1px 1px 1px rgb(0, 0, 0);
         }
     }
     li:active{
         transform: scale(0.97);
-        box-shadow: 0 4px 8px rgb(0, 0, 0, 0.2);
     }
     a{
         font-weight: 700px;
@@ -286,6 +289,7 @@ header{
         display: inline-block;
     }
 }
+
 @media (width < 500px) {
     .sous-nav-mpc0:focus-within .saisons{
         display: grid;
@@ -304,10 +308,10 @@ header{
     right: auto;
     transform: translate(5px, 0);
     background-color: #fff;  
-    border-radius: 4px;
+    border-radius: 20px;
     margin: 4px;
     padding: 5px 10px;
-    box-shadow: 0 15px 25px rgb(0, 0, 0, 0.08);
+    box-shadow: 0 15px 25px rgb(0, 0, 0, 0.18);
     z-index: 22;
     @media (width > 500px) {
         display: none;
@@ -316,10 +320,10 @@ header{
         right: auto;
         transform: translate(0, 0);
         background-color: #fff;  
-        border-radius: 4px;
+        border-radius: 10px;
         margin: 4px;
         padding: 5px 10px;
-        box-shadow: 0 15px 25px rgb(0, 0, 0, 0.08);
+        box-shadow: 0 15px 25px rgb(0, 0, 0, 0.18);
         z-index: 22;
     }
     p{
@@ -337,30 +341,27 @@ header{
     .saison{
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
+        gap: 5px;
         background-attachment: fixed;
         @media (width > 500px) {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
+            gap: 6px;
             background-attachment: fixed;
         }
     }
     li{
         border: none;
         user-select: none;
-        border-radius: 6px;
+        border-radius: 20px;
+        box-shadow: 0 4px 8px 2px rgb(0, 0, 0, 0.08);
         span{
-            margin: 3px;
-            color: #000;
-            text-transform: uppercase;
+            color: #575656;
             font-weight: 700;
-            text-shadow: 1px 1px 1px 1px rgb(0, 0, 0);
         }
     }
     li:active{
         transform: scale(0.97);
-        box-shadow: 0 4px 8px rgb(0, 0, 0, 0.2);
     }
     a{
         font-weight: 700px;
@@ -510,10 +511,10 @@ body.dark-mode .salon-frame-wrap{
     right: auto;
     transform: translate(-75px, -2px);
     background-color: #fff;
-    border-radius: 4px;
+    border-radius: 20px;
     margin: 4px;
     padding: 5px 10px;
-    box-shadow: 0 15px 25px rgb(0, 0, 0, 0.08);
+    box-shadow: 0 15px 25px rgb(0, 0, 0, 0.18);
     z-index: 22;
     @media (width > 500px) {
         display: none;
@@ -522,10 +523,10 @@ body.dark-mode .salon-frame-wrap{
         right: auto;
         transform: translate(0);
         background-color: #fff;
-        border-radius: 4px;
+        border-radius: 10px;
         margin: 4px;
         padding: 5px 10px;
-        box-shadow: 0 15px 25px rgb(0, 0, 0, 0.08);
+        box-shadow: 0 15px 25px rgb(0, 0, 0, 0.18);
         z-index: 22;
     }
     p{
@@ -543,12 +544,12 @@ body.dark-mode .salon-frame-wrap{
     .saison{
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
+        gap: 5px;
         background-attachment: fixed;
         @media (width > 500px) {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
+            gap: 6px;
             background-attachment: fixed;
         }
     }
@@ -556,18 +557,15 @@ body.dark-mode .salon-frame-wrap{
     li{
         border: none;
         user-select: none;
-        border-radius: 3px;
+        border-radius: 20px;
+        box-shadow: 0 4px 8px rgb(0, 0, 0, 0.2);
         span{
-            margin: 3px;
-            color: #000;
-            text-transform: uppercase;
+            color: #575656;
             font-weight: 700;
-            text-shadow: 1px 1px 1px 1px rgb(0, 0, 0);
         }
     }
     li:active{
         transform: scale(0.97);
-        box-shadow: 0 4px 8px rgb(0, 0, 0, 0.2);
     }
     a{
         font-weight: 700px;
@@ -594,10 +592,10 @@ body.dark-mode .salon-frame-wrap{
     right: auto;
     transform: translate(-140px, -2px);
     background-color: #fff;
-    border-radius: 4px;
+    border-radius: 20px;
     margin: 4px;
     padding: 5px 10px;
-    box-shadow: 0 15px 25px rgb(0, 0, 0, 0.08);
+    box-shadow: 0 15px 25px rgb(0, 0, 0, 0.18);
     z-index: 22;
     @media (width > 500px) {
         display: none;
@@ -606,10 +604,10 @@ body.dark-mode .salon-frame-wrap{
         right: auto;
         transform: translate(90px, 2px);
         background-color: #fff;
-        border-radius: 4px;
+        border-radius: 10px;
         margin: 4px;
         padding: 5px 10px;
-        box-shadow: 0 15px 25px rgb(0, 0, 0, 0.08);
+        box-shadow: 0 15px 25px rgb(0, 0, 0, 0.18);
         z-index: 22;
     }
     p{
@@ -626,13 +624,13 @@ body.dark-mode .salon-frame-wrap{
     }
     .saison{
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 2px;
         background-attachment: fixed;
         @media (width > 500px) {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
+            gap: 2px;
             background-attachment: fixed;
         }
     }
@@ -640,14 +638,14 @@ body.dark-mode .salon-frame-wrap{
     li{
         border: none;
         user-select: none;
-        border-radius: 3px;
+        border-radius: 20px;
         font-weight: 700px;
+        box-shadow: 0 4px 8px rgb(0, 0, 0, 0.1);
         span{
             margin: 3px;
             color: #000;
             text-transform: uppercase;
             font-weight: 700;
-            text-shadow: 1px 1px 1px 1px rgb(0, 0, 0);
             
         }
     }
@@ -659,7 +657,6 @@ body.dark-mode .salon-frame-wrap{
     }
     li:active{
         transform: scale(0.97);
-        box-shadow: 0 4px 8px rgb(0, 0, 0, 0.1);
     }
     a{
         font-weight: 700px;
@@ -1440,10 +1437,13 @@ body.dark-mode .carteC{
     }
 }
 .sign{
+    font-weight: 700;
     text-align: center;
     margin: 20px 0;
-    color: #6b7280;
+    color: #0055ff;
     font-size: 0.7rem;
+    font-style: italic;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 .tapeInstall__item0, .tapeInstall__item_1, .tapeInstall__item_2{
