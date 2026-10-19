@@ -93,7 +93,7 @@ header{
     width: 100%;
     top: 0;
     left: 0;
-    box-shadow: 0 10px 15px rgb(0, 0, 0, 0.05);
+    box-shadow: 0 10px 15px rgb(0, 0, 0, 0.01);
     z-index: 999;
     background-color: rgb(255, 255, 255, 0.7);
     backdrop-filter: blur(10px);
@@ -648,7 +648,20 @@ body.dark-mode .salon-frame-wrap{
             font-weight: 700;
             
         }
+        
     }
+    li:hover{
+            color: #575656;
+            transition: 300ms ease;
+            transform: scale(1.09);
+            background-image: url(IMG/myfont9.jpg);
+            background-position: center;
+            background-repeat: repeat;
+            background-size: 20px;
+            @media (width > 500px) {
+                background-size: cover;
+            }
+        }
     .message{   
         color: red;
         font-weight: 700;
