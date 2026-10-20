@@ -1,13 +1,13 @@
 const matiere = document.querySelector(".page-math-H2");
 const liste0= [
-    {image: "IMG/pdf3.jpg", nomDoc: "MTH 220", lien: "document2/"},
+    {image: "IMG/pdf3.jpg", nomDoc: "MTH 220", lien: "document2/MTH 220 cours Complet.pdf"},
     {image: "IMG/pdf3.jpg", nomDoc: "MTH 221", lien: "document2/MTH 221.pdf"},
     {image: "IMG/pdf3.jpg", nomDoc: "MTH 222 (p1)", lien: "document2/MTH 222 P1.pdf"},
     {image: "IMG/pdf3.jpg", nomDoc: "MTH 227", lien: "document2/MTH 227.pdf"},
     {image: "IMG/pdf3.jpg", nomDoc: "PHY 112", lien: "phy/PHY 112.pdf"},
     {image: "IMG/pdf3.jpg", nomDoc: "PHY 203", lien: "document2/"},
     {image: "IMG/pdf3.jpg", nomDoc: "PHY 202", lien: "phy/PHY 202.pdf"},
-    {image: "IMG/pdf3.jpg", nomDoc: "info 101", lien: "document2/"}
+    {image: "IMG/pdf3.jpg", nomDoc: "info 101", lien: "document2/INF 101_022525.pdf"}
 ];
 liste0.forEach(m=>{
     const nouveau = document.createElement("div");
@@ -31,8 +31,8 @@ const liste00= [
     {image: "IMG/pdf3.jpg", nomDoc: "MTH 229 (2024)", lien: "document2/MTH 229(2024).pdf"},
     {image: "IMG/pdf3.jpg", nomDoc: "PHY 208", lien: "phy/PHY108.pdf"},
     {image: "IMG/pdf3.jpg", nomDoc: "PHY 210", lien: "document2/"},
-    {image: "IMG/pdf3.jpg", nomDoc: "INFO 102", lien: "document2/"},
-    {image: "IMG/pdf3.jpg", nomDoc: "INFO 201", lien: "document2/"}
+    {image: "IMG/pdf3.jpg", nomDoc: "INFO 102", lien: "document2/Cours_INF102.pdf"},
+    {image: "IMG/pdf3.jpg", nomDoc: "INFO 201", lien: ""}
 ];
 liste00.forEach(m0=>{
     const nouveau0 = document.createElement("div");
@@ -52,12 +52,12 @@ liste00.forEach(m0=>{
 // partie physique h et m 2
 const matiere1 = document.querySelector(".page-physic-H2");
 const liste1= [
-    {image: "IMG/pdf5.png", nomDoc: "PHY 202", lien: "phy/PHY 202.pdf"},
+    {image: "IMG/pdf5.png", nomDoc: "PHY 202", lien: "phy/document2/Support -New  UE PHY202_THERMODYNAMIQUE-New.pdf"},
     {image: "IMG/pdf5.png", nomDoc: "PHY 203 (TP)", lien: "document2/"},
-    {image: "IMG/pdf5.png", nomDoc: "PHY 204", lien: "document2/"},
+    {image: "IMG/pdf5.png", nomDoc: "PHY 204", lien: "document2/phy204.pdf"},
     {image: "IMG/pdf5.png", nomDoc: "PHY 112", lien: "phy/PHY 112.pdf"},
-    {image: "IMG/pdf5.png", nomDoc: "CHM 211", lien: "document2/"},
-    {image: "IMG/pdf5.png", nomDoc: "CHM 141", lien: "document2/"},
+    {image: "IMG/pdf5.png", nomDoc: "CHM 211", lien: "document2/CHM 211.pdf"},
+    {image: "IMG/pdf5.png", nomDoc: "CHM 141", lien: "document2/CHM 141.pdf"},
     {image: "IMG/pdf5.png", nomDoc: "MTH 107", lien: "phy/MTH107.pdf"},
 ];
 liste1.forEach(m1=>{
