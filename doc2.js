@@ -1,6 +1,6 @@
 const matiere = document.querySelector(".page-math-H2");
 const liste0= [
-    {image: "IMG/pdf3.jpg", nomDoc: "MTH 220", lien: "document2/MTH 220 cours Complet.pdf"},
+    {image: "IMG/pdf3.jpg", nomDoc: "MTH 220", lien: "document2/MTH 220_cours.pdf"},
     {image: "IMG/pdf3.jpg", nomDoc: "MTH 221", lien: "document2/MTH 221.pdf"},
     {image: "IMG/pdf3.jpg", nomDoc: "MTH 222 (p1)", lien: "document2/MTH 222 P1.pdf"},
     {image: "IMG/pdf3.jpg", nomDoc: "MTH 227", lien: "document2/MTH 227.pdf"},
