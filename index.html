@@ -33,12 +33,16 @@
             <i class="fa-solid fa-moon"></i>
         </button>
 
-        <nav class="nav-mpc">
+        <button id="mobileMenuToggle" class="mobile-menu-toggle" type="button" aria-expanded="false" aria-controls="siteNavigation" aria-label="Ouvrir le menu">
+            <i class="fa-solid fa-bars" aria-hidden="true"></i>
+        </button>
+
+        <nav id="siteNavigation" class="nav-mpc" aria-label="Navigation principale">
             <ul class="sous-nav-mpc">
 
                 <li class="sous-nav-mpc0">
                     <a><button class="btn">mathematiques</button></a>
-                    <ul class="saisons">
+                    <ul id="mathNavigation" class="saisons">
                         <p>Parcours maths</p>
                         <div class="saison">
                             <li><a href="#" onclick="show('math-H')"><span>Harmattant 1</span></a></li>
@@ -52,7 +56,7 @@
                 
                 <li class="sous-nav-mpc1">
                     <a><button class="btn">physique</button></a>
-                    <ul class="saisons1">
+                    <ul id="physicsNavigation" class="saisons1">
                         <p>Parcours physique</p>
                         <div class="saison">
                             <li><a href="#" onclick="show('physic-H')"><span>Harmattant 1</span></a></li>
@@ -66,7 +70,7 @@
 
                 <li class="sous-nav-mpc2">
                     <a><button class="btn">chimie</button></a>
-                    <ul class="saisons2">
+                    <ul id="chemistryNavigation" class="saisons2">
                         <p>Parcours chimie</p>
                         <div class="saison">
                             <li><a href="#" onclick="show('chm-H')"><span>Harmattant 1</span></a></li>
@@ -80,11 +84,16 @@
 
                 <li class="sous-nav-mpc3">
                     <a><button class="btn">docs+</button></a>
-                    <ul class="saisons3">
+                    <ul id="toolsNavigation" class="saisons3">
                         <p>docs tools</p>
                         <div class="saison">
                             <li><a href="#" onclick="show('hImagePage')"><span>formules</span></a></li>
                             <li><a href="#" onclick="show('calculatrice_generale')"><span style="color: rgb(48, 48, 250);">docs_plus</span></a></li>
+                            <li><a href="#" onclick="show('calculatrice_bases')"><span>convertisseur de bases</span></a></li>
+                            <li><a href="#" onclick="show('math-statistiques')"><span>calculateur de statistiques</span></a></li>
+                            <li><a href="#" onclick="show('physic-unites')"><span>convertisseur d’unités</span></a></li>
+                            <li><a href="#" onclick="show('chm-masse-molaire')"><span>calculateur de masse molaire</span></a></li>
+                            <li><a href="#" onclick="show('chm-dilution')"><span>calculateur de dilution</span></a></li>
                             <li><a href="#" id="bouton" target="_blank"><span style="color: rgb(33, 33, 197);">docs_videos</span></a></li>
                             <li><a href="#" onclick="show('calcul_matrice')"><span style="color: rgb(23, 23, 221);">docs_matrice</span></a></li>
                             <li><a href="https://docs-compteur.vercel.app/" target="_blank"><span style="color: rgb(79, 253, 56);">docs_timer</span></a></li>
@@ -272,8 +281,216 @@
         <section class="page" id="chm-H2"><div class="page-chm-H2"></div></section>
         <section class="page" id="chm-M2"><div class="page-chm-M2"></div></section>
 
+        <section class="page" id="math-statistiques">
+            <div class="science-tool science-tool--math">
+                <header class="science-tool__header">
+                    <p class="science-tool__eyebrow">Outil de mathématiques</p>
+                    <h2>Statistiques descriptives</h2>
+                    <p>Calculez les indicateurs essentiels d’une série de nombres.</p>
+                </header>
+                <form id="statisticsForm" class="science-tool__card">
+                    <label for="statisticsValues">Valeurs de la série</label>
+                    <textarea id="statisticsValues" rows="4" placeholder="Ex. : 12, 15, 18, 15, 20" required></textarea>
+                    <p class="science-tool__hint">Séparez les valeurs par des espaces, des virgules ou des points-virgules. Utilisez un point pour les décimales (ex. : 12, 15.5, 18).</p>
+                    <button class="science-tool__button" type="submit">Calculer les statistiques</button>
+                    <p id="statisticsError" class="science-tool__error" role="alert" hidden></p>
+                </form>
+                <section class="science-tool__results" aria-live="polite">
+                    <h3>Résultats</h3>
+                    <dl class="science-tool__result-grid">
+                        <div><dt>Effectif</dt><dd id="statisticsCount">—</dd></div>
+                        <div><dt>Moyenne</dt><dd id="statisticsMean">—</dd></div>
+                        <div><dt>Médiane</dt><dd id="statisticsMedian">—</dd></div>
+                        <div><dt>Mode(s)</dt><dd id="statisticsModes">—</dd></div>
+                        <div><dt>Minimum</dt><dd id="statisticsMin">—</dd></div>
+                        <div><dt>Maximum</dt><dd id="statisticsMax">—</dd></div>
+                        <div><dt>Variance (population)</dt><dd id="statisticsPopulationVariance">—</dd></div>
+                        <div><dt>Écart-type (population)</dt><dd id="statisticsPopulationDeviation">—</dd></div>
+                        <div><dt>Variance (échantillon)</dt><dd id="statisticsSampleVariance">—</dd></div>
+                        <div><dt>Écart-type (échantillon)</dt><dd id="statisticsSampleDeviation">—</dd></div>
+                    </dl>
+                </section>
+            </div>
+        </section>
+
+        <section class="page" id="physic-unites">
+            <div class="science-tool science-tool--physics">
+                <header class="science-tool__header">
+                    <p class="science-tool__eyebrow">Outil de physique</p>
+                    <h2>Convertisseur d’unités</h2>
+                    <p>Convertissez les unités de longueur, masse, temps, vitesse, force, énergie, pression et température.</p>
+                </header>
+                <form id="unitConverterForm" class="science-tool__card">
+                    <div class="science-tool__fields">
+                        <div>
+                            <label for="unitCategory">Grandeur physique</label>
+                            <select id="unitCategory"></select>
+                        </div>
+                        <div>
+                            <label for="unitValue">Valeur</label>
+                            <input id="unitValue" type="number" step="any" value="1" required>
+                        </div>
+                        <div>
+                            <label for="unitFrom">De</label>
+                            <select id="unitFrom"></select>
+                        </div>
+                        <div>
+                            <label for="unitTo">Vers</label>
+                            <select id="unitTo"></select>
+                        </div>
+                    </div>
+                    <button class="science-tool__button" type="submit">Convertir</button>
+                    <p id="unitConverterError" class="science-tool__error" role="alert" hidden></p>
+                </form>
+                <section class="science-tool__results" aria-live="polite">
+                    <h3>Résultat</h3>
+                    <p id="unitConverterOutput" class="science-tool__output">100 cm</p>
+                    <p id="unitConverterSummary" class="science-tool__hint">1 mètre = 100 centimètres</p>
+                </section>
+            </div>
+        </section>
+
+        <section class="page" id="chm-masse-molaire">
+            <div class="science-tool science-tool--chemistry">
+                <header class="science-tool__header">
+                    <p class="science-tool__eyebrow">Outil de chimie</p>
+                    <h2>Calculateur de masse molaire</h2>
+                    <p>Calculez la masse molaire d’une formule chimique à partir des masses atomiques usuelles.</p>
+                </header>
+                <form id="molarMassForm" class="science-tool__card">
+                    <label for="chemicalFormula">Formule chimique</label>
+                    <input id="chemicalFormula" type="text" placeholder="Ex. : H2O, Ca(OH)2, Al2(SO4)3" autocomplete="off" required>
+                    <p class="science-tool__hint">Les parenthèses et les hydrates avec le point médian sont pris en charge (ex. : CuSO4·5H2O).</p>
+                    <button class="science-tool__button" type="submit">Calculer la masse molaire</button>
+                    <p id="molarMassError" class="science-tool__error" role="alert" hidden></p>
+                </form>
+                <section class="science-tool__results" aria-live="polite">
+                    <h3>Résultat</h3>
+                    <p id="molarMassOutput" class="science-tool__output">—</p>
+                    <p id="molarMassSummary" class="science-tool__hint"></p>
+                </section>
+            </div>
+        </section>
+
+        <section class="page" id="chm-dilution">
+            <div class="science-tool science-tool--chemistry">
+                <header class="science-tool__header">
+                    <p class="science-tool__eyebrow">Outil de chimie</p>
+                    <h2>Calculateur de dilution</h2>
+                    <p>Utilisez la relation C₁V₁ = C₂V₂ pour déterminer la concentration ou le volume manquant.</p>
+                </header>
+                <form id="dilutionForm" class="science-tool__card">
+                    <div class="science-tool__fields">
+                        <div>
+                            <label for="dilutionUnknown">Valeur à calculer</label>
+                            <select id="dilutionUnknown">
+                                <option value="C1">Concentration initiale C₁</option>
+                                <option value="V1">Volume prélevé V₁</option>
+                                <option value="C2">Concentration finale C₂</option>
+                                <option value="V2" selected>Volume final V₂</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="dilutionC1">Concentration C₁</label>
+                            <input id="dilutionC1" type="number" step="any" min="0" placeholder="Ex. : 2" required>
+                        </div>
+                        <div>
+                            <label for="dilutionC1Unit">Unité de C₁</label>
+                            <select id="dilutionC1Unit" class="dilution-concentration-unit"></select>
+                        </div>
+                        <div>
+                            <label for="dilutionV1">Volume V₁</label>
+                            <input id="dilutionV1" type="number" step="any" min="0" placeholder="Ex. : 10" required>
+                        </div>
+                        <div>
+                            <label for="dilutionC2">Concentration C₂</label>
+                            <input id="dilutionC2" type="number" step="any" min="0" placeholder="Ex. : 0,5" required>
+                        </div>
+                        <div>
+                            <label for="dilutionC2Unit">Unité de C₂</label>
+                            <select id="dilutionC2Unit" class="dilution-concentration-unit"></select>
+                        </div>
+                        <div>
+                            <label for="dilutionV2">Volume final V₂</label>
+                            <input id="dilutionV2" type="number" step="any" min="0" placeholder="Ex. : 40" required>
+                        </div>
+                        <div>
+                            <label for="dilutionVolumeUnit">Unité des volumes</label>
+                            <select id="dilutionVolumeUnit"></select>
+                        </div>
+                    </div>
+                    <p class="science-tool__hint">Laissez vide uniquement le champ choisi dans « Valeur à calculer ». Les autres unités restent convertibles automatiquement.</p>
+                    <button class="science-tool__button" type="submit">Calculer la dilution</button>
+                    <p id="dilutionError" class="science-tool__error" role="alert" hidden></p>
+                </form>
+                <section class="science-tool__results" aria-live="polite">
+                    <h3>Résultat</h3>
+                    <p id="dilutionOutput" class="science-tool__output">—</p>
+                    <p id="dilutionSummary" class="science-tool__hint"></p>
+                </section>
+            </div>
+        </section>
+
         <section class="page" id="calcul_matrice"><div class="page-calcul_matrice"></div></section>
         <section class="page" id="calculatrice_generale"><div class="page-calculatrice_generale"></div></section>
+        <section class="page" id="calculatrice_bases">
+            <div class="base-converter">
+                <header class="base-converter__header">
+                    <div class="base-converter__intro">
+                        <p class="base-converter__eyebrow">Outils scientifiques</p>
+                        <h2>Convertisseur de bases</h2>
+                        <p>Convertissez facilement un nombre entier d’une base à une autre, de la base 2 à la base 36.</p>
+                    </div>
+                    <div class="base-converter__base-list" aria-label="Bases courantes disponibles">
+                        <span><strong>2</strong> Binaire</span>
+                        <span><strong>8</strong> Octal</span>
+                        <span><strong>10</strong> Décimal</span>
+                        <span><strong>16</strong> Hexadécimal</span>
+                    </div>
+                </header>
+                <div class="base-converter__workspace">
+                    <form id="baseConverterForm" class="base-converter__form">
+                        <div class="base-converter__form-heading">
+                            <h3>Paramètres de conversion</h3>
+                            <p>Choisissez un nombre, puis sa base d’origine et celle du résultat.</p>
+                        </div>
+                        <div class="base-converter__fields">
+                            <div class="base-converter__field">
+                                <label for="baseConverterValue">Nombre à convertir</label>
+                                <input id="baseConverterValue" name="value" type="text" value="42" autocomplete="off" spellcheck="false" required>
+                            </div>
+                            <div class="base-converter__field">
+                                <label for="baseConverterFrom">Base source</label>
+                                <select id="baseConverterFrom" name="from" aria-label="Base source"></select>
+                            </div>
+                            <div class="base-converter__field">
+                                <label for="baseConverterTo">Base cible</label>
+                                <select id="baseConverterTo" name="to" aria-label="Base cible"></select>
+                            </div>
+                        </div>
+                        <p class="base-converter__hint">Pour les bases supérieures à 10, utilisez les lettres A à Z. Saisissez le nombre sans préfixe (ex. : 0x).</p>
+                        <p id="baseConverterError" class="base-converter__error" role="alert" hidden></p>
+                        <button class="base-converter__button" type="submit">Convertir le nombre</button>
+                    </form>
+                    <div class="base-converter__results">
+                        <section class="base-converter__result" aria-live="polite">
+                            <p class="base-converter__result-label">Résultat de la conversion</p>
+                            <p id="baseConverterOutput" class="base-converter__output">2a</p>
+                            <p id="baseConverterSummary" class="base-converter__summary">42 en base 10 = 2a en base 16</p>
+                        </section>
+                        <section class="base-converter__reference">
+                            <h3>Équivalences usuelles</h3>
+                            <dl>
+                                <div><dt>Binaire <span>base 2</span></dt><dd id="baseResult2">101010</dd></div>
+                                <div><dt>Octal <span>base 8</span></dt><dd id="baseResult8">52</dd></div>
+                                <div><dt>Décimal <span>base 10</span></dt><dd id="baseResult10">42</dd></div>
+                                <div><dt>Hexadécimal <span>base 16</span></dt><dd id="baseResult16">2a</dd></div>
+                            </dl>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </section>
         <section class="page" id="docs_videos"><div class="page-docs_videos"></div></section>
         <section class="page salon-page" id="salon">
             <div class="salon-toolbar">
@@ -314,6 +531,8 @@
     <script src="doc2.js"></script>
     <script src="calculatrice.js"></script>
     <script src="calgen.js"></script>
+    <script src="base-converter.js"></script>
+    <script src="science-tools.js"></script>
     <script src="messagerie.js"></script>
 </body>
 </html>

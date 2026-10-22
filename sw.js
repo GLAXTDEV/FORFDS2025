@@ -1,5 +1,5 @@
-const CACHE_NAME = 'docs2025-cache-v4';
-const URLs_TO_CACHE = ['./', './index.html', './index.css', './index.js', './doc.js', './manifest.json', './messagerie.html', './messagerie.css', './messagerie.js'];
+const CACHE_NAME = 'docs2025-cache-v9';
+const URLs_TO_CACHE = ['./', './index.html', './index.css', './index.js', './doc.js', './base-converter.js', './science-tools.js', './manifest.json', './messagerie.html', './messagerie.css', './messagerie.js'];
 
 self.addEventListener('install', event => {
   event.waitUntil(caches.open(CACHE_NAME).then(cache => cache.addAll(URLS_TO_CACHE)));
