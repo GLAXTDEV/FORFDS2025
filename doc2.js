@@ -29,8 +29,8 @@ const liste00= [
     {image: "IMG/pdf3.jpg", nomDoc: "MTH 223", lien: "document2/MTH 223.pdf"},
     {image: "IMG/pdf3.jpg", nomDoc: "MTH 228", lien: "document2/MTH 228.pdf"},
     {image: "IMG/pdf3.jpg", nomDoc: "MTH 229 (2024)", lien: "document2/MTH 229(2024).pdf"},
-    {image: "IMG/pdf3.jpg", nomDoc: "PHY 208", lien: "phy/PHY108.pdf"},
-    {image: "IMG/pdf3.jpg", nomDoc: "PHY 210", lien: "document2/"},
+    {image: "IMG/pdf3.jpg", nomDoc: "PHY 208", lien: "phy/"},
+    {image: "IMG/pdf3.jpg", nomDoc: "PHY 210", lien: "document2/MTH 210.pdf"},
     {image: "IMG/pdf3.jpg", nomDoc: "INFO 102", lien: "document2/Cours_INF102.pdf"},
     {image: "IMG/pdf3.jpg", nomDoc: "INFO 201", lien: ""}
 ];
@@ -105,7 +105,7 @@ const matiere2 = document.querySelector(".page-chm-H2");
 const liste2= [
     {image: "IMG/pdf4.jpg", nomDoc: "CHM 211", lien: "phy/CHM 211.pdf"},
     {image: "IMG/pdf4.jpg", nomDoc: "CHM 141", lien: "phy/CHM 141.pdf"},
-    {image: "IMG/pdf4.jpg", nomDoc: "CHM 161", lien: "phy/CHM 161.pdf"},
+    {image: "IMG/pdf4.jpg", nomDoc: "CHM 161", lien: "document2/CHM161(25-26).pdf"},
     {image: "IMG/pdf4.jpg", nomDoc: "CHM 307 (TP)", lien: "document2/"},
     {image: "IMG/pdf4.jpg", nomDoc: "PHY 112", lien: "phy/PHY 112.pdf"},
     {image: "IMG/pdf4.jpg", nomDoc: "PHY 203", lien: "document2/"},
