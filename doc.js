@@ -94,6 +94,22 @@ const lesDocumentsMathematiqueTD = [
     {image: "IMG/pdf3.jpg", nomDoc: "MTH 104 TD2", lien: "/math/td math/TD2_MTH104_UL.pdf"},
     {image: "IMG/pdf3.jpg", nomDoc: "MTH 108 GEOMETRIE AFFINE", lien: "/math/td math/TD-MTH108.pdf"},
     {image: "IMG/pdf3.jpg", nomDoc: "APPLICATIONS AFFINES TD", lien: "/math/td math/travaux-diriges-applications-affines.pdf"},
+    {image: "IMG/pdf3.jpg", nomDoc:"Calcul-integral", lien:"document2/Calcul_Intégral_R_Applications_Bis.pdf"},
+    {image: "IMG/pdf3.jpg", nomDoc:"MTH 107Exo", lien:"document2/MTH 107 EXERCICES.pdf"},
+    {image: "IMG/pdf3.jpg", nomDoc:"MTH 112Epv", lien:"document2/MTH 112 ÉPREUVE.pdf"},
+    {image: "IMG/pdf3.jpg", nomDoc:"MTH 220 Td2", lien:"document2/MTH 220 TD2.pdf"},
+    {image: "IMG/pdf3.jpg", nomDoc:"MTH 220 Td3", lien:"document2/MTH 220 TD3.pdf"},
+    {image: "IMG/pdf3.jpg", nomDoc:"MTH 221 Dv(12-13)", lien:"document2/MTH 221 DEVOIR_2012-2013.pdf"},
+    {image: "IMG/pdf3.jpg", nomDoc:"MTH 221Exm(21-22)", lien:"document2/MTH 221 examen 2021_2022.pdf"},
+    {image: "IMG/pdf3.jpg", nomDoc:"MTH 221 Td1", lien:"document2/MTH 221 TD1.pdf"},
+    {image: "IMG/pdf3.jpg", nomDoc:"MTH 222 Dv S", lien:"document2/MTH 222 Devoir S.pdf"},
+    {image: "IMG/pdf3.jpg", nomDoc:"MTH 222 Ex R", lien:"document2/MTH 222 ExamenR.pdf"},
+    {image: "IMG/pdf3.jpg", nomDoc:"MTH 22 ExCorg(23-24)", lien:"document2/MTH 222 Examens corrigés.pdf"},
+    {image: "IMG/pdf3.jpg", nomDoc:"MTH 222 Td", lien:"document2/MTH 222 TD.pdf"},
+    {image: "IMG/pdf3.jpg", nomDoc:"MTH 223 all Td", lien:"document2/MTH 223 ALL TD.pdf"},
+    {image: "IMG/pdf3.jpg", nomDoc:"MTH 223Ex", lien:"document2/MTH 223 EXAMEN.pdf"},
+    {image: "IMG/pdf3.jpg", nomDoc:"MTH 223 ExCOR", lien:"document2/MTH 223 Exercices Corrigé.pdf"},
+    {image: "IMG/pdf3.jpg", nomDoc:"", lien:""},
 ];
 lesDocumentsMathematiqueTD.forEach(doc => {
         const carteH = document.createElement('div');
