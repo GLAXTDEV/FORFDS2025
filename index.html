@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="calculatrice.css">
     <link rel="stylesheet" href="clagen.css">
     <link rel="stylesheet" href="messagerie.css">
+    <link rel="stylesheet" href="ui-refresh.css">
     <link rel="manifest" href="manifest.json">
     <link rel="apple-touch-icon" href="icons/icon.svg">
     <link rel="icon" type="image/png" href="https://copilot.microsoft.com/th/id/BCO.c3398f7c-780d-4f18-ac52-f1c6927b9ce2.png">
@@ -130,12 +131,57 @@
 
             <div class="accueil-wrapper">
                 <section class="accueil-hero">
-                    <h2>Docs !</h2>
-                    <p>Nous avons conçu ce site avec une mission simple : <strong>lever tous les obstacles administratifs</strong> et vous offrir un accès fluide à vos ressources pédagogiques. Parce que votre temps est précieux, nous avons supprimé toute contrainte technique.</p>
-                    <ul class="features-list">
-                        <li>🚀 <strong>Accès Libre :</strong> Récupérez vos documents <strong>sans aucune authentification</strong>.</li>
-                        <li>🌙 <strong>24h/24 & 7j/7 :</strong> La plateforme reste en ligne en permanence pour vos révisions.</li>
-                    </ul>
+                    <div class="accueil-hero__content">
+                        <p class="accueil-hero__eyebrow"><span></span> Votre espace de révision</p>
+                        <h2>Apprenez mieux.<br><span>Progressez plus vite.</span></h2>
+                        <p>Retrouvez vos cours, TD et examens au même endroit. Des ressources accessibles, sans compte et quand vous en avez besoin.</p>
+                        <div class="accueil-hero__actions">
+                            <a class="accueil-action accueil-action--primary" href="#" onclick="show('math-H'); return false;">
+                                Explorer les cours <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                            </a>
+                            <a class="accueil-action accueil-action--secondary" href="#" onclick="show('calculatrice_generale'); return false;">
+                                <i class="fa-solid fa-calculator" aria-hidden="true"></i> Découvrir les outils
+                            </a>
+                        </div>
+                        <ul class="features-list">
+                            <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Accès libre, sans inscription</li>
+                            <li><i class="fa-solid fa-clock" aria-hidden="true"></i> Vos ressources disponibles 24h/24</li>
+                        </ul>
+                    </div>
+                    <div class="accueil-hero__visual" aria-hidden="true">
+                        <div class="hero-orbit hero-orbit--one"></div>
+                        <div class="hero-orbit hero-orbit--two"></div>
+                        <div class="hero-note hero-note--top"><i class="fa-solid fa-atom"></i><span>Sciences</span></div>
+                        <div class="hero-book"><i class="fa-solid fa-book-open"></i><span>Le savoir<br>à portée de main</span></div>
+                        <div class="hero-note hero-note--bottom"><i class="fa-solid fa-square-root-variable"></i><span>Révisez sereinement</span></div>
+                    </div>
+                </section>
+
+                <section class="subject-section" aria-labelledby="subjectHeading">
+                    <div class="section-heading">
+                        <div>
+                            <p class="section-eyebrow">Explorez les ressources</p>
+                            <h2 id="subjectHeading">Choisissez une matière</h2>
+                        </div>
+                        <span class="section-heading__note">Cours, TD et examens</span>
+                    </div>
+                    <div class="subject-grid">
+                        <a class="subject-card subject-card--math" href="#" onclick="show('math-H'); return false;">
+                            <span class="subject-card__icon"><i class="fa-solid fa-square-root-variable" aria-hidden="true"></i></span>
+                            <span class="subject-card__copy"><strong>Mathématiques</strong><small>Formules, cours et exercices</small></span>
+                            <i class="fa-solid fa-arrow-up-right-from-square subject-card__arrow" aria-hidden="true"></i>
+                        </a>
+                        <a class="subject-card subject-card--physics" href="#" onclick="show('physic-H'); return false;">
+                            <span class="subject-card__icon"><i class="fa-solid fa-atom" aria-hidden="true"></i></span>
+                            <span class="subject-card__copy"><strong>Physique</strong><small>Comprendre les phénomènes</small></span>
+                            <i class="fa-solid fa-arrow-up-right-from-square subject-card__arrow" aria-hidden="true"></i>
+                        </a>
+                        <a class="subject-card subject-card--chemistry" href="#" onclick="show('chm-H'); return false;">
+                            <span class="subject-card__icon"><i class="fa-solid fa-flask" aria-hidden="true"></i></span>
+                            <span class="subject-card__copy"><strong>Chimie</strong><small>Réactions, notions et TD</small></span>
+                            <i class="fa-solid fa-arrow-up-right-from-square subject-card__arrow" aria-hidden="true"></i>
+                        </a>
+                    </div>
                 </section>
 
                 <section class="accueil-notice">
