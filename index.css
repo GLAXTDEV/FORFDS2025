@@ -622,7 +622,7 @@ body.dark-mode .salon-frame-wrap{
             text-align: start;
         }
     }
-    .saison{
+    .saisone{
         display: grid;
         grid-template-columns: repeat(1, 1fr);
         gap: 2px;
@@ -2726,5 +2726,151 @@ body.dark-mode .science-tool__error{
         animation-iteration-count: 1 !important;
         transition-duration: .01ms !important;
         transition-delay: 0ms !important;
+    }
+}
+
+.merci-section {
+    width: min(100% - 40px, 980px);
+    margin: 36px auto;
+    padding: clamp(24px, 5vw, 44px);
+    border: 1px solid var(--ui-line);
+    border-radius: 24px;
+    background: var(--ui-panel);
+    box-shadow: var(--ui-shadow);
+    color: var(--ui-ink);
+    text-align: center;
+}
+
+.merci-section__header {
+    position: static;
+    top: auto;
+    left: auto;
+    z-index: auto;
+    width: auto;
+    margin-bottom: 26px;
+    background: transparent;
+    box-shadow: none;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+}
+
+.merci-section__eyebrow {
+    margin: 0 0 8px;
+    color: var(--ui-accent);
+    font-size: .72rem;
+    font-weight: 800;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+}
+
+.merci-section__header h2 {
+    margin: 0;
+    color: var(--ui-ink);
+    font-size: clamp(1.65rem, 4vw, 2.25rem);
+    font-weight: 780;
+    letter-spacing: -.04em;
+    line-height: 1.2;
+}
+
+.merci-section__subtitle {
+    margin: 12px 0 0;
+    color: var(--ui-muted);
+    font-size: clamp(.95rem, 2vw, 1.08rem);
+    line-height: 1.65;
+}
+
+.merci-section__message {
+    max-width: 790px;
+    margin: 0 auto 30px;
+    color: var(--ui-muted);
+    font-size: .98rem;
+    line-height: 1.8;
+    text-align: left;
+}
+
+.merci-section__message p {
+    margin: 0 0 14px;
+}
+
+.merci-section__message p:last-child {
+    margin-bottom: 0;
+}
+
+.merci-section__contributions {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+    text-align: left;
+}
+
+.merci-card {
+    min-width: 0;
+    padding: 20px;
+    border: 1px solid var(--ui-line);
+    border-left: 4px solid var(--ui-accent);
+    border-radius: 14px;
+    background: var(--ui-canvas);
+    transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+
+.merci-card:hover {
+    transform: translateY(-3px);
+    border-left-color: var(--ui-teal);
+    box-shadow: var(--ui-shadow-hover);
+}
+
+.merci-card h3 {
+    margin: 0 0 8px;
+    color: var(--ui-ink);
+    font-size: 1rem;
+    font-weight: 720;
+    line-height: 1.4;
+}
+
+.merci-card p {
+    margin: 0;
+    color: var(--ui-muted);
+    font-size: .9rem;
+    line-height: 1.65;
+}
+
+body.dark-mode .merci-section {
+    border-color: var(--ui-line);
+    background: var(--ui-panel);
+    color: var(--ui-ink);
+}
+
+body.dark-mode .merci-section__header h2,
+body.dark-mode .merci-card h3 {
+    color: var(--ui-ink);
+}
+
+body.dark-mode .merci-section__subtitle,
+body.dark-mode .merci-section__message,
+body.dark-mode .merci-card p {
+    color: var(--ui-muted);
+}
+
+body.dark-mode .merci-card {
+    border-color: var(--ui-line);
+    border-left-color: var(--ui-accent);
+    background: var(--ui-canvas);
+}
+
+@media (max-width: 800px) {
+    .merci-section {
+        width: min(100% - 24px, 680px);
+        margin: 24px auto;
+        padding: 24px 18px;
+        border-radius: 20px;
+    }
+
+    .merci-section__contributions {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .merci-card {
+        padding: 17px;
     }
 }

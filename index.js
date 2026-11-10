@@ -158,21 +158,66 @@ document.addEventListener('DOMContentLoaded', () => {
 
   initInstallPrompt();
   initMobileNavigation();
+  initScrollReveals();
   registerServiceWorker();
   initSearch();
   initImageGallery();
   showUpdateToast();
 });
 
+function initScrollReveals() {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  const revealTargets = document.querySelectorAll(
+    '.accueil-hero, .subject-section, .accueil-notice, .accueil-infos, .installCadre, .page .carte, .page .carteP, .page .carteC'
+  );
+  const observer = 'IntersectionObserver' in window
+    ? new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -24px 0px' })
+    : null;
+
+  const revealVisibleTargets = () => {
+    revealTargets.forEach(target => {
+      if (target.classList.contains('is-visible')) return;
+      const bounds = target.getBoundingClientRect();
+      if (!bounds.height || bounds.top >= window.innerHeight) return;
+      target.classList.add('is-visible');
+      observer?.unobserve(target);
+    });
+  };
+
+  revealTargets.forEach(target => {
+    target.classList.add('scroll-reveal');
+    observer?.observe(target);
+  });
+
+  window.addEventListener('scroll', revealVisibleTargets, { passive: true });
+  window.addEventListener('resize', revealVisibleTargets);
+  const pageObserver = new MutationObserver(revealVisibleTargets);
+  document.querySelectorAll('main .page').forEach(page => {
+    pageObserver.observe(page, { attributes: true, attributeFilter: ['class'] });
+  });
+  revealVisibleTargets();
+}
+
 function initMobileNavigation() {
   const header = document.querySelector('body > header');
   const menuToggle = document.getElementById('mobileMenuToggle');
+  const closeButton = document.getElementById('mobileNavClose');
+  const backdrop = document.querySelector('.mobile-nav-backdrop');
   const navigation = document.getElementById('siteNavigation');
   if (!header || !menuToggle || !navigation) return;
 
   const categoryButtons = navigation.querySelectorAll('.sous-nav-mpc > li > a > button');
   const closeMenu = () => {
     header.classList.remove('mobile-menu-open');
+    document.body.classList.remove('mobile-navigation-open');
+    document.documentElement.classList.remove('mobile-navigation-open');
     menuToggle.setAttribute('aria-expanded', 'false');
     menuToggle.setAttribute('aria-label', 'Ouvrir le menu');
     menuToggle.innerHTML = '<i class="fa-solid fa-bars" aria-hidden="true"></i>';
@@ -184,11 +229,16 @@ function initMobileNavigation() {
 
   menuToggle.addEventListener('click', () => {
     const isOpen = header.classList.toggle('mobile-menu-open');
+    document.body.classList.toggle('mobile-navigation-open', isOpen);
+    document.documentElement.classList.toggle('mobile-navigation-open', isOpen);
     menuToggle.setAttribute('aria-expanded', String(isOpen));
     menuToggle.setAttribute('aria-label', isOpen ? 'Fermer le menu' : 'Ouvrir le menu');
     menuToggle.innerHTML = `<i class="fa-solid ${isOpen ? 'fa-xmark' : 'fa-bars'}" aria-hidden="true"></i>`;
     if (!isOpen) closeMenu();
   });
+
+  closeButton?.addEventListener('click', closeMenu);
+  backdrop?.addEventListener('click', closeMenu);
 
   categoryButtons.forEach(button => {
     button.setAttribute('aria-expanded', 'false');
