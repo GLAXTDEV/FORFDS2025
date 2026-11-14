@@ -1626,7 +1626,7 @@ body.dark-mode .salon-frame-wrap {
         z-index: 2;
         inset: 0 0 0 auto;
         display: flex;
-        width: min(88vw, 360px);
+        width: min(92vw, 380px);
         height: 100vh;
         height: 100dvh;
         max-height: none;
@@ -1636,7 +1636,6 @@ body.dark-mode .salon-frame-wrap {
         overscroll-behavior: contain;
         padding: 0 0 max(18px, env(safe-area-inset-bottom));
         border: 0;
-        border-left: 1px solid var(--ui-line);
         background: var(--ui-panel);
         box-shadow: -18px 0 48px rgba(15, 23, 42, .18);
         opacity: 1;
@@ -1665,7 +1664,6 @@ body.dark-mode .salon-frame-wrap {
         align-items: center;
         justify-content: space-between;
         padding: 10px 18px;
-        border-bottom: 1px solid var(--ui-line);
         background: var(--ui-panel);
         color: var(--ui-ink);
         font-size: 1rem;
@@ -1678,7 +1676,7 @@ body.dark-mode .salon-frame-wrap {
         width: 40px;
         height: 40px;
         place-items: center;
-        border: 1px solid var(--ui-line);
+        border: 0;
         border-radius: 12px;
         background: var(--ui-canvas);
         color: var(--ui-ink);
@@ -1702,10 +1700,10 @@ body.dark-mode .salon-frame-wrap {
         width: 100%;
         margin: 0;
         padding: 0;
-        border: 1px solid var(--ui-line);
+        border: 0;
         border-radius: 13px;
         background: var(--ui-panel);
-        box-shadow: 0 3px 12px rgba(27, 43, 74, .045);
+        box-shadow: none;
     }
 
     .sous-nav-mpc > li > a {
@@ -1766,7 +1764,6 @@ body.dark-mode .salon-frame-wrap {
         margin: 0 9px 10px;
         padding: 10px 9px;
         overflow: visible;
-        border: 1px solid var(--ui-line);
         opacity: 1;
         visibility: visible;
         transform: translateY(0);
@@ -1787,7 +1784,7 @@ body.dark-mode .salon-frame-wrap {
     .sous-nav-mpc .saison,
     .sous-nav-mpc .saisone {
         display: grid;
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 6px;
         background: transparent;
     }
@@ -1795,10 +1792,10 @@ body.dark-mode .salon-frame-wrap {
     .sous-nav-mpc .saison > li,
     .sous-nav-mpc .saisone > li {
         min-width: 0;
-        border: 1px solid var(--ui-line);
-        border-radius: 9px;
+        border: 0;
+        border-radius: 8px;
         background: var(--ui-panel);
-        box-shadow: none;
+        box-shadow: 0 2px 8px rgba(27, 43, 74, .06);
     }
 
     .sous-nav-mpc .saison > li > a,
@@ -1827,5 +1824,16 @@ body.dark-mode .salon-frame-wrap {
     body.dark-mode .mobile-nav-header,
     body.dark-mode .mobile-nav-header button {
         color: var(--ui-ink);
+    }
+
+    .mobile-menu-toggle {
+        border: 0;
+    }
+
+    .sous-nav-mpc .saisons,
+    .sous-nav-mpc .saisons1,
+    .sous-nav-mpc .saisons2,
+    .sous-nav-mpc .saisons3 {
+        border: 0;
     }
 }
