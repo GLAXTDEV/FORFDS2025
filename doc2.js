@@ -14,7 +14,7 @@ liste0.forEach(m=>{
     nouveau.className = "tapeInstall__item0";
     nouveau.innerHTML = `
         <img src="${m.image}" alt="${m.nomDoc}">
-        <span style="color: red; font-weight: bold;">certain docs ne sont pas disponible</span>
+        
         <div class="tapeInstall__item__info">
             <h3>${m.nomDoc}</h3>
             <a href="${m.lien}" target="_blank">Voir le document</a>
@@ -39,7 +39,7 @@ liste00.forEach(m0=>{
     nouveau0.className = "tapeInstall__item0";
     nouveau0.innerHTML = `
         <img src="${m0.image}" alt="${m0.nomDoc}">
-        <span style="color: red; font-weight: bold;">certain docs ne sont pas disponible</span>
+        
         <div class="tapeInstall__item__info">
             <h3>${m0.nomDoc}</h3>
             <a href="${m0.lien}" target="_blank">Voir le document</a>
@@ -65,7 +65,7 @@ liste1.forEach(m1=>{
     nouveau1.className = "tapeInstall__item_1";
     nouveau1.innerHTML = `
         <img src="${m1.image}" alt="${m1.nomDoc}">
-        <span style="color: red; font-weight: bold;">certain docs ne sont pas disponible</span>
+        
         <div class="tapeInstall__item__info">
             <h3>${m1.nomDoc}</h3>
             <a href="${m1.lien}" target="_blank">Voir le document</a>
@@ -90,7 +90,7 @@ liste11.forEach(m11=>{
     nouveau11.className = "tapeInstall__item_1";
     nouveau11.innerHTML = `
         <img src="${m11.image}" alt="${m11.nomDoc}">
-        <span style="color: red; font-weight: bold;">certain docs ne sont pas disponible</span>
+        
         <div class="tapeInstall__item__info">
             <h3>${m11.nomDoc}</h3>
             <a href="${m11.lien}" target="_blank">Voir le document</a>
@@ -117,7 +117,7 @@ liste2.forEach(m2=>{
     nouveau2.className = "tapeInstall__item_2";
     nouveau2.innerHTML = `
         <img src="${m2.image}" alt="${m2.nomDoc}">
-        <span style="color: red; font-weight: bold;">certain docs ne sont pas disponible</span>
+        
         <div class="tapeInstall__item__info">
             <h3>${m2.nomDoc}</h3>
             <a href="${m2.lien}" target="_blank">Voir le document</a>
@@ -143,7 +143,7 @@ liste22.forEach(m22=>{
     nouveau22.className = "tapeInstall__item_2";
     nouveau22.innerHTML = `
         <img src="${m22.image}" alt="${m22.nomDoc}">
-        <span style="color: red; font-weight: bold;">certain docs ne sont pas disponible</span>
+        
         <div class="tapeInstall__item__info">
             <h3>${m22.nomDoc}</h3>
             <a href="${m22.lien}" target="_blank">Voir le document</a>
