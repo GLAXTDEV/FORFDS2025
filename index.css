@@ -604,7 +604,7 @@ body.dark-mode .salon-frame-wrap{
         right: auto;
         transform: translate(90px, 2px);
         background-color: #fff;
-        border-radius: 10px;
+        border-radius: 5px;
         margin: 4px;
         padding: 5px 10px;
         box-shadow: 0 15px 25px rgb(0, 0, 0, 0.18);
@@ -760,14 +760,14 @@ body.dark-mode .salon-frame-wrap{
     margin: 5px 10px;
     background-color: #fff;
     border: 1px solid #eee;
-    border-radius: 10px;
+    border-radius: 8px;
     box-shadow: 0 10px 15px rgb(0, 0, 0, 0.098);
     @media (width > 500px) {
         margin: 5px;
     }
     img{
         width: 100%;
-        border-radius: 10px;
+        border-radius: 5px;
         user-select: none;
         pointer-events: none;
         border: 1px solid #eee;
